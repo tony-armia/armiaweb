@@ -2,9 +2,10 @@
 
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
-import { Clock, MapPin, BarChart2 } from "lucide-react";
 import { HeroGlobeVisual } from "@/components/effects/HeroGlobeVisual";
 import { HeroStatsTimeline } from "@/components/ui/HeroStatsTimeline";
+import { HeroRotatingStatement } from "@/components/ui/HeroRotatingStatement";
+import { HeroStudioCapsule } from "@/components/ui/HeroStudioCapsule";
 import { useAppReady } from "@/hooks/useAppReady";
 
 export function HeroSection() {
@@ -95,33 +96,8 @@ export function HeroSection() {
                 <br className="hidden sm:inline" /> and long-term engineering support.
               </p>
 
-              {/* Minimal Frosted Metadata Pills with Hairline Dividers */}
-              <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mt-4 sm:mt-5">
-                <div className="h-[30px] sm:h-[32px] px-3.5 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md flex items-center gap-2 text-white/80 transition-all duration-300 hover:border-brand-accent/40 hover:bg-white/[0.07]">
-                  <Clock className="w-3.5 h-3.5 text-brand-accent" />
-                  <span className="font-mono text-[10.5px] sm:text-[11.5px] font-medium tracking-wide">
-                    Since 2003
-                  </span>
-                </div>
-
-                <span className="hidden sm:inline-block w-px h-3.5 bg-white/15" />
-
-                <div className="h-[30px] sm:h-[32px] px-3.5 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md flex items-center gap-2 text-white/80 transition-all duration-300 hover:border-brand-accent/40 hover:bg-white/[0.07]">
-                  <MapPin className="w-3.5 h-3.5 text-brand-accent" />
-                  <span className="font-mono text-[10.5px] sm:text-[11.5px] font-medium tracking-wide">
-                    India &amp; USA
-                  </span>
-                </div>
-
-                <span className="hidden sm:inline-block w-px h-3.5 bg-white/15" />
-
-                <div className="h-[30px] sm:h-[32px] px-3.5 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md flex items-center gap-2 text-white/80 transition-all duration-300 hover:border-brand-accent/40 hover:bg-white/[0.07]">
-                  <BarChart2 className="w-3.5 h-3.5 text-brand-accent" />
-                  <span className="font-mono text-[10.5px] sm:text-[11.5px] font-medium tracking-wide">
-                    Build &bull; Scale &bull; Support
-                  </span>
-                </div>
-              </div>
+              {/* ── Creative Minimal Studio Telemetry Capsule (Replacing Generic Badges) ── */}
+              <HeroStudioCapsule />
 
               {/* Minimal Trust Indicator Line */}
               <div className="flex items-center justify-center gap-3 mt-4 sm:mt-5">
@@ -140,30 +116,14 @@ export function HeroSection() {
           <HeroStatsTimeline />
         </div>
 
-        {/* ── Bottom-Left Context Statement (Elysium format on wide screens) ── */}
+        {/* ── Bottom-Left Automatically Rotating Context Statement ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isAppReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.9, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute bottom-12 sm:bottom-14 left-8 sm:left-14 text-xs sm:text-sm leading-relaxed text-white/70 pointer-events-auto tracking-wide hidden xl:block"
+          className="absolute bottom-10 sm:bottom-12 md:bottom-14 left-8 sm:left-12 lg:left-14 hidden lg:block z-20"
         >
-          <div className="overflow-hidden">
-            <p className="leading-snug">
-              Designing &amp; engineering
-              <br />
-              digital experiences
-              <br />
-              from India &amp; USA.
-            </p>
-          </div>
-          <div className="h-3" />
-          <div className="overflow-hidden">
-            <p className="leading-snug text-white/50">
-              Crafted for enterprises
-              <br />
-              that scale globally.
-            </p>
-          </div>
+          <HeroRotatingStatement />
         </motion.div>
 
         {/* ── Bottom-Right Minimal Down Arrow (Elysium scroll indicator) ── */}
