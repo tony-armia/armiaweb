@@ -36,7 +36,7 @@ export function PartnerTicker() {
               key={index}
               className="flex items-center justify-center px-10 md:px-16 py-5 md:py-6"
             >
-              <span className="font-mono text-[11px] md:text-[13px] font-bold tracking-[0.2em] text-white/40 uppercase whitespace-nowrap hover:text-white transition-colors">
+              <span className="font-mono text-[11px] md:text-[13px] font-medium tracking-[0.2em] text-white/40 uppercase whitespace-nowrap hover:text-white transition-colors">
                 {partner}
               </span>
             </div>

@@ -170,15 +170,25 @@ export function Header() {
                 onClick={() => setIsMobileMenuOpen((v) => !v)}
                 aria-expanded={isMobileMenuOpen}
                 aria-controls="mobile-nav"
-                className={`group flex items-center h-[36px] md:h-[40px] font-mono text-[11px] md:text-xs tracking-[0.16em] uppercase transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent ${
+                className={`group relative flex items-center gap-3 h-[40px] md:h-[44px] pl-4 pr-1.5 md:pl-5 md:pr-2 rounded-full font-mono text-[11px] md:text-xs tracking-[0.2em] uppercase transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent ${
                   isWhite
-                    ? "bg-[#111111] text-white"
-                    : "bg-[#1a1a1a] text-white"
+                    ? "bg-[#111111]/90 text-white shadow-md border border-black/10 hover:bg-black"
+                    : "bg-white/[0.07] hover:bg-white/[0.14] text-white backdrop-blur-xl border border-white/20 hover:border-brand-accent/50 shadow-[0_4px_24px_rgba(0,0,0,0.45)] hover:shadow-[0_0_24px_rgba(255,90,0,0.25)]"
                 }`}
               >
-                <span className="px-4 md:px-6 font-medium">MENU</span>
-                <div className="flex items-center justify-center h-full w-[36px] md:w-[40px] bg-brand-accent transition-colors duration-300 group-hover:bg-[#ff4500]">
-                  <span className="text-white text-xs md:text-sm font-semibold" aria-hidden>
+                {/* Minimalist Micro-animated 2-line Hamburger */}
+                <div className="flex flex-col justify-center items-center gap-[4.5px] w-4" aria-hidden="true">
+                  <span className="block h-[1.5px] w-3.5 rounded-full bg-white transition-all duration-300 group-hover:w-4 group-hover:translate-x-0.5 group-hover:bg-brand-accent" />
+                  <span className="block h-[1.5px] w-4 rounded-full bg-white/80 transition-all duration-300 group-hover:w-3 group-hover:-translate-x-0.5 group-hover:bg-white" />
+                </div>
+
+                <span className="font-semibold text-white/90 group-hover:text-white transition-colors duration-300">
+                  MENU
+                </span>
+
+                {/* Glowing Brand Orange Trigger Circle */}
+                <div className="flex items-center justify-center h-7 w-7 md:h-8 md:w-8 rounded-full bg-brand-accent text-white shadow-[0_0_12px_rgba(255,90,0,0.4)] transition-all duration-300 group-hover:bg-[#ff4500] group-hover:scale-105 group-hover:shadow-[0_0_18px_rgba(255,90,0,0.65)]">
+                  <span className="text-xs md:text-sm font-bold transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden>
                     ›
                   </span>
                 </div>
@@ -208,10 +218,12 @@ export function Header() {
               <button
                 type="button"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center gap-2 font-mono text-xs tracking-widest text-white uppercase focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded"
+                className="group flex items-center gap-3 h-[40px] pl-4 pr-1.5 rounded-full bg-white/10 hover:bg-white/15 border border-white/20 text-white font-mono text-xs tracking-[0.2em] uppercase transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
               >
-                <span>CLOSE</span>
-                <X className="h-4 w-4 text-brand-accent" aria-hidden />
+                <span className="font-semibold text-white/90 group-hover:text-white">CLOSE</span>
+                <div className="flex items-center justify-center h-7 w-7 rounded-full bg-brand-accent text-white shadow-[0_0_10px_rgba(255,90,0,0.4)] transition-transform duration-300 group-hover:rotate-90">
+                  <X className="h-3.5 w-3.5" aria-hidden />
+                </div>
               </button>
             </div>
 

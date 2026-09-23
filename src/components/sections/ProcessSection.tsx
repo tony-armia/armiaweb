@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import {
   ShieldCheck,
   Lock,
@@ -184,35 +185,29 @@ export function ProcessSection() {
       className="relative w-full bg-[#08090c] text-white select-none overflow-hidden"
       aria-label="Delivery Framework and Process"
     >
-      {/* ── 1. Top Light Header Strip (Matching Reference Mockup) ── */}
-      <div className="w-full bg-[#f6f6f5] text-[#111111] py-8 sm:py-10 px-6 sm:px-12 md:px-16 lg:px-24 border-b border-black/[0.08]">
+      {/* ── 1. Top Dark Header Strip ── */}
+      <div className="w-full bg-[#0a0b10] text-white py-8 sm:py-10 px-6 sm:px-12 md:px-16 lg:px-24 border-b border-white/[0.08]">
         <div className="mx-auto w-full max-w-[1500px] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-          {/* Left: Section Indicator */}
+          {/* Left: Standardized Section Indicator */}
           <div className="flex items-center gap-3">
-            <span className="w-4 h-[2px] bg-[#FF5A00] inline-block" />
-            <span className="font-sans font-bold text-2xl sm:text-3xl tracking-tight text-[#111111]">
-              05
-            </span>
-            <span className="font-mono text-[11px] sm:text-xs tracking-[0.24em] text-[#777777] uppercase font-medium">
-              PROCESS
-            </span>
+            <SectionEyebrow number="05" label="PROCESS" className="!mb-0" />
           </div>
 
           {/* Center: Main Headline */}
           <div className="flex flex-col">
-            <div className="font-mono text-[11px] sm:text-xs tracking-[0.25em] text-[#666666] uppercase font-semibold mb-1 flex items-center gap-2">
-              <span className="w-2.5 h-[1.5px] bg-[#666666]" />
-              <span>A &mdash; PROVEN</span>
+            <div className="font-mono text-[11px] sm:text-xs tracking-[0.22em] text-white/50 uppercase font-semibold mb-1 flex items-center gap-2">
+              <span className="w-2.5 h-[1.5px] bg-[#FF5A00]" />
+              <span>PROVEN METHODOLOGY</span>
             </div>
-            <h2 className="font-sans font-extrabold text-3xl sm:text-4xl lg:text-[3.2rem] tracking-tight text-[#111111] leading-none uppercase">
+            <h2 className="font-sans font-light text-2xl sm:text-3xl lg:text-[2.6rem] tracking-tight text-white leading-none uppercase">
               DELIVERY FRAMEWORK
-              <span className="text-[#FF5A00]">.</span>
+              <span className="text-[#FF5A00] font-normal">.</span>
             </h2>
           </div>
 
           {/* Right: Subtitle Copy */}
-          <div className="max-w-xs lg:border-l lg:border-black/10 lg:pl-6">
-            <p className="font-sans text-[13px] sm:text-[14px] text-[#666666] leading-[1.6]">
+          <div className="max-w-xs lg:border-l lg:border-white/10 lg:pl-6">
+            <p className="font-sans text-[13px] sm:text-[14px] text-white/70 leading-[1.6]">
               Every engagement follows the same rigorous five-phase process &mdash; refined over 20+ years.
             </p>
           </div>
@@ -255,7 +250,7 @@ export function ProcessSection() {
                 </div>
 
                 {/* Phase Title */}
-                <h3 className="font-sans text-3xl sm:text-4xl lg:text-[3.2rem] font-bold tracking-tight text-white leading-[1.08] mb-5">
+                <h3 className="font-sans text-3xl sm:text-4xl lg:text-[3.0rem] font-light tracking-tight text-white leading-[1.08] mb-5">
                   {activePhase.title}
                 </h3>
 
@@ -274,7 +269,7 @@ export function ProcessSection() {
                           <FeatIcon className="w-6 h-6 stroke-[1.5]" />
                         </div>
                         <div>
-                          <h4 className="font-mono text-[11px] sm:text-[12px] font-semibold tracking-wider text-white uppercase mb-1">
+                          <h4 className="font-mono text-[11px] sm:text-[12px] font-medium tracking-wider text-white uppercase mb-1">
                             {feat.title}
                           </h4>
                           <p className="text-xs text-white/50 leading-relaxed">
@@ -342,9 +337,9 @@ export function ProcessSection() {
 
           </div>
 
-          {/* ── Right Column: Floating White Card with Engineer Photo (5 cols) ── */}
+          {/* ── Right Column: Floating Dark Card with Engineer Photo (5 cols) ── */}
           <div className="lg:col-span-5">
-            <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-white text-[#111111] border border-white/10">
+            <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-[#0c0d14] text-white border border-white/10">
               
               {/* Top Photo with Code Monitor & Trusted Tag */}
               <div className="relative w-full h-[220px] sm:h-[260px] overflow-hidden bg-black">
@@ -357,7 +352,7 @@ export function ProcessSection() {
                 />
 
                 {/* Subtle dark gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
 
                 {/* Top Right Floating Badge */}
                 <div className="absolute top-4 right-4 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-white/15">
@@ -368,26 +363,26 @@ export function ProcessSection() {
                 </div>
               </div>
 
-              {/* Bottom White Card Body */}
-              <div className="p-7 sm:p-9 bg-[#fbfbfb]">
+              {/* Bottom Dark Card Body */}
+              <div className="p-7 sm:p-9 bg-[#0e1018]">
                 {/* Header Row: Title on Left, Metric on Right */}
-                <div className="grid grid-cols-12 gap-4 items-center pb-6 border-b border-black/[0.08]">
+                <div className="grid grid-cols-12 gap-4 items-center pb-6 border-b border-white/[0.08]">
                   <div className="col-span-8">
                     <div className="font-mono text-[10.5px] tracking-widest text-[#FF5A00] uppercase font-semibold mb-1">
                       // WHAT WE DELIVER
                     </div>
-                    <h4 className="font-sans font-bold text-xl sm:text-2xl text-[#111111] leading-tight">
+                    <h4 className="font-sans font-medium text-xl sm:text-2xl text-white leading-tight">
                       Built for Security.
                       <br />
                       Engineered for Performance.
                     </h4>
                   </div>
 
-                  <div className="col-span-4 pl-4 border-l border-black/10 flex flex-col justify-center">
-                    <div className="font-sans font-extrabold text-3xl sm:text-4xl text-[#FF5A00] leading-none">
+                  <div className="col-span-4 pl-4 border-l border-white/10 flex flex-col justify-center">
+                    <div className="font-sans font-medium text-3xl sm:text-4xl text-[#FF5A00] leading-none">
                       99.99%
                     </div>
-                    <div className="font-mono text-[8.5px] sm:text-[9px] tracking-wider uppercase text-[#777777] font-semibold mt-1">
+                    <div className="font-mono text-[8.5px] sm:text-[9px] tracking-wider uppercase text-white/50 font-medium mt-1">
                       RESILIENCE GUARANTEE
                     </div>
                   </div>
@@ -396,35 +391,35 @@ export function ProcessSection() {
                 {/* 3 Points Checklist matching reference */}
                 <div className="space-y-3.5 py-6">
                   <div className="flex items-start gap-3.5">
-                    <span className="font-mono text-sm text-[#FF5A00] font-bold shrink-0 mt-0.5">
+                    <span className="font-mono text-sm text-[#FF5A00] font-medium shrink-0 mt-0.5">
                       01
                     </span>
-                    <span className="font-sans text-[13px] sm:text-[14px] text-[#222222] font-medium">
+                    <span className="font-sans text-[13px] sm:text-[14px] text-white/85 font-normal">
                       Dedicated engineers &amp; sprint leads
                     </span>
                   </div>
 
                   <div className="flex items-start gap-3.5">
-                    <span className="font-mono text-sm text-[#FF5A00] font-bold shrink-0 mt-0.5">
+                    <span className="font-mono text-sm text-[#FF5A00] font-medium shrink-0 mt-0.5">
                       02
                     </span>
-                    <span className="font-sans text-[13px] sm:text-[14px] text-[#222222] font-medium">
+                    <span className="font-sans text-[13px] sm:text-[14px] text-white/85 font-normal">
                       2-week sprints with transparent Jira boards
                     </span>
                   </div>
 
                   <div className="flex items-start gap-3.5">
-                    <span className="font-mono text-sm text-[#FF5A00] font-bold shrink-0 mt-0.5">
+                    <span className="font-mono text-sm text-[#FF5A00] font-medium shrink-0 mt-0.5">
                       03
                     </span>
-                    <span className="font-sans text-[13px] sm:text-[14px] text-[#222222] font-medium">
+                    <span className="font-sans text-[13px] sm:text-[14px] text-white/85 font-normal">
                       Automated testing &amp; 99.99% SLA uptime
                     </span>
                   </div>
                 </div>
 
                 {/* Card Action Row matching mockup */}
-                <div className="pt-5 border-t border-black/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="pt-5 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <a
                     href="#contact"
                     className="flex items-center gap-3 group"
@@ -432,14 +427,14 @@ export function ProcessSection() {
                     <div className="w-10 h-10 rounded-full bg-[#FF5A00] text-white flex items-center justify-center shadow-md shadow-[#FF5A00]/25 transition-transform duration-300 group-hover:scale-105">
                       <ArrowRight className="w-4 h-4" />
                     </div>
-                    <span className="font-mono text-[11px] sm:text-xs tracking-wider uppercase text-[#111111] font-bold group-hover:text-[#FF5A00] transition-colors">
+                    <span className="font-mono text-[11px] sm:text-xs tracking-wider uppercase text-white font-medium group-hover:text-[#FF5A00] transition-colors">
                       SCHEDULE A TECHNICAL AUDIT
                     </span>
                   </a>
 
                   <a
                     href="#services"
-                    className="font-mono text-[11px] sm:text-xs tracking-wider uppercase text-[#777777] hover:text-[#111111] flex items-center gap-1.5 transition-colors group/learn"
+                    className="font-mono text-[11px] sm:text-xs tracking-wider uppercase text-white/50 hover:text-white flex items-center gap-1.5 transition-colors group/learn"
                   >
                     <span>LEARN MORE</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/learn:translate-x-1" />

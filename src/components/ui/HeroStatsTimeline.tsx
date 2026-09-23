@@ -71,7 +71,7 @@ export function HeroStatsTimeline() {
 
               {/* Compact Number & Label */}
               <div className="flex flex-col justify-center">
-                <span className="font-sans text-[15px] sm:text-[16px] font-bold text-white tracking-tight leading-none group-hover:text-[#FF5A00] transition-colors duration-200">
+                <span className="font-sans text-[15px] sm:text-[16px] font-medium text-white tracking-tight leading-none group-hover:text-[#FF5A00] transition-colors duration-200">
                   {stat.value}
                 </span>
                 <span className="font-sans text-[11px] sm:text-[12px] text-white/50 font-normal leading-tight mt-0.5">

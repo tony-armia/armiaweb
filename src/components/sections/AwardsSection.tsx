@@ -22,7 +22,10 @@ const AWARDS_LIST = [
 
 export function AwardsSection() {
   return (
-    <section className="relative z-20 w-full bg-white text-[#111111] py-10 md:py-14 border-t border-black/[0.08] select-none snap-section flex flex-col justify-center overflow-hidden h-[100svh] min-h-[100svh]">
+    <section
+      data-theme="dark"
+      className="relative z-20 w-full bg-black text-white py-10 md:py-14 border-t border-white/[0.08] select-none snap-section flex flex-col justify-center overflow-hidden h-[100svh] min-h-[100svh]"
+    >
       <div className="w-full max-w-[1920px] mx-auto px-6 md:px-0 relative z-10">
         {/* Upper Header Row matching Grid Columns */}
         <div className="relative w-full flex flex-col md:flex-row items-start mb-8 md:mb-10">
@@ -38,13 +41,13 @@ export function AwardsSection() {
               initial="hidden"
               whileInView="show"
               viewport={VIEWPORT_ONCE}
-              className="font-sans text-[clamp(2.1rem,2.9vw,3.6rem)] font-normal tracking-[-0.04em] leading-[0.96] text-left uppercase text-[#111111]"
+              className="font-sans text-[clamp(2.25rem,3.2vw,3.85rem)] font-light tracking-[-0.035em] leading-[0.98] text-left uppercase text-white"
             >
-              <span className="block text-[#111111]">AWARDS &amp;</span>
-              <span className="block text-[#6b6b6b] font-medium">RECOGNITION.</span>
+              <span className="block text-white">AWARDS &amp;</span>
+              <span className="block text-[#a4a4a2] font-normal">RECOGNITION.</span>
             </motion.h2>
 
-            <p className="font-mono text-[12px] md:text-[14px] leading-relaxed text-[#6b6b6b] mt-3 md:mt-4 uppercase tracking-wide max-w-[300px]">
+            <p className="font-mono text-xs md:text-[13px] leading-relaxed text-[#a4a4a2] mt-3 md:mt-4 uppercase tracking-[0.16em] max-w-[320px]">
               RECOGNIZED GLOBALLY BY LEADING RESEARCH AND ANALYST PLATFORMS.
             </p>
           </div>
@@ -52,10 +55,10 @@ export function AwardsSection() {
           {/* Right Supporting Copy: 69.3% to 88.8% */}
           <div className="w-full md:w-[19.5%] px-6 md:px-0 pt-1 flex justify-start">
             <div className="flex flex-col gap-2">
-              <p className="font-mono text-[12px] md:text-[13.5px] text-[#ff5a00] tracking-widest uppercase font-semibold">
+              <p className="font-mono text-xs md:text-[13px] text-brand-accent tracking-[0.18em] uppercase font-semibold">
                 20+ YEARS OF EXCELLENCE
               </p>
-              <p className="font-sans text-[15px] md:text-[16px] leading-relaxed text-[#555555] uppercase max-w-xs">
+              <p className="font-mono text-[11px] md:text-xs leading-relaxed text-white/50 uppercase tracking-wider max-w-xs">
                 GLOBAL RECOGNITION FOR ENGINEERING EXCELLENCE, PRODUCT DESIGN &amp; INNOVATION.
               </p>
             </div>
@@ -64,7 +67,7 @@ export function AwardsSection() {
 
         {/* Compact Logo Grid (30.3% to 88.8% width: 58.5%) */}
         <div className="w-full md:w-[58.5%] md:ml-[30.3%] px-6 md:px-0">
-          <div className="border-t border-l border-black/[0.08] grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 bg-white">
+          <div className="rounded-2xl overflow-hidden border border-white/[0.08] grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 bg-[#0a0a0a] shadow-2xl">
             {AWARDS_LIST.map((award, i) => (
               <motion.div
                 key={award.id}
@@ -72,7 +75,7 @@ export function AwardsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_ONCE}
                 transition={{ duration: 0.4, delay: i * 0.04, ease: EASE_CUSTOM }}
-                className="group relative flex flex-col items-center justify-center p-5 md:p-6 border-r border-b border-black/[0.08] hover:bg-black/[0.02] transition-all duration-300 min-h-[120px] md:min-h-[140px]"
+                className="group relative flex flex-col items-center justify-center p-5 md:p-6 border-r border-b border-white/[0.08] hover:bg-white/[0.04] transition-all duration-300 min-h-[120px] md:min-h-[140px] bg-[#0a0a0a]"
               >
                 {/* Logo Image */}
                 <div className="relative w-24 h-24 md:w-28 md:h-28 flex items-center justify-center">
@@ -82,7 +85,7 @@ export function AwardsSection() {
                     fill
                     unoptimized
                     sizes="(max-width: 768px) 50vw, 200px"
-                    className="object-contain object-center drop-shadow-sm transition-transform duration-300 group-hover:scale-110"
+                    className="object-contain object-center drop-shadow-sm transition-transform duration-300 group-hover:scale-110 brightness-95 contrast-105"
                   />
                 </div>
               </motion.div>
@@ -94,10 +97,10 @@ export function AwardsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={VIEWPORT_ONCE}
               transition={{ duration: 0.4, delay: AWARDS_LIST.length * 0.04, ease: EASE_CUSTOM }}
-              className="flex flex-col items-center justify-center p-5 md:p-6 border-r border-b border-black/[0.08] bg-[#f8f8f8] min-h-[120px] md:min-h-[140px] text-center"
+              className="flex flex-col items-center justify-center p-5 md:p-6 border-r border-b border-white/[0.08] bg-[#121212] min-h-[120px] md:min-h-[140px] text-center"
             >
-              <span className="font-mono text-xl md:text-2xl font-bold text-[#ff5a00]">20+</span>
-              <span className="font-mono text-[9px] md:text-[10px] uppercase tracking-wider text-[#666666] mt-1 font-semibold">
+              <span className="font-mono text-xl md:text-2xl font-medium text-[#ff5a00]">20+</span>
+              <span className="font-mono text-[9px] md:text-[10px] uppercase tracking-wider text-white/60 mt-1 font-medium">
                 YEARS LEGACY
               </span>
             </motion.div>

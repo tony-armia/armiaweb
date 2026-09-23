@@ -2,6 +2,7 @@
 
 import React, { useRef } from "react";
 import { ArrowUp } from "lucide-react";
+import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 
 export function EngineeringIntro() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -15,7 +16,7 @@ export function EngineeringIntro() {
       ref={containerRef}
       id="about"
       data-theme="dark"
-      className="relative min-h-[90vh] md:min-h-screen w-full bg-[#090909] text-white flex items-center py-24 sm:py-32 md:py-36 px-6 sm:px-12 md:px-16 lg:px-24 select-none overflow-hidden"
+      className="relative min-h-[90vh] md:min-h-screen w-full bg-[#090909] text-white flex items-center py-20 sm:py-28 md:py-32 px-6 sm:px-12 md:px-16 lg:px-24 select-none overflow-hidden"
       aria-label="Who We Are"
     >
       <div className="mx-auto w-full max-w-[1500px] grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-center">
@@ -36,11 +37,9 @@ export function EngineeringIntro() {
         {/* ── Right Column: Metadata & Editorial Storytelling ── */}
         <div className="lg:col-span-5 flex flex-col justify-center">
           <div className="max-w-xl space-y-6 sm:space-y-7 text-[#8e94a0] text-[15px] sm:text-[16px] leading-[1.78] font-normal">
-            {/* Top Metadata Row matching Elysium */}
-            <div className="flex items-center justify-between pb-2 text-xs tracking-widest uppercase">
-              <span className="font-mono text-white font-medium tracking-[0.22em] text-[12px] sm:text-[13px]">
-                WHO WE ARE
-              </span>
+            {/* Top Metadata Row matching Elysium with standardized SectionEyebrow */}
+            <div className="flex items-center justify-between pb-3 border-b border-white/[0.08] text-xs tracking-widest uppercase">
+              <SectionEyebrow number="02" label="WHO WE ARE" className="!mb-0" />
               <span className="font-mono text-white/50 tracking-[0.16em] text-[11px] sm:text-[12px] flex items-center gap-1.5">
                 <span>🇺🇸 USA</span>
                 <span className="text-white/30">&bull;</span>

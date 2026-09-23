@@ -57,14 +57,14 @@ export function RotatorTabStrip({
               role="tab"
               aria-selected={isActive}
               onClick={() => onSelect(idx)}
-              className={`relative w-11 h-11 md:w-12 md:h-12 flex items-center justify-center font-mono text-[11px] md:text-xs tracking-wider border transition-colors duration-200 cursor-pointer select-none rounded-none overflow-hidden ${
+              className={`relative w-11 h-11 md:w-12 md:h-12 flex items-center justify-center font-mono text-[11px] md:text-xs tracking-wider border transition-all duration-300 cursor-pointer select-none rounded-xl overflow-hidden ${
                 dark
                   ? isActive
-                    ? "border-[#FF5C00] text-[#FF5C00] font-bold"
-                    : "border-white/16 text-white/45 hover:border-[#FF5C00]/60 hover:text-white"
+                    ? "border-[#FF5A00] text-[#FF5A00] font-bold bg-[#FF5A00]/10 shadow-[0_0_15px_rgba(255,90,0,0.2)]"
+                    : "border-white/15 text-white/50 hover:border-white/40 hover:text-white bg-white/[0.02]"
                   : isActive
-                  ? "border-[#FF5C00] text-[#111111] font-bold"
-                  : "border-black/16 text-black/45 hover:border-[#FF5C00]/60 hover:text-[#111111]"
+                  ? "border-[#FF5A00] text-[#111111] font-bold bg-[#FF5A00]/10"
+                  : "border-black/15 text-black/50 hover:border-black/40 hover:text-[#111111]"
               }`}
             >
               {/* Active-tab timed progress fill at bottom of button */}
@@ -78,7 +78,7 @@ export function RotatorTabStrip({
                     ease: "linear",
                   }}
                   style={{ transformOrigin: "left" }}
-                  className="absolute bottom-0 left-0 right-0 h-[2px] md:h-[3px] bg-[#FF5C00] z-20 pointer-events-none"
+                  className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#FF5A00] z-20 pointer-events-none rounded-b-xl"
                 />
               )}
 
@@ -88,10 +88,10 @@ export function RotatorTabStrip({
         })}
       </div>
 
-      {/* 1px Scroll / Overall Tab Indicator Line */}
+      {/* Scroll / Overall Tab Indicator Line with rounded-full */}
       <div
-        className={`relative w-full max-w-[240px] md:max-w-[280px] h-[1px] ${
-          dark ? "bg-white/15" : "bg-black/15"
+        className={`relative w-full max-w-[240px] md:max-w-[280px] h-[2px] rounded-full ${
+          dark ? "bg-white/10" : "bg-black/10"
         } overflow-hidden`}
       >
         {scrollYProgress ? (

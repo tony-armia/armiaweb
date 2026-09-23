@@ -13,7 +13,7 @@ interface FAQItemProps {
 
 export function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
   return (
-    <div className="relative z-10 bg-[#161616] border-b border-white/[0.08]">
+    <div className="relative z-10 bg-[#0e1017] rounded-xl md:rounded-2xl border border-white/[0.08] overflow-hidden transition-all duration-300 hover:border-white/20 mb-3 shadow-md">
       <h3>
         <button
           type="button"
@@ -21,16 +21,16 @@ export function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
           aria-expanded={isOpen}
           aria-controls={`faq-answer-${item.id}`}
           id={`faq-button-${item.id}`}
-          className="group flex items-center justify-between w-full py-4 md:py-5 px-4 md:px-6 text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent min-h-[56px] md:min-h-[68px] bg-[#161616] hover:bg-[#1a1a1a] transition-colors"
+          className="group flex items-center justify-between w-full py-4 md:py-5 px-4 md:px-6 text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent min-h-[56px] md:min-h-[64px] bg-[#0e1017] hover:bg-[#131620] transition-colors cursor-pointer"
         >
           <div className="flex items-center gap-3 md:gap-4 pr-4">
-            {/* Active Orange Square Marker */}
-            <div className="relative w-[14px] h-[4px] flex items-center justify-center shrink-0">
-              <span className="absolute h-[4px] w-[4px] bg-transparent inline-block group-hover:bg-brand-accent/40 transition-colors" />
+            {/* Active Orange Rounded Marker */}
+            <div className="relative w-[14px] h-[6px] flex items-center justify-center shrink-0">
+              <span className="absolute h-[6px] w-[6px] rounded-full bg-transparent inline-block group-hover:bg-brand-accent/40 transition-colors" />
               <motion.span
                 animate={{ scale: isOpen ? 1 : 0 }}
                 transition={{ duration: 0.25, ease: EASE_CUSTOM }}
-                className="absolute h-[4px] w-[4px] bg-brand-accent inline-block"
+                className="absolute h-[6px] w-[6px] rounded-full bg-brand-accent inline-block shadow-[0_0_8px_rgba(255,90,0,0.6)]"
               />
             </div>
 
@@ -47,15 +47,15 @@ export function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
             </span>
           </div>
 
-          {/* Toggle icon */}
-          <div className="relative w-11 h-11 flex items-center justify-center shrink-0 text-[#888888] group-hover:text-white transition-colors">
+          {/* Toggle icon pill */}
+          <div className="relative w-9 h-9 rounded-full bg-white/[0.04] group-hover:bg-white/[0.08] flex items-center justify-center shrink-0 text-[#888888] group-hover:text-white transition-all">
             <motion.span
               animate={{ rotate: isOpen ? 45 : 0 }}
               transition={{ duration: 0.3, ease: EASE_CUSTOM }}
-              className="relative block w-[13px] h-[13px]"
+              className="relative block w-[12px] h-[12px]"
             >
-              <span className="absolute top-1/2 left-0 w-full h-[1.5px] -translate-y-1/2 bg-current" />
-              <span className="absolute top-1/2 left-0 w-full h-[1.5px] -translate-y-1/2 bg-current rotate-90" />
+              <span className="absolute top-1/2 left-0 w-full h-[1.5px] -translate-y-1/2 bg-current rounded-full" />
+              <span className="absolute top-1/2 left-0 w-full h-[1.5px] -translate-y-1/2 bg-current rotate-90 rounded-full" />
             </motion.span>
           </div>
         </button>
@@ -72,9 +72,9 @@ export function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.38, ease: EASE_CUSTOM }}
-            className="overflow-hidden bg-[#161616]"
+            className="overflow-hidden bg-[#0e1017] border-t border-white/[0.04]"
           >
-            <div className="pb-6 pt-1 pl-[64px] md:pl-[78px] pr-6 md:pr-12 max-w-[680px] max-h-[140px] md:max-h-[160px] overflow-y-auto">
+            <div className="pb-6 pt-3 pl-[56px] md:pl-[68px] pr-6 md:pr-12 max-w-[680px] max-h-[140px] md:max-h-[160px] overflow-y-auto">
               {item.answer.map((paragraph, pIdx) => (
                 <p
                   key={pIdx}

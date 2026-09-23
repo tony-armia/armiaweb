@@ -29,7 +29,7 @@ export function FAQSection() {
         <div className="relative w-full flex flex-col md:flex-row items-start mb-8 md:mb-10">
           {/* Far Left Section Marker: 10.8% to 30.3% */}
           <div className="w-full md:w-[19.5%] md:ml-[10.8%] px-6 md:px-0 pt-1 mb-6 md:mb-0">
-            <SectionEyebrow number="08" label="FAQ" dark className="!mb-0" />
+            <SectionEyebrow number="08" label="FAQ" className="!mb-0" />
           </div>
 
           {/* Heading Block: 30.3% to 69.3% */}
@@ -39,15 +39,15 @@ export function FAQSection() {
               initial="hidden"
               whileInView="show"
               viewport={VIEWPORT_ONCE}
-              className="font-sans text-[clamp(2.3rem,3.2vw,4.1rem)] font-normal tracking-[-0.04em] leading-[0.94] text-left uppercase"
+              className="font-sans text-[clamp(2.25rem,3.2vw,3.85rem)] font-light tracking-[-0.035em] leading-[0.98] text-left uppercase"
             >
               <span className="block text-[#a4a4a2]">FREQUENTLY</span>
-              <span className="block text-white font-medium">ASKED QUESTIONS.</span>
+              <span className="block text-white font-normal">ASKED QUESTIONS.</span>
             </motion.h2>
 
-            <p className="font-mono text-[12px] md:text-[14px] leading-relaxed text-[#a4a4a2] mt-4 md:mt-5 uppercase tracking-wide max-w-[300px]">
+            <p className="font-mono text-xs md:text-[13px] leading-relaxed text-[#a4a4a2] mt-4 md:mt-5 uppercase tracking-[0.16em] max-w-[320px]">
               COMMON QUESTIONS ABOUT <br />
-              <strong className="text-white font-semibold">ARMIA SYSTEMS</strong> &amp; ENGAGEMENTS.
+              <strong className="text-white font-medium">ARMIA SYSTEMS</strong> &amp; ENGAGEMENTS.
             </p>
           </div>
 
@@ -56,9 +56,10 @@ export function FAQSection() {
             <div className="flex flex-col gap-4">
               <a
                 href="#contact"
-                className="font-mono text-[12px] md:text-[14px] text-[#ff5a00] tracking-widest uppercase hover:text-white transition-colors"
+                className="font-mono text-xs md:text-[13px] text-brand-accent tracking-[0.18em] uppercase hover:text-white transition-colors flex items-center gap-1.5 group"
               >
-                HAVE QUESTIONS? TALK TO US →
+                <span>HAVE QUESTIONS? TALK TO US</span>
+                <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </a>
             </div>
           </div>

@@ -19,7 +19,7 @@ export function SectionLabel({
         className
       )}
     >
-      <span className={cn("h-1.5 w-1.5 rounded-none", dotColor)} />
+      <span className={cn("h-1.5 w-1.5 rounded-full", dotColor)} />
       <span>{children}</span>
     </div>
   );

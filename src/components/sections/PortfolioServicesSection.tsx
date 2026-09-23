@@ -165,9 +165,10 @@ export function PortfolioServicesSection() {
   return (
     <section
       ref={containerRef}
-      className="relative z-20 w-full bg-white text-[#111111] h-[100svh] min-h-[100svh] py-8 md:py-12 flex flex-col justify-center overflow-hidden snap-section select-none border-t border-black/[0.08]"
+      data-theme="dark"
+      className="relative z-20 w-full bg-black text-white h-[100svh] min-h-[100svh] py-8 md:py-12 flex flex-col justify-center overflow-hidden snap-section select-none border-t border-white/[0.08]"
     >
-      <GridLines light />
+      <GridLines />
 
       <div className="w-full max-w-[1920px] mx-auto px-6 md:px-0 relative z-10">
         
@@ -180,9 +181,9 @@ export function PortfolioServicesSection() {
 
           {/* Heading Block: 30.3% to 69.3% */}
           <div className="w-full md:w-[39.0%] px-6 md:px-0 pt-0.5 mb-4 md:mb-0">
-            <h2 className="font-sans text-[clamp(2.1rem,3.0vw,3.8rem)] font-normal tracking-[-0.04em] leading-[0.94] text-left">
-              <span className="block text-[#111111]">CASE</span>
-              <span className="block text-[#6b6b6b] font-medium">STUDIES.</span>
+            <h2 className="font-sans text-[clamp(2.25rem,3.2vw,3.85rem)] font-light tracking-[-0.035em] leading-[0.98] text-left">
+              <span className="block text-white">CASE</span>
+              <span className="block text-[#a4a4a2] font-normal">STUDIES.</span>
             </h2>
           </div>
 
@@ -190,9 +191,10 @@ export function PortfolioServicesSection() {
           <div className="w-full md:w-[19.5%] px-6 md:px-0 pt-1 flex justify-start">
             <a
               href="#contact"
-              className="font-mono text-[12px] md:text-[14px] text-[#ff5a00] tracking-widest uppercase hover:text-[#111111] transition-colors"
+              className="font-mono text-xs md:text-[13px] text-brand-accent tracking-[0.18em] uppercase hover:text-white transition-colors flex items-center gap-1.5 group"
             >
-              ALL WORK →
+              <span>ALL WORK</span>
+              <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
             </a>
           </div>
         </div>
@@ -220,7 +222,7 @@ export function PortfolioServicesSection() {
                   <motion.div variants={fadeUpVariants} className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
                       <span className="h-[2px] w-[18px] bg-[#ff5a00] inline-block" />
-                      <span className="font-mono text-[12px] md:text-[13.5px] tracking-widest text-[#5a6270] uppercase font-semibold">
+                      <span className="font-mono text-[12px] md:text-[13.5px] tracking-widest text-white/70 uppercase font-semibold">
                         {service.category}
                       </span>
                     </div>
@@ -232,7 +234,7 @@ export function PortfolioServicesSection() {
                   {/* Large High-Impact Case Study Device / Product Image */}
                   <motion.div
                     variants={imageVariants}
-                    className="relative overflow-hidden w-full aspect-[16/10] bg-neutral-100 border border-black/[0.08] shadow-md group"
+                    className="relative overflow-hidden w-full aspect-[16/10] bg-neutral-900 border border-white/10 shadow-2xl rounded-2xl group"
                   >
                     <Image
                       src={service.image}
@@ -247,7 +249,7 @@ export function PortfolioServicesSection() {
                   {/* Caption under large image */}
                   <motion.p
                     variants={fadeUpVariants}
-                    className="font-sans text-[15px] md:text-[16px] text-[#606775] mt-3 leading-[1.6]"
+                    className="font-sans text-[15px] md:text-[16px] text-white/70 mt-3 leading-[1.6]"
                   >
                     {service.caption}
                   </motion.p>
@@ -268,10 +270,10 @@ export function PortfolioServicesSection() {
                 >
                   <div>
                     {/* Project Title */}
-                    <div className="overflow-hidden pb-2 mb-4 border-b border-black/[0.08]">
+                    <div className="overflow-hidden pb-2 mb-4 border-b border-white/10">
                       <motion.h3
                         variants={maskVariants}
-                        className="font-sans text-[clamp(2.2rem,3.2vw,4.0rem)] leading-[1.0] tracking-[-0.04em] font-medium text-[#111111]"
+                        className="font-sans text-[clamp(2.2rem,3.2vw,4.0rem)] leading-[1.0] tracking-[-0.04em] font-medium text-white"
                       >
                         {service.title}
                       </motion.h3>
@@ -279,7 +281,7 @@ export function PortfolioServicesSection() {
 
                     {/* Capabilities List */}
                     <div className="mb-6 md:mb-8">
-                      <div className="font-mono text-[10px] md:text-[11.5px] tracking-widest text-[#777777] uppercase mb-3">
+                      <div className="font-mono text-[10px] md:text-[11.5px] tracking-widest text-white/50 uppercase mb-3">
                         ENGINEERING HIGHLIGHTS
                       </div>
                       <ul className="space-y-2.5">
@@ -287,9 +289,9 @@ export function PortfolioServicesSection() {
                           <motion.li
                             key={i}
                             variants={fadeUpVariants}
-                            className="font-sans text-[14px] md:text-[15.5px] leading-[1.55] text-[#444b58] flex items-start"
+                            className="font-sans text-[14px] md:text-[15.5px] leading-[1.55] text-white/80 flex items-start"
                           >
-                            <span className="text-[#ff5a00] font-mono mr-3 text-sm font-bold select-none">
+                            <span className="text-[#ff5a00] font-mono mr-3 text-sm font-medium select-none">
                               +
                             </span>
                             <span>{capability}</span>
@@ -302,6 +304,7 @@ export function PortfolioServicesSection() {
                   {/* 01 / 02 / 03 / 04 / 05 Rotator Numbered Controls Strip */}
                   <div className="pt-2">
                     <RotatorTabStrip
+                      dark
                       items={servicesData.map((s) => ({ id: s.id, label: s.num }))}
                       activeIndex={activeIndex}
                       onSelect={(idx) => {

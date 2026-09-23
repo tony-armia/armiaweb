@@ -43,7 +43,7 @@ export function HeroSection() {
             className="relative mx-auto flex flex-col items-center md:w-fit"
           >
             {/* Center Giant Word: "armia" */}
-            <h1 className="text-center font-sans font-semibold leading-none tracking-tight text-[18vw] cursor-default select-none">
+            <h1 className="text-center font-sans font-normal leading-none tracking-tight text-[18vw] cursor-default select-none">
               <div className="overflow-hidden flex items-center justify-center">
                 {letters.map((char, index) => (
                   <motion.span

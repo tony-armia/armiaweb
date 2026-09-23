@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import {
   ArrowLeft,
   ArrowRight,
@@ -32,58 +33,58 @@ interface Testimonial {
 const TESTIMONIALS: Testimonial[] = [
   {
     id: "01",
-    name: "Zayne Rendell",
-    role: "Founder/CEO, Rapid Teachers",
-    company: "Rapid Teachers",
+    name: "Edward Friedman",
+    role: "Managing Director, Green D Market Analytics",
+    company: "Green D Market Analytics",
     quote:
-      "Our company would not be where we are today without Armia Systems' business expertise or willingness to help. The engineering staff have significant experience in enterprise systems and truly go above and beyond, with a genuine desire to see their clients succeed! Furthermore, the level of confidentiality, trust, and SLA integrity are second to none! The Armia team are exceptional to deal with and create extremely high-quality products. I could not recommend the team at Armia Systems highly enough!",
-    avatar: "/images/avatar_jakub.png",
+      "Armia Systems did an excellent job from cradle to grave. Their senior engineering accountability, proactive architecture guidance, and responsive communication transformed our analytics requirements into a robust, high-performance platform. The Armia team delivered every milestone with absolute precision and SLA integrity. I could not recommend the team at Armia Systems highly enough!",
+    avatar: "/images/avatar_david.png",
     videoPoster: "/images/testimonial_video_poster.jpg",
     videoAuthor: {
-      name: "Bat-Erdene A.",
-      role: "Manager, IT Division, TokiApp",
+      name: "Edward Friedman",
+      role: "Managing Director, Green D Market Analytics",
     },
   },
   {
     id: "02",
-    name: "Mark Henderson",
-    role: "Director of Engineering, Active Network",
-    company: "ACTIVE NETWORK",
+    name: "Brian Jacobs",
+    role: "Founder & CEO, Orbtattoo",
+    company: "Orbtattoo",
     quote:
-      "Armia's senior engineering team engineered our distributed cloud backend to handle massive seasonal traffic surges with sub-second response times. Their dedication to architectural excellence, automated CI/CD pipelines, and zero-downtime migrations gave us complete peace of mind.",
-    avatar: "/images/avatar_david.png",
+      "The Armia engineering team's dedication and proactive approach made our product collaboration both efficient and highly effective. They took our complex marketplace workflow and turned it into an intuitive, high-concurrency digital platform. Their technical depth, transparent sprint velocity, and problem-solving abilities are second to none.",
+    avatar: "/images/avatar_jakub.png",
     videoPoster: "/images/engineering_team.png",
     videoAuthor: {
-      name: "Mark Henderson",
-      role: "Director of Engineering, Active Network",
+      name: "Brian Jacobs",
+      role: "Founder & CEO, Orbtattoo",
     },
   },
   {
     id: "03",
-    name: "Sarah Jenkins",
-    role: "VP of Technology, JumpForward",
-    company: "JUMPFORWARD",
+    name: "Mike Serrano",
+    role: "Executive Director, Armia Creative Inc.",
+    company: "Armia Creative",
     quote:
-      "Working with Armia accelerated our product roadmap by six months. From complex compliance workflows to intuitive mobile app delivery, their transparent Jira telemetry, proactive communication, and top-tier code quality have set a new benchmark for software engineering partners.",
+      "Armia Systems was a genuine game changer for us. They helped us architect and build our enterprise application with extraordinary cost-efficiency, technical finesse, and speed to market. Their senior engineers truly go above and beyond, with a genuine desire to see their clients succeed across every digital touchpoint.",
     avatar: "/images/avatar_anna.png",
     videoPoster: "/images/testimonial_video_poster.jpg",
     videoAuthor: {
-      name: "Sarah Jenkins",
-      role: "VP of Technology, JumpForward",
+      name: "Mike Serrano",
+      role: "Executive Director, Armia Creative Inc.",
     },
   },
   {
     id: "04",
-    name: "Diane Miller",
-    role: "Founder & CEO, CollegiateParent",
-    company: "COLLEGIATEPARENT",
+    name: "Mike Morris",
+    role: "VP of Technology, Software Migration",
+    company: "Enterprise Software Migration",
     quote:
-      "Armia has been our trusted digital technology partner for over eight continuous years. They have architected our publishing engines, user portals, and multi-tenant cloud platforms with absolute reliability. They act as a genuine extension of our executive leadership team.",
+      "The team at Armia was extremely easy to work with and extraordinarily patient throughout our legacy software migration to modern cloud architecture. They provided thorough technical detail at every phase, resulting in zero downtime, seamless data integrity, and complete stakeholder confidence.",
     avatar: "/images/avatar_emma.png",
     videoPoster: "/images/engineering_team.png",
     videoAuthor: {
-      name: "Diane Miller",
-      role: "Founder & CEO, CollegiateParent",
+      name: "Mike Morris",
+      role: "VP of Technology, Software Migration",
     },
   },
 ];
@@ -118,19 +119,22 @@ export function TestimonialsSection() {
       <div className="mx-auto w-full max-w-[1440px]">
         
         {/* ── Section Header Row (Directly matching reference) ── */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-10 sm:mb-14">
-          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-normal text-white tracking-tight leading-[1.2]">
-            What Australian and Global Clients <br className="hidden sm:inline" />
-            Say About Our Mobile App Delivery
-          </h2>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 sm:mb-14">
+          <div>
+            <SectionEyebrow number="06" label="TESTIMONIALS" className="!mb-3.5" />
+            <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-light text-white tracking-tight leading-[1.2]">
+              What Global &amp; Enterprise Clients <br className="hidden sm:inline" />
+              Say About Armia Systems&apos; Delivery
+            </h2>
+          </div>
 
           <div className="shrink-0">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full border border-white/60 hover:border-white text-white font-sans text-xs sm:text-[13px] font-semibold tracking-wide transition-all duration-300 hover:bg-white/10 group cursor-pointer"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-white/20 bg-white/[0.05] hover:bg-white/[0.12] hover:border-brand-accent/50 text-white font-mono text-xs tracking-[0.16em] uppercase transition-all duration-300 backdrop-blur-md group cursor-pointer"
             >
-              <span>View All Client Testimonials</span>
-              <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <span>ALL TESTIMONIALS</span>
+              <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-brand-accent" />
             </a>
           </div>
         </div>
@@ -141,34 +145,34 @@ export function TestimonialsSection() {
           {/* ── Left Card: White Editorial Quote Card (5 cols) ── */}
           <div className="lg:col-span-5 rounded-[26px] bg-white text-[#111111] p-7 sm:p-9 flex flex-col justify-between shadow-2xl relative overflow-hidden min-h-[460px] md:min-h-[500px]">
             
-            {/* 3D Angled Blue Decorative Graphic in Bottom Right (matching reference) */}
+            {/* 3D Angled Brand Orange Decorative Graphic in Bottom Right */}
             <div
               aria-hidden="true"
               className="pointer-events-none absolute -bottom-4 -right-4 w-[220px] h-[220px] select-none z-0"
             >
               <svg viewBox="0 0 200 200" fill="none" className="w-full h-full">
                 <defs>
-                  <linearGradient id="blueRibbon1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#2563EB" />
-                    <stop offset="100%" stopColor="#60A5FA" />
+                  <linearGradient id="orangeRibbon1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#ff5a00" />
+                    <stop offset="100%" stopColor="#ff8a43" />
                   </linearGradient>
-                  <linearGradient id="blueRibbon2" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#1D4ED8" />
-                    <stop offset="100%" stopColor="#3B82F6" />
+                  <linearGradient id="orangeRibbon2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#e04e00" />
+                    <stop offset="100%" stopColor="#ff5a00" />
                   </linearGradient>
-                  <linearGradient id="blueRibbon3" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#0284C7" />
-                    <stop offset="100%" stopColor="#38BDF8" />
+                  <linearGradient id="orangeRibbon3" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#ff3d00" />
+                    <stop offset="100%" stopColor="#ff7a29" />
                   </linearGradient>
                 </defs>
                 {/* 3D Parallel Angled Slabs */}
-                <rect x="70" y="30" width="36" height="180" rx="8" transform="rotate(-38 70 30)" fill="url(#blueRibbon1)" fillOpacity="0.85" />
-                <rect x="110" y="55" width="36" height="180" rx="8" transform="rotate(-38 110 55)" fill="url(#blueRibbon2)" fillOpacity="0.9" />
-                <rect x="150" y="80" width="36" height="180" rx="8" transform="rotate(-38 150 80)" fill="url(#blueRibbon3)" fillOpacity="0.85" />
+                <rect x="70" y="30" width="36" height="180" rx="8" transform="rotate(-38 70 30)" fill="url(#orangeRibbon1)" fillOpacity="0.88" />
+                <rect x="110" y="55" width="36" height="180" rx="8" transform="rotate(-38 110 55)" fill="url(#orangeRibbon2)" fillOpacity="0.92" />
+                <rect x="150" y="80" width="36" height="180" rx="8" transform="rotate(-38 150 80)" fill="url(#orangeRibbon3)" fillOpacity="0.88" />
               </svg>
             </div>
 
-            {/* Top: Blue Double Quotation Mark (matching reference) */}
+            {/* Top: Brand Orange Double Quotation Mark */}
             <div className="relative z-10 mb-5">
               <svg
                 width="36"
@@ -176,7 +180,7 @@ export function TestimonialsSection() {
                 viewBox="0 0 36 28"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="text-[#0066FF] fill-current"
+                className="text-brand-accent fill-current"
               >
                 <path d="M0 28V16.8C0 11.76 1.44 7.64 4.32 4.44C7.28 1.16 11.28 0 16.32 0V5.6C13.28 5.6 11.08 6.48 9.72 8.24C8.44 10 7.8 12.36 7.8 15.32H16.32V28H0ZM19.68 28V16.8C19.68 11.76 21.12 7.64 24 4.44C26.96 1.16 30.96 0 36 0V5.6C32.96 5.6 30.76 6.48 29.4 8.24C28.12 10 27.48 12.36 27.48 15.32H36V28H19.68Z" />
               </svg>
@@ -199,7 +203,7 @@ export function TestimonialsSection() {
             </div>
 
             {/* Bottom: Floating Avatar & Author Bar with Nav Arrows */}
-            <div className="relative z-10 w-full p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-sky-50/90 via-blue-50/85 to-indigo-100/80 backdrop-blur-md border border-blue-200/60 flex items-center justify-between shadow-sm">
+            <div className="relative z-10 w-full p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-amber-50/90 via-orange-50/70 to-neutral-100/90 backdrop-blur-md border border-orange-200/50 flex items-center justify-between shadow-sm">
               <div className="flex items-center gap-3 min-w-0 pr-2">
                 <div className="relative w-11 h-11 rounded-full overflow-hidden border border-black/10 shrink-0 bg-neutral-200">
                   <Image
@@ -210,7 +214,7 @@ export function TestimonialsSection() {
                   />
                 </div>
                 <div className="min-w-0">
-                  <div className="font-sans font-bold text-sm text-[#111111] leading-snug truncate">
+                  <div className="font-sans font-semibold text-sm text-[#111111] leading-snug truncate">
                     {current.name}
                   </div>
                   <div className="font-sans text-[11px] text-[#555555] leading-snug truncate">
@@ -261,7 +265,7 @@ export function TestimonialsSection() {
 
             {/* Center Floating Watch Reel Pill Button (matching reference) */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="px-7 py-3.5 rounded-full bg-white text-black font-sans text-xs tracking-widest uppercase font-bold flex items-center gap-3 shadow-2xl transition-all duration-300 group-hover:scale-105 pointer-events-auto cursor-pointer">
+              <div className="px-7 py-3.5 rounded-full bg-white text-black font-sans text-xs tracking-widest uppercase font-semibold flex items-center gap-3 shadow-2xl transition-all duration-300 group-hover:scale-105 pointer-events-auto cursor-pointer">
                 <div className="w-5 h-5 rounded-full border-[1.5px] border-black flex items-center justify-center">
                   <Play className="w-2.5 h-2.5 fill-black text-black ml-0.5" />
                 </div>
@@ -269,11 +273,11 @@ export function TestimonialsSection() {
               </div>
             </div>
 
-            {/* Bottom Left Author Tag (matching reference) */}
+            {/* Bottom Left Author Tag (matching reference with brand orange indicator) */}
             <div className="relative z-10 flex items-start gap-3">
-              <span className="w-1 h-10 bg-[#0066FF] rounded-full inline-block shrink-0 mt-0.5" />
+              <span className="w-1 h-10 bg-brand-accent rounded-full inline-block shrink-0 mt-0.5" />
               <div>
-                <div className="font-sans text-lg sm:text-xl font-bold text-white leading-snug">
+                <div className="font-sans text-lg sm:text-xl font-medium text-white leading-snug">
                   {current.videoAuthor.name}
                 </div>
                 <div className="font-sans text-xs sm:text-[13px] text-white/75 font-light tracking-normal mt-0.5">
@@ -321,10 +325,10 @@ export function TestimonialsSection() {
               />
 
               <div className="relative z-10 text-center p-8">
-                <div className="w-16 h-16 rounded-full bg-[#0066FF] text-white flex items-center justify-center mx-auto mb-4 shadow-xl shadow-blue-500/30">
+                <div className="w-16 h-16 rounded-full bg-brand-accent text-white flex items-center justify-center mx-auto mb-4 shadow-xl shadow-brand-accent/30">
                   <Play className="w-7 h-7 fill-white text-white ml-1" />
                 </div>
-                <h4 className="font-sans text-2xl font-bold text-white mb-2">
+                <h4 className="font-sans text-2xl font-medium text-white mb-2">
                   {current.videoAuthor.name} &mdash; Client Story
                 </h4>
                 <p className="font-sans text-xs text-white/70 max-w-md mx-auto">

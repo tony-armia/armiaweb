@@ -261,7 +261,7 @@ export function ServicesSection() {
     <section
       id="services"
       data-theme="dark"
-      className="relative w-full bg-[#08090b] text-white py-24 sm:py-32 md:py-36 px-6 sm:px-12 md:px-16 lg:px-24 select-none overflow-hidden border-t border-white/[0.06]"
+      className="relative w-full bg-[#08090b] text-white py-20 sm:py-28 md:py-32 px-6 sm:px-12 md:px-16 lg:px-24 select-none overflow-hidden border-t border-white/[0.06]"
       aria-label="Services and Enterprise Transformation"
     >
       {/* Background ambient lighting */}
@@ -274,8 +274,8 @@ export function ServicesSection() {
         {/* ── Section Header Row (Appinventiv Style) ── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12 sm:mb-16">
           <div className="lg:col-span-8">
-            <SectionEyebrow number="03" label="SERVICES & CAPABILITIES" dark className="!mb-4" />
-            <h2 className="font-sans font-light text-[clamp(2.4rem,5.2vw,4.6rem)] leading-[1.06] tracking-[-0.03em] text-white">
+            <SectionEyebrow number="03" label="SOLUTIONS" className="!mb-4" />
+            <h2 className="font-sans font-light text-[clamp(2.25rem,4.2vw,4.2rem)] leading-[1.04] tracking-[-0.03em] text-white">
               Beyond Development.{" "}
               <span className="block text-brand-accent font-normal tracking-[-0.02em]">
                 We Deliver Transformation.
@@ -298,7 +298,7 @@ export function ServicesSection() {
             className={`font-mono text-xs sm:text-[13px] tracking-[0.16em] uppercase px-5 py-2.5 rounded-full transition-all duration-300 cursor-pointer ${
               activeTab === "pillars"
                 ? "bg-brand-accent text-white font-semibold shadow-lg shadow-brand-accent/25"
-                : "bg-white/[0.03] text-white/60 hover:text-white hover:bg-white/[0.07] border border-white/[0.06]"
+                : "bg-white/[0.04] text-white/60 hover:text-white hover:bg-white/[0.08] border border-white/[0.08]"
             }`}
           >
             Core Service Lines
@@ -309,7 +309,7 @@ export function ServicesSection() {
             className={`font-mono text-xs sm:text-[13px] tracking-[0.16em] uppercase px-5 py-2.5 rounded-full transition-all duration-300 cursor-pointer ${
               activeTab === "expertise"
                 ? "bg-brand-accent text-white font-semibold shadow-lg shadow-brand-accent/25"
-                : "bg-white/[0.03] text-white/60 hover:text-white hover:bg-white/[0.07] border border-white/[0.06]"
+                : "bg-white/[0.04] text-white/60 hover:text-white hover:bg-white/[0.08] border border-white/[0.08]"
             }`}
           >
             Deep Technical Expertise (12)
@@ -320,7 +320,7 @@ export function ServicesSection() {
             className={`font-mono text-xs sm:text-[13px] tracking-[0.16em] uppercase px-5 py-2.5 rounded-full transition-all duration-300 cursor-pointer ${
               activeTab === "industries"
                 ? "bg-brand-accent text-white font-semibold shadow-lg shadow-brand-accent/25"
-                : "bg-white/[0.03] text-white/60 hover:text-white hover:bg-white/[0.07] border border-white/[0.06]"
+                : "bg-white/[0.04] text-white/60 hover:text-white hover:bg-white/[0.08] border border-white/[0.08]"
             }`}
           >
             Industry Solutions
