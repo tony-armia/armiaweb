@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --surface-dark: #101010;
+  --surface-deep: #090909;
+
+  --foreground: #111111;
+  --foreground-muted: #6f6f6f;
+  --foreground-on-dark: #f5f5f5;
+  --foreground-dark-muted: #969696;
+
+  --accent: #ff5a00;
+  --accent-hover: #ff4500;
+
+  --border-light: rgba(0, 0, 0, 0.10);
+  --border-dark: rgba(255, 255, 255, 0.10);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface-dark: var(--surface-dark);
+  --color-surface-deep: var(--surface-deep);
+
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-on-dark: var(--foreground-on-dark);
+  --color-foreground-dark-muted: var(--foreground-dark-muted);
+
+  --color-brand-accent: var(--accent);
+  --color-brand-accent-hover: var(--accent-hover);
+
+  --color-border-light: var(--border-light);
+  --color-border-dark: var(--border-dark);
+
+  --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+}
+
+html {
+  background-color: var(--surface-deep);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@media (pointer: fine) {
+
+  *,
+  *::before,
+  *::after,
+  html,
+  body,
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    cursor: none !important;
+  }
+}
+
+::selection {
+  background-color: #ff5a00;
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090909;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262626;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff5a00;
+}
+
+:focus-visible {
+  outline: 2px solid #ff5a00;
+  outline-offset: 3px;
+}
+
+/* Scroll Snap Architecture */
+.snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Shared Section Content Inset */
+.content-inset {
+  padding-left: clamp(34px, 3vw, 58px);
+  padding-right: clamp(40px, 5vw, 90px);
+}
