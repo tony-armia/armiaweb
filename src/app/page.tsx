@@ -1,5 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { PartnerTicker } from "@/components/sections/PartnerTicker";
 import { EngineeringIntro } from "@/components/sections/EngineeringIntro";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
@@ -16,8 +17,11 @@ export default function Home() {
       {/* Top Header Overlay */}
       <Header />
 
-      {/* 1. Hero Section (includes pinned Partner Ticker at bottom) */}
+      {/* 1. Hero Section (Elysium Project Reference) */}
       <HeroSection />
+
+      {/* Partner Credibility Ticker */}
+      <PartnerTicker />
 
       {/* 2. Section 02 — 24+ Years Engineering Credibility */}
       <EngineeringIntro />

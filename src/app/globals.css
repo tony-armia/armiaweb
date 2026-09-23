@@ -104,3 +104,36 @@ body {
   padding-left: clamp(34px, 3vw, 58px);
   padding-right: clamp(40px, 5vw, 90px);
 }
+
+/* ── Elysium Reference Dynamic Typography Gradient ── */
+@keyframes elysium-gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.elysium-animated-gradient {
+  background-image: linear-gradient(
+    270deg,
+    #0b1f2a,
+    #1c2e3a,
+    #7a1e1e,
+    #c6a44a,
+    #ff5a00,
+    #7e6728,
+    #ff8c42,
+    #0a0d10
+  );
+  background-size: 300% 100%;
+  animation: elysium-gradient-move 14s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  will-change: background-position;
+}
