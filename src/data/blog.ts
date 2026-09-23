@@ -44,7 +44,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     id: "blog-04",
     date: "MAR 23, 2026",
     category: "BRANDING",
-    title: "Creating A Digital Presence That Feels Clear",
+    title: "Creating a Digital Presence That Feels Clear",
     description: "How strong messaging, consistent visuals, and a focused website experience.",
     image: "/images/blog4.png",
     aspectRatioClass: "aspect-[0.75/1]",
