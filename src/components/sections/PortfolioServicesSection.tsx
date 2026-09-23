@@ -175,7 +175,7 @@ export function PortfolioServicesSection() {
         <div className="relative w-full flex flex-col md:flex-row items-start mb-6 md:mb-8">
           {/* Far Left Section Marker: 10.8% to 30.3% */}
           <div className="w-full md:w-[19.5%] md:ml-[10.8%] px-6 md:px-0 pt-1 mb-4 md:mb-0">
-            <SectionEyebrow number="05" label="PORTFOLIO" className="!mb-0" />
+            <SectionEyebrow number="04" label="CASE STUDIES" className="!mb-0" />
           </div>
 
           {/* Heading Block: 30.3% to 69.3% */}

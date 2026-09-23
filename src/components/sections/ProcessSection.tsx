@@ -1,358 +1,456 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { EASE_CUSTOM } from "@/lib/motion";
-import { GridLines } from "@/components/ui/GridLines";
-import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
-import { RotatorTabStrip } from "@/components/ui/RotatorTabStrip";
+import {
+  ShieldCheck,
+  Lock,
+  Target,
+  ArrowRight,
+  ArrowDown,
+  Compass,
+  Layers,
+  Code2,
+  Rocket,
+} from "lucide-react";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Phases Data
+// 5-Phase Delivery Framework Data
 // ─────────────────────────────────────────────────────────────────────────────
 
-interface PhaseItem {
-  id: string;
-  num: string;
-  category: string;
-  titleLines: string[];
+interface FeatureItem {
+  icon: React.ElementType;
+  title: string;
   description: string;
-  deliverables: string[];
-  duration: string;
 }
 
-const phases: PhaseItem[] = [
+interface PhaseData {
+  id: string;
+  num: string;
+  label: string;
+  category: string;
+  title: string;
+  description: string;
+  features: FeatureItem[];
+}
+
+const PHASES: PhaseData[] = [
   {
     id: "01",
-    num: "/01",
-    category: "PHASE 01 // STRATEGY",
-    titleLines: ["STAKEHOLDER AUDIT", "& REQUIREMENTS"],
+    num: "01",
+    label: "Discovery",
+    category: "STRATEGY",
+    title: "Discovery & Technical Due Diligence",
     description:
-      "We align key stakeholders, audit existing systems, and establish technical architecture so delivery is risk-aware before coding starts.",
-    deliverables: [
-      "Technical architecture audit & scoping",
-      "Security, SLA & compliance matrix",
-      "Sprint roadmap & milestone plan",
+      "We turn high-level business goals into a risk-managed technical roadmap, auditing existing systems and defining architectural benchmarks.",
+    features: [
+      {
+        icon: Compass,
+        title: "ARCHITECTURE AUDIT",
+        description: "Audit legacy stack & uncover hidden bottlenecks.",
+      },
+      {
+        icon: Lock,
+        title: "SECURITY MATRIX",
+        description: "Establish SOC-2 & compliance baselines early.",
+      },
+      {
+        icon: Target,
+        title: "ROADMAP BLUEPRINT",
+        description: "Sprint milestones & architectural deliverables locked.",
+      },
     ],
-    duration: "WEEKS 01 - 02",
   },
   {
     id: "02",
-    num: "/02",
-    category: "PHASE 02 // ARCHITECTURE",
-    titleLines: ["RESEARCH-DRIVEN", "DESIGN SYSTEMS"],
+    num: "02",
+    label: "Planning",
+    category: "ARCHITECTURE & UX",
+    title: "System Architecture & UX Design",
     description:
-      "We define user journeys and high-fidelity prototypes, validating UX clarity and creating atomic design systems for seamless engineering handoff.",
-    deliverables: [
-      "Interactive Figma tokens & prototypes",
-      "Usability testing & feedback synthesis",
-      "Developer handoff documentation",
+      "We define data schemas, API contracts, and interactive Figma design systems to ensure pixel-perfect clarity before engineering begins.",
+    features: [
+      {
+        icon: Layers,
+        title: "COMPONENT TOKENS",
+        description: "Design systems with WCAG 2.1 AA compliance.",
+      },
+      {
+        icon: Compass,
+        title: "API CONTRACTS",
+        description: "Event streams, databases & microservices defined.",
+      },
+      {
+        icon: Target,
+        title: "USER VALIDATION",
+        description: "High-fidelity clickable prototypes tested with users.",
+      },
     ],
-    duration: "WEEKS 03 - 04",
   },
   {
     id: "03",
-    num: "/03",
-    category: "PHASE 03 // ASSURANCE",
-    titleLines: ["SECURITY AUDITS", "& PERFORMANCE"],
+    num: "03",
+    label: "Assurance",
+    category: "ASSURANCE",
+    title: "Security Audits & Performance",
     description:
       "Automated regression test suites, penetration testing, and load stress audits guarantee 99.99% resilience before going live.",
-    deliverables: [
-      "Automated regression test suites",
-      "SOC2 / HIPAA compliance audits",
-      "Sub-100ms load & stress profiling",
+    features: [
+      {
+        icon: ShieldCheck,
+        title: "AUTOMATED TEST SUITES",
+        description: "Catch issues early, ship with confidence.",
+      },
+      {
+        icon: Lock,
+        title: "SECURITY AUDITS",
+        description: "Find and fix risks before they hit users.",
+      },
+      {
+        icon: Target,
+        title: "LOAD & STRESS PROFILING",
+        description: "Built for scale, ready for growth.",
+      },
     ],
-    duration: "WEEKS 05 - 06",
   },
   {
     id: "04",
-    num: "/04",
-    category: "PHASE 04 // EXECUTION",
-    titleLines: ["AGILE SPRINTS", "& CI/CD BUILDS"],
+    num: "04",
+    label: "Development",
+    category: "EXECUTION",
+    title: "Agile Sprints & CI/CD Pipelines",
     description:
-      "Two-week agile sprints with continuous integration, automated code review gates, and zero-downtime database deployment pipelines.",
-    deliverables: [
-      "Microservices & cloud backend APIs",
-      "Automated CI/CD build pipelines",
-      "Transparent Jira sprint telemetry",
+      "Two-week iterative sprints with automated testing gates, clean code reviews, and transparent Jira telemetry tracking daily velocity.",
+    features: [
+      {
+        icon: Code2,
+        title: "BI-WEEKLY BUILDS",
+        description: "Demonstrable working software every sprint.",
+      },
+      {
+        icon: ShieldCheck,
+        title: "AUTOMATED CI/CD",
+        description: "Automated test suites on every pull request.",
+      },
+      {
+        icon: Target,
+        title: "PRODUCTION APIS",
+        description: "Microservices engineered for sub-second latency.",
+      },
     ],
-    duration: "WEEKS 07 - 10",
   },
   {
     id: "05",
-    num: "/05",
-    category: "PHASE 05 // SCALE",
-    titleLines: ["ZERO-DOWNTIME", "24/7 MONITORING"],
+    num: "05",
+    label: "Launch",
+    category: "DEPLOYMENT & SRE",
+    title: "Zero-Downtime Rollout & Scale",
     description:
-      "Canary rollout with full telemetry dashboards, automated disaster recovery runbooks, and 24/7 SLA engineering support.",
-    deliverables: [
-      "Canary & blue-green deployments",
-      "Real-time telemetry & latency alerts",
-      "24/7 SLA enterprise support",
+      "Canary and blue-green cloud deployments with multi-region DNS routing, 24/7 observability, and guaranteed 99.99% uptime.",
+    features: [
+      {
+        icon: Rocket,
+        title: "BLUE-GREEN DEPLOY",
+        description: "Zero disruption for active enterprise users.",
+      },
+      {
+        icon: ShieldCheck,
+        title: "24/7 TELEMETRY",
+        description: "Real-time latency alerts and automated monitoring.",
+      },
+      {
+        icon: Target,
+        title: "ENTERPRISE SLA",
+        description: "Guaranteed uptime with automated disaster recovery.",
+      },
     ],
-    duration: "CONTINUOUS",
   },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Motion Variants
-// ─────────────────────────────────────────────────────────────────────────────
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.06, delayChildren: 0.08 },
-  },
-  exit: {
-    opacity: 0,
-    transition: { duration: 0.25, ease: EASE_CUSTOM },
-  },
-};
-
-const maskVariants = {
-  hidden: { y: "110%", opacity: 0 },
-  visible: {
-    y: "0%",
-    opacity: 1,
-    transition: { duration: 0.55, ease: EASE_CUSTOM },
-  },
-};
-
-const fadeVariants = {
-  hidden: { opacity: 0, y: 8 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.45, ease: EASE_CUSTOM },
-  },
-};
-
-// ─────────────────────────────────────────────────────────────────────────────
-// ProcessSection Component
+// Component
 // ─────────────────────────────────────────────────────────────────────────────
 
 export function ProcessSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [activeIdx, setActiveIdx] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
+  const [activeIdx, setActiveIdx] = useState<number>(2); // Default to Phase 03 Assurance matching screenshot
 
-  // Auto-advance through the 5 phases every 4 seconds unless hovered
-  useEffect(() => {
-    if (isHovered) return;
-
-    const interval = setInterval(() => {
-      setActiveIdx((prev: number) => (prev + 1) % phases.length);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [isHovered]);
-
-  const phase = phases[activeIdx];
+  const activePhase = PHASES[activeIdx];
 
   return (
     <section
-      ref={containerRef}
+      id="process"
       data-theme="dark"
-      className="relative z-20 w-full bg-black text-[#f3f3f0] h-[100svh] min-h-[100svh] py-10 md:py-14 flex flex-col justify-center overflow-hidden snap-section border-t border-white/[0.08] select-none"
+      className="relative w-full bg-[#08090c] text-white select-none overflow-hidden"
+      aria-label="Delivery Framework and Process"
     >
-      {/* Background GridLines & Texture */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay bg-[url('/images/Noise.png')]" />
-      <GridLines />
-
-      <div className="w-full max-w-[1920px] mx-auto px-6 md:px-0 relative z-10">
-        
-        {/* ── Upper Section Header Row (10.8% / 30.3% / 69.3% Grid) ── */}
-        <div className="relative w-full flex flex-col md:flex-row items-start mb-6 md:mb-8">
-          {/* Far Left Section Marker */}
-          <div className="w-full md:w-[19.5%] md:ml-[10.8%] px-6 md:px-0 pt-1 mb-4 md:mb-0">
-            <SectionEyebrow number="04" label="PROCESS" dark className="!mb-0" />
+      {/* ── 1. Top Light Header Strip (Matching Reference Mockup) ── */}
+      <div className="w-full bg-[#f6f6f5] text-[#111111] py-8 sm:py-10 px-6 sm:px-12 md:px-16 lg:px-24 border-b border-black/[0.08]">
+        <div className="mx-auto w-full max-w-[1500px] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+          {/* Left: Section Indicator */}
+          <div className="flex items-center gap-3">
+            <span className="w-4 h-[2px] bg-[#FF5A00] inline-block" />
+            <span className="font-sans font-bold text-2xl sm:text-3xl tracking-tight text-[#111111]">
+              05
+            </span>
+            <span className="font-mono text-[11px] sm:text-xs tracking-[0.24em] text-[#777777] uppercase font-medium">
+              PROCESS
+            </span>
           </div>
 
-          {/* Heading Block */}
-          <div className="w-full md:w-[39.0%] px-6 md:px-0 pt-0.5 mb-4 md:mb-0">
-            <h2 className="font-sans text-[clamp(2.1rem,3.0vw,3.8rem)] font-normal tracking-[-0.04em] leading-[0.94] text-left">
-              <span className="block text-[#6b6b6b]">A PROVEN</span>
-              <span className="block text-white font-medium">DELIVERY FRAMEWORK.</span>
+          {/* Center: Main Headline */}
+          <div className="flex flex-col">
+            <div className="font-mono text-[11px] sm:text-xs tracking-[0.25em] text-[#666666] uppercase font-semibold mb-1 flex items-center gap-2">
+              <span className="w-2.5 h-[1.5px] bg-[#666666]" />
+              <span>A &mdash; PROVEN</span>
+            </div>
+            <h2 className="font-sans font-extrabold text-3xl sm:text-4xl lg:text-[3.2rem] tracking-tight text-[#111111] leading-none uppercase">
+              DELIVERY FRAMEWORK
+              <span className="text-[#FF5A00]">.</span>
             </h2>
           </div>
 
-          {/* Right Supporting Copy */}
-          <div className="w-full md:w-[19.5%] px-6 md:px-0 pt-1 flex justify-start">
-            <p className="font-mono text-[12px] md:text-[14px] leading-[1.45] text-[#9a9a96] uppercase tracking-wider max-w-[280px]">
-              EVERY ENGAGEMENT FOLLOWS THE SAME RIGOROUS FIVE-PHASE PROCESS - REFINED OVER 20+ YEARS.
+          {/* Right: Subtitle Copy */}
+          <div className="max-w-xs lg:border-l lg:border-black/10 lg:pl-6">
+            <p className="font-sans text-[13px] sm:text-[14px] text-[#666666] leading-[1.6]">
+              Every engagement follows the same rigorous five-phase process &mdash; refined over 20+ years.
             </p>
           </div>
         </div>
+      </div>
 
-        {/* ── Main Structured Showcase Panel (10.8% to 88.8% -> width: 78.0%) ── */}
+      {/* ── 2. Main Dark Showcase Body (Obsidian + Warm Bronze Fluid Lighting) ── */}
+      <div className="relative w-full py-16 sm:py-24 lg:py-28 px-6 sm:px-12 md:px-16 lg:px-24 overflow-hidden">
+        {/* Sweeping Architectural Bronze Wave Background */}
         <div
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          className="w-full md:w-[78.0%] md:ml-[10.8%] px-6 md:px-0"
-        >
-          {/* Outer Bordered Framework Card */}
-          <div className="border border-white/[0.1] bg-[#0c0c0c] grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-white/[0.08]">
-            
-            {/* ── Left Column: Active Phase Deep Dive (7 cols) ── */}
-            <div className="md:col-span-7 p-6 md:p-8 lg:p-10 flex flex-col justify-between min-h-[380px] md:min-h-[420px]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={phase.id}
-                  variants={containerVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  className="w-full flex flex-col justify-between h-full"
-                >
-                  <div>
-                    {/* Category & Timeline Badge */}
-                    <motion.div variants={fadeVariants} className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-2">
-                        <span className="h-1.5 w-1.5 bg-[#FF5A00] inline-block" />
-                        <span className="font-mono text-[12px] md:text-[13.5px] tracking-widest uppercase text-[#FF5A00] font-semibold">
-                          {phase.category}
-                        </span>
-                      </div>
-                      <span className="font-mono text-[11px] md:text-[13px] tracking-wider text-white/60 bg-white/[0.05] px-2.5 py-0.5 border border-white/[0.08]">
-                        {phase.duration}
-                      </span>
-                    </motion.div>
+          aria-hidden="true"
+          className="absolute inset-0 pointer-events-none opacity-25 mix-blend-screen bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/delivery_bronze_wave.jpg')" }}
+        />
 
-                    {/* Title with Mask Reveal */}
-                    <div className="overflow-hidden pb-1 mb-3">
-                      <motion.h3
-                        variants={maskVariants}
-                        className="font-sans text-[clamp(1.6rem,2.4vw,2.8rem)] font-bold tracking-[-0.03em] leading-[1.05] text-white uppercase"
-                      >
-                        {phase.titleLines.map((line, idx) => (
-                          <span key={idx} className="block">
-                            {line}
-                          </span>
-                        ))}
-                      </motion.h3>
-                    </div>
+        {/* Subtle radial ambient glow */}
+        <div
+          aria-hidden="true"
+          className="absolute bottom-10 left-10 w-[600px] h-[400px] bg-[#FF5A00]/[0.035] rounded-full blur-[160px] pointer-events-none"
+        />
 
-                    {/* Description */}
-                    <motion.p
-                      variants={fadeVariants}
-                      className="font-sans text-[15px] md:text-[16px] leading-[1.6] text-[#a4a4a0] max-w-lg mb-6"
-                    >
-                      {phase.description}
-                    </motion.p>
-
-                    {/* Deliverables Checklist */}
-                    <div className="pt-4 border-t border-white/[0.06]">
-                      <div className="font-mono text-[10px] md:text-[11.5px] tracking-widest text-[#777777] uppercase mb-2.5">
-                        PHASE DELIVERABLES
-                      </div>
-                      <ul className="space-y-2">
-                        {phase.deliverables.map((del, i) => (
-                          <motion.li
-                            key={i}
-                            variants={fadeVariants}
-                            className="font-mono text-[13px] md:text-[14px] uppercase tracking-wider text-[#d0d0cc] flex items-center gap-2.5"
-                          >
-                            <span className="text-[#FF5A00] font-bold text-sm">✓</span>
-                            <span>{del}</span>
-                          </motion.li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-
-                  {/* Numbered Controls Strip at bottom of phase */}
-                  <div className="pt-6 mt-6 border-t border-white/[0.06]">
-                    <RotatorTabStrip
-                      items={phases.map((p) => ({ id: p.id, label: p.id }))}
-                      activeIndex={activeIdx}
-                      onSelect={(idx) => {
-                        setActiveIdx(idx);
-                      }}
-                      dark
-                      autoAdvance={!isHovered}
-                      intervalMs={4000}
-                      isPaused={isHovered}
-                      layoutIdPrefix="process-steps-tab"
-                    />
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            {/* ── Right Column: Engagement Action & Overview Box (5 cols) ── */}
-            <div className="md:col-span-5 p-6 md:p-8 lg:p-10 flex flex-col justify-between bg-[#101010] relative overflow-hidden">
-              {/* Subtle Ribbon Backdrop Graphic */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -top-8 -right-8 w-[200px] aspect-square opacity-15 filter contrast-125 select-none"
+        <div className="mx-auto w-full max-w-[1500px] relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+          
+          {/* ── Left Column: Phase Details & Interactive Timeline (7 cols) ── */}
+          <div className="lg:col-span-7 flex flex-col justify-between">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activePhase.id}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
               >
-                <Image
-                  src="/images/spiral-ribbon.png"
-                  alt=""
-                  fill
-                  sizes="200px"
-                  className="object-contain"
-                />
-              </div>
-
-              <div className="relative z-10">
-                <div className="font-mono text-[10px] md:text-[11.5px] tracking-widest text-[#FF5A00] uppercase mb-2">
-                  // ENGAGEMENT MODEL
+                {/* Phase Eyebrow */}
+                <div className="flex items-center gap-2.5 mb-3.5">
+                  <span className="w-4 h-[2px] bg-[#FF5A00] inline-block" />
+                  <span className="font-mono text-[11px] sm:text-xs tracking-[0.22em] text-[#999999] uppercase font-semibold">
+                    PHASE {activePhase.num} // {activePhase.category}
+                  </span>
                 </div>
 
-                <h4 className="font-sans font-bold text-[clamp(1.3rem,1.8vw,1.9rem)] leading-[1.1] tracking-tight uppercase text-white mb-3">
-                  HOW WE WORK
-                  <br />
-                  WITH YOUR TEAM.
-                </h4>
+                {/* Phase Title */}
+                <h3 className="font-sans text-3xl sm:text-4xl lg:text-[3.2rem] font-bold tracking-tight text-white leading-[1.08] mb-5">
+                  {activePhase.title}
+                </h3>
 
-                <p className="font-sans text-[15px] md:text-[16px] text-[#8e8e88] leading-[1.6] mb-5">
-                  Direct Slack access to technical leads, weekly demo releases, and zero contract lock-in.
+                {/* Phase Description */}
+                <p className="font-sans text-[15px] sm:text-[16px] text-white/70 leading-[1.7] max-w-xl mb-10">
+                  {activePhase.description}
                 </p>
 
-                {/* Structured Highlights */}
-                <div className="space-y-3 pt-4 border-t border-white/[0.08]">
-                  <div className="flex items-start gap-3">
-                    <span className="font-mono text-sm text-[#FF5A00] font-bold">01</span>
-                    <div>
-                      <div className="font-mono text-[13px] md:text-[14px] text-white font-medium uppercase">Dedicated Pod</div>
-                      <div className="text-[12px] md:text-[13px] text-[#888888]">Dedicated engineers &amp; sprint leads</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="font-mono text-sm text-[#FF5A00] font-bold">02</span>
-                    <div>
-                      <div className="font-mono text-[13px] md:text-[14px] text-white font-medium uppercase">Sprint Cadence</div>
-                      <div className="text-[12px] md:text-[13px] text-[#888888]">2-week sprints with transparent Jira boards</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="font-mono text-sm text-[#FF5A00] font-bold">03</span>
-                    <div>
-                      <div className="font-mono text-[13px] md:text-[14px] text-white font-medium uppercase">Production Guarantee</div>
-                      <div className="text-[12px] md:text-[13px] text-[#888888]">Automated testing &amp; 99.99% SLA uptime</div>
-                    </div>
-                  </div>
+                {/* 3 Features Row matching mockup */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+                  {activePhase.features.map((feat, i) => {
+                    const FeatIcon = feat.icon;
+                    return (
+                      <div key={i} className="flex flex-col gap-3">
+                        <div className="w-9 h-9 rounded-lg flex items-center justify-center text-white/90">
+                          <FeatIcon className="w-6 h-6 stroke-[1.5]" />
+                        </div>
+                        <div>
+                          <h4 className="font-mono text-[11px] sm:text-[12px] font-semibold tracking-wider text-white uppercase mb-1">
+                            {feat.title}
+                          </h4>
+                          <p className="text-xs text-white/50 leading-relaxed">
+                            {feat.description}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Horizontal Phase Stepper Timeline matching mockup */}
+            <div className="pt-6 border-t border-white/[0.08]">
+              <div className="flex items-center justify-between gap-2 overflow-x-auto pb-2">
+                {PHASES.map((p, idx) => {
+                  const isActive = activeIdx === idx;
+                  return (
+                    <React.Fragment key={p.id}>
+                      <button
+                        onClick={() => setActiveIdx(idx)}
+                        className="relative pb-3 text-left transition-all cursor-pointer group shrink-0 min-w-[75px]"
+                      >
+                        <span
+                          className={`block font-mono text-xs font-semibold transition-colors ${
+                            isActive ? "text-[#FF5A00]" : "text-white/40 group-hover:text-white"
+                          }`}
+                        >
+                          {p.num}
+                        </span>
+                        <span
+                          className={`block font-sans text-sm transition-colors ${
+                            isActive ? "text-white font-medium" : "text-white/60 group-hover:text-white"
+                          }`}
+                        >
+                          {p.label}
+                        </span>
+                        {isActive && (
+                          <motion.span
+                            layoutId="activePhaseBar"
+                            className="absolute bottom-0 left-0 h-[2.5px] w-full bg-[#FF5A00] rounded-full"
+                          />
+                        )}
+                      </button>
+
+                      {idx < PHASES.length - 1 && (
+                        <div className="h-[1px] flex-1 min-w-[20px] bg-white/10 self-center -mt-2" />
+                      )}
+                    </React.Fragment>
+                  );
+                })}
               </div>
 
-              {/* Action Button */}
-              <div className="relative z-10 pt-6 mt-6 border-t border-white/[0.08]">
-                <a
-                  href="#contact"
-                  className="group bg-[#FF5A00] hover:bg-[#ff4500] text-white font-mono text-[11px] md:text-[13px] tracking-widest uppercase px-5 py-3.5 flex items-center justify-between transition-colors w-full"
-                >
-                  <span className="font-semibold">SCHEDULE A TECHNICAL AUDIT</span>
-                  <span className="text-base transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </a>
+              {/* Scroll to Explore indicator */}
+              <div className="flex items-center gap-3 pt-6">
+                <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60">
+                  <ArrowDown className="w-3.5 h-3.5" />
+                </div>
+                <span className="font-mono text-[10px] tracking-[0.2em] text-white/50 uppercase">
+                  SCROLL TO EXPLORE
+                </span>
               </div>
             </div>
 
           </div>
-        </div>
 
+          {/* ── Right Column: Floating White Card with Engineer Photo (5 cols) ── */}
+          <div className="lg:col-span-5">
+            <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-white text-[#111111] border border-white/10">
+              
+              {/* Top Photo with Code Monitor & Trusted Tag */}
+              <div className="relative w-full h-[220px] sm:h-[260px] overflow-hidden bg-black">
+                <Image
+                  src="/images/delivery_engineer_monitor.jpg"
+                  alt="Software Engineer analyzing performance metrics"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 45vw"
+                  className="object-cover object-center"
+                />
+
+                {/* Subtle dark gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />
+
+                {/* Top Right Floating Badge */}
+                <div className="absolute top-4 right-4 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-white/15">
+                  <span className="w-2.5 h-[1.5px] bg-[#FF5A00] inline-block" />
+                  <span className="font-mono text-[9.5px] tracking-widest text-white/90 uppercase font-medium">
+                    TRUSTED BY GLOBAL BRANDS
+                  </span>
+                </div>
+              </div>
+
+              {/* Bottom White Card Body */}
+              <div className="p-7 sm:p-9 bg-[#fbfbfb]">
+                {/* Header Row: Title on Left, Metric on Right */}
+                <div className="grid grid-cols-12 gap-4 items-center pb-6 border-b border-black/[0.08]">
+                  <div className="col-span-8">
+                    <div className="font-mono text-[10.5px] tracking-widest text-[#FF5A00] uppercase font-semibold mb-1">
+                      // WHAT WE DELIVER
+                    </div>
+                    <h4 className="font-sans font-bold text-xl sm:text-2xl text-[#111111] leading-tight">
+                      Built for Security.
+                      <br />
+                      Engineered for Performance.
+                    </h4>
+                  </div>
+
+                  <div className="col-span-4 pl-4 border-l border-black/10 flex flex-col justify-center">
+                    <div className="font-sans font-extrabold text-3xl sm:text-4xl text-[#FF5A00] leading-none">
+                      99.99%
+                    </div>
+                    <div className="font-mono text-[8.5px] sm:text-[9px] tracking-wider uppercase text-[#777777] font-semibold mt-1">
+                      RESILIENCE GUARANTEE
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3 Points Checklist matching reference */}
+                <div className="space-y-3.5 py-6">
+                  <div className="flex items-start gap-3.5">
+                    <span className="font-mono text-sm text-[#FF5A00] font-bold shrink-0 mt-0.5">
+                      01
+                    </span>
+                    <span className="font-sans text-[13px] sm:text-[14px] text-[#222222] font-medium">
+                      Dedicated engineers &amp; sprint leads
+                    </span>
+                  </div>
+
+                  <div className="flex items-start gap-3.5">
+                    <span className="font-mono text-sm text-[#FF5A00] font-bold shrink-0 mt-0.5">
+                      02
+                    </span>
+                    <span className="font-sans text-[13px] sm:text-[14px] text-[#222222] font-medium">
+                      2-week sprints with transparent Jira boards
+                    </span>
+                  </div>
+
+                  <div className="flex items-start gap-3.5">
+                    <span className="font-mono text-sm text-[#FF5A00] font-bold shrink-0 mt-0.5">
+                      03
+                    </span>
+                    <span className="font-sans text-[13px] sm:text-[14px] text-[#222222] font-medium">
+                      Automated testing &amp; 99.99% SLA uptime
+                    </span>
+                  </div>
+                </div>
+
+                {/* Card Action Row matching mockup */}
+                <div className="pt-5 border-t border-black/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <a
+                    href="#contact"
+                    className="flex items-center gap-3 group"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-[#FF5A00] text-white flex items-center justify-center shadow-md shadow-[#FF5A00]/25 transition-transform duration-300 group-hover:scale-105">
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
+                    <span className="font-mono text-[11px] sm:text-xs tracking-wider uppercase text-[#111111] font-bold group-hover:text-[#FF5A00] transition-colors">
+                      SCHEDULE A TECHNICAL AUDIT
+                    </span>
+                  </a>
+
+                  <a
+                    href="#services"
+                    className="font-mono text-[11px] sm:text-xs tracking-wider uppercase text-[#777777] hover:text-[#111111] flex items-center gap-1.5 transition-colors group/learn"
+                  >
+                    <span>LEARN MORE</span>
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/learn:translate-x-1" />
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );

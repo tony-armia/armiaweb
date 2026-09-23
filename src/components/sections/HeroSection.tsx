@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { HeroWaveCanvas } from "@/components/effects/HeroWaveCanvas";
+import { HeroStatsTimeline } from "@/components/ui/HeroStatsTimeline";
 import { useAppReady } from "@/hooks/useAppReady";
 
 export function HeroSection() {
@@ -41,11 +42,6 @@ export function HeroSection() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="relative mx-auto flex flex-col items-center md:w-fit"
           >
-            {/* Top Prefix: "the" */}
-            <span className="mb-2 text-[18px] lowercase tracking-[0.35em] text-white/60 font-light md:absolute md:-top-7 md:left-0 md:text-[30px] transition-colors duration-300 hover:text-white">
-              the
-            </span>
-
             {/* Center Giant Word: "armia" */}
             <h1 className="text-center font-sans font-semibold leading-none tracking-tight text-[18vw] cursor-default select-none">
               <div className="overflow-hidden flex items-center justify-center">
@@ -81,6 +77,11 @@ export function HeroSection() {
               systems
             </span>
           </motion.div>
+        </div>
+
+        {/* ── Right-Side Connected Stats Timeline (Matching User Reference) ── */}
+        <div className="absolute right-6 sm:right-10 md:right-14 xl:right-24 top-1/2 -translate-y-1/2 hidden md:block z-20">
+          <HeroStatsTimeline />
         </div>
 
         {/* ── Bottom-Left Context Statement (Elysium format) ── */}

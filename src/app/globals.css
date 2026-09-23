@@ -136,4 +136,21 @@ body {
   background-clip: text;
   color: transparent;
   will-change: background-position;
+}
+
+.elysium-animated-bg {
+  background-image: linear-gradient(
+    270deg,
+    #0b1f2a,
+    #1c2e3a,
+    #7a1e1e,
+    #c6a44a,
+    #ff5a00,
+    #7e6728,
+    #ff8c42,
+    #0a0d10
+  );
+  background-size: 300% 100%;
+  animation: elysium-gradient-move 14s linear infinite;
+  will-change: background-position;
 }

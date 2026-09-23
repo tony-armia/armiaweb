@@ -20,20 +20,20 @@ export default function Home() {
       {/* 1. Hero Section (Elysium Project Reference) */}
       <HeroSection />
 
+      {/* 2. Section 02 — Elysium Reference Editorial "Who We Are" */}
+      <EngineeringIntro />
+
       {/* Partner Credibility Ticker */}
       <PartnerTicker />
-
-      {/* 2. Section 02 — 24+ Years Engineering Credibility */}
-      <EngineeringIntro />
 
       {/* 3. Section 03 — AI-Powered Engineering Solutions */}
       <ServicesSection />
 
-      {/* 4. Section 04 — Delivery Framework Process */}
-      <ProcessSection />
-
-      {/* 5. Section 05 — Portfolio Services Progression */}
+      {/* 4. Section 04 — Portfolio / Case Studies */}
       <PortfolioServicesSection />
+
+      {/* 5. Section 05 — Delivery Framework Process */}
+      <ProcessSection />
 
       {/* 6. Section 06 — Trusted by Engineering Leaders */}
       <TestimonialsSection />
