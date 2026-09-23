@@ -218,26 +218,28 @@ export function AwardsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_ONCE}
                 transition={{ duration: 0.4, delay: idx * 0.035, ease: EASE_CUSTOM }}
-                className="group relative rounded-2xl border border-white/[0.08] bg-[#0c0d13]/80 hover:bg-[#12141d] hover:border-[#FF5A00]/45 p-4 sm:p-5 flex flex-col justify-between items-center text-center transition-all duration-300 shadow-lg hover:shadow-[0_0_24px_rgba(255,90,0,0.18)] min-h-[145px] sm:min-h-[160px]"
+                className="group relative rounded-2xl border border-white/[0.08] bg-[#0c0d13]/80 hover:bg-[#12141d] hover:border-[#FF5A00]/45 p-3.5 sm:p-4 flex flex-col justify-between items-center text-center transition-all duration-300 shadow-lg hover:shadow-[0_0_24px_rgba(255,90,0,0.18)] min-h-[175px] sm:min-h-[190px]"
               >
-                {/* Real Authentic Award Logo */}
-                <div className="relative w-full h-14 sm:h-16 flex items-center justify-center pt-1">
-                  <Image
-                    src={award.image}
-                    alt={award.name}
-                    fill
-                    unoptimized
-                    sizes="(max-width: 768px) 50vw, 150px"
-                    className="object-contain object-center brightness-95 contrast-105 transition-transform duration-300 group-hover:scale-105 drop-shadow-sm"
-                  />
+                {/* ── Crisp White Logo Pod for Perfect Readability & Contrast (Resized Larger) ── */}
+                <div className="relative w-full h-20 sm:h-[84px] md:h-[92px] rounded-xl bg-white p-2 sm:p-2.5 flex items-center justify-center shadow-[0_4px_16px_rgba(0,0,0,0.4)] transition-all duration-300 group-hover:scale-[1.03] group-hover:shadow-[0_0_22px_rgba(255,255,255,0.25)]">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={award.image}
+                      alt={award.name}
+                      fill
+                      unoptimized
+                      sizes="(max-width: 768px) 50vw, 200px"
+                      className="object-contain object-center transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
                 </div>
 
                 {/* Typography Labels: Award Name + Category */}
-                <div className="w-full pt-2 border-t border-white/[0.06] mt-2">
-                  <div className="font-sans text-xs sm:text-[12.5px] font-medium text-white/90 group-hover:text-white truncate">
+                <div className="w-full pt-3 mt-2.5 border-t border-white/[0.08]">
+                  <div className="font-sans text-[12.5px] sm:text-[13.5px] font-medium text-white/95 group-hover:text-white truncate">
                     {award.name}
                   </div>
-                  <div className="font-mono text-[8.5px] tracking-wider text-white/40 uppercase mt-0.5 truncate group-hover:text-[#FF5A00]/80 transition-colors">
+                  <div className="font-mono text-[9px] sm:text-[9.5px] tracking-wider text-white/50 uppercase mt-0.5 truncate group-hover:text-[#FF5A00] transition-colors">
                     {award.category}
                   </div>
                 </div>
