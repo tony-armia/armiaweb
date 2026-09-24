@@ -1,58 +1,432 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --surface-dark: #101010;
-  --surface-deep: #090909;
+/* ══════════════════════════════════════════════════════════════
+   DESIGN TOKENS — Dark Mode (Default)
+══════════════════════════════════════════════════════════════ */
+:root,
+.dark {
+  --background: #090909;
+  --surface: #101010;
+  --surface-card: #161616;
+  --surface-elevated: #1c1c1c;
 
-  --foreground: #111111;
-  --foreground-muted: #6f6f6f;
-  --foreground-on-dark: #f5f5f5;
-  --foreground-dark-muted: #969696;
+  --foreground: #f5f5f5;
+  --foreground-muted: #888888;
+  --foreground-subtle: #555555;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.15);
 
   --accent: #ff5a00;
   --accent-hover: #ff4500;
 
-  --border-light: rgba(0, 0, 0, 0.10);
-  --border-dark: rgba(255, 255, 255, 0.10);
+  /* Scrollbar */
+  --scrollbar-track: #090909;
+  --scrollbar-thumb: #262626;
+
+  /* Logo visibility */
+  --logo-filter: brightness(1);
 }
 
+/* ══════════════════════════════════════════════════════════════
+   DESIGN TOKENS — Light Mode
+   Inspired by The Elysium Project: clean white base, warm
+   off-white surfaces, charcoal text, orange accent intact
+══════════════════════════════════════════════════════════════ */
+.light {
+  --background: #fafafa;
+  --surface: #f3f3f3;
+  --surface-card: #ffffff;
+  --surface-elevated: #efefef;
+
+  --foreground: #111111;
+  --foreground-muted: #5a5a5a;
+  --foreground-subtle: #888888;
+
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.14);
+
+  --accent: #ff5a00;
+  --accent-hover: #e04e00;
+
+  /* Scrollbar */
+  --scrollbar-track: #f0f0f0;
+  --scrollbar-thumb: #cccccc;
+
+  /* Logo: retain authentic brand colors */
+  --logo-filter: none;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LIGHT MODE — Comprehensive overrides for hardcoded dark styles
+   Scoped entirely to .light so dark mode is NEVER affected.
+   Strategy: Cascade overrides for text-white, dark card bgs,
+   border-white, and opacity-based white patterns.
+══════════════════════════════════════════════════════════════ */
+
+/* ── Theme-specific Image Utilities ── */
+.light .img-dark-mode {
+  display: none !important;
+}
+.light .img-light-mode {
+  display: block !important;
+}
+.dark .img-light-mode,
+:root:not(.light) .img-light-mode {
+  display: none !important;
+}
+.dark .img-dark-mode,
+:root:not(.light) .img-dark-mode {
+  display: block !important;
+}
+
+/* ── Subtle Background Watermark Numbers (prevent text-white override) ── */
+.light .watermark-number {
+  color: rgba(0, 0, 0, 0.035) !important;
+}
+.dark .watermark-number,
+:root:not(.light) .watermark-number {
+  color: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* ── Award / Recognition Cards ── */
+.light .award-card,
+.light [data-theme="section"] .award-card {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03) !important;
+}
+
+.light .award-card:hover,
+.light [data-theme="section"] .award-card:hover {
+  background-color: #ffffff !important;
+  border-color: rgba(255, 90, 0, 0.45) !important;
+  box-shadow: 0 6px 20px rgba(255, 90, 0, 0.1) !important;
+}
+
+.light .award-card .award-title {
+  color: #111111 !important;
+}
+
+.light .award-card .award-category {
+  color: #666666 !important;
+}
+
+.light .award-card:hover .award-title {
+  color: #ff5a00 !important;
+}
+
+.dark .award-card,
+:root:not(.light) .award-card {
+  background-color: rgba(14, 16, 24, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark .award-card .award-title,
+:root:not(.light) .award-card .award-title {
+  color: #f5f5f5 !important;
+}
+
+.dark .award-card .award-category,
+:root:not(.light) .award-card .award-category {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* ── Header menu button: dark text on light solid header ── */
+.light [data-theme="section"] + * header,
+.light header[style*="bg-white"] {
+  color: #111111;
+}
+
+/* ── Tab / pill buttons with white/opacity colors ── */
+.light [data-theme="section"] .rounded-full.border {
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+/* ── Card backgrounds: map dark card bgs → light surface ── */
+/* These selectors target the hardcoded dark card bg classes */
+.light [class*="bg-[#0c0d12]"],
+.light [class*="bg-[#0c0d12]/"],
+.light [class*="bg-[#11131a]"],
+.light [class*="bg-[#0c0e14]"],
+.light [class*="bg-[#10121a]"],
+.light [class*="bg-[#0c0d14]"],
+.light [class*="bg-[#14161f]"],
+.light [class*="bg-[#0f1117]"],
+.light [class*="bg-[#0c0d12]/70"],
+.light [class*="bg-[#0c0d12]/80"],
+.light [class*="bg-[#0c0d12]/90"] {
+  background-color: #f0f0f0 !important;
+}
+
+.light [class*="hover\\:bg-[#11131a]"]:hover,
+.light [class*="hover\\:bg-[#0f1117]"]:hover {
+  background-color: #e8e8e8 !important;
+}
+
+/* Process section right card */
+.light [class*="bg-[#0c0d14]"],
+.light [class*="bg-[#0e1018]"],
+.light [class*="bg-[#0e0f14]"],
+.light [class*="bg-[#0a0a0d]"] {
+  background-color: #f0f0f0 !important;
+}
+
+/* ── Section top strip in ProcessSection ── */
+.light [data-theme="section"] [class*="bg-[#0a0b10]"] {
+  background-color: var(--surface) !important;
+}
+
+/* ── Industry selector active state ── */
+.light [class*="bg-[#14161f]"] {
+  background-color: #e6e6e6 !important;
+}
+
+/* ── All white text → near-black in light-themed sections ── */
+.light [data-theme="section"] .text-white,
+.light [data-theme="section"] [class*="text-white/"] {
+  color: #1a1a1a !important;
+}
+
+/* Softer grey for muted white-opacity text */
+.light [data-theme="section"] [class*="text-white/40"],
+.light [data-theme="section"] [class*="text-white/50"],
+.light [data-theme="section"] [class*="text-white/60"] {
+  color: #666666 !important;
+}
+
+.light [data-theme="section"] [class*="text-white/70"],
+.light [data-theme="section"] [class*="text-white/75"],
+.light [data-theme="section"] [class*="text-white/80"],
+.light [data-theme="section"] [class*="text-white/85"],
+.light [data-theme="section"] [class*="text-white/90"] {
+  color: #333333 !important;
+}
+
+/* #8e94a0 muted text color – make it charcoal-grey in light */
+.light [data-theme="section"] [class*="text-[#8e94a0]"] {
+  color: #666666 !important;
+}
+
+/* #a4a4a2 subtle labels */
+.light [data-theme="section"] [class*="text-[#a4a4a2]"],
+.light [data-theme="section"] [class*="text-[#999999]"] {
+  color: #777777 !important;
+}
+
+/* ── Borders: white/opacity → black/opacity ── */
+.light [data-theme="section"] [class*="border-white/"] {
+  border-color: rgba(0, 0, 0, 0.10) !important;
+}
+.light [data-theme="section"] [class*="border-white/10"],
+.light [data-theme="section"] [class*="border-white/[0.08]"],
+.light [data-theme="section"] [class*="border-white/[0.06]"] {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+.light [data-theme="section"] [class*="border-white/20"],
+.light [data-theme="section"] [class*="border-white/15"] {
+  border-color: rgba(0, 0, 0, 0.14) !important;
+}
+
+/* ── Dividers bg-white/10 → bg-black/8 ── */
+.light [data-theme="section"] [class*="bg-white/10"],
+.light [data-theme="section"] [class*="bg-white/20"],
+.light [data-theme="section"] [class*="bg-white/[0.08]"],
+.light [data-theme="section"] [class*="bg-white/[0.04]"],
+.light [data-theme="section"] [class*="bg-white/[0.03]"],
+.light [data-theme="section"] [class*="bg-white/[0.02]"],
+.light [data-theme="section"] [class*="bg-white/[0.05]"],
+.light [data-theme="section"] [class*="bg-white/[0.06]"],
+.light [data-theme="section"] [class*="bg-white/[0.07]"],
+.light [data-theme="section"] [class*="bg-white/[0.12]"] {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* ── Icon boxes on cards: dark pill → light surface ── */
+.light [data-theme="section"] [class*="bg-white/[0.04]"][class*="border-white/10"],
+.light [data-theme="section"] [class*="bg-white/[0.04]"][class*="border-white"] {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+/* ── Icons inside dark icon boxes ── */
+.light [data-theme="section"] [class*="text-white"][class*="w-6"],
+.light [data-theme="section"] [class*="text-white"][class*="w-5"] {
+  color: #333333 !important;
+}
+
+/* ── Tab nav pills (non-active) ── */
+.light [data-theme="section"] [class*="text-white/60"][class*="tracking-"] {
+  color: #555555 !important;
+}
+
+/* ── Testimonials section – "ALL TESTIMONIALS" button ── */
+.light [data-theme="section"] [class*="bg-white/[0.05]"][class*="border-white/20"] {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  color: #111111 !important;
+}
+
+/* ── Portfolio / Blog sections: heading text-white spans ── */
+.light [data-theme="section"] span.block.text-white,
+.light [data-theme="section"] h2 span.block.text-white,
+.light [data-theme="section"] h2 span.block {
+  color: #111111 !important;
+}
+
+/* ── [#a4a4a2] subtitles ── */
+.light [data-theme="section"] [class*="text-[#a4a4a2]"] {
+  color: #777777 !important;
+}
+
+/* ── Phase stepper in Process section ── */
+.light [data-theme="section"] [class*="text-white/40"][class*="group-hover\\:text-white"] {
+  color: #666666 !important;
+}
+.light [data-theme="section"] [class*="text-white/60"][class*="group-hover\\:text-white"] {
+  color: #444444 !important;
+}
+
+/* ── h-[1px] or h-px dividers bg-white/10 ── */
+.light [data-theme="section"] .h-\[1px\].bg-white\/10,
+.light [data-theme="section"] [class*="h-[1px]"][class*="bg-white/10"] {
+  background-color: rgba(0, 0, 0, 0.10) !important;
+}
+
+/* ── Round icon circle border-white/20 ── */
+.light [data-theme="section"] [class*="border-white/20"].rounded-full {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  color: #444444 !important;
+}
+
+/* ── Blog & Awards section: card borders ── */
+.light [data-theme="section"] [class*="border-white/[0.08]"].rounded-2xl,
+.light [data-theme="section"] [class*="border-white/[0.08]"].rounded-3xl {
+  border-color: rgba(0, 0, 0, 0.09) !important;
+  background-color: #f5f5f5 !important;
+}
+
+/* ── Blog cards text overrides ── */
+.light [data-theme="section"] [class*="text-white/65"],
+.light [data-theme="section"] [class*="text-white/35"] {
+  color: #666666 !important;
+}
+
+/* ── hover:text-white: ensure it goes dark in light mode ── */
+.light [data-theme="section"] [class*="hover\\:text-white"]:hover {
+  color: #000000 !important;
+}
+
+/* ── "VIEW ALL ARTICLES" and similar links with hover:text-white ── */
+.light [data-theme="section"] a[class*="hover\\:text-white"] {
+  color: var(--foreground-muted);
+}
+.light [data-theme="section"] a[class*="hover\\:text-white"]:hover {
+  color: #111111 !important;
+}
+
+/* ── PartnerTicker dividers (handled via style already, this is backup) ── */
+.light .divide-x.divide-white\/\[0\.08\] > * + * {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ── ProcessSection header strip text ── */
+.light [data-theme="section"] [class*="text-white/50"].uppercase {
+  color: #666666 !important;
+}
+.light [data-theme="section"] [class*="text-white/70"].leading-\[1\.6\] {
+  color: #555555 !important;
+}
+
+/* ── "SCROLL TO EXPLORE" + circular arrows in Process ── */
+.light [data-theme="section"] [class*="border-white/20"].w-8 {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  color: #555555 !important;
+}
+
+/* ── AwardsSection heading text-white spans ── */
+.light [data-theme="section"] h2.text-white,
+.light [data-theme="section"] h3.text-white,
+.light [data-theme="section"] h4.text-white {
+  color: #111111 !important;
+}
+
+/* ── AwardsSection white/60 body copy ── */
+.light [data-theme="section"] p.text-white\/60 {
+  color: #666666 !important;
+}
+
+/* ── "TRUSTED BY GLOBAL BRANDS" badge in Process dark card image overlay ── */
+/* The image overlay cards stay dark since they have real images */
+.light [data-theme="section"] [class*="bg-black/70"].backdrop-blur-md {
+  background-color: rgba(0, 0, 0, 0.60) !important;
+}
+
+/* ── FAQ section text ── */
+.light [data-theme="section"] [class*="text-[#f3f3f0]"] {
+  color: #111111 !important;
+}
+
+/* ── Transition smoothing on all themed elements ── */
+.light [data-theme="section"] * {
+  transition-property: background-color, color, border-color;
+  transition-duration: 0.35s;
+  transition-timing-function: ease;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   TAILWIND THEME MAPPING
+══════════════════════════════════════════════════════════════ */
 @theme inline {
-  --color-background: var(--background);
-  --color-surface-dark: var(--surface-dark);
-  --color-surface-deep: var(--surface-deep);
+  --color-bg: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-card: var(--surface-card);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-dark: #101010;
+  --color-surface-deep: #090909;
 
   --color-foreground: var(--foreground);
   --color-foreground-muted: var(--foreground-muted);
-  --color-foreground-on-dark: var(--foreground-on-dark);
-  --color-foreground-dark-muted: var(--foreground-dark-muted);
+  --color-foreground-subtle: var(--foreground-subtle);
+  --color-foreground-on-dark: #f5f5f5;
+  --color-foreground-dark-muted: #969696;
 
   --color-brand-accent: var(--accent);
   --color-brand-accent-hover: var(--accent-hover);
 
-  --color-border-light: var(--border-light);
-  --color-border-dark: var(--border-dark);
+  --color-border-light: var(--border);
+  --color-border-dark: var(--border-strong);
 
   --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
 }
 
+/* ══════════════════════════════════════════════════════════════
+   BASE
+══════════════════════════════════════════════════════════════ */
 html {
-  background-color: var(--surface-deep);
+  background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
   scroll-snap-type: y mandatory;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+html.light {
+  color-scheme: light;
 }
 
 body {
   min-height: 100vh;
   overflow-x: hidden;
+  background-color: var(--background);
+  transition: background-color 0.4s ease;
 }
 
 @media (pointer: fine) {
-
   *,
   *::before,
   *::after,
@@ -72,16 +446,17 @@ body {
   color: #ffffff;
 }
 
+/* ── Scrollbar ── */
 ::-webkit-scrollbar {
   width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #090909;
+  background: var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #262626;
+  background: var(--scrollbar-thumb);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -93,7 +468,34 @@ body {
   outline-offset: 3px;
 }
 
-/* Scroll Snap Architecture */
+/* ══════════════════════════════════════════════════════════════
+   THEMING HELPERS
+══════════════════════════════════════════════════════════════ */
+
+/* Sections: dark bg in dark mode, light bg in light mode */
+.theme-section-dark {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* For hero — always stays dark regardless of theme */
+.theme-section-hero {
+  background-color: #090909;
+  color: #ffffff;
+}
+
+/* Footer — always dark */
+.theme-section-footer {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Logo invert for light mode */
+.theme-logo {
+  filter: var(--logo-filter);
+}
+
+/* ── Scroll Snap Architecture ── */
 .snap-section {
   scroll-snap-align: start;
   scroll-snap-stop: always;
@@ -105,17 +507,13 @@ body {
   padding-right: clamp(40px, 5vw, 90px);
 }
 
-/* ── Elysium Reference Dynamic Typography Gradient ── */
+/* ══════════════════════════════════════════════════════════════
+   ELYSIUM REFERENCE — Dynamic Typography Gradient
+══════════════════════════════════════════════════════════════ */
 @keyframes elysium-gradient-move {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .elysium-animated-gradient {
@@ -153,4 +551,4 @@ body {
   background-size: 300% 100%;
   animation: elysium-gradient-move 14s linear infinite;
   will-change: background-position;
-}
+}

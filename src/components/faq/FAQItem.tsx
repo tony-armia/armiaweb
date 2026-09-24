@@ -13,7 +13,13 @@ interface FAQItemProps {
 
 export function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
   return (
-    <div className="relative z-10 bg-[#0e1017] rounded-xl md:rounded-2xl border border-white/[0.08] overflow-hidden transition-all duration-300 hover:border-white/20 mb-3 shadow-md">
+    <div
+      className="relative z-10 rounded-xl md:rounded-2xl overflow-hidden transition-all duration-300 mb-3 shadow-sm"
+      style={{
+        backgroundColor: "var(--surface)",
+        border: "1px solid var(--border)",
+      }}
+    >
       <h3>
         <button
           type="button"
@@ -21,7 +27,8 @@ export function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
           aria-expanded={isOpen}
           aria-controls={`faq-answer-${item.id}`}
           id={`faq-button-${item.id}`}
-          className="group flex items-center justify-between w-full py-4 md:py-5 px-4 md:px-6 text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent min-h-[56px] md:min-h-[64px] bg-[#0e1017] hover:bg-[#131620] transition-colors cursor-pointer"
+          className="group flex items-center justify-between w-full py-4 md:py-5 px-4 md:px-6 text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent min-h-[56px] md:min-h-[64px] transition-colors cursor-pointer"
+          style={{ backgroundColor: "var(--surface)" }}
         >
           <div className="flex items-center gap-3 md:gap-4 pr-4">
             {/* Active Orange Rounded Marker */}
@@ -35,20 +42,30 @@ export function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
             </div>
 
             {/* Question Number */}
-            <span className="font-mono text-xs text-[#777777] font-normal w-[30px] shrink-0 group-hover:text-brand-accent transition-colors">
+            <span
+              className="font-mono text-xs font-normal w-[30px] shrink-0 group-hover:text-brand-accent transition-colors"
+              style={{ color: "var(--foreground-subtle)" }}
+            >
               {item.number}
             </span>
 
             {/* Question Text */}
-            <span className={`font-sans text-[clamp(0.95rem,1vw,1.15rem)] font-medium tracking-[-0.015em] uppercase leading-[1.25] transition-colors ${
-              isOpen ? "text-white" : "text-[#d0d0cc] group-hover:text-white"
-            }`}>
+            <span
+              className="font-sans text-[clamp(0.95rem,1vw,1.15rem)] font-medium tracking-[-0.015em] uppercase leading-[1.25] transition-colors"
+              style={{ color: isOpen ? "var(--accent)" : "var(--foreground)" }}
+            >
               {item.question}
             </span>
           </div>
 
           {/* Toggle icon pill */}
-          <div className="relative w-9 h-9 rounded-full bg-white/[0.04] group-hover:bg-white/[0.08] flex items-center justify-center shrink-0 text-[#888888] group-hover:text-white transition-all">
+          <div
+            className="relative w-9 h-9 rounded-full flex items-center justify-center shrink-0 transition-all"
+            style={{
+              backgroundColor: "var(--surface-elevated)",
+              color: "var(--foreground-muted)",
+            }}
+          >
             <motion.span
               animate={{ rotate: isOpen ? 45 : 0 }}
               transition={{ duration: 0.3, ease: EASE_CUSTOM }}
@@ -72,13 +89,18 @@ export function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.38, ease: EASE_CUSTOM }}
-            className="overflow-hidden bg-[#0e1017] border-t border-white/[0.04]"
+            className="overflow-hidden"
+            style={{
+              backgroundColor: "var(--surface)",
+              borderTop: "1px solid var(--border)",
+            }}
           >
             <div className="pb-6 pt-3 pl-[56px] md:pl-[68px] pr-6 md:pr-12 max-w-[680px] max-h-[140px] md:max-h-[160px] overflow-y-auto">
               {item.answer.map((paragraph, pIdx) => (
                 <p
                   key={pIdx}
-                  className="font-sans text-[14px] md:text-[15px] leading-[1.55] text-[#a4a4a2] mb-2.5 last:mb-0"
+                  className="font-sans text-[14px] md:text-[15px] leading-[1.55] mb-2.5 last:mb-0"
+                  style={{ color: "var(--foreground-muted)" }}
                 >
                   {paragraph}
                 </p>

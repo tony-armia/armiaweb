@@ -10,45 +10,48 @@ import { AwardsSection } from "@/components/sections/AwardsSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { BlogSection } from "@/components/sections/BlogSection";
 import { FooterSection } from "@/components/sections/FooterSection";
+import { ScrollProgressProvider } from "@/components/parallax/ScrollProgressProvider";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen w-full bg-surface-deep overflow-x-hidden">
-      {/* Top Header Overlay */}
-      <Header />
+    <ScrollProgressProvider>
+      <main className="relative min-h-screen w-full overflow-x-hidden transition-colors duration-400" style={{ backgroundColor: "var(--background)" }}>
+        {/* Top Header Overlay */}
+        <Header />
 
-      {/* 1. Hero Section (Elysium Project Reference) */}
-      <HeroSection />
+        {/* 1. Hero Section (Elysium Project Reference) */}
+        <HeroSection />
 
-      {/* 2. Section 02 — Elysium Reference Editorial "Who We Are" */}
-      <EngineeringIntro />
+        {/* 2. Section 02 — Elysium Reference Editorial "Who We Are" */}
+        <EngineeringIntro />
 
-      {/* Partner Credibility Ticker */}
-      <PartnerTicker />
+        {/* Partner Credibility Ticker */}
+        <PartnerTicker />
 
-      {/* 3. Section 03 — AI-Powered Engineering Solutions */}
-      <ServicesSection />
+        {/* 3. Section 03 — AI-Powered Engineering Solutions */}
+        <ServicesSection />
 
-      {/* 4. Section 04 — Portfolio / Case Studies */}
-      <PortfolioServicesSection />
+        {/* 4. Section 04 — Portfolio / Case Studies */}
+        <PortfolioServicesSection />
 
-      {/* 5. Section 05 — Delivery Framework Process */}
-      <ProcessSection />
+        {/* 5. Section 05 — Delivery Framework Process */}
+        <ProcessSection />
 
-      {/* 6. Section 06 — Trusted by Engineering Leaders */}
-      <TestimonialsSection />
+        {/* 6. Section 06 — Trusted by Engineering Leaders */}
+        <TestimonialsSection />
 
-      {/* 7. Section 07 — Awards & Industry Recognition */}
-      <AwardsSection />
+        {/* 7. Section 07 — Awards & Industry Recognition */}
+        <AwardsSection />
 
-      {/* 8. Section 08 — Frequently Asked Questions */}
-      <FAQSection />
+        {/* 8. Section 08 — Frequently Asked Questions */}
+        <FAQSection />
 
-      {/* 9. Section 09 — Insights & Engineering Blog */}
-      <BlogSection />
+        {/* 9. Section 09 — Insights & Engineering Blog */}
+        <BlogSection />
 
-      {/* 10. Section 10 — Global Offices & Footer */}
-      <FooterSection />
-    </main>
+        {/* 10. Section 10 — Global Offices & Footer */}
+        <FooterSection />
+      </main>
+    </ScrollProgressProvider>
   );
 }

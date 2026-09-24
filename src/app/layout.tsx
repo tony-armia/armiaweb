@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { CursorFollower } from "@/components/effects/CursorFollower";
 import { PageLoader } from "@/components/ui/PageLoader";
@@ -39,12 +40,30 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
       suppressHydrationWarning
     >
+      <head>
+        {/* Inline theme init — prevents flash of wrong theme on load (same pattern as Elysium Project) */}
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+(function(){try{
+  var stored=localStorage.getItem('armia-theme');
+  var theme=(stored==='light'||stored==='dark')?stored:'dark';
+  document.documentElement.classList.remove('dark','light');
+  document.documentElement.classList.add(theme);
+}catch(e){}})();
+            `.trim(),
+          }}
+        />
+      </head>
       <body
         suppressHydrationWarning
-        className="min-h-full bg-surface-deep font-sans text-foreground selection:bg-brand-accent selection:text-white"
+        className="min-h-full font-sans text-foreground selection:bg-brand-accent selection:text-white"
+        style={{ backgroundColor: "var(--background)" }}
       >
         <ScrollToTopOnReload />
         <PageLoader />
@@ -54,4 +73,3 @@ export default function RootLayout({
     </html>
   );
 }
-

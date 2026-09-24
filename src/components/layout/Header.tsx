@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { EASE_CUSTOM } from "@/lib/motion";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 const NAV_ITEMS = [
   "SERVICES",
@@ -19,99 +20,41 @@ const NAV_ITEMS = [
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [headerTheme, setHeaderTheme] = useState<"hero" | "white" | "dark">("hero");
+  const [isPastHero, setIsPastHero] = useState(false);
+  const [isLight, setIsLight] = useState(false);
+
+  // Track theme changes so header can adapt contrast
+  useEffect(() => {
+    const check = () =>
+      setIsLight(document.documentElement.classList.contains("light"));
+    check();
+    const observer = new MutationObserver(check);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
-    // 1. Mark sections with explicit header themes
-    const updateSectionTheme = () => {
-      const headerLineY = 40; // top position where header sits
-      const x = window.innerWidth / 2;
-      
-      // 1. First test elements directly under the center of the header line
-      const elementsAtPoint = document.elementsFromPoint(x, headerLineY);
-      let matchedTheme: "hero" | "white" | "dark" | null = null;
-
-      for (const el of elementsAtPoint) {
-        const sec = el.closest("section, footer");
-        if (sec) {
-          const explicitTheme = sec.getAttribute("data-theme") as "hero" | "white" | "dark" | null;
-          if (explicitTheme) {
-            matchedTheme = explicitTheme;
-            break;
-          }
-          const classList = sec.className || "";
-          if (
-            classList.includes("bg-[#101010]") ||
-            classList.includes("bg-[#0a0a0a]") ||
-            classList.includes("bg-[#090909]") ||
-            classList.includes("bg-surface-deep") ||
-            sec.tagName.toLowerCase() === "footer"
-          ) {
-            matchedTheme = "dark";
-            break;
-          }
-          if (classList.includes("bg-white")) {
-            matchedTheme = "white";
-            break;
-          }
-        }
+    const handleScroll = () => {
+      const hero =
+        document.getElementById("home") || document.querySelector("section");
+      if (!hero) {
+        setIsPastHero(window.scrollY > 80);
+        return;
       }
-
-      // 2. Fallback to bounding rect check across all sections
-      if (!matchedTheme) {
-        const sections = Array.from(document.querySelectorAll("section, footer"));
-        for (const sec of sections) {
-          const rect = sec.getBoundingClientRect();
-          if (rect.top <= headerLineY && rect.bottom > headerLineY) {
-            const explicitTheme = sec.getAttribute("data-theme") as "hero" | "white" | "dark" | null;
-            if (explicitTheme) {
-              matchedTheme = explicitTheme;
-              break;
-            }
-            const classList = sec.className || "";
-            if (
-              classList.includes("bg-[#101010]") ||
-              classList.includes("bg-[#0a0a0a]") ||
-              classList.includes("bg-[#090909]") ||
-              classList.includes("bg-surface-deep") ||
-              sec.tagName.toLowerCase() === "footer"
-            ) {
-              matchedTheme = "dark";
-              break;
-            }
-            if (classList.includes("bg-white")) {
-              matchedTheme = "white";
-              break;
-            }
-          }
-        }
-      }
-
-      setHeaderTheme(matchedTheme || "hero");
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      setIsPastHero(heroBottom <= 70);
     };
 
-    window.addEventListener("scroll", updateSectionTheme, { passive: true });
-    window.addEventListener("resize", updateSectionTheme, { passive: true });
-    
-    const observer = new IntersectionObserver(
-      () => {
-        updateSectionTheme();
-      },
-      {
-        root: null,
-        rootMargin: "-20px 0px -80% 0px",
-        threshold: [0, 0.1, 0.5, 0.9, 1],
-      }
-    );
-
-    document.querySelectorAll("section, footer").forEach((sec) => observer.observe(sec));
-
-    updateSectionTheme();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
+    handleScroll();
 
     return () => {
-      window.removeEventListener("scroll", updateSectionTheme);
-      window.removeEventListener("resize", updateSectionTheme);
-      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
     };
   }, []);
 
@@ -124,38 +67,36 @@ export function Header() {
     return () => window.removeEventListener("keydown", onKey);
   }, [isMobileMenuOpen]);
 
-  const isHero = headerTheme === "hero";
-  const isWhite = headerTheme === "white";
-  const isDark = headerTheme === "dark";
+  // When scrolled past hero: if light theme → white frosted; if dark → dark frosted
+  const solidBg = isLight
+    ? "bg-white/90 backdrop-blur-md border-b border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.08)]"
+    : "bg-black/90 backdrop-blur-md border-b border-white/[0.08] shadow-[0_8px_30px_rgba(0,0,0,0.7)]";
+
+  // Menu button: on hero always dark; when past hero respect theme
+  const menuBtnBase =
+    !isPastHero || !isLight
+      ? "bg-white/[0.07] hover:bg-white/[0.14] text-white border-white/15 hover:border-brand-accent/50"
+      : "bg-black/[0.06] hover:bg-black/[0.12] text-foreground border-black/15 hover:border-brand-accent/40";
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 w-full transition-colors duration-300 select-none ${
-          isHero
-            ? "bg-transparent py-6 md:py-8 text-white"
-            : isWhite
-            ? "bg-white py-4 md:py-5 text-[#111111]"
-            : "bg-black py-4 md:py-5 text-white"
+        className={`fixed top-0 left-0 right-0 z-40 w-full transition-all duration-300 select-none ${
+          !isPastHero
+            ? "bg-transparent border-transparent shadow-none"
+            : solidBg
         }`}
       >
-        {/* Subtle Noise Texture Overlay - Only in Hero mode */}
-        {isHero && (
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 opacity-[0.06] pointer-events-none mix-blend-overlay bg-[url('/images/Noise.png')]"
-          />
-        )}
-
-        <div className="relative z-10 w-full max-w-[1920px] mx-auto px-6 md:px-0">
+        <div className="w-full max-w-[1920px] mx-auto px-6 md:px-0 h-16 md:h-20 flex items-center">
           <div className="w-full md:w-[78%] md:ml-[10.8%] flex items-center justify-between">
+            {/* Logo */}
             <Link
               href="/"
-              className="group flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-sm"
+              className="group flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-sm"
             >
               <div className="relative h-11 w-32 md:h-14 md:w-60 flex items-center transition-all duration-300">
                 <Image
-                  src="/images/armialogo.svg"
+                  src={isPastHero && isLight ? "/images/armialogo-light.svg" : "/images/armialogo.svg"}
                   alt="Armia Systems"
                   fill
                   className="object-contain object-left"
@@ -164,31 +105,29 @@ export function Header() {
               </div>
             </Link>
 
-            <div className="flex items-center">
+            <div className="flex items-center gap-2.5">
+              {/* Theme Toggle — always visible for easy access */}
+              <ThemeToggle isPastHero={isPastHero} />
+
+              {/* Menu Button */}
               <button
                 type="button"
                 onClick={() => setIsMobileMenuOpen((v) => !v)}
                 aria-expanded={isMobileMenuOpen}
                 aria-controls="mobile-nav"
-                className={`group relative flex items-center gap-3 h-[40px] md:h-[44px] pl-4 pr-1.5 md:pl-5 md:pr-2 rounded-full font-mono text-[11px] md:text-xs tracking-[0.2em] uppercase transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent ${
-                  isWhite
-                    ? "bg-[#111111]/90 text-white shadow-md border border-black/10 hover:bg-black"
-                    : "bg-white/[0.07] hover:bg-white/[0.14] text-white backdrop-blur-xl border border-white/20 hover:border-brand-accent/50 shadow-[0_4px_24px_rgba(0,0,0,0.45)] hover:shadow-[0_0_24px_rgba(255,90,0,0.25)]"
-                }`}
+                className={`group relative flex items-center gap-2.5 h-[34px] md:h-[36px] pl-3.5 pr-1 md:pl-4 md:pr-1.5 rounded-full font-mono text-[10.5px] md:text-[11px] tracking-[0.2em] uppercase transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent backdrop-blur-md border shadow-[0_4px_16px_rgba(0,0,0,0.35)] hover:shadow-[0_0_20px_rgba(255,90,0,0.25)] ${menuBtnBase}`}
               >
-                {/* Minimalist Micro-animated 2-line Hamburger */}
-                <div className="flex flex-col justify-center items-center gap-[4.5px] w-4" aria-hidden="true">
-                  <span className="block h-[1.5px] w-3.5 rounded-full bg-white transition-all duration-300 group-hover:w-4 group-hover:translate-x-0.5 group-hover:bg-brand-accent" />
-                  <span className="block h-[1.5px] w-4 rounded-full bg-white/80 transition-all duration-300 group-hover:w-3 group-hover:-translate-x-0.5 group-hover:bg-white" />
+                <div className="flex flex-col justify-center items-center gap-[4px] w-3.5" aria-hidden="true">
+                  <span className="block h-[1.5px] w-3 rounded-full bg-current transition-all duration-300 group-hover:w-3.5 group-hover:translate-x-0.5 group-hover:bg-brand-accent" />
+                  <span className="block h-[1.5px] w-3.5 rounded-full bg-current opacity-80 transition-all duration-300 group-hover:w-2.5 group-hover:-translate-x-0.5" />
                 </div>
 
-                <span className="font-semibold text-white/90 group-hover:text-white transition-colors duration-300">
+                <span className="font-medium opacity-90 group-hover:opacity-100 transition-colors duration-300">
                   MENU
                 </span>
 
-                {/* Glowing Brand Orange Trigger Circle */}
-                <div className="flex items-center justify-center h-7 w-7 md:h-8 md:w-8 rounded-full bg-brand-accent text-white shadow-[0_0_12px_rgba(255,90,0,0.4)] transition-all duration-300 group-hover:bg-[#ff4500] group-hover:scale-105 group-hover:shadow-[0_0_18px_rgba(255,90,0,0.65)]">
-                  <span className="text-xs md:text-sm font-bold transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden>
+                <div className="flex items-center justify-center h-6 w-6 md:h-6 md:w-6 rounded-full bg-brand-accent text-white shadow-[0_0_10px_rgba(255,90,0,0.4)] transition-all duration-300 group-hover:bg-[#ff4500] group-hover:scale-105">
+                  <span className="text-xs font-bold transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden>
                     ›
                   </span>
                 </div>
@@ -198,6 +137,7 @@ export function Header() {
         </div>
       </header>
 
+      {/* ── Full-screen Mobile Navigation Overlay ── */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -209,22 +149,27 @@ export function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "-100%" }}
             transition={{ duration: 0.45, ease: EASE_CUSTOM }}
-            className="fixed inset-0 z-50 flex flex-col bg-surface-deep pt-28 pb-12 px-8 text-white"
+            className="fixed inset-0 z-50 flex flex-col bg-[#060606] pt-24 pb-12 px-8 text-white"
           >
             <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-8">
               <span className="font-mono text-xs tracking-widest text-white/60 uppercase">
                 NAVIGATION
               </span>
-              <button
-                type="button"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="group flex items-center gap-3 h-[40px] pl-4 pr-1.5 rounded-full bg-white/10 hover:bg-white/15 border border-white/20 text-white font-mono text-xs tracking-[0.2em] uppercase transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
-              >
-                <span className="font-semibold text-white/90 group-hover:text-white">CLOSE</span>
-                <div className="flex items-center justify-center h-7 w-7 rounded-full bg-brand-accent text-white shadow-[0_0_10px_rgba(255,90,0,0.4)] transition-transform duration-300 group-hover:rotate-90">
-                  <X className="h-3.5 w-3.5" aria-hidden />
-                </div>
-              </button>
+              <div className="flex items-center gap-3">
+                {/* Theme toggle in menu */}
+                <ThemeToggle inMenu />
+
+                <button
+                  type="button"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="group flex items-center gap-3 h-[36px] pl-4 pr-1.5 rounded-full bg-white/10 hover:bg-white/15 border border-white/20 text-white font-mono text-xs tracking-[0.2em] uppercase transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
+                >
+                  <span className="font-semibold text-white/90 group-hover:text-white">CLOSE</span>
+                  <div className="flex items-center justify-center h-6 w-6 rounded-full bg-brand-accent text-white shadow-[0_0_10px_rgba(255,90,0,0.4)] transition-transform duration-300 group-hover:rotate-90">
+                    <X className="h-3.5 w-3.5" aria-hidden />
+                  </div>
+                </button>
+              </div>
             </div>
 
             <nav className="flex flex-col space-y-6 max-w-xl">

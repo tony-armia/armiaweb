@@ -43,8 +43,8 @@ export function GridLines({
               whileInView={shouldAnimate ? { scaleY: 1, opacity: 1 } : undefined}
               viewport={shouldAnimate ? { once: true } : undefined}
               transition={shouldAnimate ? { duration: 0.8, delay: i * 0.05, ease: EASE_CUSTOM } : undefined}
-              style={{ left: pos.left, transformOrigin: "top" }}
-              className={`absolute top-0 bottom-0 w-px ${color} ${pos.hideOnMobile ? "hidden md:block" : ""
+              style={{ left: pos.left, transformOrigin: "top", backgroundColor: "var(--border)" }}
+              className={`absolute top-0 bottom-0 w-px ${pos.hideOnMobile ? "hidden md:block" : ""
                 }`}
             />
           );

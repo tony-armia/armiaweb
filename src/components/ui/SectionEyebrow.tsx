@@ -21,20 +21,20 @@ export function SectionEyebrow({
   dark = true,
   className = "",
 }: SectionEyebrowProps) {
+  // Theme-aware: use CSS vars so this works in both light and dark mode
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, ease: EASE_CUSTOM }}
-      className={`inline-flex items-center gap-2.5 font-mono text-[10px] md:text-[11px] font-semibold tracking-[0.22em] uppercase select-none ${
-        dark ? "text-white/60" : "text-[#6f6f6f]"
-      } ${className}`}
+      className={`inline-flex items-center gap-2.5 font-mono text-[10px] md:text-[11px] font-semibold tracking-[0.22em] uppercase select-none ${className}`}
+      style={{ color: "var(--foreground-muted)" }}
     >
       <span className="h-1.5 w-1.5 rounded-full bg-brand-accent inline-block shadow-[0_0_8px_rgba(255,90,0,0.6)]" />
       <span className="text-brand-accent">{number}</span>
-      <span className="text-white/30 font-light">/</span>
-      <span className="text-white/80">{label}</span>
+      <span style={{ opacity: 0.35 }}>/</span>
+      <span style={{ color: "var(--foreground)" }}>{label}</span>
     </motion.div>
   );
 }

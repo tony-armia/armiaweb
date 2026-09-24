@@ -112,17 +112,18 @@ export function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      data-theme="dark"
-      className="relative w-full bg-black text-white py-20 sm:py-24 md:py-28 px-6 sm:px-10 md:px-16 lg:px-20 select-none overflow-hidden"
+      data-theme="section"
+      className="relative w-full py-20 sm:py-24 md:py-28 select-none overflow-hidden transition-colors duration-400"
+      style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}
       aria-label="Client Testimonials and Reviews"
     >
-      <div className="mx-auto w-full max-w-[1440px]">
+      <div className="w-full max-w-[1920px] mx-auto px-6 md:px-[10.8%]">
         
         {/* ── Section Header Row (Directly matching reference) ── */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 sm:mb-14">
           <div>
             <SectionEyebrow number="06" label="TESTIMONIALS" className="!mb-3.5" />
-            <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-light text-white tracking-tight leading-[1.2]">
+            <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-light tracking-tight leading-[1.2]" style={{ color: 'var(--foreground)' }}>
               What Global &amp; Enterprise Clients <br className="hidden sm:inline" />
               Say About Armia Systems&apos; Delivery
             </h2>

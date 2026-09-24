@@ -17,8 +17,9 @@ export function FAQSection() {
 
   return (
     <section
-      data-theme="dark"
-      className="relative z-20 w-full bg-black text-[#f3f3f0] py-10 md:py-14 flex flex-col justify-center overflow-hidden snap-section h-[100svh] min-h-[100svh] select-none"
+      data-theme="section"
+      className="relative z-20 w-full py-10 md:py-14 flex flex-col justify-center overflow-hidden snap-section h-[100svh] min-h-[100svh] select-none transition-colors duration-400"
+      style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}
     >
       {/* Background Texture */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay bg-[url('/images/Noise.png')]" />
@@ -41,13 +42,13 @@ export function FAQSection() {
               viewport={VIEWPORT_ONCE}
               className="font-sans text-[clamp(2.25rem,3.2vw,3.85rem)] font-light tracking-[-0.035em] leading-[0.98] text-left uppercase"
             >
-              <span className="block text-[#a4a4a2]">FREQUENTLY</span>
-              <span className="block text-white font-normal">ASKED QUESTIONS.</span>
+              <span className="block" style={{ color: 'var(--foreground-muted)' }}>FREQUENTLY</span>
+              <span className="block font-normal" style={{ color: 'var(--foreground)' }}>ASKED QUESTIONS.</span>
             </motion.h2>
 
-            <p className="font-mono text-xs md:text-[13px] leading-relaxed text-[#a4a4a2] mt-4 md:mt-5 uppercase tracking-[0.16em] max-w-[320px]">
+            <p className="font-mono text-xs md:text-[13px] leading-relaxed mt-4 md:mt-5 uppercase tracking-[0.16em] max-w-[320px]" style={{ color: 'var(--foreground-muted)' }}>
               COMMON QUESTIONS ABOUT <br />
-              <strong className="text-white font-medium">ARMIA SYSTEMS</strong> &amp; ENGAGEMENTS.
+              <strong className="font-medium" style={{ color: 'var(--foreground)' }}>ARMIA SYSTEMS</strong> &amp; ENGAGEMENTS.
             </p>
           </div>
 
@@ -56,7 +57,7 @@ export function FAQSection() {
             <div className="flex flex-col gap-4">
               <a
                 href="#contact"
-                className="font-mono text-xs md:text-[13px] text-brand-accent tracking-[0.18em] uppercase hover:text-white transition-colors flex items-center gap-1.5 group"
+                className="font-mono text-xs md:text-[13px] text-brand-accent tracking-[0.18em] uppercase transition-colors flex items-center gap-1.5 group"
               >
                 <span>HAVE QUESTIONS? TALK TO US</span>
                 <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>

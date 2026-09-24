@@ -181,13 +181,14 @@ export function ProcessSection() {
   return (
     <section
       id="process"
-      data-theme="dark"
-      className="relative w-full bg-[#08090c] text-white select-none overflow-hidden"
+      data-theme="section"
+      className="relative w-full select-none overflow-hidden transition-colors duration-400"
+      style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}
       aria-label="Delivery Framework and Process"
     >
       {/* ── 1. Top Dark Header Strip ── */}
-      <div className="w-full bg-[#0a0b10] text-white py-8 sm:py-10 px-6 sm:px-12 md:px-16 lg:px-24 border-b border-white/[0.08]">
-        <div className="mx-auto w-full max-w-[1500px] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+      <div className="w-full py-8 sm:py-10 transition-colors duration-400" style={{ backgroundColor: "var(--surface)", borderBottom: "1px solid var(--border)" }}>
+        <div className="w-full max-w-[1920px] mx-auto px-6 md:px-[10.8%] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
           {/* Left: Standardized Section Indicator */}
           <div className="flex items-center gap-3">
             <SectionEyebrow number="05" label="PROCESS" className="!mb-0" />
@@ -215,12 +216,19 @@ export function ProcessSection() {
       </div>
 
       {/* ── 2. Main Dark Showcase Body (Obsidian + Warm Bronze Fluid Lighting) ── */}
-      <div className="relative w-full py-16 sm:py-24 lg:py-28 px-6 sm:px-12 md:px-16 lg:px-24 overflow-hidden">
-        {/* Sweeping Architectural Bronze Wave Background */}
+      <div className="relative w-full py-16 sm:py-24 lg:py-28 overflow-hidden">
+        {/* Sweeping Architectural Bronze Wave Background (Dark Mode) */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 pointer-events-none opacity-25 mix-blend-screen bg-cover bg-center"
+          className="absolute inset-0 pointer-events-none opacity-25 mix-blend-screen bg-cover bg-center img-dark-mode"
           style={{ backgroundImage: "url('/images/delivery_bronze_wave.jpg')" }}
+        />
+
+        {/* Sweeping Architectural Fluid Wave Background (Light Mode) */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 pointer-events-none opacity-40 bg-cover bg-center img-light-mode"
+          style={{ backgroundImage: "url('/images/process_fluid_wave_light.jpg')" }}
         />
 
         {/* Subtle radial ambient glow */}
@@ -229,7 +237,7 @@ export function ProcessSection() {
           className="absolute bottom-10 left-10 w-[600px] h-[400px] bg-[#FF5A00]/[0.035] rounded-full blur-[160px] pointer-events-none"
         />
 
-        <div className="mx-auto w-full max-w-[1500px] relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        <div className="w-full max-w-[1920px] mx-auto px-6 md:px-[10.8%] relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
           {/* ── Left Column: Phase Details & Interactive Timeline (7 cols) ── */}
           <div className="lg:col-span-7 flex flex-col justify-between">
@@ -324,15 +332,7 @@ export function ProcessSection() {
                 })}
               </div>
 
-              {/* Scroll to Explore indicator */}
-              <div className="flex items-center gap-3 pt-6">
-                <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60">
-                  <ArrowDown className="w-3.5 h-3.5" />
-                </div>
-                <span className="font-mono text-[10px] tracking-[0.2em] text-white/50 uppercase">
-                  SCROLL TO EXPLORE
-                </span>
-              </div>
+
             </div>
 
           </div>
@@ -342,22 +342,35 @@ export function ProcessSection() {
             <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-[#0c0d14] text-white border border-white/10">
               
               {/* Top Photo with Code Monitor & Trusted Tag */}
-              <div className="relative w-full h-[220px] sm:h-[260px] overflow-hidden bg-black">
-                <Image
-                  src="/images/delivery_engineer_monitor.jpg"
-                  alt="Software Engineer analyzing performance metrics"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                  className="object-cover object-center"
-                />
+              <div className="relative w-full h-[220px] sm:h-[260px] overflow-hidden bg-neutral-900 dark:bg-black">
+                {/* Dark Mode Photo */}
+                <div className="absolute inset-0 img-dark-mode">
+                  <Image
+                    src="/images/delivery_engineer_monitor.jpg"
+                    alt="Software Engineer analyzing performance metrics"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 45vw"
+                    className="object-cover object-center"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
+                </div>
 
-                {/* Subtle dark gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
+                {/* Light Mode Photo */}
+                <div className="absolute inset-0 img-light-mode">
+                  <Image
+                    src="/images/delivery_engineer_monitor_light.jpg"
+                    alt="Software Engineer analyzing performance metrics"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 45vw"
+                    className="object-cover object-center"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                </div>
 
                 {/* Top Right Floating Badge */}
-                <div className="absolute top-4 right-4 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-white/15">
+                <div className="absolute top-4 right-4 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-white/20 shadow-sm">
                   <span className="w-2.5 h-[1.5px] bg-[#FF5A00] inline-block" />
-                  <span className="font-mono text-[9.5px] tracking-widest text-white/90 uppercase font-medium">
+                  <span className="font-mono text-[9.5px] tracking-widest text-white uppercase font-medium">
                     TRUSTED BY GLOBAL BRANDS
                   </span>
                 </div>
@@ -367,7 +380,7 @@ export function ProcessSection() {
               <div className="p-7 sm:p-9 bg-[#0e1018]">
                 {/* Header Row: Title on Left, Metric on Right */}
                 <div className="grid grid-cols-12 gap-4 items-center pb-6 border-b border-white/[0.08]">
-                  <div className="col-span-8">
+                  <div className="col-span-12 sm:col-span-7">
                     <div className="font-mono text-[10.5px] tracking-widest text-[#FF5A00] uppercase font-semibold mb-1">
                       // WHAT WE DELIVER
                     </div>
@@ -378,8 +391,8 @@ export function ProcessSection() {
                     </h4>
                   </div>
 
-                  <div className="col-span-4 pl-4 border-l border-white/10 flex flex-col justify-center">
-                    <div className="font-sans font-medium text-3xl sm:text-4xl text-[#FF5A00] leading-none">
+                  <div className="col-span-12 sm:col-span-5 sm:pl-4 sm:border-l border-white/10 flex flex-col sm:justify-center mt-4 sm:mt-0">
+                    <div className="font-sans font-medium text-3xl sm:text-4xl text-[#FF5A00] leading-none whitespace-nowrap">
                       99.99%
                     </div>
                     <div className="font-mono text-[8.5px] sm:text-[9px] tracking-wider uppercase text-white/50 font-medium mt-1">

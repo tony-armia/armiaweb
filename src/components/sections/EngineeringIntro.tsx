@@ -15,14 +15,15 @@ export function EngineeringIntro() {
     <section
       ref={containerRef}
       id="about"
-      data-theme="dark"
-      className="relative min-h-[90vh] md:min-h-screen w-full bg-[#090909] text-white flex items-center py-20 sm:py-28 md:py-32 px-6 sm:px-12 md:px-16 lg:px-24 select-none overflow-hidden"
+      data-theme="section"
+      className="relative min-h-[90vh] md:min-h-screen w-full flex items-center py-20 sm:py-28 md:py-32 select-none overflow-hidden transition-colors duration-400"
+      style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}
       aria-label="Who We Are"
     >
-      <div className="mx-auto w-full max-w-[1500px] grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-center">
+      <div className="w-full max-w-[1920px] mx-auto px-6 md:px-[10.8%] grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         {/* ── Left Column: Giant Editorial Statement ── */}
         <div className="lg:col-span-7">
-          <h2 className="font-sans font-light text-[clamp(2.75rem,5.6vw,5.5rem)] leading-[1.08] tracking-[-0.02em] text-white">
+          <h2 className="font-sans font-light text-[clamp(2.75rem,5.6vw,5.5rem)] leading-[1.08] tracking-[-0.02em]" style={{ color: 'var(--foreground)' }}>
             <span className="block">We don’t chase</span>
             <span className="block">trends.</span>
             <span className="block">We engineer what</span>
@@ -36,18 +37,18 @@ export function EngineeringIntro() {
 
         {/* ── Right Column: Metadata & Editorial Storytelling ── */}
         <div className="lg:col-span-5 flex flex-col justify-center">
-          <div className="max-w-xl space-y-6 sm:space-y-7 text-[#8e94a0] text-[15px] sm:text-[16px] leading-[1.78] font-normal">
+          <div className="max-w-xl space-y-6 sm:space-y-7 text-[15px] sm:text-[16px] leading-[1.78] font-normal" style={{ color: 'var(--foreground-muted)' }}>
             {/* Top Metadata Row matching Elysium with standardized SectionEyebrow */}
-            <div className="flex items-center justify-between pb-3 border-b border-white/[0.08] text-xs tracking-widest uppercase">
+            <div className="flex items-center justify-between pb-3 border-b text-xs tracking-widest uppercase" style={{ borderColor: 'var(--border)' }}>
               <SectionEyebrow number="02" label="WHO WE ARE" className="!mb-0" />
-              <span className="font-mono text-white/50 tracking-[0.16em] text-[11px] sm:text-[12px] flex items-center gap-1.5">
+              <span className="font-mono tracking-[0.16em] text-[11px] sm:text-[12px] flex items-center gap-1.5" style={{ color: 'var(--foreground-subtle)' }}>
                 <span>🇺🇸 USA</span>
-                <span className="text-white/30">&bull;</span>
+                <span style={{ opacity: 0.4 }}>&bull;</span>
                 <span>🇮🇳 INDIA</span>
               </span>
             </div>
 
-            <p className="text-white/85">
+            <p style={{ color: 'var(--foreground)' }}>
               We&apos;re a digital engineering studio focused on building thoughtful, high-performance
               software for high-growth enterprises and modern platforms.
             </p>
@@ -67,7 +68,7 @@ export function EngineeringIntro() {
               API latency, and long-term maintainability.
             </p>
 
-            <p className="text-white/80">
+            <p style={{ color: 'var(--foreground)' }}>
               We don&apos;t believe in disposable software. We build digital products designed to
               last, evolve, and age gracefully.
             </p>
@@ -80,7 +81,7 @@ export function EngineeringIntro() {
         <button
           onClick={scrollToTop}
           aria-label="Scroll to top"
-          className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/10 bg-white/[0.04] hover:bg-white/[0.1] hover:border-white/20 text-white/60 hover:text-white flex items-center justify-center transition-all duration-300 backdrop-blur-sm group cursor-pointer"
+          className="w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-sm group cursor-pointer" style={{ border: '1px solid var(--border)', color: 'var(--foreground-muted)' }}
         >
           <ArrowUp className="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-0.5" />
         </button>

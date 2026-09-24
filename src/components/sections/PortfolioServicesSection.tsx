@@ -165,8 +165,9 @@ export function PortfolioServicesSection() {
   return (
     <section
       ref={containerRef}
-      data-theme="dark"
-      className="relative z-20 w-full bg-black text-white h-[100svh] min-h-[100svh] py-8 md:py-12 flex flex-col justify-center overflow-hidden snap-section select-none border-t border-white/[0.08]"
+      data-theme="section"
+      className="relative z-20 w-full h-[100svh] min-h-[100svh] py-8 md:py-12 flex flex-col justify-center overflow-hidden snap-section select-none transition-colors duration-400"
+      style={{ backgroundColor: "var(--background)", color: "var(--foreground)", borderTop: "1px solid var(--border)" }}
     >
       <GridLines />
 
@@ -182,8 +183,8 @@ export function PortfolioServicesSection() {
           {/* Heading Block: 30.3% to 69.3% */}
           <div className="w-full md:w-[39.0%] px-6 md:px-0 pt-0.5 mb-4 md:mb-0">
             <h2 className="font-sans text-[clamp(2.25rem,3.2vw,3.85rem)] font-light tracking-[-0.035em] leading-[0.98] text-left">
-              <span className="block text-white">CASE</span>
-              <span className="block text-[#a4a4a2] font-normal">STUDIES.</span>
+              <span className="block" style={{ color: 'var(--foreground)' }}>CASE</span>
+              <span className="block font-normal" style={{ color: 'var(--foreground-muted)' }}>STUDIES.</span>
             </h2>
           </div>
 
@@ -249,7 +250,7 @@ export function PortfolioServicesSection() {
                   {/* Caption under large image */}
                   <motion.p
                     variants={fadeUpVariants}
-                    className="font-sans text-[15px] md:text-[16px] text-white/70 mt-3 leading-[1.6]"
+                    className="font-sans text-[15px] md:text-[16px] mt-3 leading-[1.6]" style={{ color: 'var(--foreground-muted)' }}
                   >
                     {service.caption}
                   </motion.p>

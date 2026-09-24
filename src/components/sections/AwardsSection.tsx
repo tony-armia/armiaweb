@@ -80,8 +80,9 @@ export function AwardsSection() {
   return (
     <section
       id="awards"
-      data-theme="dark"
-      className="relative z-20 w-full bg-black text-white py-14 sm:py-16 md:py-20 border-t border-white/[0.08] select-none snap-section flex flex-col justify-center overflow-hidden min-h-[100svh]"
+      data-theme="section"
+      className="relative z-20 w-full py-14 sm:py-16 md:py-20 select-none snap-section flex flex-col justify-center overflow-hidden min-h-[100svh] transition-colors duration-400"
+      style={{ backgroundColor: "var(--background)", color: "var(--foreground)", borderTop: "1px solid var(--border)" }}
       aria-label="Awards and Industry Recognition"
     >
       {/* ── Background Subtle Planetary Orbital Halo (Top Right matching reference) ── */}
@@ -94,7 +95,7 @@ export function AwardsSection() {
         className="pointer-events-none absolute top-12 right-12 w-[340px] h-[340px] md:w-[480px] md:h-[480px] rounded-full border border-[#FF5A00]/20 opacity-40"
       />
 
-      <div className="w-full max-w-[1500px] mx-auto px-6 sm:px-10 md:px-14 relative z-10 flex flex-col justify-between h-full">
+      <div className="w-full max-w-[1920px] mx-auto px-6 md:px-[10.8%] relative z-10 flex flex-col justify-between h-full">
         
         {/* ── 1. Header Row (Matching Reference Layout) ── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-10 sm:mb-12">
@@ -106,9 +107,9 @@ export function AwardsSection() {
               initial="hidden"
               whileInView="show"
               viewport={VIEWPORT_ONCE}
-              className="font-sans text-[clamp(2.4rem,4.2vw,4.5rem)] font-light tracking-[-0.035em] leading-[0.96] text-left uppercase text-white"
+              className="font-sans text-[clamp(2.4rem,4.2vw,4.5rem)] font-light tracking-[-0.035em] leading-[0.96] text-left uppercase"
             >
-              <span className="block text-white">AWARDS &amp;</span>
+              <span className="block" style={{ color: 'var(--foreground)' }}>AWARDS &amp;</span>
               <span className="block text-[#FF5A00] font-normal">RECOGNITION.</span>
             </motion.h2>
 
@@ -125,11 +126,11 @@ export function AwardsSection() {
                 <span>20+ YEARS OF EXCELLENCE</span>
               </div>
 
-              <h3 className="font-sans text-xl sm:text-2xl md:text-[26px] font-light text-white tracking-tight leading-snug">
+              <h3 className="font-sans text-xl sm:text-2xl md:text-[26px] font-light tracking-tight leading-snug" style={{ color: 'var(--foreground)' }}>
                 A LEGACY OF TRUST AND IMPACT.
               </h3>
 
-              <p className="font-sans text-xs sm:text-[13px] text-white/60 leading-relaxed">
+              <p className="font-sans text-xs sm:text-[13px] leading-relaxed" style={{ color: 'var(--foreground-muted)' }}>
                 Global recognition for engineering excellence, product design and enterprise software innovation.
               </p>
             </div>
@@ -156,7 +157,7 @@ export function AwardsSection() {
             transition={{ duration: 0.5, ease: EASE_CUSTOM }}
             className="lg:col-span-4 rounded-2xl md:rounded-3xl border border-[#FF5A00]/40 bg-[#0a0a0d] relative overflow-hidden p-7 sm:p-8 flex flex-col justify-between shadow-[0_0_35px_rgba(255,90,0,0.14)] group"
           >
-            {/* Mountain Dawn Sunrise Artwork Background with Seamless Fade */}
+            {/* Dark Mountain Sunrise Artwork Background with Seamless Fade */}
             <div className="absolute inset-0 pointer-events-none select-none z-0">
               <Image
                 src="/images/mountain_sunrise_award.jpg"
@@ -172,7 +173,7 @@ export function AwardsSection() {
 
             {/* Card Content Top */}
             <div className="relative z-10">
-              <span className="font-mono text-[10.5px] tracking-[0.24em] text-[#FF5A00] uppercase font-medium block mb-6">
+              <span className="font-mono text-[10.5px] tracking-[0.24em] text-[#FF5A00] uppercase font-semibold block mb-6">
                 OUR JOURNEY
               </span>
 
@@ -180,21 +181,30 @@ export function AwardsSection() {
                 20+
               </div>
 
-              <div className="font-mono text-xs sm:text-[13px] tracking-[0.2em] text-white uppercase font-medium mb-4">
+              {/* Years of Excellence / Experience - Always White in Light & Dark Mode */}
+              <div
+                className="font-mono text-xs sm:text-[13px] tracking-[0.2em] uppercase font-medium mb-4"
+                style={{ color: "#ffffff" }}
+              >
                 YEARS OF EXCELLENCE
               </div>
 
-              <p className="font-sans text-xs sm:text-[13px] text-white/70 leading-relaxed max-w-xs">
+              <p
+                className="font-sans text-xs sm:text-[13px] leading-relaxed max-w-xs"
+                style={{ color: "rgba(255, 255, 255, 0.72)" }}
+              >
                 Two decades of innovation, trusted by customers, partners and industry leaders worldwide.
               </p>
             </div>
 
             {/* Card Content Bottom */}
             <div className="relative z-10 pt-8 mt-12 border-t border-white/10 flex items-center justify-between">
-              <div className="font-mono text-[9px] tracking-[0.22em] uppercase text-white/50 leading-snug">
-                <span>BUILT FOR</span>
+              <div className="font-mono text-[9px] tracking-[0.22em] uppercase leading-snug">
+                <span style={{ color: "rgba(255, 255, 255, 0.55)" }}>BUILT FOR</span>
                 <br />
-                <span className="text-white/80 font-medium">A BRIGHTER TOMORROW</span>
+                <span className="font-semibold" style={{ color: "rgba(255, 255, 255, 0.9)" }}>
+                  A BRIGHTER TOMORROW
+                </span>
               </div>
 
               <a
@@ -209,37 +219,35 @@ export function AwardsSection() {
             </div>
           </motion.div>
 
-          {/* ── Right Column: 10 Authentic Award Badges in a Balanced 5x2 Grid ── */}
-          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 items-stretch">
+          {/* ── Right Column: 10 Authentic Award Badges with Clean White/Light Card Background ── */}
+          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-3.5 items-stretch">
             {AWARDS_5X2.map((award, idx) => (
               <motion.div
                 key={award.id}
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_ONCE}
-                transition={{ duration: 0.4, delay: idx * 0.035, ease: EASE_CUSTOM }}
-                className="group relative rounded-2xl border border-white/[0.08] bg-[#0c0d13]/80 hover:bg-[#12141d] hover:border-[#FF5A00]/45 p-3.5 sm:p-4 flex flex-col justify-between items-center text-center transition-all duration-300 shadow-lg hover:shadow-[0_0_24px_rgba(255,90,0,0.18)] min-h-[175px] sm:min-h-[190px]"
+                transition={{ duration: 0.4, delay: idx * 0.03, ease: EASE_CUSTOM }}
+                className="award-card group relative rounded-xl sm:rounded-2xl border p-4 flex flex-col justify-between items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 min-h-[160px] sm:min-h-[175px]"
               >
-                {/* ── Crisp White Logo Pod for Perfect Readability & Contrast (Resized Larger) ── */}
-                <div className="relative w-full h-20 sm:h-[84px] md:h-[92px] rounded-xl bg-white p-2 sm:p-2.5 flex items-center justify-center shadow-[0_4px_16px_rgba(0,0,0,0.4)] transition-all duration-300 group-hover:scale-[1.03] group-hover:shadow-[0_0_22px_rgba(255,255,255,0.25)]">
-                  <div className="relative w-full h-full">
-                    <Image
-                      src={award.image}
-                      alt={award.name}
-                      fill
-                      unoptimized
-                      sizes="(max-width: 768px) 50vw, 200px"
-                      className="object-contain object-center transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
+                {/* ── Minimalist Clean Logo Display Area ── */}
+                <div className="relative w-full h-16 sm:h-[72px] flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                  <Image
+                    src={award.image}
+                    alt={award.name}
+                    fill
+                    unoptimized
+                    sizes="(max-width: 768px) 50vw, 160px"
+                    className="object-contain object-center"
+                  />
                 </div>
 
-                {/* Typography Labels: Award Name + Category */}
-                <div className="w-full pt-3 mt-2.5 border-t border-white/[0.08]">
-                  <div className="font-sans text-[12.5px] sm:text-[13.5px] font-medium text-white/95 group-hover:text-white truncate">
+                {/* Clean Typography Labels: Award Name + Category */}
+                <div className="w-full pt-3 mt-2 border-t border-black/[0.06] dark:border-white/[0.08]">
+                  <div className="award-title font-sans text-[12.5px] sm:text-[13px] font-medium transition-colors truncate">
                     {award.name}
                   </div>
-                  <div className="font-mono text-[9px] sm:text-[9.5px] tracking-wider text-white/50 uppercase mt-0.5 truncate group-hover:text-[#FF5A00] transition-colors">
+                  <div className="award-category font-mono text-[8.5px] sm:text-[9px] tracking-wider uppercase mt-0.5 truncate transition-colors">
                     {award.category}
                   </div>
                 </div>

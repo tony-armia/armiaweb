@@ -20,7 +20,7 @@ export function PartnerTicker() {
   const marqueeList = [...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS];
 
   return (
-    <div className="relative w-full bg-[#090909] border-y border-white/[0.08] overflow-hidden select-none z-20">
+    <div className="relative w-full overflow-hidden select-none z-20 transition-colors duration-400" style={{ backgroundColor: "var(--surface)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
       <div className="flex w-full">
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
@@ -29,14 +29,14 @@ export function PartnerTicker() {
             ease: "linear",
             duration: 45,
           }}
-          className="flex shrink-0 items-center divide-x divide-white/[0.08]"
+          className="flex shrink-0 items-center" style={{ borderRight: '1px solid var(--border)' }}
         >
           {marqueeList.map((partner, index) => (
             <div
               key={index}
               className="flex items-center justify-center px-10 md:px-16 py-5 md:py-6"
             >
-              <span className="font-mono text-[11px] md:text-[13px] font-medium tracking-[0.2em] text-white/40 uppercase whitespace-nowrap hover:text-white transition-colors">
+              <span className="font-mono text-[11px] md:text-[13px] font-medium tracking-[0.2em] uppercase whitespace-nowrap hover:text-brand-accent transition-colors" style={{ color: 'var(--foreground-subtle)' }}>
                 {partner}
               </span>
             </div>

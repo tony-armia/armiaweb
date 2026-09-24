@@ -260,8 +260,9 @@ export function ServicesSection() {
   return (
     <section
       id="services"
-      data-theme="dark"
-      className="relative w-full bg-[#08090b] text-white py-20 sm:py-28 md:py-32 px-6 sm:px-12 md:px-16 lg:px-24 select-none overflow-hidden border-t border-white/[0.06]"
+      data-theme="section"
+      className="relative w-full py-20 sm:py-28 md:py-32 select-none overflow-hidden transition-colors duration-400"
+      style={{ backgroundColor: "var(--background)", color: "var(--foreground)", borderTop: "1px solid var(--border)" }}
       aria-label="Services and Enterprise Transformation"
     >
       {/* Background ambient lighting */}
@@ -270,12 +271,17 @@ export function ServicesSection() {
         className="absolute top-10 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-brand-accent/[0.035] rounded-full blur-[160px] pointer-events-none"
       />
 
-      <div className="mx-auto w-full max-w-[1500px] relative z-10">
-        {/* ── Section Header Row (Appinventiv Style) ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12 sm:mb-16">
+      <div className="w-full max-w-[1920px] mx-auto px-6 md:px-[10.8%] relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12 sm:mb-16"
+        >
           <div className="lg:col-span-8">
             <SectionEyebrow number="03" label="SOLUTIONS" className="!mb-4" />
-            <h2 className="font-sans font-light text-[clamp(2.25rem,4.2vw,4.2rem)] leading-[1.04] tracking-[-0.03em] text-white">
+            <h2 className="font-sans font-light text-[clamp(2.25rem,4.2vw,4.2rem)] leading-[1.04] tracking-[-0.03em]" style={{ color: 'var(--foreground)' }}>
               Beyond Development.{" "}
               <span className="block text-brand-accent font-normal tracking-[-0.02em]">
                 We Deliver Transformation.
@@ -284,22 +290,27 @@ export function ServicesSection() {
           </div>
 
           <div className="lg:col-span-4 lg:pl-6 pb-2">
-            <p className="text-[#8e94a0] text-[15px] sm:text-[16px] leading-[1.7] font-normal">
+            <p className="text-[15px] sm:text-[16px] leading-[1.7] font-normal" style={{ color: 'var(--foreground-muted)' }}>
               Enterprise technology succeeds when architecture, intelligence, and execution align.
               We build systems that can last, scale responsibly, and stand up to real-world complexity.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* ── Perspective Navigation Tabs (Appinventiv Model) ── */}
-        <div className="flex flex-wrap items-center gap-3 pb-8 mb-12 border-b border-white/[0.08]">
+        <div className="flex flex-wrap items-center gap-3 pb-8 mb-12" style={{ borderBottom: "1px solid var(--border)" }}>
           <button
             onClick={() => setActiveTab("pillars")}
             className={`font-mono text-xs sm:text-[13px] tracking-[0.16em] uppercase px-5 py-2.5 rounded-full transition-all duration-300 cursor-pointer ${
               activeTab === "pillars"
                 ? "bg-brand-accent text-white font-semibold shadow-lg shadow-brand-accent/25"
-                : "bg-white/[0.04] text-white/60 hover:text-white hover:bg-white/[0.08] border border-white/[0.08]"
+                : "font-normal"
             }`}
+            style={activeTab !== "pillars" ? {
+              backgroundColor: "var(--surface)",
+              color: "var(--foreground-muted)",
+              border: "1px solid var(--border-strong)"
+            } : {}}
           >
             Core Service Lines
           </button>
@@ -309,8 +320,13 @@ export function ServicesSection() {
             className={`font-mono text-xs sm:text-[13px] tracking-[0.16em] uppercase px-5 py-2.5 rounded-full transition-all duration-300 cursor-pointer ${
               activeTab === "expertise"
                 ? "bg-brand-accent text-white font-semibold shadow-lg shadow-brand-accent/25"
-                : "bg-white/[0.04] text-white/60 hover:text-white hover:bg-white/[0.08] border border-white/[0.08]"
+                : "font-normal"
             }`}
+            style={activeTab !== "expertise" ? {
+              backgroundColor: "var(--surface)",
+              color: "var(--foreground-muted)",
+              border: "1px solid var(--border-strong)"
+            } : {}}
           >
             Deep Technical Expertise (12)
           </button>
@@ -320,8 +336,13 @@ export function ServicesSection() {
             className={`font-mono text-xs sm:text-[13px] tracking-[0.16em] uppercase px-5 py-2.5 rounded-full transition-all duration-300 cursor-pointer ${
               activeTab === "industries"
                 ? "bg-brand-accent text-white font-semibold shadow-lg shadow-brand-accent/25"
-                : "bg-white/[0.04] text-white/60 hover:text-white hover:bg-white/[0.08] border border-white/[0.08]"
+                : "font-normal"
             }`}
+            style={activeTab !== "industries" ? {
+              backgroundColor: "var(--surface)",
+              color: "var(--foreground-muted)",
+              border: "1px solid var(--border-strong)"
+            } : {}}
           >
             Industry Solutions
           </button>
@@ -330,31 +351,40 @@ export function ServicesSection() {
         {/* ── TAB 1: 4 Core Transformation Pillars (Appinventiv Flagship View) ── */}
         {activeTab === "pillars" && (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
-            {PILLARS.map((pillar) => {
+            {PILLARS.map((pillar, idx) => {
               const Icon = pillar.icon;
               return (
-                <div
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.7, delay: idx * 0.1, ease: "easeOut" }}
                   key={pillar.id}
                   className="group relative rounded-2xl md:rounded-3xl border border-white/[0.08] bg-[#0c0d12]/80 hover:bg-[#11131a] hover:border-brand-accent/40 transition-all duration-500 p-8 sm:p-10 flex flex-col justify-between overflow-hidden shadow-2xl backdrop-blur-sm"
                 >
-                  {/* Huge Watermark Number */}
+                  {/* Subtle Background Watermark Number in bottom right (no overlap) */}
                   <span
                     aria-hidden="true"
-                    className="pointer-events-none absolute right-6 top-4 sm:right-8 sm:top-6 font-mono text-[4.5rem] sm:text-[5.5rem] font-light text-white/[0.03] group-hover:text-brand-accent/[0.12] transition-colors duration-500 select-none leading-none"
+                    className="pointer-events-none absolute right-6 -bottom-2 sm:right-8 sm:-bottom-3 font-mono text-[4.8rem] sm:text-[5.8rem] font-light watermark-number group-hover:text-brand-accent/[0.08] transition-colors duration-500 select-none leading-none z-0"
                   >
                     {pillar.num}
                   </span>
 
-                  <div>
-                    {/* Header Row: Icon + Badge */}
+                  <div className="relative z-10">
+                    {/* Header Row: Icon + Badge + Number Index */}
                     <div className="flex items-center justify-between mb-6">
-                      <div className="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/10 group-hover:border-brand-accent/40 flex items-center justify-center transition-colors duration-300 shadow-sm">
-                        <Icon className="w-6 h-6 text-white transition-colors" />
+                      <div className="w-12 h-12 rounded-xl bg-black/[0.04] dark:bg-white/[0.04] border border-black/10 dark:border-white/10 group-hover:border-brand-accent/40 flex items-center justify-center transition-colors duration-300 shadow-sm">
+                        <Icon className="w-6 h-6 text-neutral-800 dark:text-white transition-colors" />
                       </div>
 
-                      <span className="font-mono text-[10px] sm:text-[11px] px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] text-white/60 tracking-wider">
-                        {pillar.badge}
-                      </span>
+                      <div className="flex items-center gap-2.5">
+                        <span className="font-mono text-[10px] sm:text-[11px] px-3 py-1 rounded-full bg-black/[0.03] dark:bg-white/[0.03] border border-black/10 dark:border-white/[0.08] text-neutral-600 dark:text-white/60 tracking-wider">
+                          {pillar.badge}
+                        </span>
+                        <span className="font-mono text-xs sm:text-[13px] font-semibold text-brand-accent tracking-widest">
+                          /{pillar.num}
+                        </span>
+                      </div>
                     </div>
 
                     {/* Title */}
@@ -391,7 +421,7 @@ export function ServicesSection() {
                       <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
                     </a>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -403,7 +433,11 @@ export function ServicesSection() {
             {TECH_EXPERTISE.map((tech, idx) => {
               const Icon = tech.icon;
               return (
-                <div
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: idx * 0.05, ease: "easeOut" }}
                   key={idx}
                   className="group relative rounded-2xl border border-white/[0.08] bg-[#0c0d12]/70 hover:bg-[#11131a] hover:border-brand-accent/40 transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between"
                 >
@@ -429,7 +463,7 @@ export function ServicesSection() {
                       Production Ready &bull; Tier 1
                     </span>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -517,8 +551,8 @@ export function ServicesSection() {
                   </div>
                 </div>
               </div>
+              </div>
             </div>
-          </div>
         )}
       </div>
     </section>

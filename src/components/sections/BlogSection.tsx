@@ -14,8 +14,9 @@ export function BlogSection() {
 
   return (
     <section
-      data-theme="dark"
-      className="relative w-full bg-black text-white min-h-[100svh] border-t border-white/[0.08] select-none snap-section flex flex-col justify-between overflow-hidden py-10 md:py-14"
+      data-theme="section"
+      className="relative w-full min-h-[100svh] select-none snap-section flex flex-col justify-between overflow-hidden py-10 md:py-14 transition-colors duration-400"
+      style={{ backgroundColor: "var(--background)", color: "var(--foreground)", borderTop: "1px solid var(--border)" }}
     >
       <GridLines />
 
@@ -25,7 +26,7 @@ export function BlogSection() {
       <div className="absolute top-[28%] right-[2.5%] w-1.5 h-1.5 rounded-full bg-brand-accent/60 shadow-[0_0_8px_#FF5A00] pointer-events-none" />
 
       {/* ── Top Header Area ── */}
-      <div className="relative z-10 w-full max-w-[1720px] mx-auto px-6 md:px-12 lg:px-16 mb-6 md:mb-8 shrink-0">
+      <div className="relative z-10 w-full max-w-[1920px] mx-auto px-6 md:px-[10.8%] mb-6 md:mb-8 shrink-0">
         {/* Top Eyebrow Row: 09 / INSIGHTS & VIEW ALL ARTICLES */}
         <div className="flex items-center justify-between mb-3 md:mb-4">
           {/* Left Eyebrow with glowing orange node */}
@@ -34,10 +35,10 @@ export function BlogSection() {
             <span className="font-mono text-xs md:text-[13px] tracking-[0.2em] uppercase text-brand-accent font-medium">
               09
             </span>
-            <span className="font-mono text-xs md:text-[13px] tracking-[0.2em] text-white/40">
+            <span className="font-mono text-xs md:text-[13px] tracking-[0.2em]" style={{ color: 'var(--foreground-subtle)' }}>
               /
             </span>
-            <span className="font-mono text-xs md:text-[13px] tracking-[0.2em] uppercase text-white/80">
+            <span className="font-mono text-xs md:text-[13px] tracking-[0.2em] uppercase font-medium" style={{ color: 'var(--foreground)' }}>
               INSIGHTS
             </span>
           </div>
@@ -45,7 +46,7 @@ export function BlogSection() {
           {/* Right Action Link */}
           <a
             href="#blog"
-            className="font-mono text-xs md:text-[13px] text-brand-accent tracking-[0.16em] uppercase hover:text-white transition-colors flex items-center gap-1.5 group"
+            className="font-mono text-xs md:text-[13px] text-brand-accent tracking-[0.16em] uppercase transition-colors flex items-center gap-1.5 group"
           >
             <span>VIEW ALL ARTICLES</span>
             <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -57,16 +58,16 @@ export function BlogSection() {
           {/* Main Title & Center Divider Block */}
           <div className="flex flex-col md:flex-row md:items-center gap-6 lg:gap-12">
             <h2 className="font-sans text-[clamp(2.5rem,4.2vw,4.5rem)] font-light tracking-[-0.035em] leading-[0.92] text-left">
-              <span className="block text-white">LATEST</span>
-              <span className="block text-white font-normal">
+              <span className="block" style={{ color: 'var(--foreground)' }}>LATEST</span>
+              <span className="block font-normal" style={{ color: 'var(--foreground)' }}>
                 INSIGHTS<span className="text-brand-accent">.</span>
               </span>
             </h2>
 
             {/* Hairline Divider + Engineering Strategy text */}
             <div className="hidden md:flex items-center gap-6 pl-2">
-              <div className="w-[1px] h-14 bg-white/20" />
-              <p className="font-mono text-[11px] md:text-xs leading-relaxed text-white/50 uppercase tracking-[0.16em] max-w-[260px]">
+              <div className="w-[1px] h-14" style={{ backgroundColor: 'var(--border-strong)' }} />
+              <p className="font-mono text-[11px] md:text-xs leading-relaxed uppercase tracking-[0.16em] max-w-[260px]" style={{ color: 'var(--foreground-muted)' }}>
                 ENGINEERING ARCHITECTURE,
                 <br />
                 AI SYSTEMS &amp; TECH STRATEGY.
@@ -75,7 +76,7 @@ export function BlogSection() {
           </div>
 
           {/* Far Right 3-tier label list */}
-          <div className="hidden lg:flex flex-col items-start font-mono text-[10px] md:text-[11px] tracking-[0.22em] text-white/40 uppercase leading-snug pr-2">
+          <div className="hidden lg:flex flex-col items-start font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase leading-snug pr-2" style={{ color: 'var(--foreground-subtle)' }}>
             <span>IDEAS</span>
             <span>SYSTEMS</span>
             <span>REAL IMPACT</span>
@@ -84,7 +85,7 @@ export function BlogSection() {
       </div>
 
       {/* ── Main Asymmetric 2-Column Showcase (Left Featured 01 + Right Stacked 02, 03, 04) ── */}
-      <div className="relative z-10 w-full max-w-[1720px] mx-auto px-6 md:px-12 lg:px-16 flex-1 flex flex-col justify-start">
+      <div className="relative z-10 w-full max-w-[1920px] mx-auto px-6 md:px-[10.8%] flex-1 flex flex-col justify-start">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-stretch">
           {/* ── LEFT COLUMN: Featured Large Card (01) ── */}
           <motion.div
