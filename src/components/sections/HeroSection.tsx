@@ -74,7 +74,7 @@ export function HeroSection() {
             {/* Center Wordmark Container */}
             <div className="relative flex flex-col items-center md:w-fit">
               {/* Center Giant Word: "armia" */}
-              <h1 className="text-center font-sans font-normal leading-none tracking-tight text-[clamp(4.8rem,14.5vw,14rem)] cursor-default select-none">
+              <h1 className="text-center font-sans font-bold leading-none tracking-tight text-[clamp(6rem,16vw,16rem)] cursor-default select-none">
                 <div className="overflow-hidden flex items-center justify-center">
                   {letters.map((char, index) => (
                     <motion.span
@@ -114,10 +114,10 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 16 }}
               animate={isAppReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
               transition={{ duration: 0.9, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-6 sm:mt-8 md:mt-10 flex flex-col items-center text-center max-w-xl mx-auto"
+              className="mt-6 sm:mt-8 md:mt-10 flex flex-col items-center text-center max-w-3xl mx-auto"
             >
               {/* Supporting Value Proposition */}
-              <p className="font-sans text-xs sm:text-[13.5px] md:text-[14.5px] text-white/70 font-normal leading-relaxed tracking-normal max-w-lg">
+              <p className="font-sans text-[11px] sm:text-[12px] md:text-[13px] text-white/60 font-normal uppercase leading-relaxed tracking-widest max-w-3xl mx-auto">
                 Trusted technology partner for scalable software, digital products,
                 <br className="hidden sm:inline" /> and long-term engineering support.
               </p>
@@ -128,7 +128,7 @@ export function HeroSection() {
               {/* Minimal Trust Indicator Line */}
               <div className="flex items-center justify-center gap-3 mt-4 sm:mt-5">
                 <span className="w-8 sm:w-12 h-px bg-gradient-to-r from-transparent to-[#FF5A00]/50" />
-                <span className="font-mono text-[9px] sm:text-[9.5px] tracking-[0.24em] text-white/40 uppercase font-medium">
+                <span className="font-mono text-[9px] sm:text-[9.5px] tracking-[0.24em] text-white/60 uppercase font-medium">
                   TRUSTED BY PRODUCT TEAMS WORLDWIDE
                 </span>
                 <span className="w-8 sm:w-12 h-px bg-gradient-to-l from-transparent to-[#FF5A00]/50" />
