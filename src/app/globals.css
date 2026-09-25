@@ -533,3 +533,24 @@ body {
   animation: elysium-gradient-move 14s linear infinite;
   will-change: background-position;
 }
+
+.elysium-animated-gradient-light {
+  background-image: linear-gradient(
+    270deg,
+    #111827,
+    #1f2937,
+    #7c2d12,
+    #b45309,
+    #ff5a00,
+    #9a3412,
+    #ea580c,
+    #18181b
+  );
+  background-size: 300% 100%;
+  animation: elysium-gradient-move 14s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}

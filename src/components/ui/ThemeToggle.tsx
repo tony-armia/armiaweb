@@ -67,20 +67,19 @@ export function ThemeToggle({ inMenu = false, isPastHero = false }: ThemeToggleP
   }
 
   // Header toggle — adapt icon color based on context
-  // On hero (not past hero): always dark bg → white icon
-  // Past hero in light mode: white bg → dark icon
-  // Past hero in dark mode: dark bg → white icon
-  const isDarkContext = !isPastHero || !isLight;
+  // When in light theme/hero: dark icon & border for high contrast
+  // When in dark theme: white icon & border
+  const isDarkContext = !isLight;
 
   return (
     <button
       type="button"
       onClick={toggle}
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-      className={`group relative flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent backdrop-blur-sm ${
+      className={`group relative flex items-center justify-center w-8 h-8 rounded-full transition-all duration-700 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent backdrop-blur-sm ${
         isDarkContext
           ? "border border-white/20 bg-white/[0.06] hover:bg-white/[0.12] hover:border-white/30 text-white/60 hover:text-white"
-          : "border border-black/15 bg-black/[0.05] hover:bg-black/[0.10] hover:border-black/25 text-black/50 hover:text-black"
+          : "border border-black/15 bg-black/[0.05] hover:bg-black/[0.10] hover:border-black/25 text-black/60 hover:text-black"
       }`}
     >
       <AnimatePresence mode="wait" initial={false}>

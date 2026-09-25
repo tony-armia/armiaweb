@@ -25,13 +25,17 @@ export function Header() {
 
   // Track theme changes so header can adapt contrast
   useEffect(() => {
-    const check = () =>
-      setIsLight(document.documentElement.classList.contains("light"));
+    const check = () => {
+      const isHtmlLight = document.documentElement.classList.contains("light");
+      const isHeroLightEl = !!document.querySelector('[data-theme="hero-light"]');
+      setIsLight(isHtmlLight || isHeroLightEl);
+    };
     check();
     const observer = new MutationObserver(check);
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ["class"],
+      attributeFilter: ["class", "data-theme"],
+      subtree: true,
     });
     return () => observer.disconnect();
   }, []);
@@ -72,11 +76,13 @@ export function Header() {
     ? "bg-white/90 backdrop-blur-md border-b border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.08)]"
     : "bg-black/90 backdrop-blur-md border-b border-white/[0.08] shadow-[0_8px_30px_rgba(0,0,0,0.7)]";
 
-  // Menu button: on hero always dark; when past hero respect theme
-  const menuBtnBase =
-    !isPastHero || !isLight
-      ? "bg-white/[0.07] hover:bg-white/[0.14] text-white border-white/15 hover:border-brand-accent/50"
-      : "bg-black/[0.06] hover:bg-black/[0.12] text-foreground border-black/15 hover:border-brand-accent/40";
+  // Check if header context requires dark text/icons
+  const isLightContext = isPastHero ? isLight : isLight;
+
+  // Menu button: adapt contrast to current background
+  const menuBtnBase = !isLightContext
+    ? "bg-white/[0.07] hover:bg-white/[0.14] text-white border-white/15 hover:border-brand-accent/50"
+    : "bg-black/[0.06] hover:bg-black/[0.12] text-foreground border-black/15 hover:border-brand-accent/40";
 
   return (
     <>
@@ -94,12 +100,23 @@ export function Header() {
               href="/"
               className="group flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-sm"
             >
-              <div className="relative h-11 w-32 md:h-14 md:w-60 flex items-center transition-all duration-300">
+              <div className="relative h-11 w-32 md:h-14 md:w-60 flex items-center">
                 <Image
-                  src={isPastHero && isLight ? "/images/armialogo-light.svg" : "/images/armialogo.svg"}
+                  src="/images/armialogo.svg"
                   alt="Armia Systems"
                   fill
-                  className="object-contain object-left"
+                  className={`object-contain object-left transition-opacity duration-700 ease-in-out ${
+                    isLightContext ? "opacity-0" : "opacity-100"
+                  }`}
+                  priority
+                />
+                <Image
+                  src="/images/armialogo-light.svg"
+                  alt="Armia Systems"
+                  fill
+                  className={`object-contain object-left transition-opacity duration-700 ease-in-out ${
+                    isLightContext ? "opacity-100" : "opacity-0"
+                  }`}
                   priority
                 />
               </div>
@@ -107,7 +124,7 @@ export function Header() {
 
             <div className="flex items-center gap-2.5">
               {/* Theme Toggle — always visible for easy access */}
-              <ThemeToggle isPastHero={isPastHero} />
+              <ThemeToggle isPastHero={isLightContext} />
 
               {/* Menu Button */}
               <button

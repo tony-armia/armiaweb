@@ -46,8 +46,8 @@ const STATEMENTS: StatementItem[] = [
       "enterprise maturity.",
     ],
     secondary: [
-      "Trusted by 500+ product teams",
-      "over 20+ years.",
+      "Accelerating time-to-market",
+      "with predictable delivery.",
     ],
   },
   {
@@ -59,15 +59,19 @@ const STATEMENTS: StatementItem[] = [
       "mission-critical software.",
     ],
     secondary: [
-      "ISO 9001 & 27001 certified",
-      "engineering excellence.",
+      "Enterprise data protection",
+      "and high-availability SLAs.",
     ],
   },
 ];
 
 const CYCLE_INTERVAL_MS = 4800;
 
-export function HeroRotatingStatement() {
+interface HeroRotatingStatementProps {
+  isLight?: boolean;
+}
+
+export function HeroRotatingStatement({ isLight = false }: HeroRotatingStatementProps) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -92,15 +96,23 @@ export function HeroRotatingStatement() {
           className="flex flex-col"
         >
           {/* Micro Category Tag & Index */}
-          <div className="flex items-center gap-2 mb-2.5 font-mono text-[9.5px] sm:text-[10px] tracking-[0.2em] uppercase text-white/40">
+          <div
+            className={`flex items-center gap-2 mb-2.5 font-mono text-[9.5px] sm:text-[10px] tracking-[0.2em] uppercase transition-colors duration-700 ease-in-out ${
+              isLight ? "text-black/50" : "text-white/40"
+            }`}
+          >
             <span className="w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_#FF5A00] inline-block shrink-0" />
             <span className="text-brand-accent font-medium">{current.id}</span>
-            <span className="text-white/25">/</span>
-            <span className="text-white/60">{current.tag}</span>
+            <span className={`transition-colors duration-700 ease-in-out ${isLight ? "text-black/25" : "text-white/25"}`}>/</span>
+            <span className={`transition-colors duration-700 ease-in-out ${isLight ? "text-black/70" : "text-white/60"}`}>{current.tag}</span>
           </div>
 
           {/* Primary Statement Block */}
-          <div className="flex flex-col text-xs sm:text-[13px] md:text-sm leading-snug text-white/80 font-normal">
+          <div
+            className={`flex flex-col text-xs sm:text-[13px] md:text-sm leading-snug font-normal transition-colors duration-700 ease-in-out ${
+              isLight ? "text-[#111827]" : "text-white/80"
+            }`}
+          >
             {current.primary.map((line, i) => (
               <div key={i} className="overflow-hidden">
                 <motion.p
@@ -124,7 +136,11 @@ export function HeroRotatingStatement() {
           <div className="h-3" />
 
           {/* Secondary Statement Block */}
-          <div className="flex flex-col text-xs sm:text-[12px] md:text-[12.5px] leading-snug text-white/50 font-normal">
+          <div
+            className={`flex flex-col text-xs sm:text-[12px] md:text-[12.5px] leading-snug font-normal transition-colors duration-700 ease-in-out ${
+              isLight ? "text-black" : "text-white/50"
+            }`}
+          >
             {current.secondary.map((line, i) => (
               <div key={i} className="overflow-hidden">
                 <motion.p
@@ -136,7 +152,7 @@ export function HeroRotatingStatement() {
                     delay: 0.2 + i * 0.07,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  className="leading-snug text-white/50"
+                  className="leading-snug"
                 >
                   {line}
                 </motion.p>
