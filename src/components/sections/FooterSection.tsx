@@ -1,15 +1,23 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { GridLines } from "@/components/ui/GridLines";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { EASE_CUSTOM, fadeUp, fadeUpSmall, staggerContainer, VIEWPORT_ONCE } from "@/lib/motion";
 import { TypewriterText } from "@/components/effects/TypewriterText";
 
 export function FooterSection() {
+  const footerRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: footerRef,
+    offset: ["start end", "end end"],
+  });
+
+  const yTeamImage = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"]);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -31,6 +39,7 @@ export function FooterSection() {
 
   return (
     <footer
+      ref={footerRef}
       id="contact"
       data-theme="dark"
       className="relative w-full bg-black text-white pt-0 pb-12 overflow-hidden select-none border-t-[3px] border-brand-accent"
@@ -52,12 +61,14 @@ export function FooterSection() {
               <div>
                 <div className="relative w-full mb-10 overflow-hidden bg-neutral-900 border-t-[3px] border-brand-accent shadow-2xl rounded-2xl group border border-white/10">
                   <div className="relative w-full aspect-[4/5] bg-neutral-800 overflow-hidden">
-                    <Image
-                      src="/images/engineering_team.png"
-                      alt="Armia Leadership & Engineering"
-                      fill
-                      className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.05]"
-                    />
+                    <motion.div style={{ y: yTeamImage, scale: 1.08 }} className="relative w-full h-full will-change-transform">
+                      <Image
+                        src="/images/engineering_team.png"
+                        alt="Armia Leadership & Engineering"
+                        fill
+                        className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                      />
+                    </motion.div>
                   </div>
                   <div className="p-3 bg-[#111111] border-t border-white/10 flex items-center justify-center">
                     <a

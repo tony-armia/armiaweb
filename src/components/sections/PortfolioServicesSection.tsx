@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { EASE_CUSTOM } from "@/lib/motion";
 import { GridLines } from "@/components/ui/GridLines";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
@@ -151,6 +151,15 @@ const imageVariants = {
 
 export function PortfolioServicesSection() {
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  const yImage = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
+  const yRightCol = useTransform(scrollYProgress, [0, 1], [30, -30]);
+
   const {
     activeIndex,
     setActiveIndex,
@@ -237,14 +246,16 @@ export function PortfolioServicesSection() {
                     variants={imageVariants}
                     className="relative overflow-hidden w-full aspect-[16/10] bg-neutral-900 border border-white/10 shadow-2xl rounded-2xl group"
                   >
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 750px"
-                      className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
-                      priority
-                    />
+                    <motion.div style={{ y: yImage, scale: 1.08 }} className="relative w-full h-full will-change-transform">
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 750px"
+                        className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+                        priority
+                      />
+                    </motion.div>
                   </motion.div>
 
                   {/* Caption under large image */}
@@ -259,7 +270,7 @@ export function PortfolioServicesSection() {
             </div>
 
             {/* ── Right Column: Project Title, Impact Capabilities & Navigation (5 cols) ── */}
-            <div className="md:col-span-5 flex flex-col justify-between h-full">
+            <motion.div style={{ y: yRightCol }} className="md:col-span-5 flex flex-col justify-between h-full will-change-transform">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={service.id}
@@ -321,7 +332,7 @@ export function PortfolioServicesSection() {
                   </div>
                 </motion.div>
               </AnimatePresence>
-            </div>
+            </motion.div>
 
           </div>
         </div>

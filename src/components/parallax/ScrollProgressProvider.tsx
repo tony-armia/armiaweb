@@ -10,15 +10,11 @@ interface ScrollProgressContextType {
 const ScrollProgressContext = createContext<ScrollProgressContextType | null>(null);
 
 export function ScrollProgressProvider({ children }: { children: React.ReactNode }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
+  const { scrollYProgress } = useScroll();
 
   return (
     <ScrollProgressContext.Provider value={{ globalProgress: scrollYProgress }}>
-      <div ref={containerRef} className="relative w-full h-full">
+      <div className="relative w-full h-full">
         {children}
       </div>
     </ScrollProgressContext.Provider>

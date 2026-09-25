@@ -1,19 +1,31 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { BLOG_ARTICLES } from "@/data/blog";
 import { GridLines } from "@/components/ui/GridLines";
 import { VIEWPORT_ONCE, EASE_CUSTOM } from "@/lib/motion";
 
 export function BlogSection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const yFeatured = useTransform(scrollYProgress, [0, 1], [25, -25]);
+  const yFeaturedImage = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
+  const ySideArticles = useTransform(scrollYProgress, [0, 1], [-20, 20]);
+  const yNodes = useTransform(scrollYProgress, [0, 1], [-30, 30]);
+
   const featuredArticle = BLOG_ARTICLES[0];
   const sideArticles = BLOG_ARTICLES.slice(1, 4);
 
   return (
     <section
+      ref={sectionRef}
       data-theme="section"
       className="relative w-full min-h-[100svh] select-none snap-section flex flex-col justify-between overflow-hidden py-10 md:py-14 transition-colors duration-400"
       style={{ backgroundColor: "var(--background)", color: "var(--foreground)", borderTop: "1px solid var(--border)" }}
@@ -21,23 +33,19 @@ export function BlogSection() {
       <GridLines />
 
       {/* Subtle ambient grid intersection nodes matching reference image */}
-      <div className="absolute top-[9%] left-[3.2%] w-2 h-2 rounded-full bg-brand-accent shadow-[0_0_10px_#FF5A00] pointer-events-none opacity-80" />
-      <div className="absolute bottom-[24%] left-[3.2%] w-2 h-2 rounded-full bg-brand-accent shadow-[0_0_10px_#FF5A00] pointer-events-none opacity-80" />
-      <div className="absolute top-[28%] right-[2.5%] w-1.5 h-1.5 rounded-full bg-brand-accent/60 shadow-[0_0_8px_#FF5A00] pointer-events-none" />
+      <motion.div style={{ y: yNodes }} className="pointer-events-none will-change-transform">
+        <div className="absolute top-[9%] left-[3.2%] w-2 h-2 rounded-full bg-brand-accent shadow-[0_0_10px_#FF5A00] opacity-80" />
+        <div className="absolute bottom-[24%] left-[3.2%] w-2 h-2 rounded-full bg-brand-accent shadow-[0_0_10px_#FF5A00] opacity-80" />
+        <div className="absolute top-[28%] right-[2.5%] w-1.5 h-1.5 rounded-full bg-brand-accent/60 shadow-[0_0_8px_#FF5A00]" />
+      </motion.div>
 
       {/* ── Top Header Area ── */}
       <div className="relative z-10 w-full max-w-[1920px] mx-auto px-6 md:px-[10.8%] mb-6 md:mb-8 shrink-0">
-        {/* Top Eyebrow Row: 09 / INSIGHTS & VIEW ALL ARTICLES */}
+        {/* Top Eyebrow Row: INSIGHTS & VIEW ALL ARTICLES */}
         <div className="flex items-center justify-between mb-3 md:mb-4">
           {/* Left Eyebrow with glowing orange node */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
             <span className="w-2 h-2 rounded-full bg-brand-accent shadow-[0_0_10px_#FF5A00] inline-block shrink-0" />
-            <span className="font-mono text-xs md:text-[13px] tracking-[0.2em] uppercase text-brand-accent font-medium">
-              09
-            </span>
-            <span className="font-mono text-xs md:text-[13px] tracking-[0.2em]" style={{ color: 'var(--foreground-subtle)' }}>
-              /
-            </span>
             <span className="font-mono text-xs md:text-[13px] tracking-[0.2em] uppercase font-medium" style={{ color: 'var(--foreground)' }}>
               INSIGHTS
             </span>
@@ -93,14 +101,15 @@ export function BlogSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={VIEWPORT_ONCE}
             transition={{ duration: 0.5, ease: EASE_CUSTOM }}
-            className="lg:col-span-6 flex"
+            style={{ y: yFeatured }}
+            className="lg:col-span-6 flex will-change-transform"
           >
             <Link
               href={featuredArticle.href}
               className="relative w-full rounded-2xl border border-white/[0.08] bg-[#0c0e14]/90 overflow-hidden flex flex-col justify-between p-6 sm:p-8 group hover:border-white/20 transition-all duration-500 shadow-2xl min-h-[460px] lg:min-h-[500px]"
             >
               {/* Background Cover Image with Eclipse Glow & Dark Gradients */}
-              <div className="absolute inset-0 z-0">
+              <motion.div style={{ y: yFeaturedImage, scale: 1.08 }} className="absolute inset-0 z-0 will-change-transform">
                 <Image
                   src={featuredArticle.image}
                   alt={featuredArticle.title}
@@ -115,7 +124,7 @@ export function BlogSection() {
                 <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-black/95 via-black/75 to-transparent pointer-events-none" />
                 {/* Card subtle border ring */}
                 <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/[0.08] pointer-events-none" />
-              </div>
+              </motion.div>
 
               {/* Card Top Row: 01 / and Date */}
               <div className="relative z-10 flex items-center justify-between w-full">
@@ -176,7 +185,7 @@ export function BlogSection() {
           </motion.div>
 
           {/* ── RIGHT COLUMN: 3 Stacked Horizontal Cards (02, 03, 04) ── */}
-          <div className="lg:col-span-6 flex flex-col justify-between gap-3.5 sm:gap-4">
+          <motion.div style={{ y: ySideArticles }} className="lg:col-span-6 flex flex-col justify-between gap-3.5 sm:gap-4 will-change-transform">
             {sideArticles.map((article, idx) => {
               const num = `0${idx + 2}`;
               return (
@@ -257,7 +266,7 @@ export function BlogSection() {
                 </motion.article>
               );
             })}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

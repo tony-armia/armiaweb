@@ -10,32 +10,21 @@ export function HeroGlobeVisual() {
       className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none"
       aria-hidden="true"
     >
-      {/* ── High-Res Dark Earth Globe Background with Subtle Orbital Drift ── */}
+      {/* ── High-Res Dark Earth Globe Background with Stable GPU Compositing ── */}
       <div className="absolute inset-0">
-        <motion.div
-          animate={{
-            y: [-5, 5, -5],
-            scale: [1, 1.018, 1],
-          }}
-          transition={{
-            duration: 16,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="relative w-full h-full"
-        >
+        <div className="relative w-full h-full">
           <Image
             src="/images/hero_dark_globe.jpg"
             alt="Dark Earth Globe at Night"
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[72%_center] lg:object-right opacity-60 brightness-[0.70] contrast-[1.25]"
+            className="object-cover object-[72%_center] lg:object-right opacity-50"
           />
-        </motion.div>
+        </div>
 
         {/* Global Dark Shroud Overlay for deeper obsidian tone */}
-        <div className="absolute inset-0 bg-black/45 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/55 pointer-events-none" />
 
         {/* Wide Deep Black Left Blend (Keeps Hero Center Typography 100% Crisp) */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#090909] via-[#090909]/95 via-[48%] to-transparent w-full md:w-[82%] lg:w-[75%]" />
@@ -48,17 +37,8 @@ export function HeroGlobeVisual() {
         <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#090909] via-[#090909]/85 to-transparent z-10" />
 
         {/* Dynamic Breathing Atmospheric Sunrise Rim Glow */}
-        <motion.div
-          animate={{
-            opacity: [0.35, 0.55, 0.35],
-            scale: [0.98, 1.06, 0.98],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute inset-0 pointer-events-none mix-blend-screen"
+        <div
+          className="absolute inset-0 pointer-events-none mix-blend-screen opacity-45"
           style={{
             background:
               "radial-gradient(circle at 74% 34%, rgba(255, 90, 0, 0.22) 0%, rgba(255, 140, 0, 0.08) 28%, transparent 60%)",
@@ -81,24 +61,6 @@ export function HeroGlobeVisual() {
               <stop offset="50%" stopColor="#FFA040" stopOpacity="0.75" />
               <stop offset="100%" stopColor="#FF5A00" stopOpacity="0.2" />
             </linearGradient>
-
-            {/* Amber node glow filter */}
-            <filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-
-            {/* Bright photon core glow */}
-            <filter id="photonGlow" x="-100%" y="-100%" width="300%" height="300%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
           </defs>
 
           {/* Connection Arc 1: USA to Europe */}
@@ -141,14 +103,14 @@ export function HeroGlobeVisual() {
 
           {/* ── Active Travelling Data Photons along the Arcs ── */}
           {/* Packet 1: USA to Europe */}
-          <circle r="3.5" fill="#FFA040" filter="url(#photonGlow)">
+          <circle r="6" fill="#FFA040" opacity="0.35">
             <animateMotion
               dur="4.5s"
               repeatCount="indefinite"
               path="M 680 340 Q 820 250 960 380"
             />
           </circle>
-          <circle r="1.5" fill="#FFFFFF">
+          <circle r="2" fill="#FFFFFF">
             <animateMotion
               dur="4.5s"
               repeatCount="indefinite"
@@ -157,7 +119,7 @@ export function HeroGlobeVisual() {
           </circle>
 
           {/* Packet 2: Europe to India */}
-          <circle r="3.5" fill="#FF5A00" filter="url(#photonGlow)">
+          <circle r="6" fill="#FF5A00" opacity="0.4">
             <animateMotion
               dur="3.8s"
               begin="1s"
@@ -165,7 +127,7 @@ export function HeroGlobeVisual() {
               path="M 960 380 Q 940 450 945 520"
             />
           </circle>
-          <circle r="1.5" fill="#FFFFFF">
+          <circle r="2" fill="#FFFFFF">
             <animateMotion
               dur="3.8s"
               begin="1s"
@@ -175,7 +137,7 @@ export function HeroGlobeVisual() {
           </circle>
 
           {/* Packet 3: India to APAC */}
-          <circle r="3" fill="#FFA040" filter="url(#photonGlow)">
+          <circle r="5" fill="#FFA040" opacity="0.35">
             <animateMotion
               dur="4s"
               begin="2s"
@@ -183,7 +145,7 @@ export function HeroGlobeVisual() {
               path="M 945 520 Q 1050 540 1100 610"
             />
           </circle>
-          <circle r="1.5" fill="#FFFFFF">
+          <circle r="2" fill="#FFFFFF">
             <animateMotion
               dur="4s"
               begin="2s"
@@ -193,7 +155,15 @@ export function HeroGlobeVisual() {
           </circle>
 
           {/* Packet 4: USA to India Backbone */}
-          <circle r="3" fill="#FF5A00" filter="url(#photonGlow)">
+          <circle r="5" fill="#FF5A00" opacity="0.4">
+            <animateMotion
+              dur="6s"
+              begin="0.5s"
+              repeatCount="indefinite"
+              path="M 680 340 Q 820 440 945 520"
+            />
+          </circle>
+          <circle r="2" fill="#FFFFFF">
             <animateMotion
               dur="6s"
               begin="0.5s"
@@ -205,8 +175,9 @@ export function HeroGlobeVisual() {
           {/* ── Node: USA (680, 340) ── */}
           <g transform="translate(680, 340)">
             <circle r="9" fill="#FF5A00" opacity="0.2" className="animate-ping" />
-            <circle r="4" fill="#FF5A00" filter="url(#glowFilter)" />
-            <circle r="2" fill="#FFFFFF" />
+            <circle r="6" fill="#FF5A00" opacity="0.35" />
+            <circle r="3.5" fill="#FF5A00" />
+            <circle r="1.5" fill="#FFFFFF" />
             <text
               x="12"
               y="4"
@@ -229,8 +200,9 @@ export function HeroGlobeVisual() {
               className="animate-ping"
               style={{ animationDelay: "0.6s" }}
             />
-            <circle r="4" fill="#FF5A00" filter="url(#glowFilter)" />
-            <circle r="2" fill="#FFFFFF" />
+            <circle r="6" fill="#FF5A00" opacity="0.35" />
+            <circle r="3.5" fill="#FF5A00" />
+            <circle r="1.5" fill="#FFFFFF" />
             <text
               x="12"
               y="4"
@@ -264,7 +236,8 @@ export function HeroGlobeVisual() {
               className="animate-ping"
               style={{ animationDelay: "1.2s" }}
             />
-            <circle r="4.5" fill="#FF5A00" filter="url(#glowFilter)" />
+            <circle r="7" fill="#FF5A00" opacity="0.35" />
+            <circle r="4" fill="#FF5A00" />
             <circle r="2" fill="#FFFFFF" />
             <text
               x="14"
@@ -289,8 +262,9 @@ export function HeroGlobeVisual() {
               className="animate-ping"
               style={{ animationDelay: "1.8s" }}
             />
-            <circle r="4" fill="#FF5A00" filter="url(#glowFilter)" />
-            <circle r="2" fill="#FFFFFF" />
+            <circle r="6" fill="#FF5A00" opacity="0.35" />
+            <circle r="3.5" fill="#FF5A00" />
+            <circle r="1.5" fill="#FFFFFF" />
             <text
               x="12"
               y="4"

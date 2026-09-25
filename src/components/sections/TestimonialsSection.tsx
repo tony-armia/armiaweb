@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import {
   ArrowLeft,
@@ -109,8 +109,20 @@ export function TestimonialsSection() {
     setCurrentIdx((prev) => (prev === TESTIMONIALS.length - 1 ? 0 : prev + 1));
   };
 
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const yQuote = useTransform(scrollYProgress, [0, 1], [-20, 20]);
+  const yVideo = useTransform(scrollYProgress, [0, 1], [30, -30]);
+  const yPoster = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
+  const rotateRibbon = useTransform(scrollYProgress, [0, 1], [-8, 12]);
+
   return (
     <section
+      ref={sectionRef}
       id="testimonials"
       data-theme="section"
       className="relative w-full py-20 sm:py-24 md:py-28 select-none overflow-hidden transition-colors duration-400"
@@ -144,12 +156,16 @@ export function TestimonialsSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-7 items-stretch">
           
           {/* ── Left Card: White Editorial Quote Card (5 cols) ── */}
-          <div className="lg:col-span-5 rounded-[26px] bg-white text-[#111111] p-7 sm:p-9 flex flex-col justify-between shadow-2xl relative overflow-hidden min-h-[460px] md:min-h-[500px]">
+          <motion.div
+            style={{ y: yQuote }}
+            className="lg:col-span-5 rounded-[26px] bg-white text-[#111111] p-7 sm:p-9 flex flex-col justify-between shadow-2xl relative overflow-hidden min-h-[460px] md:min-h-[500px] will-change-transform"
+          >
             
             {/* 3D Angled Brand Orange Decorative Graphic in Bottom Right */}
-            <div
+            <motion.div
+              style={{ rotate: rotateRibbon }}
               aria-hidden="true"
-              className="pointer-events-none absolute -bottom-4 -right-4 w-[220px] h-[220px] select-none z-0"
+              className="pointer-events-none absolute -bottom-4 -right-4 w-[220px] h-[220px] select-none z-0 will-change-transform"
             >
               <svg viewBox="0 0 200 200" fill="none" className="w-full h-full">
                 <defs>
@@ -171,7 +187,7 @@ export function TestimonialsSection() {
                 <rect x="110" y="55" width="36" height="180" rx="8" transform="rotate(-38 110 55)" fill="url(#orangeRibbon2)" fillOpacity="0.92" />
                 <rect x="150" y="80" width="36" height="180" rx="8" transform="rotate(-38 150 80)" fill="url(#orangeRibbon3)" fillOpacity="0.88" />
               </svg>
-            </div>
+            </motion.div>
 
             {/* Top: Brand Orange Double Quotation Mark */}
             <div className="relative z-10 mb-5">
@@ -243,20 +259,23 @@ export function TestimonialsSection() {
               </div>
             </div>
 
-          </div>
+          </motion.div>
 
           {/* ── Right Card: Video Reel Showcase (7 cols) ── */}
-          <div
+          <motion.div
+            style={{ y: yVideo }}
             onClick={() => setIsVideoModalOpen(true)}
-            className="lg:col-span-7 rounded-[26px] overflow-hidden relative min-h-[460px] md:min-h-[500px] shadow-2xl bg-[#0e0f14] border border-white/10 group cursor-pointer flex flex-col justify-between p-7 sm:p-9"
+            className="lg:col-span-7 rounded-[26px] overflow-hidden relative min-h-[460px] md:min-h-[500px] shadow-2xl bg-[#0e0f14] border border-white/10 group cursor-pointer flex flex-col justify-between p-7 sm:p-9 will-change-transform"
           >
             {/* Background Image / Video Poster */}
-            <Image
-              src={current.videoPoster}
-              alt={`${current.videoAuthor.name} Video Reel`}
-              fill
-              className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
-            />
+            <motion.div style={{ y: yPoster, scale: 1.08 }} className="absolute inset-0 will-change-transform">
+              <Image
+                src={current.videoPoster}
+                alt={`${current.videoAuthor.name} Video Reel`}
+                fill
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+              />
+            </motion.div>
 
             {/* Cinematic Gradient Overlays */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/20 pointer-events-none" />
@@ -287,7 +306,7 @@ export function TestimonialsSection() {
               </div>
             </div>
 
-          </div>
+          </motion.div>
 
         </div>
 

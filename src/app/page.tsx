@@ -11,11 +11,13 @@ import { FAQSection } from "@/components/sections/FAQSection";
 import { BlogSection } from "@/components/sections/BlogSection";
 import { FooterSection } from "@/components/sections/FooterSection";
 import { ScrollProgressProvider } from "@/components/parallax/ScrollProgressProvider";
+import { SmoothScrollProvider } from "@/components/parallax/SmoothScrollProvider";
 
 export default function Home() {
   return (
-    <ScrollProgressProvider>
-      <main className="relative min-h-screen w-full overflow-x-hidden transition-colors duration-400" style={{ backgroundColor: "var(--background)" }}>
+    <SmoothScrollProvider>
+      <ScrollProgressProvider>
+        <main className="relative min-h-screen w-full overflow-x-hidden transition-colors duration-400" style={{ backgroundColor: "var(--background)" }}>
         {/* Top Header Overlay */}
         <Header />
 
@@ -52,6 +54,7 @@ export default function Home() {
         {/* 10. Section 10 — Global Offices & Footer */}
         <FooterSection />
       </main>
-    </ScrollProgressProvider>
+      </ScrollProgressProvider>
+    </SmoothScrollProvider>
   );
 }

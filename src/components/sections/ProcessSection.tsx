@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import {
   ShieldCheck,
@@ -175,11 +175,21 @@ const PHASES: PhaseData[] = [
 
 export function ProcessSection() {
   const [activeIdx, setActiveIdx] = useState<number>(2); // Default to Phase 03 Assurance matching screenshot
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const yCard = useTransform(scrollYProgress, [0, 1], [40, -40]);
+  const yWave = useTransform(scrollYProgress, [0, 1], [-50, 50]);
 
   const activePhase = PHASES[activeIdx];
 
   return (
     <section
+      ref={sectionRef}
       id="process"
       data-theme="section"
       className="relative w-full select-none overflow-hidden transition-colors duration-400"
@@ -218,17 +228,17 @@ export function ProcessSection() {
       {/* ── 2. Main Dark Showcase Body (Obsidian + Warm Bronze Fluid Lighting) ── */}
       <div className="relative w-full py-16 sm:py-24 lg:py-28 overflow-hidden">
         {/* Sweeping Architectural Bronze Wave Background (Dark Mode) */}
-        <div
+        <motion.div
+          style={{ y: yWave, backgroundImage: "url('/images/delivery_bronze_wave.jpg')" }}
           aria-hidden="true"
-          className="absolute inset-0 pointer-events-none opacity-25 mix-blend-screen bg-cover bg-center img-dark-mode"
-          style={{ backgroundImage: "url('/images/delivery_bronze_wave.jpg')" }}
+          className="absolute inset-0 pointer-events-none opacity-25 mix-blend-screen bg-cover bg-center img-dark-mode will-change-transform"
         />
 
         {/* Sweeping Architectural Fluid Wave Background (Light Mode) */}
-        <div
+        <motion.div
+          style={{ y: yWave, backgroundImage: "url('/images/process_fluid_wave_light.jpg')" }}
           aria-hidden="true"
-          className="absolute inset-0 pointer-events-none opacity-40 bg-cover bg-center img-light-mode"
-          style={{ backgroundImage: "url('/images/process_fluid_wave_light.jpg')" }}
+          className="absolute inset-0 pointer-events-none opacity-40 bg-cover bg-center img-light-mode will-change-transform"
         />
 
         {/* Subtle radial ambient glow */}
@@ -338,7 +348,7 @@ export function ProcessSection() {
           </div>
 
           {/* ── Right Column: Floating Dark Card with Engineer Photo (5 cols) ── */}
-          <div className="lg:col-span-5">
+          <motion.div style={{ y: yCard }} className="lg:col-span-5 will-change-transform">
             <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-[#0c0d14] text-white border border-white/10">
               
               {/* Top Photo with Code Monitor & Trusted Tag */}
@@ -456,7 +466,7 @@ export function ProcessSection() {
 
               </div>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

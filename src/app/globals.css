@@ -393,7 +393,6 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color-scheme: dark;
-  scroll-snap-type: y mandatory;
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
@@ -477,10 +476,9 @@ body {
   filter: var(--logo-filter);
 }
 
-/* ── Scroll Snap Architecture ── */
+/* ── Section Architecture ── */
 .snap-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  position: relative;
 }
 
 /* Shared Section Content Inset */
@@ -515,7 +513,8 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  will-change: background-position;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .elysium-animated-bg {

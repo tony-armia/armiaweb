@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { fadeUp, VIEWPORT_ONCE, EASE_CUSTOM } from "@/lib/motion";
 
@@ -11,6 +11,7 @@ interface AwardItem {
   name: string;
   category: string;
   image: string;
+  scale?: number;
 }
 
 const AWARDS_5X2: AwardItem[] = [
@@ -19,66 +20,88 @@ const AWARDS_5X2: AwardItem[] = [
     name: "Clutch Global",
     category: "INDUSTRY RECOGNITION",
     image: "/images/awards/logo.png",
+    scale: 1.25,
   },
   {
     id: "goodfirms",
     name: "GoodFirms Leader",
     category: "GLOBAL CERTIFICATION",
     image: "/images/awards/logo-2.png",
+    scale: 1.2,
   },
   {
     id: "designrush",
     name: "DesignRush Elite",
     category: "EXCELLENCE IN DESIGN",
     image: "/images/awards/logo-5.png",
+    scale: 1.5,
   },
   {
     id: "manifest",
     name: "The Manifest",
     category: "TOP RATED BY ANALYSTS",
     image: "/images/awards/logo-4.png",
+    scale: 1.5,
   },
   {
     id: "topdevs",
     name: "Top Developers",
     category: "COMMUNITY CHOICE",
     image: "/images/awards/logo-1.png",
+    scale: 1.15,
   },
   {
     id: "techbehemoths",
     name: "TechBehemoths",
     category: "MARKET LEADERSHIP",
     image: "/images/awards/logo-3.png",
+    scale: 1.15,
   },
   {
     id: "upcity",
     name: "UpCity Excellence",
     category: "TRUSTED PARTNER",
     image: "/images/awards/logo-6.png",
+    scale: 1.3,
   },
   {
     id: "topapp",
     name: "Top App Firms",
     category: "MOBILE & CLOUD PODS",
     image: "/images/awards/logo-7.png",
+    scale: 1.3,
   },
   {
     id: "softwareworld",
     name: "Software World",
     category: "PRODUCT INNOVATION",
     image: "/images/awards/logo-8.png",
+    scale: 1.25,
   },
   {
     id: "selectedfirm",
     name: "Selected Firm",
     category: "TRUST & COMPLIANCE",
     image: "/images/awards/logo-9.png",
+    scale: 1.15,
   },
 ];
 
 export function AwardsSection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const yHalo = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+  const rotateHalo = useTransform(scrollYProgress, [0, 1], [0, 35]);
+  const yJourney = useTransform(scrollYProgress, [0, 1], [30, -30]);
+  const yGrid = useTransform(scrollYProgress, [0, 1], [-20, 20]);
+
   return (
     <section
+      ref={sectionRef}
       id="awards"
       data-theme="section"
       className="relative z-20 w-full py-14 sm:py-16 md:py-20 select-none snap-section flex flex-col justify-center overflow-hidden min-h-[100svh] transition-colors duration-400"
@@ -86,14 +109,14 @@ export function AwardsSection() {
       aria-label="Awards and Industry Recognition"
     >
       {/* ── Background Subtle Planetary Orbital Halo (Top Right matching reference) ── */}
-      <div
+      <motion.div
+        style={{ y: yHalo, rotate: rotateHalo }}
+        className="pointer-events-none absolute -top-24 -right-24 w-[700px] h-[700px] will-change-transform"
         aria-hidden="true"
-        className="pointer-events-none absolute -top-24 -right-24 w-[550px] h-[550px] md:w-[700px] md:h-[700px] rounded-full border border-[#FF5A00]/15 bg-gradient-to-br from-[#FF5A00]/[0.05] via-transparent to-transparent blur-[80px]"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-12 right-12 w-[340px] h-[340px] md:w-[480px] md:h-[480px] rounded-full border border-[#FF5A00]/20 opacity-40"
-      />
+      >
+        <div className="w-full h-full rounded-full border border-[#FF5A00]/15 bg-gradient-to-br from-[#FF5A00]/[0.05] via-transparent to-transparent blur-[80px]" />
+        <div className="absolute top-24 right-24 w-[480px] h-[480px] rounded-full border border-[#FF5A00]/20 opacity-40" />
+      </motion.div>
 
       <div className="w-full max-w-[1920px] mx-auto px-6 md:px-[10.8%] relative z-10 flex flex-col justify-between h-full">
         
@@ -155,7 +178,8 @@ export function AwardsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={VIEWPORT_ONCE}
             transition={{ duration: 0.5, ease: EASE_CUSTOM }}
-            className="lg:col-span-4 rounded-2xl md:rounded-3xl border border-[#FF5A00]/40 bg-[#0a0a0d] relative overflow-hidden p-7 sm:p-8 flex flex-col justify-between shadow-[0_0_35px_rgba(255,90,0,0.14)] group"
+            style={{ y: yJourney }}
+            className="lg:col-span-4 rounded-2xl md:rounded-3xl border border-[#FF5A00]/40 bg-[#0a0a0d] relative overflow-hidden p-7 sm:p-8 flex flex-col justify-between shadow-[0_0_35px_rgba(255,90,0,0.14)] group will-change-transform"
           >
             {/* Dark Mountain Sunrise Artwork Background with Seamless Fade */}
             <div className="absolute inset-0 pointer-events-none select-none z-0">
@@ -220,7 +244,7 @@ export function AwardsSection() {
           </motion.div>
 
           {/* ── Right Column: 10 Authentic Award Badges with Clean White/Light Card Background ── */}
-          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-3.5 items-stretch">
+          <motion.div style={{ y: yGrid }} className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-3.5 items-stretch will-change-transform">
             {AWARDS_5X2.map((award, idx) => (
               <motion.div
                 key={award.id}
@@ -231,15 +255,23 @@ export function AwardsSection() {
                 className="award-card group relative rounded-xl sm:rounded-2xl border p-4 flex flex-col justify-between items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 min-h-[160px] sm:min-h-[175px]"
               >
                 {/* ── Minimalist Clean Logo Display Area ── */}
-                <div className="relative w-full h-16 sm:h-[72px] flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-                  <Image
-                    src={award.image}
-                    alt={award.name}
-                    fill
-                    unoptimized
-                    sizes="(max-width: 768px) 50vw, 160px"
-                    className="object-contain object-center"
-                  />
+                <div className="relative w-full h-16 sm:h-[72px] flex items-center justify-center">
+                  <div 
+                    className="relative transition-transform duration-300 group-hover:-translate-y-1"
+                    style={{ 
+                      width: `${(award.scale || 1) * 100}%`, 
+                      height: `${(award.scale || 1) * 100}%` 
+                    }}
+                  >
+                    <Image
+                      src={award.image}
+                      alt={award.name}
+                      fill
+                      unoptimized
+                      sizes="(max-width: 768px) 50vw, 160px"
+                      className="object-contain object-center drop-shadow-sm"
+                    />
+                  </div>
                 </div>
 
                 {/* Clean Typography Labels: Award Name + Category */}
@@ -253,7 +285,7 @@ export function AwardsSection() {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
 
         </div>
 
