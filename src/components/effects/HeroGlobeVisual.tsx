@@ -67,7 +67,7 @@ export function HeroGlobeVisual() {
       </div>
 
       {/* ── Global Connection Network Arcs with Active Data Packets (USA → EUROPE → INDIA → APAC) ── */}
-      <div className="absolute inset-0 z-10 hidden md:block">
+      <div className="absolute inset-0 z-10 hidden md:block translate-x-[4%] translate-y-[12%] scale-105 opacity-30">
         <svg
           className="w-full h-full"
           viewBox="0 0 1440 900"
