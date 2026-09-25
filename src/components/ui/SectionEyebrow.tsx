@@ -32,8 +32,6 @@ export function SectionEyebrow({
       style={{ color: "var(--foreground-muted)" }}
     >
       <span className="h-1.5 w-1.5 rounded-full bg-brand-accent inline-block shadow-[0_0_8px_rgba(255,90,0,0.6)]" />
-      <span className="text-brand-accent">{number}</span>
-      <span style={{ opacity: 0.35 }}>/</span>
       <span style={{ color: "var(--foreground)" }}>{label}</span>
     </motion.div>
   );

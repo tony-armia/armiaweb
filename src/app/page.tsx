@@ -28,20 +28,20 @@ export default function Home() {
         {/* Partner Credibility Ticker */}
         <PartnerTicker />
 
-        {/* 3. Section 03 — AI-Powered Engineering Solutions */}
-        <ServicesSection />
+        {/* 3. Section 05 — Delivery Framework Process */}
+        <ProcessSection />
 
         {/* 4. Section 04 — Portfolio / Case Studies */}
         <PortfolioServicesSection />
 
-        {/* 5. Section 05 — Delivery Framework Process */}
-        <ProcessSection />
+        {/* 5. Section 03 — AI-Powered Engineering Solutions */}
+        <ServicesSection />
 
-        {/* 6. Section 06 — Trusted by Engineering Leaders */}
-        <TestimonialsSection />
-
-        {/* 7. Section 07 — Awards & Industry Recognition */}
+        {/* 6. Section 07 — Awards & Industry Recognition */}
         <AwardsSection />
+
+        {/* 7. Section 06 — Trusted by Engineering Leaders */}
+        <TestimonialsSection />
 
         {/* 8. Section 08 — Frequently Asked Questions */}
         <FAQSection />

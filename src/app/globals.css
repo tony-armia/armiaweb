@@ -89,47 +89,29 @@
   color: rgba(255, 255, 255, 0.03) !important;
 }
 
-/* ── Award / Recognition Cards ── */
-.light .award-card,
-.light [data-theme="section"] .award-card {
+/* ── Award / Recognition Cards (Always White) ── */
+.award-card {
   background-color: #ffffff !important;
   border-color: rgba(0, 0, 0, 0.08) !important;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03) !important;
 }
 
-.light .award-card:hover,
-.light [data-theme="section"] .award-card:hover {
+.award-card:hover {
   background-color: #ffffff !important;
   border-color: rgba(255, 90, 0, 0.45) !important;
   box-shadow: 0 6px 20px rgba(255, 90, 0, 0.1) !important;
 }
 
-.light .award-card .award-title {
+.award-card .award-title {
   color: #111111 !important;
 }
 
-.light .award-card .award-category {
+.award-card .award-category {
   color: #666666 !important;
 }
 
-.light .award-card:hover .award-title {
+.award-card:hover .award-title {
   color: #ff5a00 !important;
-}
-
-.dark .award-card,
-:root:not(.light) .award-card {
-  background-color: rgba(14, 16, 24, 0.85) !important;
-  border-color: rgba(255, 255, 255, 0.08) !important;
-}
-
-.dark .award-card .award-title,
-:root:not(.light) .award-card .award-title {
-  color: #f5f5f5 !important;
-}
-
-.dark .award-card .award-category,
-:root:not(.light) .award-card .award-category {
-  color: rgba(255, 255, 255, 0.5) !important;
 }
 
 /* ── Header menu button: dark text on light solid header ── */
