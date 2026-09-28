@@ -8,7 +8,7 @@ import { HeroStatsTimeline } from "@/components/ui/HeroStatsTimeline";
 import { HeroRotatingStatement } from "@/components/ui/HeroRotatingStatement";
 import { DaqAnimatedTitle } from "@/components/ui/DaqAnimatedTitle";
 import { useAppReady } from "@/hooks/useAppReady";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 
 export function HeroSection() {
   const [activeHero, setActiveHero] = useState<"hero1" | "hero2">("hero1");
@@ -54,7 +54,10 @@ export function HeroSection() {
     }
   };
 
-  const headlineWords = ["Your", "Complete", "Technology", "Partner"];
+  const headlineLines = [
+    ["Your", "Complete"],
+    ["Technology", "Partner"],
+  ];
 
   return (
     <section
@@ -110,7 +113,7 @@ export function HeroSection() {
                 animate={isAppReady ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.96 }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 style={{ y: yParallaxText, opacity: opacityParallaxText }}
-                className="relative mx-auto flex flex-col items-center max-w-4xl will-change-transform"
+                className="relative mx-auto flex flex-col items-center max-w-5xl will-change-transform"
               >
                 {/* ── Minimal Typographic Slash-Style Eyebrow ── */}
                 <motion.div
@@ -130,49 +133,59 @@ export function HeroSection() {
                   </div>
                 </motion.div>
 
-                {/* ── Strong Company-Level Headline ── */}
-                <div className="relative flex flex-col items-center max-w-3xl">
-                  <h1 className="text-center font-sans font-bold leading-[1.08] tracking-tight text-[clamp(2.35rem,5.2vw,4.75rem)] cursor-default select-none">
-                    <div className="overflow-hidden flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4">
-                      {headlineWords.map((word, index) => (
-                        <motion.span
-                          key={index}
-                          initial={{ opacity: 0, y: 35 }}
-                          animate={isAppReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 35 }}
-                          transition={{
-                            duration: 0.8,
-                            delay: 0.18 + index * 0.08,
-                            ease: [0.16, 1, 0.3, 1],
-                          }}
-                          whileHover={{
-                            y: -6,
-                            scale: 1.02,
-                            transition: { type: "spring", stiffness: 450, damping: 14 },
-                          }}
-                          className="relative inline-block cursor-pointer will-change-transform select-none"
+                {/* ── Strong Company-Level Headline (2 Distinct Lines) ── */}
+                <div className="relative flex flex-col items-center max-w-4xl lg:max-w-5xl w-full">
+                  <h1 className="text-center font-sans font-bold uppercase leading-[1.08] tracking-tight text-[clamp(1.85rem,4.2vw,4.15rem)] cursor-default select-none">
+                    <div className="flex flex-col items-center justify-center gap-y-1 sm:gap-y-1.5">
+                      {headlineLines.map((line, lineIndex) => (
+                        <div
+                          key={lineIndex}
+                          className="overflow-hidden flex items-center justify-center gap-x-2.5 sm:gap-x-3.5 md:gap-x-4 whitespace-nowrap"
                         >
-                          {/* Dark Theme Gradient Text Layer */}
-                          <span
-                            className={`inline-block text-transparent bg-clip-text elysium-animated-gradient transition-opacity duration-700 ease-in-out ${
-                              isLight ? "opacity-0" : "opacity-100"
-                            }`}
-                            style={{
-                              WebkitTextStroke: "1px rgba(255, 255, 255, 0.10)",
-                            }}
-                          >
-                            {word}
-                          </span>
+                          {line.map((word, wordIndex) => {
+                            const globalIndex = lineIndex * 2 + wordIndex;
+                            return (
+                              <motion.span
+                                key={word}
+                                initial={{ opacity: 0, y: 35 }}
+                                animate={isAppReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 35 }}
+                                transition={{
+                                  duration: 0.8,
+                                  delay: 0.18 + globalIndex * 0.08,
+                                  ease: [0.16, 1, 0.3, 1],
+                                }}
+                                whileHover={{
+                                  y: -6,
+                                  scale: 1.02,
+                                  transition: { type: "spring", stiffness: 450, damping: 14 },
+                                }}
+                                className="relative inline-block cursor-pointer will-change-transform select-none"
+                              >
+                                {/* Dark Theme Gradient Text Layer */}
+                                <span
+                                  className={`inline-block text-transparent bg-clip-text elysium-animated-gradient transition-opacity duration-700 ease-in-out ${
+                                    isLight ? "opacity-0" : "opacity-100"
+                                  }`}
+                                  style={{
+                                    WebkitTextStroke: "1px rgba(255, 255, 255, 0.10)",
+                                  }}
+                                >
+                                  {word}
+                                </span>
 
-                          {/* Light Theme Gradient Text Layer */}
-                          <span
-                            aria-hidden="true"
-                            className={`absolute inset-0 text-transparent bg-clip-text elysium-animated-gradient-light transition-opacity duration-700 ease-in-out ${
-                              isLight ? "opacity-100" : "opacity-0"
-                            }`}
-                          >
-                            {word}
-                          </span>
-                        </motion.span>
+                                {/* Light Theme Gradient Text Layer */}
+                                <span
+                                  aria-hidden="true"
+                                  className={`absolute inset-0 text-transparent bg-clip-text elysium-animated-gradient-light transition-opacity duration-700 ease-in-out ${
+                                    isLight ? "opacity-100" : "opacity-0"
+                                  }`}
+                                >
+                                  {word}
+                                </span>
+                              </motion.span>
+                            );
+                          })}
+                        </div>
                       ))}
                     </div>
                   </h1>
@@ -187,7 +200,7 @@ export function HeroSection() {
                 >
                   {/* Concise Supporting Copy */}
                   <p
-                    className={`font-sans text-[12px] sm:text-[13px] md:text-[13.5px] font-normal leading-relaxed tracking-normal max-w-xl mx-auto transition-colors duration-700 ease-in-out ${
+                    className={`font-sans text-[12px] sm:text-[13px] md:text-[13.5px] font-normal leading-relaxed tracking-wide max-w-xl mx-auto transition-colors duration-700 ease-in-out ${
                       isLight ? "text-black" : "text-white/70"
                     }`}
                   >
@@ -195,35 +208,37 @@ export function HeroSection() {
                   </p>
 
                   {/* ── Call To Action Buttons ── */}
-                  <div className="mt-5 sm:mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+                  <div className="mt-6 sm:mt-7 flex flex-wrap items-center justify-center gap-3 sm:gap-3.5">
                     {/* Primary Button */}
                     <a
                       href="#contact"
-                      className={`group relative inline-flex items-center gap-3.5 px-6 sm:px-7 py-3 sm:py-3.5 rounded-full font-mono text-[10.5px] sm:text-[11px] uppercase tracking-[0.2em] font-medium transition-all duration-700 ease-in-out shadow-lg hover:scale-[1.03] active:scale-[0.98] ${
+                      className={`group relative inline-flex items-center gap-2 px-5 sm:px-6 h-[42px] sm:h-[46px] rounded-full font-sans text-[13px] sm:text-[13.5px] font-medium tracking-tight transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.98] ${
                         isLight
-                          ? "bg-[#111827] text-white hover:bg-black shadow-[0_4px_20px_rgba(0,0,0,0.12)] hover:shadow-[0_6px_28px_rgba(255,90,0,0.25)]"
-                          : "bg-white text-black hover:bg-white/95 shadow-[0_4px_24px_rgba(0,0,0,0.6)] hover:shadow-[0_0_28px_rgba(255,90,0,0.35)]"
+                          ? "bg-neutral-900 text-white hover:bg-black shadow-[0_2px_12px_rgba(0,0,0,0.12)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.2)]"
+                          : "bg-white text-neutral-950 hover:bg-neutral-100 shadow-[0_2px_12px_rgba(0,0,0,0.4)] hover:shadow-[0_0_24px_rgba(255,255,255,0.22)]"
                       }`}
                     >
                       <span>Start a Conversation</span>
-                      <div className="flex items-center justify-center w-5 h-5 rounded-full bg-brand-accent text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                        <ArrowUpRight className="w-3 h-3" />
-                      </div>
+                      <ArrowUpRight
+                        className={`w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${
+                          isLight
+                            ? "text-neutral-400 group-hover:text-white"
+                            : "text-neutral-500 group-hover:text-neutral-950"
+                        }`}
+                      />
                     </a>
 
                     {/* Secondary Button */}
                     <a
                       href="#services"
-                      className={`group relative inline-flex items-center gap-2.5 px-6 sm:px-7 py-3 sm:py-3.5 rounded-full font-mono text-[10.5px] sm:text-[11px] uppercase tracking-[0.2em] font-medium backdrop-blur-md transition-all duration-700 ease-in-out hover:scale-[1.03] active:scale-[0.98] ${
+                      className={`group relative inline-flex items-center gap-2 px-5 sm:px-6 h-[42px] sm:h-[46px] rounded-full font-sans text-[13px] sm:text-[13.5px] font-medium tracking-tight bg-transparent transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.98] ${
                         isLight
-                          ? "border border-black/15 bg-black/[0.03] hover:bg-black/[0.08] hover:border-black/30 text-black/85 hover:text-black shadow-sm"
-                          : "border border-white/20 bg-white/[0.04] hover:bg-white/[0.10] hover:border-white/40 text-white/85 hover:text-white shadow-black/20"
+                          ? "border border-black/15 hover:border-black/30 text-neutral-800 hover:text-black"
+                          : "border border-white/15 hover:border-white/30 text-white/85 hover:text-white"
                       }`}
                     >
                       <span>Explore Services</span>
-                      <span className="text-brand-accent font-sans transition-transform duration-300 group-hover:translate-x-0.5">
-                        →
-                      </span>
+                      <ArrowRight className="w-3.5 h-3.5 text-brand-accent transition-transform duration-300 group-hover:translate-x-1" />
                     </a>
                   </div>
 

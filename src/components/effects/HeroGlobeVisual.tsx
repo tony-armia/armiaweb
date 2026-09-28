@@ -86,7 +86,7 @@ export function HeroGlobeVisual({ isLight = false }: HeroGlobeVisualProps) {
       {/* ── Worldwide Neuralink-Inspired Synaptic Connection Network (Locked Onto Globe Sphere) ── */}
       <div
         className={`absolute inset-0 z-10 hidden md:block ${
-          isLight ? "opacity-75" : "opacity-60"
+          isLight ? "opacity-0 pointer-events-none invisible" : "opacity-60"
         } transition-all duration-700 ease-in-out`}
       >
         <svg
@@ -461,35 +461,37 @@ export function HeroGlobeVisual({ isLight = false }: HeroGlobeVisualProps) {
       </div>
 
       {/* ── Subtle Ambient Floating Star Dust Particles ── */}
-      <motion.div
-        animate={{
-          opacity: isLight ? [0.3, 0.7, 0.3] : [0.2, 0.5, 0.2],
-          scale: [1, 1.1, 1],
-          y: [-8, 8, -8],
-        }}
-        transition={{
-          duration: 9,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="absolute top-[22%] right-[16%] w-2 h-2 rounded-full bg-brand-accent shadow-[0_0_12px_#FF5A00] pointer-events-none"
-      />
-      <motion.div
-        animate={{
-          opacity: isLight ? [0.2, 0.6, 0.2] : [0.15, 0.4, 0.15],
-          scale: [1, 1.15, 1],
-          y: [6, -6, 6],
-        }}
-        transition={{
-          duration: 11,
-          delay: 2,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className={`absolute top-[38%] right-[28%] w-1.5 h-1.5 rounded-full pointer-events-none ${
-          isLight ? "bg-[#FF5A00]/80 shadow-[0_0_8px_#FF5A00]" : "bg-white/70 shadow-[0_0_8px_#FFF]"
-        }`}
-      />
+      {!isLight && (
+        <>
+          <motion.div
+            animate={{
+              opacity: [0.2, 0.5, 0.2],
+              scale: [1, 1.1, 1],
+              y: [-8, 8, -8],
+            }}
+            transition={{
+              duration: 9,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute top-[22%] right-[16%] w-2 h-2 rounded-full bg-brand-accent shadow-[0_0_12px_#FF5A00] pointer-events-none"
+          />
+          <motion.div
+            animate={{
+              opacity: [0.15, 0.4, 0.15],
+              scale: [1, 1.15, 1],
+              y: [6, -6, 6],
+            }}
+            transition={{
+              duration: 11,
+              delay: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute top-[38%] right-[28%] w-1.5 h-1.5 rounded-full pointer-events-none bg-white/70 shadow-[0_0_8px_#FFF]"
+          />
+        </>
+      )}
     </div>
   );
 }
