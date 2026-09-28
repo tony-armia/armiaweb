@@ -4,11 +4,11 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const WORDS = [
-  { text: "ENGINEERING.", color: "text-[#FF5A00]" }, // Orange
+  { text: "AI & SOFTWARE.", color: "text-[#FF5A00]" }, // Orange
   { text: "INTELLIGENCE.", color: "text-white" },
-  { text: "INNOVATION.", color: "text-[#FF5A00]" },
-  { text: "SOFTWARE.", color: "text-white" },
-  { text: "EXCELLENCE.", color: "text-[#FF5A00]" },
+  { text: "APPLIED AI.", color: "text-[#FF5A00]" },
+  { text: "AUTONOMOUS.", color: "text-white" },
+  { text: "ENGINEERING.", color: "text-[#FF5A00]" },
 ];
 
 export function DaqAnimatedTitle() {

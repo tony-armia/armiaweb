@@ -47,6 +47,20 @@ const TESTIMONIALS: Testimonial[] = [
   },
   {
     id: "02",
+    name: "Amy Recchia",
+    role: "Founder & Product Lead",
+    company: "Web Endeavors",
+    quote:
+      "I am really happy with the way the site turned out and am excited to launch this endeavor. I already have a list of future customizations and will let you know when I am ready to start them, but for now I am focusing on getting it off the ground. Thank you and your team at Armia for all of your hard work!",
+    avatar: "/images/avatar_1.png",
+    videoPoster: "/images/testimonial_video_poster.jpg",
+    videoAuthor: {
+      name: "Amy Recchia",
+      role: "Founder & Product Lead, Web Endeavors",
+    },
+  },
+  {
+    id: "03",
     name: "Brian Jacobs",
     role: "Founder & CEO, Orbtattoo",
     company: "Orbtattoo",
@@ -60,12 +74,26 @@ const TESTIMONIALS: Testimonial[] = [
     },
   },
   {
-    id: "03",
+    id: "04",
+    name: "Garrett Richardson",
+    role: "Managing Director",
+    company: "Richardson Digital",
+    quote:
+      "I really appreciate you from the initial point of contact all the way through the thorough detail you and your team at Armia have given me on my project. Their proactive communication, technical clarity, and commitment to delivery were evident at every sprint. I couldn't be a happier client!",
+    avatar: "/images/avatar_2.png",
+    videoPoster: "/images/engineering_team.png",
+    videoAuthor: {
+      name: "Garrett Richardson",
+      role: "Managing Director, Richardson Digital",
+    },
+  },
+  {
+    id: "05",
     name: "Mike Serrano",
     role: "Executive Director, Armia Creative Inc.",
     company: "Armia Creative",
     quote:
-      "Armia Systems was a genuine game changer for us. They helped us architect and build our enterprise application with extraordinary cost-efficiency, technical finesse, and speed to market. Their senior engineers truly go above and beyond, with a genuine desire to see their clients succeed across every digital touchpoint.",
+      "Armia Systems was a genuine game changer for me. I knew what I wanted to do and how I wanted to do it—the challenge was to cost-effectively build the application. They helped us architect and build our enterprise application with extraordinary efficiency, technical finesse, and speed to market. Their senior engineers truly go above and beyond.",
     avatar: "/images/avatar_anna.png",
     videoPoster: "/images/testimonial_video_poster.jpg",
     videoAuthor: {
@@ -74,12 +102,26 @@ const TESTIMONIALS: Testimonial[] = [
     },
   },
   {
-    id: "04",
+    id: "06",
+    name: "Chris Zelenka",
+    role: "Solutions Director & Enterprise Architect",
+    company: "Zelenka Systems",
+    quote:
+      "Thanks again for your support and I think you guys have some cool products and solutions and will keep them in my arsenal of recommendations if I encounter anyone looking for an off-the-shelf or custom engineering solution. The Armia team's technical versatility and rapid turnaround are stellar.",
+    avatar: "/images/avatar_david.png",
+    videoPoster: "/images/testimonial_video_poster.jpg",
+    videoAuthor: {
+      name: "Chris Zelenka",
+      role: "Solutions Director, Zelenka Systems",
+    },
+  },
+  {
+    id: "07",
     name: "Mike Morris",
     role: "VP of Technology, Software Migration",
     company: "Enterprise Software Migration",
     quote:
-      "The team at Armia was extremely easy to work with and extraordinarily patient throughout our legacy software migration to modern cloud architecture. They provided thorough technical detail at every phase, resulting in zero downtime, seamless data integrity, and complete stakeholder confidence.",
+      "The team at Armia was extremely easy to work with and extraordinarily patient throughout our legacy software migration to modern cloud architecture. The weekly feedback, written minutes, and agendas kept all of us on track. They provided thorough technical detail at every phase, resulting in zero downtime and complete stakeholder confidence.",
     avatar: "/images/avatar_emma.png",
     videoPoster: "/images/engineering_team.png",
     videoAuthor: {

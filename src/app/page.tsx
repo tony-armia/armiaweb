@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { PartnerTicker } from "@/components/sections/PartnerTicker";
 import { EngineeringIntro } from "@/components/sections/EngineeringIntro";
 import { ServicesSection } from "@/components/sections/ServicesSection";
+import { ProductsSection } from "@/components/sections/ProductsSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { PortfolioServicesSection } from "@/components/sections/PortfolioServicesSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
@@ -38,6 +39,9 @@ export default function Home() {
 
         {/* 5. Section 03 — AI-Powered Engineering Solutions */}
         <ServicesSection />
+
+        {/* 6. Proprietary AI Accelerators & Whitelabel SaaS Platforms (Hidden for now) */}
+        {/* <ProductsSection /> */}
 
         {/* 6. Section 07 — Awards & Industry Recognition */}
         <AwardsSection />

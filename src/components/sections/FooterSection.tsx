@@ -105,7 +105,7 @@ export function FooterSection() {
                     </div>
                     <div className="grid grid-cols-12 gap-2 text-white/60">
                       <span className="col-span-4 text-white/40">LOCATION</span>
-                      <span className="col-span-8 text-white font-medium">KOCHI, INDIA</span>
+                      <span className="col-span-8 text-white font-medium">CHICAGO, USA &bull; KOCHI, INDIA</span>
                     </div>
                   </div>
                 </div>
@@ -244,37 +244,56 @@ export function FooterSection() {
 
             <div className="pt-12 border-t border-white/10">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-12 font-mono text-[10px] tracking-wider uppercase">
-                <div className="md:col-span-5 space-y-2.5">
+                {/* Navigation Links */}
+                <div className="md:col-span-4 space-y-2.5">
+                  <div className="font-mono text-[9px] text-white/40 tracking-[0.2em] mb-3">NAVIGATION</div>
                   <div><Link href="#products" className="text-white/70 hover:text-brand-accent transition-colors">PRODUCTS</Link></div>
                   <div><Link href="#services" className="text-white/70 hover:text-brand-accent transition-colors">SERVICES</Link></div>
                   <div><Link href="#solutions" className="text-white/70 hover:text-brand-accent transition-colors">SOLUTIONS</Link></div>
                   <div><Link href="#careers" className="text-white/70 hover:text-brand-accent transition-colors">CAREERS</Link></div>
                   <div><Link href="#contact" className="text-white/70 hover:text-brand-accent transition-colors">CONTACT</Link></div>
-                  <div><Link href="#404" className="text-white/40 hover:text-brand-accent transition-colors">404</Link></div>
                 </div>
 
-                <div className="md:col-span-7 space-y-4">
-                  <div className="text-white/50 leading-relaxed font-sans normal-case text-xs">
-                    3rd Floor, Jyothirmaya Building, <br />
-                    Wing 1, Infopark Phase 2, Kochi, <br />
-                    Kerala 682303
+                {/* USA Headquarters (Chicago) */}
+                <div className="md:col-span-4 space-y-2.5 font-sans normal-case text-xs">
+                  <div className="font-mono text-[9px] text-brand-accent tracking-[0.2em] uppercase font-medium flex items-center gap-1.5 mb-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-accent inline-block" />
+                    USA HEADQUARTERS
                   </div>
-
-                  <div>
-                    <a href="mailto:hello@armiasystems.com" className="font-mono font-medium text-sm text-white hover:text-brand-accent transition-colors tracking-widest">
-                      HELLO@ARMIASYSTEMS.COM
+                  <div className="text-white/60 leading-relaxed font-sans text-xs">
+                    1300 E Woodfield Rd, Suite 403<br />
+                    Schaumburg, IL 60173, USA
+                  </div>
+                  <div className="pt-1 font-mono text-[11px] text-white/80">
+                    <a href="tel:+13124236728" className="hover:text-brand-accent transition-colors inline-flex items-center gap-1.5">
+                      <span>TEL:</span> +1 (312) 423-6728
                     </a>
                   </div>
+                  <div className="font-mono text-[11px] text-white/80">
+                    <a href="mailto:info@armia.com" className="hover:text-brand-accent transition-colors inline-flex items-center gap-1.5">
+                      <span>MAIL:</span> INFO@ARMIA.COM
+                    </a>
+                  </div>
+                </div>
 
-                  <div>
-                    <a
-                      href="#contact"
-                      className="group inline-flex items-center gap-2.5 h-[38px] pl-4 pr-1.5 rounded-full font-mono text-[10px] tracking-[0.18em] uppercase transition-all duration-300 bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/15 hover:border-brand-accent/50"
-                    >
-                      <span className="font-medium text-white/90">CONTACT US</span>
-                      <div className="flex items-center justify-center h-6 w-6 rounded-full bg-brand-accent text-white shadow-sm transition-transform duration-300 group-hover:scale-105">
-                        <span className="text-[11px] font-bold">›</span>
-                      </div>
+                {/* India Delivery Center (Kochi) */}
+                <div className="md:col-span-4 space-y-2.5 font-sans normal-case text-xs">
+                  <div className="font-mono text-[9px] text-white/50 tracking-[0.2em] uppercase font-medium flex items-center gap-1.5 mb-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white/40 inline-block" />
+                    INDIA DELIVERY CENTER
+                  </div>
+                  <div className="text-white/60 leading-relaxed font-sans text-xs">
+                    3rd Floor, Jyothirmaya Building<br />
+                    Infopark Phase 2, Kochi 682303
+                  </div>
+                  <div className="pt-1 font-mono text-[11px] text-white/80">
+                    <a href="tel:+914844000300" className="hover:text-brand-accent transition-colors inline-flex items-center gap-1.5">
+                      <span>TEL:</span> +91 484 4000300
+                    </a>
+                  </div>
+                  <div className="font-mono text-[11px] text-white/80">
+                    <a href="mailto:hello@armiasystems.com" className="hover:text-brand-accent transition-colors inline-flex items-center gap-1.5">
+                      <span>MAIL:</span> HELLO@ARMIASYSTEMS.COM
                     </a>
                   </div>
                 </div>

@@ -112,6 +112,24 @@ export function HeroSection() {
                 style={{ y: yParallaxText, opacity: opacityParallaxText }}
                 className="relative mx-auto flex flex-col items-center max-w-4xl will-change-transform"
               >
+                {/* ── Minimal Typographic Slash-Style Eyebrow ── */}
+                <motion.div
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={isAppReady ? { opacity: 1, y: 0 } : { opacity: 0, y: -8 }}
+                  transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  className="mb-4 sm:mb-5 font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.28em] select-none transition-colors duration-700 ease-in-out"
+                >
+                  <div className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4 gap-y-1.5">
+                    <span className={isLight ? "text-black/60" : "text-white/60"}>
+                      AI-Native Systems
+                    </span>
+                    <span className={isLight ? "text-black/20" : "text-white/20"}>/</span>
+                    <span className={isLight ? "text-black/60" : "text-white/60"}>
+                      Global Delivery
+                    </span>
+                  </div>
+                </motion.div>
+
                 {/* ── Strong Company-Level Headline ── */}
                 <div className="relative flex flex-col items-center max-w-3xl">
                   <h1 className="text-center font-sans font-bold leading-[1.08] tracking-tight text-[clamp(2.35rem,5.2vw,4.75rem)] cursor-default select-none">
@@ -173,7 +191,7 @@ export function HeroSection() {
                       isLight ? "text-black" : "text-white/70"
                     }`}
                   >
-                    Engineering scalable software, cloud architectures, and AI solutions. We build, scale, and support mission-critical digital products.
+                    Engineering scalable software, autonomous AI workflows, and enterprise cloud architectures. We build, scale, and support mission-critical digital products.
                   </p>
 
                   {/* ── Call To Action Buttons ── */}
@@ -267,21 +285,21 @@ export function HeroSection() {
                 style={{ y: yParallaxText, opacity: opacityParallaxText }}
                 className="max-w-4xl will-change-transform"
               >
-                {/* Minimal Trust Separator instead of pills */}
+                {/* Minimal Trust Separator */}
                 <div className="mb-6 font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-white/50 flex flex-wrap justify-start items-center gap-x-4 gap-y-2">
                   <span>Est. 2003</span>
                   <span className="text-white/20">/</span>
                   <span>India &amp; USA</span>
                   <span className="text-white/20">/</span>
-                  <span>Build • Scale • Support</span>
+                  <span className="text-white/80">AI &amp; Cloud Native</span>
                 </div>
 
                 {/* Trustworthy Minimal Header with Light/Bold split and rotating words */}
                 <DaqAnimatedTitle />
                 
-                {/* Supporting Minimal Description (Monospace, highly tracked) */}
-                <p className="font-mono text-[10px] sm:text-[11px] text-white/50 leading-[2] tracking-[0.25em] uppercase max-w-2xl mb-12">
-                  Delivering excellence since 2003 across India and the USA.<br className="hidden sm:block" /> We design, build and run governed data platforms and robust cloud infrastructures.
+                {/* Supporting Minimal Description (Monospace, highly tracked with AI focus) */}
+                <p className="font-mono text-[10px] sm:text-[11px] text-white/50 leading-[2.1] tracking-[0.25em] uppercase max-w-2xl mb-12">
+                  Delivering intelligent software, autonomous AI workflows, and robust cloud platforms since 2003 across India and the USA.
                 </p>
                 
                 {/* Minimal Transparent DAQ-style Button */}

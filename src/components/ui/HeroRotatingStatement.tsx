@@ -26,14 +26,14 @@ const STATEMENTS: StatementItem[] = [
   },
   {
     id: "02",
-    tag: "AI & CLOUD SYSTEMS",
+    tag: "AUTONOMOUS AI & CLOUD",
     primary: [
-      "Architecting modern AI,",
-      "cloud infrastructure &",
-      "enterprise platforms.",
+      "Autonomous agent workflows,",
+      "enterprise LLMs &",
+      "cloud architectures.",
     ],
     secondary: [
-      "High-performance systems",
+      "Production-ready intelligence",
       "engineered for 99.9% uptime.",
     ],
   },
