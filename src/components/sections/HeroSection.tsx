@@ -6,7 +6,6 @@ import { HeroGlobeVisual } from "@/components/effects/HeroGlobeVisual";
 import { DaqBackgroundVisual } from "@/components/effects/DaqBackgroundVisual";
 import { HeroStatsTimeline } from "@/components/ui/HeroStatsTimeline";
 import { HeroRotatingStatement } from "@/components/ui/HeroRotatingStatement";
-import { HeroStudioCapsule } from "@/components/ui/HeroStudioCapsule";
 import { DaqAnimatedTitle } from "@/components/ui/DaqAnimatedTitle";
 import { useAppReady } from "@/hooks/useAppReady";
 import { ArrowUpRight } from "lucide-react";
@@ -139,6 +138,9 @@ export function HeroSection() {
                             className={`inline-block text-transparent bg-clip-text elysium-animated-gradient transition-opacity duration-700 ease-in-out ${
                               isLight ? "opacity-0" : "opacity-100"
                             }`}
+                            style={{
+                              WebkitTextStroke: "1px rgba(255, 255, 255, 0.10)",
+                            }}
                           >
                             {word}
                           </span>
@@ -207,21 +209,7 @@ export function HeroSection() {
                     </a>
                   </div>
 
-                  {/* ── 2–3 Credible Business Metrics Capsule ── */}
-                  <HeroStudioCapsule isLight={isLight} />
 
-                  {/* Minimal Trust Indicator Line */}
-                  <div className="flex items-center justify-center gap-3 mt-4 sm:mt-5">
-                    <span className="w-8 sm:w-12 h-px bg-gradient-to-r from-transparent to-[#FF5A00]/50" />
-                    <span
-                      className={`font-mono text-[9px] sm:text-[9.5px] tracking-[0.24em] uppercase font-medium transition-colors duration-700 ease-in-out ${
-                        isLight ? "text-black" : "text-white/60"
-                      }`}
-                    >
-                      TRUSTED BY PRODUCT LEADERS &amp; GLOBAL ENTERPRISES
-                    </span>
-                    <span className="w-8 sm:w-12 h-px bg-gradient-to-l from-transparent to-[#FF5A00]/50" />
-                  </div>
                 </motion.div>
               </motion.div>
             </div>

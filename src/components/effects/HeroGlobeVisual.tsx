@@ -360,19 +360,6 @@ export function HeroGlobeVisual({ isLight = false }: HeroGlobeVisualProps) {
             <circle r="4" fill="#FF5A00" opacity={isLight ? "0.5" : "0.35"} className="transition-all duration-700 ease-in-out" />
             <circle r="2.2" fill="#FF5A00" />
             <circle r="1.1" fill="#FFFFFF" />
-            <text
-              x="8"
-              y="-4"
-              fill={isLight ? "#111827" : "#FFFFFF"}
-              opacity={isLight ? "0.8" : "0.55"}
-              fontWeight="600"
-              fontSize="8.5"
-              fontFamily="monospace"
-              letterSpacing="0.12em"
-              className="transition-all duration-700 ease-in-out"
-            >
-              USA // SFO
-            </text>
           </g>
 
           {/* ── Node: US EAST / NYC (770, 305) ── */}
@@ -381,19 +368,6 @@ export function HeroGlobeVisual({ isLight = false }: HeroGlobeVisualProps) {
             <circle r="4.5" fill="#FF5A00" opacity={isLight ? "0.5" : "0.35"} className="transition-all duration-700 ease-in-out" />
             <circle r="2.5" fill="#FF5A00" />
             <circle r="1.2" fill="#FFFFFF" />
-            <text
-              x="8"
-              y="-4"
-              fill={isLight ? "#111827" : "#FFFFFF"}
-              opacity={isLight ? "0.8" : "0.55"}
-              fontWeight="600"
-              fontSize="8.5"
-              fontFamily="monospace"
-              letterSpacing="0.12em"
-              className="transition-all duration-700 ease-in-out"
-            >
-              USA // NYC
-            </text>
           </g>
 
           {/* ── Node: LATAM / SÃO PAULO (780, 530) ── */}
@@ -402,19 +376,6 @@ export function HeroGlobeVisual({ isLight = false }: HeroGlobeVisualProps) {
             <circle r="3.5" fill="#FF5A00" opacity={isLight ? "0.45" : "0.3"} className="transition-all duration-700 ease-in-out" />
             <circle r="2" fill="#FF5A00" />
             <circle r="1" fill="#FFFFFF" />
-            <text
-              x="8"
-              y="3"
-              fill={isLight ? "#111827" : "#FFFFFF"}
-              opacity={isLight ? "0.7" : "0.45"}
-              fontWeight="500"
-              fontSize="8"
-              fontFamily="monospace"
-              letterSpacing="0.12em"
-              className="transition-all duration-700 ease-in-out"
-            >
-              LATAM // SAO
-            </text>
           </g>
 
           {/* ── Node: EUROPE WEST / LONDON (880, 290) ── */}
@@ -423,19 +384,6 @@ export function HeroGlobeVisual({ isLight = false }: HeroGlobeVisualProps) {
             <circle r="4.5" fill="#FF5A00" opacity={isLight ? "0.5" : "0.35"} className="transition-all duration-700 ease-in-out" />
             <circle r="2.5" fill="#FF5A00" />
             <circle r="1.2" fill="#FFFFFF" />
-            <text
-              x="8"
-              y="-4"
-              fill={isLight ? "#111827" : "#FFFFFF"}
-              opacity={isLight ? "0.8" : "0.55"}
-              fontWeight="600"
-              fontSize="8.5"
-              fontFamily="monospace"
-              letterSpacing="0.12em"
-              className="transition-all duration-700 ease-in-out"
-            >
-              EUR // LON
-            </text>
           </g>
 
           {/* ── Node: EUROPE CENTRAL / FRANKFURT (940, 305) ── */}
@@ -443,19 +391,6 @@ export function HeroGlobeVisual({ isLight = false }: HeroGlobeVisualProps) {
             <circle r="4.5" fill="#FF5A00" opacity={isLight ? "0.45" : "0.3"} className="transition-all duration-700 ease-in-out" />
             <circle r="2.5" fill="#FF5A00" />
             <circle r="1.2" fill="#FFFFFF" />
-            <text
-              x="8"
-              y="-4"
-              fill={isLight ? "#111827" : "#FFFFFF"}
-              opacity={isLight ? "0.75" : "0.5"}
-              fontWeight="500"
-              fontSize="8"
-              fontFamily="monospace"
-              letterSpacing="0.12em"
-              className="transition-all duration-700 ease-in-out"
-            >
-              EUR // FRA
-            </text>
           </g>
 
           {/* ── Node: MIDDLE EAST / DUBAI (1040, 390) ── */}
@@ -464,19 +399,6 @@ export function HeroGlobeVisual({ isLight = false }: HeroGlobeVisualProps) {
             <circle r="4" fill="#FF5A00" opacity={isLight ? "0.45" : "0.3"} className="transition-all duration-700 ease-in-out" />
             <circle r="2.2" fill="#FF5A00" />
             <circle r="1.1" fill="#FFFFFF" />
-            <text
-              x="8"
-              y="3"
-              fill={isLight ? "#111827" : "#FFFFFF"}
-              opacity={isLight ? "0.75" : "0.5"}
-              fontWeight="600"
-              fontSize="8"
-              fontFamily="monospace"
-              letterSpacing="0.12em"
-              className="transition-all duration-700 ease-in-out"
-            >
-              ME // DXB
-            </text>
           </g>
 
           {/* ── Node: AFRICA / NAIROBI (960, 490) ── */}
@@ -484,19 +406,6 @@ export function HeroGlobeVisual({ isLight = false }: HeroGlobeVisualProps) {
             <circle r="4" fill="#FF5A00" opacity={isLight ? "0.4" : "0.25"} className="transition-all duration-700 ease-in-out" />
             <circle r="2" fill="#FF5A00" />
             <circle r="1" fill="#FFFFFF" />
-            <text
-              x="8"
-              y="3"
-              fill={isLight ? "#111827" : "#FFFFFF"}
-              opacity={isLight ? "0.65" : "0.4"}
-              fontWeight="500"
-              fontSize="8"
-              fontFamily="monospace"
-              letterSpacing="0.12em"
-              className="transition-all duration-700 ease-in-out"
-            >
-              AFR // NBO
-            </text>
           </g>
 
           {/* ── Node: INDIA / BENGALURU (1090, 450) - Core Delivery Hub ── */}
@@ -522,32 +431,6 @@ export function HeroGlobeVisual({ isLight = false }: HeroGlobeVisualProps) {
             <circle r="5" fill="#FF5A00" opacity={isLight ? "0.6" : "0.45"} className="transition-all duration-700 ease-in-out" />
             <circle r="3" fill="#FF5A00" />
             <circle r="1.5" fill="#FFFFFF" />
-            <text
-              x="12"
-              y="3"
-              fill={isLight ? "#111827" : "#FFFFFF"}
-              fontWeight="700"
-              opacity={isLight ? "0.95" : "0.85"}
-              fontSize="10"
-              fontFamily="monospace"
-              letterSpacing="0.16em"
-              className="transition-all duration-700 ease-in-out"
-            >
-              IND // BLR [HUB]
-            </text>
-            <text
-              x="12"
-              y="13"
-              fill="#FF5A00"
-              fontWeight="500"
-              opacity="0.85"
-              fontSize="7.5"
-              fontFamily="monospace"
-              letterSpacing="0.14em"
-              className="transition-all duration-700 ease-in-out"
-            >
-              12MS &bull; PRIMARY
-            </text>
           </g>
 
           {/* ── Node: SE ASIA / SINGAPORE (1170, 490) ── */}
@@ -556,19 +439,6 @@ export function HeroGlobeVisual({ isLight = false }: HeroGlobeVisualProps) {
             <circle r="4" fill="#FF5A00" opacity={isLight ? "0.5" : "0.35"} className="transition-all duration-700 ease-in-out" />
             <circle r="2.2" fill="#FF5A00" />
             <circle r="1.1" fill="#FFFFFF" />
-            <text
-              x="8"
-              y="3"
-              fill={isLight ? "#111827" : "#FFFFFF"}
-              opacity={isLight ? "0.8" : "0.55"}
-              fontWeight="600"
-              fontSize="8.5"
-              fontFamily="monospace"
-              letterSpacing="0.14em"
-              className="transition-all duration-700 ease-in-out"
-            >
-              APAC // SGP
-            </text>
           </g>
 
           {/* ── Node: EAST ASIA / TOKYO (1210, 330) ── */}
@@ -577,19 +447,6 @@ export function HeroGlobeVisual({ isLight = false }: HeroGlobeVisualProps) {
             <circle r="4" fill="#FF5A00" opacity={isLight ? "0.5" : "0.35"} className="transition-all duration-700 ease-in-out" />
             <circle r="2.2" fill="#FF5A00" />
             <circle r="1.1" fill="#FFFFFF" />
-            <text
-              x="8"
-              y="-4"
-              fill={isLight ? "#111827" : "#FFFFFF"}
-              opacity={isLight ? "0.8" : "0.55"}
-              fontWeight="600"
-              fontSize="8.5"
-              fontFamily="monospace"
-              letterSpacing="0.14em"
-              className="transition-all duration-700 ease-in-out"
-            >
-              APAC // TYO
-            </text>
           </g>
 
           {/* ── Node: OCEANIA / SYDNEY (1200, 580) ── */}
@@ -598,19 +455,6 @@ export function HeroGlobeVisual({ isLight = false }: HeroGlobeVisualProps) {
             <circle r="4" fill="#FF5A00" opacity={isLight ? "0.5" : "0.35"} className="transition-all duration-700 ease-in-out" />
             <circle r="2.2" fill="#FF5A00" />
             <circle r="1.1" fill="#FFFFFF" />
-            <text
-              x="8"
-              y="3"
-              fill={isLight ? "#111827" : "#FFFFFF"}
-              opacity={isLight ? "0.8" : "0.55"}
-              fontWeight="600"
-              fontSize="8.5"
-              fontFamily="monospace"
-              letterSpacing="0.14em"
-              className="transition-all duration-700 ease-in-out"
-            >
-              APAC // SYD
-            </text>
           </g>
           </g>
         </svg>

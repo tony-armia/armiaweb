@@ -513,6 +513,7 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
   transform: translateZ(0);
   backface-visibility: hidden;
 }
