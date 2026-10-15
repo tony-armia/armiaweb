@@ -43,30 +43,16 @@ export function HeroStatsTimeline({ isLight = false }: HeroStatsTimelineProps) {
 
   return (
     <div className="relative flex flex-col pointer-events-auto select-none">
-      {/* ── Organic White Sunlight Layer (Light mode only, pure radial gradients with zero blur penalty) ── */}
+      {/* ── Soft Clean White Text Scrim (Light mode only, seamless 100% feather, zero circular disc edges) ── */}
       {isLight && (
         <div
           aria-hidden="true"
-          className="absolute -top-16 -bottom-16 -left-12 -right-24 pointer-events-none z-0"
-        >
-          {/* Main Dense White Core Feather */}
-          <div
-            className="absolute inset-0 rounded-full opacity-95 pointer-events-none"
-            style={{
-              background:
-                "radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 45%, rgba(255, 250, 240, 0.65) 65%, transparent 100%)",
-            }}
-          />
-
-          {/* Diffuse Warm Sunlight Halo */}
-          <div
-            className="absolute -inset-8 rounded-full opacity-75 pointer-events-none"
-            style={{
-              background:
-                "radial-gradient(circle at 60% 40%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 230, 180, 0.35) 45%, transparent 80%)",
-            }}
-          />
-        </div>
+          className="absolute -inset-x-8 -inset-y-4 pointer-events-none z-0 rounded-2xl"
+          style={{
+            background:
+              "radial-gradient(ellipse at 40% 50%, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.75) 45%, rgba(255, 255, 255, 0) 100%)",
+          }}
+        />
       )}
 
       {/* ── Minimal Vertical Hairline Trace ── */}

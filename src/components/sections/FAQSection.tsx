@@ -17,17 +17,20 @@ export function FAQSection() {
 
   return (
     <section
+      id="faq"
       data-theme="section"
-      className="relative z-20 w-full py-10 md:py-14 flex flex-col justify-center overflow-hidden snap-section h-[100svh] min-h-[100svh] select-none transition-colors duration-400"
-      style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}
+      className="relative z-20 w-full py-16 sm:py-20 md:py-28 flex flex-col justify-center min-h-[90vh] md:min-h-screen select-none snap-section transition-colors duration-400"
+      style={{ backgroundColor: "var(--background)", color: "var(--foreground)", borderTop: "1px solid var(--border)" }}
     >
-      {/* Background Texture */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay bg-[url('/images/Noise.png')]" />
-      <GridLines />
+      {/* Background Texture & Grid lines scoped safely without clipping section content */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[url('/images/Noise.png')]" />
+        <GridLines />
+      </div>
 
       <div className="w-full max-w-[1920px] mx-auto px-6 md:px-0 relative z-10">
         {/* Upper Header Row matching ServicesSection Grid Columns */}
-        <div className="relative w-full flex flex-col md:flex-row items-start mb-8 md:mb-10">
+        <div className="relative w-full flex flex-col md:flex-row items-start mb-8 md:mb-12">
           {/* Far Left Section Marker: 10.8% to 30.3% */}
           <div className="w-full md:w-[19.5%] md:ml-[10.8%] px-6 md:px-0 pt-1 mb-6 md:mb-0">
             <SectionEyebrow number="08" label="FAQ" className="!mb-0" />
@@ -76,14 +79,14 @@ export function FAQSection() {
               viewport={VIEWPORT_ONCE}
               transition={{ duration: 0.7, ease: EASE_CUSTOM }}
               style={{ transformOrigin: "left" }}
-              className="h-[2px] w-full bg-[#ff5a00]"
+              className="h-[2px] w-full bg-[#ff5a00] mb-2"
             />
 
             <motion.div
-              initial={{ y: "15%", opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, ease: EASE_CUSTOM }}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={VIEWPORT_ONCE}
+              transition={{ duration: 0.6, ease: EASE_CUSTOM }}
               className="w-full"
             >
               {FAQS_DATA.map((faq) => (

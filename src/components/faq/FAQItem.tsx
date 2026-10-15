@@ -95,7 +95,7 @@ export function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
               borderTop: "1px solid var(--border)",
             }}
           >
-            <div className="pb-6 pt-3 pl-[56px] md:pl-[68px] pr-6 md:pr-12 max-w-[680px] max-h-[140px] md:max-h-[160px] overflow-y-auto">
+            <div className="pb-6 pt-3 pl-[56px] md:pl-[68px] pr-6 md:pr-12 max-w-[680px]">
               {item.answer.map((paragraph, pIdx) => (
                 <p
                   key={pIdx}

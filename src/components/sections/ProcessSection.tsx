@@ -92,32 +92,6 @@ const PHASES: PhaseData[] = [
   {
     id: "03",
     num: "03",
-    label: "Assurance",
-    category: "ASSURANCE",
-    title: "Security Audits & Performance",
-    description:
-      "Automated regression test suites, penetration testing, and load stress audits guarantee 99.99% resilience before going live.",
-    features: [
-      {
-        icon: ShieldCheck,
-        title: "AUTOMATED TEST SUITES",
-        description: "Catch issues early, ship with confidence.",
-      },
-      {
-        icon: Lock,
-        title: "SECURITY AUDITS",
-        description: "Find and fix risks before they hit users.",
-      },
-      {
-        icon: Target,
-        title: "LOAD & STRESS PROFILING",
-        description: "Built for scale, ready for growth.",
-      },
-    ],
-  },
-  {
-    id: "04",
-    num: "04",
     label: "Development",
     category: "EXECUTION",
     title: "Agile Sprints & CI/CD Pipelines",
@@ -138,6 +112,32 @@ const PHASES: PhaseData[] = [
         icon: Target,
         title: "PRODUCTION APIS",
         description: "Microservices engineered for sub-second latency.",
+      },
+    ],
+  },
+  {
+    id: "04",
+    num: "04",
+    label: "Assurance",
+    category: "ASSURANCE",
+    title: "Security Audits & Performance",
+    description:
+      "Automated regression test suites, penetration testing, and load stress audits guarantee 99.99% resilience before going live.",
+    features: [
+      {
+        icon: ShieldCheck,
+        title: "AUTOMATED TEST SUITES",
+        description: "Catch issues early, ship with confidence.",
+      },
+      {
+        icon: Lock,
+        title: "SECURITY AUDITS",
+        description: "Find and fix risks before they hit users.",
+      },
+      {
+        icon: Target,
+        title: "LOAD & STRESS PROFILING",
+        description: "Built for scale, ready for growth.",
       },
     ],
   },
@@ -174,7 +174,7 @@ const PHASES: PhaseData[] = [
 // ─────────────────────────────────────────────────────────────────────────────
 
 export function ProcessSection() {
-  const [activeIdx, setActiveIdx] = useState<number>(2); // Default to Phase 03 Assurance matching screenshot
+  const [activeIdx, setActiveIdx] = useState<number>(2); // Default to Phase 03 Development
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -182,7 +182,7 @@ export function ProcessSection() {
     offset: ["start end", "end start"],
   });
 
-  const yCard = useTransform(scrollYProgress, [0, 1], [40, -40]);
+  const yCard = useTransform(scrollYProgress, [0, 1], [15, -15]);
   const yWave = useTransform(scrollYProgress, [0, 1], [-50, 50]);
 
   const activePhase = PHASES[activeIdx];
@@ -348,18 +348,18 @@ export function ProcessSection() {
           </div>
 
           {/* ── Right Column: Floating Dark Card with Engineer Photo (5 cols) ── */}
-          <motion.div style={{ y: yCard }} className="lg:col-span-5 will-change-transform">
+          <motion.div style={{ y: yCard }} className="lg:col-span-5 will-change-transform mt-2 sm:mt-4 lg:mt-0">
             <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-[#0c0d14] text-white border border-white/10">
               
               {/* Top Photo with Code Monitor & Trusted Tag */}
-              <div className="relative w-full h-[220px] sm:h-[260px] overflow-hidden bg-neutral-900 dark:bg-black">
+              <div className="relative w-full h-[200px] sm:h-[240px] xl:h-[260px] overflow-hidden bg-neutral-900 dark:bg-black">
                 {/* Dark Mode Photo */}
                 <div className="absolute inset-0 img-dark-mode">
                   <Image
                     src="/images/delivery_engineer_monitor.jpg"
                     alt="Software Engineer analyzing performance metrics"
                     fill
-                    sizes="(max-width: 768px) 100vw, 45vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 45vw"
                     className="object-cover object-center"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
@@ -371,93 +371,93 @@ export function ProcessSection() {
                     src="/images/delivery_engineer_monitor_light.jpg"
                     alt="Software Engineer analyzing performance metrics"
                     fill
-                    sizes="(max-width: 768px) 100vw, 45vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 45vw"
                     className="object-cover object-center"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 </div>
 
                 {/* Top Right Floating Badge */}
-                <div className="absolute top-4 right-4 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-white/20 shadow-sm">
-                  <span className="w-2.5 h-[1.5px] bg-[#FF5A00] inline-block" />
-                  <span className="font-mono text-[9.5px] tracking-widest text-white uppercase font-medium">
+                <div className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-10 flex items-center gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-white/20 shadow-sm">
+                  <span className="w-2 sm:w-2.5 h-[1.5px] bg-[#FF5A00] inline-block" />
+                  <span className="font-mono text-[9px] sm:text-[9.5px] tracking-widest text-white uppercase font-medium">
                     TRUSTED BY GLOBAL BRANDS
                   </span>
                 </div>
               </div>
 
               {/* Bottom Dark Card Body */}
-              <div className="p-7 sm:p-9 bg-[#0e1018]">
+              <div className="p-5 sm:p-7 xl:p-8 bg-[#0e1018]">
                 {/* Header Row: Title on Left, Metric on Right */}
-                <div className="grid grid-cols-12 gap-4 items-center pb-6 border-b border-white/[0.08]">
-                  <div className="col-span-12 sm:col-span-7">
-                    <div className="font-mono text-[10.5px] tracking-widest text-[#FF5A00] uppercase font-semibold mb-1">
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3.5 sm:gap-4 pb-5 sm:pb-6 border-b border-white/[0.08]">
+                  <div className="flex-1 min-w-0">
+                    <div className="font-mono text-[10px] sm:text-[10.5px] tracking-widest text-[#FF5A00] uppercase font-semibold mb-1 sm:mb-1.5">
                       // WHAT WE DELIVER
                     </div>
-                    <h4 className="font-sans font-medium text-xl sm:text-2xl text-white leading-tight">
+                    <h4 className="font-sans font-medium text-lg sm:text-xl xl:text-2xl text-white leading-tight">
                       Built for Security.
-                      <br />
+                      <br className="hidden sm:inline" />{" "}
                       Engineered for Performance.
                     </h4>
                   </div>
 
-                  <div className="col-span-12 sm:col-span-5 sm:pl-4 sm:border-l border-white/10 flex flex-col sm:justify-center mt-4 sm:mt-0">
-                    <div className="font-sans font-medium text-3xl sm:text-4xl text-[#FF5A00] leading-none whitespace-nowrap">
+                  <div className="flex items-center sm:flex-col sm:items-end justify-between sm:justify-center gap-2.5 sm:gap-1 shrink-0 pt-2.5 sm:pt-0 border-t sm:border-t-0 sm:border-l border-white/10 sm:pl-4">
+                    <div className="font-sans font-medium text-2xl sm:text-3xl xl:text-4xl text-[#FF5A00] leading-none whitespace-nowrap">
                       99.99%
                     </div>
-                    <div className="font-mono text-[8.5px] sm:text-[9px] tracking-wider uppercase text-white/50 font-medium mt-1">
+                    <div className="font-mono text-[8px] sm:text-[8.5px] xl:text-[9px] tracking-wider uppercase text-white/50 font-medium whitespace-nowrap">
                       RESILIENCE GUARANTEE
                     </div>
                   </div>
                 </div>
 
                 {/* 3 Points Checklist matching reference */}
-                <div className="space-y-3.5 py-6">
-                  <div className="flex items-start gap-3.5">
-                    <span className="font-mono text-sm text-[#FF5A00] font-medium shrink-0 mt-0.5">
+                <div className="space-y-3 sm:space-y-3.5 py-5 sm:py-6">
+                  <div className="flex items-start gap-3 sm:gap-3.5">
+                    <span className="font-mono text-xs sm:text-sm text-[#FF5A00] font-medium shrink-0 mt-0.5">
                       01
                     </span>
-                    <span className="font-sans text-[13px] sm:text-[14px] text-white/85 font-normal">
+                    <span className="font-sans text-[13px] sm:text-[14px] text-white/85 font-normal leading-snug">
                       Dedicated engineers &amp; sprint leads
                     </span>
                   </div>
 
-                  <div className="flex items-start gap-3.5">
-                    <span className="font-mono text-sm text-[#FF5A00] font-medium shrink-0 mt-0.5">
+                  <div className="flex items-start gap-3 sm:gap-3.5">
+                    <span className="font-mono text-xs sm:text-sm text-[#FF5A00] font-medium shrink-0 mt-0.5">
                       02
                     </span>
-                    <span className="font-sans text-[13px] sm:text-[14px] text-white/85 font-normal">
+                    <span className="font-sans text-[13px] sm:text-[14px] text-white/85 font-normal leading-snug">
                       2-week sprints with transparent Jira boards
                     </span>
                   </div>
 
                   <div className="flex items-start gap-3.5">
-                    <span className="font-mono text-sm text-[#FF5A00] font-medium shrink-0 mt-0.5">
+                    <span className="font-mono text-xs sm:text-sm text-[#FF5A00] font-medium shrink-0 mt-0.5">
                       03
                     </span>
-                    <span className="font-sans text-[13px] sm:text-[14px] text-white/85 font-normal">
+                    <span className="font-sans text-[13px] sm:text-[14px] text-white/85 font-normal leading-snug">
                       Automated testing &amp; 99.99% SLA uptime
                     </span>
                   </div>
                 </div>
 
                 {/* Card Action Row matching mockup */}
-                <div className="pt-5 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="pt-4 sm:pt-5 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
                   <a
                     href="#contact"
-                    className="flex items-center gap-3 group"
+                    className="flex items-center gap-2.5 sm:gap-3 group shrink-0"
                   >
-                    <div className="w-10 h-10 rounded-full bg-[#FF5A00] text-white flex items-center justify-center shadow-md shadow-[#FF5A00]/25 transition-transform duration-300 group-hover:scale-105">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FF5A00] text-white flex items-center justify-center shadow-md shadow-[#FF5A00]/25 transition-transform duration-300 group-hover:scale-105 shrink-0">
                       <ArrowRight className="w-4 h-4" />
                     </div>
-                    <span className="font-mono text-[11px] sm:text-xs tracking-wider uppercase text-white font-medium group-hover:text-[#FF5A00] transition-colors">
+                    <span className="font-mono text-[10.5px] sm:text-[11px] xl:text-xs tracking-wider uppercase text-white font-medium group-hover:text-[#FF5A00] transition-colors whitespace-nowrap">
                       SCHEDULE A TECHNICAL AUDIT
                     </span>
                   </a>
 
                   <a
                     href="#services"
-                    className="font-mono text-[11px] sm:text-xs tracking-wider uppercase text-white/50 hover:text-white flex items-center gap-1.5 transition-colors group/learn"
+                    className="font-mono text-[10px] sm:text-[11px] xl:text-xs tracking-wider uppercase text-white/50 hover:text-white flex items-center gap-1.5 transition-colors group/learn shrink-0 self-start sm:self-auto pl-11 sm:pl-0"
                   >
                     <span>LEARN MORE</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/learn:translate-x-1" />

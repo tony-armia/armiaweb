@@ -174,11 +174,14 @@ export function PortfolioServicesSection() {
   return (
     <section
       ref={containerRef}
+      id="work"
       data-theme="section"
-      className="relative z-20 w-full h-[100svh] min-h-[100svh] py-8 md:py-12 flex flex-col justify-center overflow-hidden snap-section select-none transition-colors duration-400"
+      className="relative z-20 w-full min-h-[90vh] md:min-h-screen py-16 sm:py-20 md:py-24 flex flex-col justify-center snap-section select-none transition-colors duration-400"
       style={{ backgroundColor: "var(--background)", color: "var(--foreground)", borderTop: "1px solid var(--border)" }}
     >
-      <GridLines />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <GridLines />
+      </div>
 
       <div className="w-full max-w-[1920px] mx-auto px-6 md:px-0 relative z-10">
         

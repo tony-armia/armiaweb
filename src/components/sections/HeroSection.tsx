@@ -16,6 +16,28 @@ export function HeroSection() {
   const isAppReady = useAppReady();
   const [isThemeLight, setIsThemeLight] = useState(false);
 
+  // Synchronize active hero with URL query parameters (e.g. ?hero=Hero+2 or ?hero=hero2)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const rawParam = params.get("hero")?.toLowerCase().replace(/[\s+_-]/g, "");
+      if (rawParam === "hero2" || rawParam === "2") {
+        setActiveHero("hero2");
+      } else if (rawParam === "hero1" || rawParam === "1") {
+        setActiveHero("hero1");
+      }
+    }
+  }, []);
+
+  const handleHeroChange = (val: "hero1" | "hero2") => {
+    setActiveHero(val);
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      url.searchParams.set("hero", val === "hero2" ? "Hero 2" : "Hero 1");
+      window.history.replaceState({}, "", url.toString());
+    }
+  };
+
   // Dynamically listen to global site theme changes
   useEffect(() => {
     const check = () =>
@@ -85,7 +107,7 @@ export function HeroSection() {
       <div className="fixed top-[28px] left-1/2 -translate-x-1/2 z-[100] pointer-events-auto">
         <select
           value={activeHero}
-          onChange={(e) => setActiveHero(e.target.value as "hero1" | "hero2")}
+          onChange={(e) => handleHeroChange(e.target.value as "hero1" | "hero2")}
           className={`backdrop-blur-md border text-[9px] uppercase tracking-widest px-2.5 py-1 rounded-sm outline-none focus:border-brand-accent transition-all duration-700 ease-in-out cursor-pointer shadow-xl ${
             isLight
               ? "bg-white/80 border-black/15 text-black/80 hover:text-black shadow-black/5"

@@ -57,10 +57,10 @@ export function ThemeToggle({ inMenu = false, isPastHero = false }: ThemeToggleP
         className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-md"
       >
         <span className="flex items-center justify-center w-8 h-8 rounded-full border border-white/20 bg-white/[0.06] text-white/70 group-hover:text-white group-hover:border-white/30 transition-all duration-300">
-          {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+          {theme === "light" ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-white/80" />}
         </span>
         <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/60 group-hover:text-white transition-colors">
-          {theme === "dark" ? "LIGHT MODE" : "DARK MODE"}
+          {theme === "light" ? "DARK MODE" : "LIGHT MODE"}
         </span>
       </button>
     );
@@ -75,15 +75,16 @@ export function ThemeToggle({ inMenu = false, isPastHero = false }: ThemeToggleP
     <button
       type="button"
       onClick={toggle}
+      title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-      className={`group relative flex items-center justify-center w-8 h-8 rounded-full transition-all duration-700 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent backdrop-blur-sm ${
+      className={`group relative flex items-center justify-center w-[34px] h-[34px] md:w-[36px] md:h-[36px] rounded-full transition-all duration-700 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent backdrop-blur-sm ${
         isDarkContext
-          ? "border border-white/20 bg-white/[0.06] hover:bg-white/[0.12] hover:border-white/30 text-white/60 hover:text-white"
-          : "border border-black/15 bg-black/[0.05] hover:bg-black/[0.10] hover:border-black/25 text-black/60 hover:text-black"
+          ? "border border-white/20 bg-white/[0.06] hover:bg-white/[0.12] hover:border-white/30 text-white/70 hover:text-white"
+          : "border border-black/15 bg-black/[0.05] hover:bg-black/[0.10] hover:border-black/25 text-neutral-800 hover:text-black"
       }`}
     >
       <AnimatePresence mode="wait" initial={false}>
-        {theme === "dark" ? (
+        {theme === "light" ? (
           <motion.span
             key="sun"
             initial={{ opacity: 0, rotate: -30, scale: 0.8 }}
@@ -91,7 +92,7 @@ export function ThemeToggle({ inMenu = false, isPastHero = false }: ThemeToggleP
             exit={{ opacity: 0, rotate: 30, scale: 0.8 }}
             transition={{ duration: 0.22 }}
           >
-            <Sun className="w-3.5 h-3.5" />
+            <Sun className="w-4 h-4 text-amber-500" />
           </motion.span>
         ) : (
           <motion.span
@@ -101,7 +102,7 @@ export function ThemeToggle({ inMenu = false, isPastHero = false }: ThemeToggleP
             exit={{ opacity: 0, rotate: -30, scale: 0.8 }}
             transition={{ duration: 0.22 }}
           >
-            <Moon className="w-3.5 h-3.5" />
+            <Moon className="w-4 h-4 text-white/80" />
           </motion.span>
         )}
       </AnimatePresence>

@@ -82,7 +82,7 @@ export const staggerContainer = (stagger = 0.08, delay = 0) => ({
 });
 
 /** Standard viewport config so "once" / trigger margin stays consistent site-wide. */
-export const VIEWPORT_ONCE = { once: true, margin: "-10% 0px -10% 0px" };
+export const VIEWPORT_ONCE = { once: true, margin: "0px 0px -40px 0px", amount: 0.05 } as const;
 
 export const maskedLine = {
   hidden: {
