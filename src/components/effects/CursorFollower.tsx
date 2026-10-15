@@ -268,12 +268,12 @@ export function CursorFollower() {
         }}
         className={`pointer-events-none z-[9998] flex items-center justify-center rounded-full border transition-all duration-200 ${
           cursorText
-            ? "h-12 w-24 border-[#FF5A00] bg-[#FF5A00]/20 backdrop-blur-md shadow-[0_0_24px_rgba(255,90,0,0.45)]"
+            ? "h-14 w-28 border-[#FF5A00] bg-[#FF5A00]/25 backdrop-blur-md shadow-[0_0_24px_rgba(255,90,0,0.45)]"
             : "h-9 w-9 border-[#FF5A00]/40 bg-[#FF5A00]/[0.04] backdrop-blur-[1px] shadow-[0_0_16px_rgba(255,90,0,0.18)]"
         }`}
       >
         {cursorText && (
-          <span className="font-mono text-[9px] font-semibold tracking-widest text-white uppercase select-none">
+          <span className="font-mono text-base font-semibold tracking-wider text-white uppercase select-none">
             {cursorText}
           </span>
         )}

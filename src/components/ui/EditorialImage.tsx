@@ -50,14 +50,14 @@ export function EditorialImage({
         </motion.div>
 
         {/* Compact bottom overlay strip inside card */}
-        <div className="absolute bottom-0 left-0 right-0 z-10 flex items-center justify-between bg-surface-dark/90 px-3 py-2 text-[9px] md:text-[10px] font-mono tracking-widest text-white uppercase backdrop-blur-sm">
+        <div className="absolute bottom-0 left-0 right-0 z-10 flex items-center justify-between bg-surface-dark/90 px-4 py-2.5 text-base font-mono font-medium tracking-[0.12em] text-white uppercase backdrop-blur-sm">
           <span>{categoryTag}</span>
           <span className="h-1.5 w-1.5 bg-brand-accent transition-transform duration-300 group-hover:scale-125" />
         </div>
       </div>
 
       {/* Editorial metadata rows under card */}
-      <div className="mt-3 space-y-1 font-mono text-[9px] md:text-[10px] tracking-wider uppercase text-foreground-muted">
+      <div className="mt-3.5 space-y-2 font-mono text-base tracking-[0.08em] uppercase text-foreground-muted">
         {metaRows.map((row, idx) => (
           <div key={idx} className="flex items-center justify-between border-b border-border-light/40 pb-1">
             <span className="flex items-center gap-1.5">

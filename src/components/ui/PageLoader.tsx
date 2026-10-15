@@ -80,10 +80,10 @@ export function PageLoader() {
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] rounded-full bg-[#FF5A00]/[0.08] blur-[120px] pointer-events-none" />
 
           {/* ── Top Header Studio Meta ── */}
-          <div className="relative z-10 w-full flex items-center justify-between font-mono text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-white/40">
+          <div className="relative z-10 w-full flex items-center justify-between font-mono text-base tracking-[0.14em] uppercase text-white/50">
             <div className="flex items-center gap-2.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_#FF5A00]" />
-              <span className="text-white/70">ARMIA SYSTEMS</span>
+              <span className="w-2 h-2 rounded-full bg-brand-accent shadow-[0_0_8px_#FF5A00]" />
+              <span className="text-white/80 font-medium">ARMIA SYSTEMS</span>
             </div>
             <div>EST. 2003</div>
           </div>
@@ -200,13 +200,13 @@ export function PageLoader() {
           </div>
 
           {/* ── Bottom Meta Row: Progress Bar & Numeric Counter ── */}
-          <div className="relative z-10 w-full flex items-end justify-between font-mono text-xs text-white/50 tracking-wider">
-            <div className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-white/40">
+          <div className="relative z-10 w-full flex items-end justify-between font-mono text-base text-white/60 tracking-wider">
+            <div className="text-base uppercase tracking-[0.12em] text-white/50">
               INDIA &bull; USA &bull; WORLDWIDE
             </div>
 
             {/* Hairline Center Progress Bar */}
-            <div className="hidden sm:block w-48 md:w-64 h-[1.5px] bg-white/10 rounded-full overflow-hidden mx-6">
+            <div className="hidden sm:block w-48 md:w-64 h-[2px] bg-white/10 rounded-full overflow-hidden mx-6">
               <div
                 className="h-full bg-gradient-to-r from-[#D93D00] to-brand-accent transition-all duration-100 ease-out"
                 style={{ width: `${progress}%` }}
@@ -214,7 +214,7 @@ export function PageLoader() {
             </div>
 
             {/* Numeric Percentage Counter */}
-            <div className="tabular-nums font-mono text-xs sm:text-[13px] text-white/70">
+            <div className="tabular-nums font-mono text-base text-white/80 font-medium">
               [ {String(progress).padStart(2, "0")}% ]
             </div>
           </div>

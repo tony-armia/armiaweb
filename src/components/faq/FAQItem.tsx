@@ -43,7 +43,7 @@ export function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
 
             {/* Question Number */}
             <span
-              className="font-mono text-xs font-normal w-[30px] shrink-0 group-hover:text-brand-accent transition-colors"
+              className="font-mono text-base font-semibold w-[36px] shrink-0 group-hover:text-brand-accent transition-colors"
               style={{ color: "var(--foreground-subtle)" }}
             >
               {item.number}
@@ -51,7 +51,7 @@ export function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
 
             {/* Question Text */}
             <span
-              className="font-sans text-[clamp(0.95rem,1vw,1.15rem)] font-medium tracking-[-0.015em] uppercase leading-[1.25] transition-colors"
+              className="font-sans text-[clamp(1.0rem,1.1vw,1.25rem)] font-medium tracking-[-0.015em] uppercase leading-[1.3] transition-colors"
               style={{ color: isOpen ? "var(--accent)" : "var(--foreground)" }}
             >
               {item.question}
@@ -99,7 +99,7 @@ export function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
               {item.answer.map((paragraph, pIdx) => (
                 <p
                   key={pIdx}
-                  className="font-sans text-[14px] md:text-[15px] leading-[1.55] mb-2.5 last:mb-0"
+                  className="font-sans text-base md:text-[16.5px] leading-[1.7] mb-3 last:mb-0"
                   style={{ color: "var(--foreground-muted)" }}
                 >
                   {paragraph}

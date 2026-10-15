@@ -49,18 +49,18 @@ export function FAQSection() {
               <span className="block font-normal" style={{ color: 'var(--foreground)' }}>ASKED QUESTIONS.</span>
             </motion.h2>
 
-            <p className="font-mono text-xs md:text-[13px] leading-relaxed mt-4 md:mt-5 uppercase tracking-[0.16em] max-w-[320px]" style={{ color: 'var(--foreground-muted)' }}>
+            <p className="font-mono text-base md:text-[17px] leading-relaxed mt-4 md:mt-5 uppercase tracking-[0.1em] max-w-[400px]" style={{ color: 'var(--foreground-muted)' }}>
               COMMON QUESTIONS ABOUT <br />
               <strong className="font-medium" style={{ color: 'var(--foreground)' }}>ARMIA SYSTEMS</strong> &amp; ENGAGEMENTS.
             </p>
           </div>
 
-          {/* Right Supporting Copy / Link: 69.3% to 88.8% */}
-          <div className="w-full md:w-[19.5%] px-6 md:px-0 pt-1 flex justify-start">
+          {/* Right Supporting Copy / Link */}
+          <div className="w-full md:w-[22%] px-6 md:px-0 pt-1 flex justify-start">
             <div className="flex flex-col gap-4">
               <a
                 href="#contact"
-                className="font-mono text-xs md:text-[13px] text-brand-accent tracking-[0.18em] uppercase transition-colors flex items-center gap-1.5 group"
+                className="font-mono text-base md:text-[17px] text-brand-accent tracking-[0.06em] uppercase transition-colors flex items-center gap-2 group"
               >
                 <span>HAVE QUESTIONS? TALK TO US</span>
                 <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>

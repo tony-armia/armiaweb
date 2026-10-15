@@ -68,7 +68,7 @@ export function EngineeringStatement() {
 
           {/* Right Supporting Year: 69.3% to 88.8% */}
           <div className="w-full md:w-[19.5%] md:ml-[39.0%] px-6 md:px-0 pt-1 flex justify-start">
-            <span className="font-mono text-[9px] md:text-[10px] tracking-widest text-[#111111]">
+            <span className="font-mono text-base tracking-widest text-[#111111]">
               ©2004–2026
             </span>
           </div>
@@ -130,7 +130,7 @@ export function EngineeringStatement() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_ONCE}
                 transition={{ duration: 0.6, delay: 0.85, ease: EASE_CUSTOM }}
-                className="font-sans text-[12px] md:text-[13px] font-medium text-[#222222]"
+                className="font-sans text-base font-medium text-[#222222]"
               >
                 20+ years of engineering experience. Built around skill, innovation and long-term partnerships.
               </motion.p>

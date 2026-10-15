@@ -15,11 +15,11 @@ export function SectionLabel({
   return (
     <div
       className={cn(
-        "inline-flex items-center gap-2 font-mono text-[10px] sm:text-xs tracking-[0.14em] uppercase text-foreground-dark-muted select-none",
+        "inline-flex items-center gap-2 font-mono text-base tracking-[0.14em] uppercase text-foreground-dark-muted select-none",
         className
       )}
     >
-      <span className={cn("h-1.5 w-1.5 rounded-full", dotColor)} />
+      <span className={cn("h-2 w-2 rounded-full", dotColor)} />
       <span>{children}</span>
     </div>
   );

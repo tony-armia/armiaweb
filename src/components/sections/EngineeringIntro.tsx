@@ -54,11 +54,11 @@ export function EngineeringIntro() {
 
         {/* ── Right Column: Metadata & Editorial Storytelling ── */}
         <motion.div style={{ y: yContent }} className="lg:col-span-5 flex flex-col justify-center will-change-transform">
-          <div className="max-w-xl space-y-6 sm:space-y-7 text-[15px] sm:text-[16px] leading-[1.78] font-normal" style={{ color: 'var(--foreground-muted)' }}>
+          <div className="max-w-xl space-y-6 sm:space-y-7 text-base sm:text-[17px] leading-[1.8] font-normal" style={{ color: 'var(--foreground-muted)' }}>
             {/* Top Metadata Row matching Elysium with standardized SectionEyebrow */}
-            <div className="flex items-center justify-between pb-3 border-b text-xs tracking-widest uppercase" style={{ borderColor: 'var(--border)' }}>
+            <div className="flex items-center justify-between pb-3 border-b text-base tracking-[0.12em] uppercase" style={{ borderColor: 'var(--border)' }}>
               <SectionEyebrow number="02" label="WHO WE ARE" className="!mb-0" />
-              <span className="font-mono tracking-[0.16em] text-[11px] sm:text-[12px] flex items-center gap-1.5" style={{ color: 'var(--foreground-subtle)' }}>
+              <span className="font-mono tracking-[0.12em] text-base flex items-center gap-2" style={{ color: 'var(--foreground-subtle)' }}>
                 <span>🇺🇸 USA</span>
                 <span style={{ opacity: 0.4 }}>&bull;</span>
                 <span>🇮🇳 INDIA</span>

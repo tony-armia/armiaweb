@@ -45,8 +45,8 @@ export function BlogSection() {
         <div className="flex items-center justify-between mb-3 md:mb-4">
           {/* Left Eyebrow with glowing orange node */}
           <div className="flex items-center gap-2.5">
-            <span className="w-2 h-2 rounded-full bg-brand-accent shadow-[0_0_10px_#FF5A00] inline-block shrink-0" />
-            <span className="font-mono text-xs md:text-[13px] tracking-[0.2em] uppercase font-medium" style={{ color: 'var(--foreground)' }}>
+            <span className="w-2.5 h-2.5 rounded-full bg-brand-accent shadow-[0_0_10px_#FF5A00] inline-block shrink-0" />
+            <span className="font-mono text-base md:text-[17px] tracking-[0.14em] uppercase font-semibold" style={{ color: 'var(--foreground)' }}>
               INSIGHTS
             </span>
           </div>
@@ -54,7 +54,7 @@ export function BlogSection() {
           {/* Right Action Link */}
           <a
             href="#blog"
-            className="font-mono text-xs md:text-[13px] text-brand-accent tracking-[0.16em] uppercase transition-colors flex items-center gap-1.5 group"
+            className="font-mono text-base md:text-[17px] text-brand-accent tracking-[0.12em] uppercase transition-colors flex items-center gap-2 group"
           >
             <span>VIEW ALL ARTICLES</span>
             <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -75,7 +75,7 @@ export function BlogSection() {
             {/* Hairline Divider + Engineering Strategy text */}
             <div className="hidden md:flex items-center gap-6 pl-2">
               <div className="w-[1px] h-14" style={{ backgroundColor: 'var(--border-strong)' }} />
-              <p className="font-mono text-[11px] md:text-xs leading-relaxed uppercase tracking-[0.16em] max-w-[260px]" style={{ color: 'var(--foreground-muted)' }}>
+              <p className="font-mono text-base leading-relaxed uppercase tracking-[0.1em] max-w-[320px]" style={{ color: 'var(--foreground-muted)' }}>
                 ENGINEERING ARCHITECTURE,
                 <br />
                 AI SYSTEMS &amp; TECH STRATEGY.
@@ -84,7 +84,7 @@ export function BlogSection() {
           </div>
 
           {/* Far Right 3-tier label list */}
-          <div className="hidden lg:flex flex-col items-start font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase leading-snug pr-2" style={{ color: 'var(--foreground-subtle)' }}>
+          <div className="hidden lg:flex flex-col items-start font-mono text-base tracking-[0.14em] uppercase leading-snug pr-2" style={{ color: 'var(--foreground-subtle)' }}>
             <span>IDEAS</span>
             <span>SYSTEMS</span>
             <span>REAL IMPACT</span>
@@ -128,17 +128,17 @@ export function BlogSection() {
 
               {/* Card Top Row: 01 / and Date */}
               <div className="relative z-10 flex items-center justify-between w-full">
-                <div className="flex items-center gap-1 font-mono text-sm tracking-wider">
+                <div className="flex items-center gap-1 font-mono text-base tracking-wider">
                   <span className="text-white font-medium">01</span>
                   <span className="text-brand-accent font-semibold">/</span>
                 </div>
-                <span className="font-mono text-[11px] md:text-xs text-white/60 tracking-widest uppercase">
+                <span className="font-mono text-base text-white/70 tracking-wider uppercase">
                   {featuredArticle.date}
                 </span>
               </div>
 
               {/* Rotated Left Edge Badge: FEATURED ARTICLE */}
-              <div className="absolute left-6 sm:left-8 top-28 z-10 [writing-mode:vertical-rl] rotate-180 font-mono text-[9px] md:text-[10px] tracking-[0.28em] text-white/35 uppercase select-none pointer-events-none">
+              <div className="absolute left-6 sm:left-8 top-28 z-10 [writing-mode:vertical-rl] rotate-180 font-mono text-base tracking-[0.18em] text-white/40 uppercase select-none pointer-events-none">
                 FEATURED ARTICLE
               </div>
 
@@ -147,7 +147,7 @@ export function BlogSection() {
                 {/* Category indicator with orange square */}
                 <div className="flex items-center gap-2 mb-2.5">
                   <span className="w-2 h-2 bg-brand-accent inline-block shrink-0" />
-                  <span className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-white/80 font-semibold">
+                  <span className="font-mono text-base tracking-[0.14em] uppercase text-white/90 font-semibold">
                     {featuredArticle.category}
                   </span>
                 </div>
@@ -158,7 +158,7 @@ export function BlogSection() {
                     <h3 className="font-sans font-medium text-xl sm:text-2xl lg:text-[26px] text-white leading-tight tracking-tight group-hover:text-brand-accent transition-colors">
                       {featuredArticle.title}
                     </h3>
-                    <p className="font-sans text-xs sm:text-sm text-white/65 leading-relaxed mt-2 max-w-md">
+                    <p className="font-sans text-base sm:text-[16.5px] text-white/75 leading-relaxed mt-2 max-w-lg">
                       {featuredArticle.description}
                     </p>
                   </div>
@@ -211,7 +211,7 @@ export function BlogSection() {
                         className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
                       />
                       {/* Top-left number label with subtle dark backdrop */}
-                      <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1 font-mono text-xs font-medium text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] px-2 py-0.5 rounded bg-black/45 backdrop-blur-sm border border-white/10">
+                      <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1 font-mono text-base font-semibold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] px-2.5 py-1 rounded bg-black/50 backdrop-blur-sm border border-white/10">
                         <span>{num}</span>
                         <span className="text-brand-accent font-semibold">/</span>
                       </div>
@@ -221,7 +221,7 @@ export function BlogSection() {
                     <div className="flex-1 flex flex-col justify-between py-0.5 pr-1">
                       {/* Top Row: Date & Circular Arrow Button */}
                       <div className="flex items-center justify-between mb-2">
-                        <span className="font-mono text-[10px] md:text-[11px] text-white/50 tracking-wider uppercase">
+                        <span className="font-mono text-base text-white/60 tracking-wide uppercase">
                           {article.date}
                         </span>
                         <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/70 group-hover:border-brand-accent group-hover:text-brand-accent group-hover:bg-brand-accent/10 transition-all duration-300 shrink-0">
@@ -246,18 +246,18 @@ export function BlogSection() {
                         {/* Category with orange square marker */}
                         <div className="flex items-center gap-1.5 mb-1.5">
                           <span className="w-1.5 h-1.5 bg-brand-accent inline-block shrink-0" />
-                          <span className="font-mono text-[9px] md:text-[10px] tracking-[0.2em] text-white/70 uppercase font-semibold">
+                          <span className="font-mono text-base tracking-[0.12em] text-white/80 uppercase font-semibold">
                             {article.category}
                           </span>
                         </div>
 
                         {/* Title */}
-                        <h3 className="font-sans font-medium text-[15px] md:text-[16px] text-white leading-snug group-hover:text-brand-accent transition-colors line-clamp-2">
+                        <h3 className="font-sans font-medium text-lg sm:text-[19px] text-white leading-snug group-hover:text-brand-accent transition-colors line-clamp-2">
                           {article.title}
                         </h3>
 
                         {/* Description */}
-                        <p className="font-sans text-xs md:text-[12.5px] text-white/60 leading-relaxed mt-1.5 line-clamp-2">
+                        <p className="font-sans text-base text-white/70 leading-relaxed mt-2 line-clamp-2">
                           {article.description}
                         </p>
                       </div>

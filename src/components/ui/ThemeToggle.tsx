@@ -56,10 +56,10 @@ export function ThemeToggle({ inMenu = false, isPastHero = false }: ThemeToggleP
         aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
         className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-md"
       >
-        <span className="flex items-center justify-center w-8 h-8 rounded-full border border-white/20 bg-white/[0.06] text-white/70 group-hover:text-white group-hover:border-white/30 transition-all duration-300">
+        <span className="flex items-center justify-center w-9 h-9 rounded-full border border-white/20 bg-white/[0.06] text-white/70 group-hover:text-white group-hover:border-white/30 transition-all duration-300">
           {theme === "light" ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-white/80" />}
         </span>
-        <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/60 group-hover:text-white transition-colors">
+        <span className="font-mono text-base tracking-[0.14em] uppercase text-white/70 group-hover:text-white transition-colors">
           {theme === "light" ? "DARK MODE" : "LIGHT MODE"}
         </span>
       </button>
@@ -77,7 +77,7 @@ export function ThemeToggle({ inMenu = false, isPastHero = false }: ThemeToggleP
       onClick={toggle}
       title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-      className={`group relative flex items-center justify-center w-[34px] h-[34px] md:w-[36px] md:h-[36px] rounded-full transition-all duration-700 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent backdrop-blur-sm ${
+      className={`group relative flex items-center justify-center w-[42px] h-[42px] md:w-[44px] md:h-[44px] rounded-full transition-all duration-700 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent backdrop-blur-sm ${
         isDarkContext
           ? "border border-white/20 bg-white/[0.06] hover:bg-white/[0.12] hover:border-white/30 text-white/70 hover:text-white"
           : "border border-black/15 bg-black/[0.05] hover:bg-black/[0.10] hover:border-black/25 text-neutral-800 hover:text-black"

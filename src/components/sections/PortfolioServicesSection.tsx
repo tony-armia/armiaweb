@@ -204,7 +204,7 @@ export function PortfolioServicesSection() {
           <div className="w-full md:w-[19.5%] px-6 md:px-0 pt-1 flex justify-start">
             <a
               href="#contact"
-              className="font-mono text-xs md:text-[13px] text-brand-accent tracking-[0.18em] uppercase hover:text-white transition-colors flex items-center gap-1.5 group"
+              className="font-mono text-base md:text-[17px] text-brand-accent tracking-[0.12em] uppercase hover:text-white transition-colors flex items-center gap-2 group"
             >
               <span>ALL WORK</span>
               <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -235,11 +235,11 @@ export function PortfolioServicesSection() {
                   <motion.div variants={fadeUpVariants} className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
                       <span className="h-[2px] w-[18px] bg-[#ff5a00] inline-block" />
-                      <span className="font-mono text-[12px] md:text-[13.5px] tracking-widest text-white/70 uppercase font-semibold">
+                      <span className="font-mono text-base tracking-[0.14em] text-white/70 uppercase font-semibold">
                         {service.category}
                       </span>
                     </div>
-                    <span className="font-mono text-sm md:text-base font-semibold text-[#ff5a00]">
+                    <span className="font-mono text-base md:text-[18px] font-semibold text-[#ff5a00]">
                       {service.num}
                     </span>
                   </motion.div>
@@ -264,7 +264,7 @@ export function PortfolioServicesSection() {
                   {/* Caption under large image */}
                   <motion.p
                     variants={fadeUpVariants}
-                    className="font-sans text-[15px] md:text-[16px] mt-3 leading-[1.6]" style={{ color: 'var(--foreground-muted)' }}
+                    className="font-sans text-base sm:text-[17px] mt-3 leading-[1.7]" style={{ color: 'var(--foreground-muted)' }}
                   >
                     {service.caption}
                   </motion.p>
@@ -296,17 +296,17 @@ export function PortfolioServicesSection() {
 
                     {/* Capabilities List */}
                     <div className="mb-6 md:mb-8">
-                      <div className="font-mono text-[10px] md:text-[11.5px] tracking-widest text-white/50 uppercase mb-3">
+                      <div className="font-mono text-base tracking-[0.12em] text-white/60 uppercase mb-3">
                         ENGINEERING HIGHLIGHTS
                       </div>
-                      <ul className="space-y-2.5">
+                      <ul className="space-y-3">
                         {service.capabilities.map((capability, i) => (
                           <motion.li
                             key={i}
                             variants={fadeUpVariants}
-                            className="font-sans text-[14px] md:text-[15.5px] leading-[1.55] text-white/80 flex items-start"
+                            className="font-sans text-base sm:text-[17px] leading-[1.6] text-white/85 flex items-start"
                           >
-                            <span className="text-[#ff5a00] font-mono mr-3 text-sm font-medium select-none">
+                            <span className="text-[#ff5a00] font-mono mr-3 text-base font-semibold select-none">
                               +
                             </span>
                             <span>{capability}</span>

@@ -290,7 +290,7 @@ export function ServicesSection() {
           </div>
 
           <div className="lg:col-span-4 lg:pl-6 pb-2">
-            <p className="text-[15px] sm:text-[16px] leading-[1.7] font-normal" style={{ color: 'var(--foreground-muted)' }}>
+            <p className="text-base sm:text-[17px] leading-[1.8] font-normal" style={{ color: 'var(--foreground-muted)' }}>
               Enterprise technology succeeds when architecture, intelligence, and execution align.
               We build systems that can last, scale responsibly, and stand up to real-world complexity.
             </p>
@@ -301,7 +301,7 @@ export function ServicesSection() {
         <div className="flex flex-wrap items-center gap-3 pb-8 mb-12" style={{ borderBottom: "1px solid var(--border)" }}>
           <button
             onClick={() => setActiveTab("pillars")}
-            className={`font-mono text-xs sm:text-[13px] tracking-[0.16em] uppercase px-5 py-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+            className={`font-mono text-base tracking-[0.1em] uppercase px-6 py-3 rounded-full transition-all duration-300 cursor-pointer ${
               activeTab === "pillars"
                 ? "bg-brand-accent text-white font-semibold shadow-lg shadow-brand-accent/25"
                 : "font-normal"
@@ -317,7 +317,7 @@ export function ServicesSection() {
 
           <button
             onClick={() => setActiveTab("expertise")}
-            className={`font-mono text-xs sm:text-[13px] tracking-[0.16em] uppercase px-5 py-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+            className={`font-mono text-base tracking-[0.1em] uppercase px-6 py-3 rounded-full transition-all duration-300 cursor-pointer ${
               activeTab === "expertise"
                 ? "bg-brand-accent text-white font-semibold shadow-lg shadow-brand-accent/25"
                 : "font-normal"
@@ -333,7 +333,7 @@ export function ServicesSection() {
 
           <button
             onClick={() => setActiveTab("industries")}
-            className={`font-mono text-xs sm:text-[13px] tracking-[0.16em] uppercase px-5 py-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+            className={`font-mono text-base tracking-[0.1em] uppercase px-6 py-3 rounded-full transition-all duration-300 cursor-pointer ${
               activeTab === "industries"
                 ? "bg-brand-accent text-white font-semibold shadow-lg shadow-brand-accent/25"
                 : "font-normal"
@@ -378,10 +378,10 @@ export function ServicesSection() {
                       </div>
 
                       <div className="flex items-center gap-2.5">
-                        <span className="font-mono text-[10px] sm:text-[11px] px-3 py-1 rounded-full bg-black/[0.03] dark:bg-white/[0.03] border border-black/10 dark:border-white/[0.08] text-neutral-600 dark:text-white/60 tracking-wider">
+                        <span className="font-mono text-base px-3.5 py-1.5 rounded-full bg-black/[0.03] dark:bg-white/[0.03] border border-black/10 dark:border-white/[0.08] text-neutral-600 dark:text-white/60 tracking-wide">
                           {pillar.badge}
                         </span>
-                        <span className="font-mono text-xs sm:text-[13px] font-semibold text-brand-accent tracking-widest">
+                        <span className="font-mono text-base font-semibold text-brand-accent tracking-wider">
                           /{pillar.num}
                         </span>
                       </div>
@@ -392,19 +392,19 @@ export function ServicesSection() {
                       <span>{pillar.title}</span>
                     </h3>
 
-                    <p className="text-brand-accent text-[13px] sm:text-[14px] font-mono tracking-wide mb-4">
+                    <p className="text-brand-accent text-base sm:text-[16.5px] font-mono tracking-normal mb-4">
                       {pillar.tagline}
                     </p>
 
-                    <p className="text-[#8e94a0] text-[14px] sm:text-[15px] leading-[1.75] mb-6">
+                    <p className="text-[#8e94a0] text-base sm:text-[17px] leading-[1.8] mb-6">
                       {pillar.description}
                     </p>
 
                     {/* Deliverables Checklist */}
-                    <div className="space-y-2.5 mb-8">
+                    <div className="space-y-3 mb-8">
                       {pillar.deliverables.map((item, i) => (
-                        <div key={i} className="flex items-start gap-3 text-[13px] sm:text-[14px] text-white/80">
-                          <CheckCircle2 className="w-4 h-4 text-brand-accent shrink-0 mt-0.5" />
+                        <div key={i} className="flex items-start gap-3 text-base sm:text-[16.5px] text-white/85">
+                          <CheckCircle2 className="w-5 h-5 text-brand-accent shrink-0 mt-0.5" />
                           <span>{item}</span>
                         </div>
                       ))}
@@ -415,10 +415,10 @@ export function ServicesSection() {
                   <div className="pt-6 border-t border-white/[0.06] flex items-center justify-between">
                     <a
                       href="#contact"
-                      className="font-mono text-[11px] sm:text-[12px] tracking-[0.16em] uppercase text-brand-accent hover:text-white transition-colors flex items-center gap-2 group/link"
+                      className="font-mono text-base tracking-[0.1em] uppercase text-brand-accent hover:text-white transition-colors flex items-center gap-2 group/link"
                     >
                       <span>{pillar.ctaText}</span>
-                      <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                      <ArrowUpRight className="w-4.5 h-4.5 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
                     </a>
                   </div>
                 </motion.div>
@@ -453,13 +453,13 @@ export function ServicesSection() {
                       {tech.title}
                     </h4>
 
-                    <p className="text-[#8e94a0] text-[13px] sm:text-[14px] leading-[1.65]">
+                    <p className="text-[#8e94a0] text-base leading-[1.7]">
                       {tech.description}
                     </p>
                   </div>
 
                   <div className="pt-5 mt-5 border-t border-white/[0.05]">
-                    <span className="font-mono text-[10px] tracking-widest uppercase text-white/40 group-hover:text-brand-accent transition-colors">
+                    <span className="font-mono text-base tracking-[0.08em] uppercase text-white/50 group-hover:text-brand-accent transition-colors">
                       Production Ready &bull; Tier 1
                     </span>
                   </div>
@@ -488,7 +488,7 @@ export function ServicesSection() {
                     }`}
                   >
                     <Icon className={`w-5 h-5 shrink-0 ${isSelected ? "text-white" : "text-white/50"}`} />
-                    <span className={`text-[13px] font-medium ${isSelected ? "text-white font-semibold" : "text-white/70"}`}>
+                    <span className={`text-base font-medium ${isSelected ? "text-white font-semibold" : "text-white/70"}`}>
                       {ind.name}
                     </span>
                   </button>
@@ -501,10 +501,10 @@ export function ServicesSection() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-8">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="font-mono text-xs tracking-widest text-brand-accent uppercase">
+                    <span className="font-mono text-base tracking-[0.12em] text-brand-accent uppercase">
                       Sector Focus //
                     </span>
-                    <span className="font-mono text-xs text-white/40 uppercase">
+                    <span className="font-mono text-base text-white/50 uppercase">
                       {currentIndustryData.name}
                     </span>
                   </div>
@@ -513,7 +513,7 @@ export function ServicesSection() {
                     {currentIndustryData.headline}
                   </h3>
 
-                  <p className="text-[#8e94a0] text-[15px] sm:text-[16px] leading-[1.75] mb-8 max-w-3xl">
+                  <p className="text-[#8e94a0] text-base sm:text-[17px] leading-[1.8] mb-8 max-w-3xl">
                     {currentIndustryData.description}
                   </p>
 
@@ -524,7 +524,7 @@ export function ServicesSection() {
                         className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] flex items-center gap-2"
                       >
                         <CheckCircle2 className="w-4 h-4 text-brand-accent shrink-0" />
-                        <span className="font-mono text-[11px] sm:text-[12px] text-white/80">{h}</span>
+                        <span className="font-mono text-base text-white/85">{h}</span>
                       </div>
                     ))}
                   </div>
@@ -532,18 +532,18 @@ export function ServicesSection() {
 
                 <div className="lg:col-span-4 lg:border-l lg:border-white/[0.08] lg:pl-10 flex flex-col justify-center">
                   <div className="space-y-4">
-                    <span className="font-mono text-xs uppercase tracking-widest text-white/50 block">
+                    <span className="font-mono text-base uppercase tracking-[0.12em] text-white/60 block">
                       Enterprise Impact
                     </span>
                     <div className="text-3xl sm:text-4xl font-light text-brand-accent">
                       100%
                     </div>
-                    <p className="text-xs text-white/60 leading-relaxed font-mono">
+                    <p className="text-base text-white/70 leading-relaxed font-mono">
                       Domain compliance, rigorous data confidentiality, and battle-tested production stability.
                     </p>
                     <a
                       href="#contact"
-                      className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-white hover:text-brand-accent transition-colors pt-2"
+                      className="inline-flex items-center gap-2 font-mono text-base uppercase tracking-[0.1em] text-white hover:text-brand-accent transition-colors pt-2"
                     >
                       <span>Discuss Your Industry Roadmap</span>
                       <ArrowUpRight className="w-4 h-4" />
@@ -551,8 +551,8 @@ export function ServicesSection() {
                   </div>
                 </div>
               </div>
-              </div>
             </div>
+          </div>
         )}
       </div>
     </section>

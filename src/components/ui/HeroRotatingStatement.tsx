@@ -85,7 +85,7 @@ export function HeroRotatingStatement({ isLight = false }: HeroRotatingStatement
   const current = STATEMENTS[index];
 
   return (
-    <div className="relative min-w-[260px] max-w-[340px] select-none pointer-events-auto">
+    <div className="relative min-w-[280px] max-w-[420px] select-none pointer-events-auto">
       <AnimatePresence mode="wait">
         <motion.div
           key={current.id}
@@ -97,11 +97,11 @@ export function HeroRotatingStatement({ isLight = false }: HeroRotatingStatement
         >
           {/* Micro Category Tag & Index */}
           <div
-            className={`flex items-center gap-2 mb-2.5 font-mono text-[9.5px] sm:text-[10px] tracking-[0.2em] uppercase transition-colors duration-700 ease-in-out ${
+            className={`flex items-center gap-2 mb-3 font-mono text-base tracking-[0.14em] uppercase transition-colors duration-700 ease-in-out ${
               isLight ? "text-black/50" : "text-white/40"
             }`}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_#FF5A00] inline-block shrink-0" />
+            <span className="w-2 h-2 rounded-full bg-brand-accent shadow-[0_0_8px_#FF5A00] inline-block shrink-0" />
             <span className="text-brand-accent font-medium">{current.id}</span>
             <span className={`transition-colors duration-700 ease-in-out ${isLight ? "text-black/25" : "text-white/25"}`}>/</span>
             <span className={`transition-colors duration-700 ease-in-out ${isLight ? "text-black/70" : "text-white/60"}`}>{current.tag}</span>
@@ -109,7 +109,7 @@ export function HeroRotatingStatement({ isLight = false }: HeroRotatingStatement
 
           {/* Primary Statement Block */}
           <div
-            className={`flex flex-col text-xs sm:text-[13px] md:text-sm leading-snug font-normal transition-colors duration-700 ease-in-out ${
+            className={`flex flex-col text-base sm:text-[17px] md:text-[18px] leading-relaxed font-medium transition-colors duration-700 ease-in-out ${
               isLight ? "text-[#111827]" : "text-white/80"
             }`}
           >
@@ -124,7 +124,7 @@ export function HeroRotatingStatement({ isLight = false }: HeroRotatingStatement
                     delay: i * 0.06,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  className="leading-snug"
+                  className="leading-relaxed"
                 >
                   {line}
                 </motion.p>
@@ -137,7 +137,7 @@ export function HeroRotatingStatement({ isLight = false }: HeroRotatingStatement
 
           {/* Secondary Statement Block */}
           <div
-            className={`flex flex-col text-xs sm:text-[12px] md:text-[12.5px] leading-snug font-normal transition-colors duration-700 ease-in-out ${
+            className={`flex flex-col text-base sm:text-[16.5px] leading-relaxed font-normal transition-colors duration-700 ease-in-out ${
               isLight ? "text-black" : "text-white/50"
             }`}
           >
@@ -152,7 +152,7 @@ export function HeroRotatingStatement({ isLight = false }: HeroRotatingStatement
                     delay: 0.15 + i * 0.06,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  className="leading-snug"
+                  className="leading-relaxed"
                 >
                   {line}
                 </motion.p>

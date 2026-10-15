@@ -108,7 +108,7 @@ export function HeroSection() {
         <select
           value={activeHero}
           onChange={(e) => handleHeroChange(e.target.value as "hero1" | "hero2")}
-          className={`backdrop-blur-md border text-[9px] uppercase tracking-widest px-2.5 py-1 rounded-sm outline-none focus:border-brand-accent transition-all duration-700 ease-in-out cursor-pointer shadow-xl ${
+          className={`backdrop-blur-md border text-base uppercase font-mono tracking-wider px-3.5 py-1.5 h-[38px] rounded-md outline-none focus:border-brand-accent transition-all duration-700 ease-in-out cursor-pointer shadow-xl ${
             isLight
               ? "bg-white/80 border-black/15 text-black/80 hover:text-black shadow-black/5"
               : "bg-black/30 border-white/10 text-white/70 hover:text-white shadow-black/40"
@@ -142,7 +142,7 @@ export function HeroSection() {
                   initial={{ opacity: 0, y: -8 }}
                   animate={isAppReady ? { opacity: 1, y: 0 } : { opacity: 0, y: -8 }}
                   transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  className="mb-4 sm:mb-5 font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.28em] select-none transition-colors duration-700 ease-in-out"
+                  className="mb-4 sm:mb-5 font-mono text-base font-semibold uppercase tracking-[0.16em] select-none transition-colors duration-700 ease-in-out"
                 >
                   <div className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4 gap-y-1.5">
                     <span className={isLight ? "text-black/60" : "text-white/60"}>
@@ -222,7 +222,7 @@ export function HeroSection() {
                 >
                   {/* Concise Supporting Copy */}
                   <p
-                    className={`font-sans text-[12px] sm:text-[13px] md:text-[13.5px] font-normal leading-relaxed tracking-wide max-w-xl mx-auto transition-colors duration-700 ease-in-out ${
+                    className={`font-sans text-base sm:text-[17px] md:text-[18px] font-normal leading-relaxed tracking-normal max-w-2xl mx-auto transition-colors duration-700 ease-in-out ${
                       isLight ? "text-black" : "text-white/70"
                     }`}
                   >
@@ -230,11 +230,11 @@ export function HeroSection() {
                   </p>
 
                   {/* ── Call To Action Buttons ── */}
-                  <div className="mt-6 sm:mt-7 flex flex-wrap items-center justify-center gap-3 sm:gap-3.5">
+                  <div className="mt-6 sm:mt-7 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
                     {/* Primary Button */}
                     <a
                       href="#contact"
-                      className={`group relative inline-flex items-center gap-2 px-5 sm:px-6 h-[42px] sm:h-[46px] rounded-full font-sans text-[13px] sm:text-[13.5px] font-medium tracking-tight transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.98] ${
+                      className={`group relative inline-flex items-center gap-2.5 px-6 sm:px-7 h-[48px] sm:h-[52px] rounded-full font-sans text-base sm:text-[17px] font-medium tracking-tight transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.98] ${
                         isLight
                           ? "bg-neutral-900 text-white hover:bg-black shadow-[0_2px_12px_rgba(0,0,0,0.12)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.2)]"
                           : "bg-white text-neutral-950 hover:bg-neutral-100 shadow-[0_2px_12px_rgba(0,0,0,0.4)] hover:shadow-[0_0_24px_rgba(255,255,255,0.22)]"
@@ -242,7 +242,7 @@ export function HeroSection() {
                     >
                       <span>Start a Conversation</span>
                       <ArrowUpRight
-                        className={`w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${
+                        className={`w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${
                           isLight
                             ? "text-neutral-400 group-hover:text-white"
                             : "text-neutral-500 group-hover:text-neutral-950"
@@ -253,14 +253,14 @@ export function HeroSection() {
                     {/* Secondary Button */}
                     <a
                       href="#services"
-                      className={`group relative inline-flex items-center gap-2 px-5 sm:px-6 h-[42px] sm:h-[46px] rounded-full font-sans text-[13px] sm:text-[13.5px] font-medium tracking-tight bg-transparent transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.98] ${
+                      className={`group relative inline-flex items-center gap-2.5 px-6 sm:px-7 h-[48px] sm:h-[52px] rounded-full font-sans text-base sm:text-[17px] font-medium tracking-tight bg-transparent transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.98] ${
                         isLight
                           ? "border border-black/15 hover:border-black/30 text-neutral-800 hover:text-black"
                           : "border border-white/15 hover:border-white/30 text-white/85 hover:text-white"
                       }`}
                     >
                       <span>Explore Services</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-brand-accent transition-transform duration-300 group-hover:translate-x-1" />
+                      <ArrowRight className="w-4 h-4 text-brand-accent transition-transform duration-300 group-hover:translate-x-1" />
                     </a>
                   </div>
 
@@ -324,7 +324,7 @@ export function HeroSection() {
               >
                 {/* Minimal Trust Separator */}
                 <div
-                  className={`mb-6 font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.3em] flex flex-wrap justify-start items-center gap-x-4 gap-y-2 transition-colors duration-700 ease-in-out ${
+                  className={`mb-6 font-mono text-base uppercase tracking-[0.14em] flex flex-wrap justify-start items-center gap-x-4 gap-y-2 transition-colors duration-700 ease-in-out ${
                     isLight ? "text-neutral-700" : "text-white/50"
                   }`}
                 >
@@ -352,7 +352,7 @@ export function HeroSection() {
                 
                 {/* Supporting Minimal Description (Monospace, highly tracked with AI focus) */}
                 <p
-                  className={`font-mono text-[10px] sm:text-[11px] leading-[2.1] tracking-[0.25em] uppercase max-w-2xl mb-12 transition-colors duration-700 ease-in-out ${
+                  className={`font-mono text-base sm:text-[17px] leading-[1.8] tracking-[0.1em] uppercase max-w-2xl mb-12 transition-colors duration-700 ease-in-out ${
                     isLight ? "text-neutral-700 font-medium" : "text-white/50 font-normal"
                   }`}
                 >
@@ -370,7 +370,7 @@ export function HeroSection() {
                     }`}
                   >
                     <span
-                      className={`font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.2em] transition-colors duration-300 ${
+                      className={`font-mono text-base uppercase tracking-[0.14em] transition-colors duration-300 ${
                         isLight
                           ? "text-neutral-900 group-hover:text-black font-semibold"
                           : "text-white/80 group-hover:text-white"
@@ -406,7 +406,7 @@ export function HeroSection() {
               23
             </span>
             <span
-              className={`font-mono text-[10px] sm:text-xs tracking-[0.5em] uppercase mr-1 mt-1 transition-colors duration-700 ease-in-out ${
+              className={`font-mono text-base tracking-[0.25em] uppercase mr-1 mt-1 transition-colors duration-700 ease-in-out ${
                 isLight ? "text-neutral-800 font-semibold" : "text-white/50"
               }`}
             >

@@ -186,10 +186,10 @@ export function TestimonialsSection() {
           <div className="shrink-0">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-white/20 bg-white/[0.05] hover:bg-white/[0.12] hover:border-brand-accent/50 text-white font-mono text-xs tracking-[0.16em] uppercase transition-all duration-300 backdrop-blur-md group cursor-pointer"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-white/20 bg-white/[0.05] hover:bg-white/[0.12] hover:border-brand-accent/50 text-white font-mono text-base tracking-[0.1em] uppercase transition-all duration-300 backdrop-blur-md group cursor-pointer"
             >
               <span>ALL TESTIMONIALS</span>
-              <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-brand-accent" />
+              <ArrowUpRight className="w-4.5 h-4.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-brand-accent" />
             </a>
           </div>
         </div>
@@ -254,7 +254,7 @@ export function TestimonialsSection() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -6 }}
                   transition={{ duration: 0.25 }}
-                  className="font-sans text-[13.5px] sm:text-[14.5px] leading-[1.68] text-[#1c1c1c] font-normal"
+                  className="font-sans text-base sm:text-[17px] leading-[1.75] text-[#1c1c1c] font-normal"
                 >
                   {current.quote}
                 </motion.p>
@@ -264,7 +264,7 @@ export function TestimonialsSection() {
             {/* Bottom: Floating Avatar & Author Bar with Nav Arrows */}
             <div className="relative z-10 w-full p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-amber-50/90 via-orange-50/70 to-neutral-100/90 backdrop-blur-md border border-orange-200/50 flex items-center justify-between shadow-sm">
               <div className="flex items-center gap-3 min-w-0 pr-2">
-                <div className="relative w-11 h-11 rounded-full overflow-hidden border border-black/10 shrink-0 bg-neutral-200">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden border border-black/10 shrink-0 bg-neutral-200">
                   <Image
                     src={current.avatar}
                     alt={current.name}
@@ -273,10 +273,10 @@ export function TestimonialsSection() {
                   />
                 </div>
                 <div className="min-w-0">
-                  <div className="font-sans font-semibold text-sm text-[#111111] leading-snug truncate">
+                  <div className="font-sans font-bold text-base text-[#111111] leading-snug truncate">
                     {current.name}
                   </div>
-                  <div className="font-sans text-[11px] text-[#555555] leading-snug truncate">
+                  <div className="font-sans text-base text-[#444444] leading-snug truncate">
                     {current.role}
                   </div>
                 </div>
@@ -289,14 +289,14 @@ export function TestimonialsSection() {
                   aria-label="Previous testimonial"
                   className="p-1.5 text-[#222222] hover:text-black transition-transform duration-200 hover:-translate-x-0.5 cursor-pointer"
                 >
-                  <ArrowLeft className="w-4 h-4" />
+                  <ArrowLeft className="w-5 h-5" />
                 </button>
                 <button
                   onClick={handleNext}
                   aria-label="Next testimonial"
                   className="p-1.5 text-[#222222] hover:text-black transition-transform duration-200 hover:translate-x-0.5 cursor-pointer"
                 >
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-5 h-5" />
                 </button>
               </div>
             </div>
@@ -327,9 +327,9 @@ export function TestimonialsSection() {
 
             {/* Center Floating Watch Reel Pill Button (matching reference) */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="px-7 py-3.5 rounded-full bg-white text-black font-sans text-xs tracking-widest uppercase font-semibold flex items-center gap-3 shadow-2xl transition-all duration-300 group-hover:scale-105 pointer-events-auto cursor-pointer">
-                <div className="w-5 h-5 rounded-full border-[1.5px] border-black flex items-center justify-center">
-                  <Play className="w-2.5 h-2.5 fill-black text-black ml-0.5" />
+              <div className="px-8 py-4 rounded-full bg-white text-black font-sans text-base tracking-[0.1em] uppercase font-semibold flex items-center gap-3 shadow-2xl transition-all duration-300 group-hover:scale-105 pointer-events-auto cursor-pointer">
+                <div className="w-6 h-6 rounded-full border-[1.5px] border-black flex items-center justify-center">
+                  <Play className="w-3 h-3 fill-black text-black ml-0.5" />
                 </div>
                 <span>WATCH REEL</span>
               </div>
@@ -342,7 +342,7 @@ export function TestimonialsSection() {
                 <div className="font-sans text-lg sm:text-xl font-medium text-white leading-snug">
                   {current.videoAuthor.name}
                 </div>
-                <div className="font-sans text-xs sm:text-[13px] text-white/75 font-light tracking-normal mt-0.5">
+                <div className="font-sans text-base text-white/80 font-normal tracking-normal mt-0.5">
                   {current.videoAuthor.role}
                 </div>
               </div>
@@ -393,7 +393,7 @@ export function TestimonialsSection() {
                 <h4 className="font-sans text-2xl font-medium text-white mb-2">
                   {current.videoAuthor.name} &mdash; Client Story
                 </h4>
-                <p className="font-sans text-xs text-white/70 max-w-md mx-auto">
+                <p className="font-sans text-base text-white/70 max-w-md mx-auto">
                   {current.videoAuthor.role} &bull; Enterprise Case Study &amp; Scalability Reel
                 </p>
               </div>

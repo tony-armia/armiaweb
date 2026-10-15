@@ -14,7 +14,7 @@ export function HeroNavStrip() {
             <Link
               key={item.label}
               href={item.href}
-              className="group relative flex-1 min-w-[120px] md:min-w-0 py-4 md:py-5 px-4 text-center font-mono text-[11px] xl:text-xs tracking-[0.14em] uppercase text-foreground transition-colors duration-300 hover:bg-surface-dark hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
+              className="group relative flex-1 min-w-[140px] md:min-w-0 py-4 md:py-5 px-4 text-center font-mono text-base tracking-[0.1em] font-medium uppercase text-foreground transition-colors duration-300 hover:bg-surface-dark hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
             >
               <span className="relative z-10">{item.label}</span>
               {/* Subtle top indicator line on hover */}

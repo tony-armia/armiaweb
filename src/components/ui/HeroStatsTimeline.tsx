@@ -82,7 +82,7 @@ export function HeroStatsTimeline({ isLight = false }: HeroStatsTimelineProps) {
             >
               {/* Minimalist Icon Badge with 'armia' animated gradient background */}
               <div
-                className={`relative flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-[10px] overflow-hidden elysium-animated-bg transition-all duration-700 ease-in-out group-hover:scale-105 ${
+                className={`relative flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-[10px] overflow-hidden elysium-animated-bg transition-all duration-700 ease-in-out group-hover:scale-105 ${
                   isLight
                     ? "border border-black/10 shadow-[0_2px_8px_rgba(255,90,0,0.15)] group-hover:border-[#FF5A00]/60 group-hover:shadow-[0_0_15px_rgba(255,90,0,0.35)]"
                     : "border border-white/15 shadow-[0_0_11px_rgba(255,90,0,0.19)] group-hover:border-[#FF5A00]/60 group-hover:shadow-[0_0_15px_rgba(255,90,0,0.42)]"
@@ -96,20 +96,20 @@ export function HeroStatsTimeline({ isLight = false }: HeroStatsTimelineProps) {
                       : "bg-black/40 group-hover:bg-black/25"
                   }`}
                 />
-                <Icon className="relative z-10 h-[15px] w-[15px] text-white transition-transform duration-200 group-hover:scale-110 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]" />
+                <Icon className="relative z-10 h-[18px] w-[18px] text-white transition-transform duration-200 group-hover:scale-110 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]" />
               </div>
 
               {/* Compact Number & Label */}
               <div className="flex flex-col justify-center">
                 <span
-                  className={`font-sans text-[13.5px] sm:text-[14.5px] font-medium tracking-tight leading-none group-hover:text-[#FF5A00] transition-colors duration-700 ease-in-out ${
+                  className={`font-sans text-[18px] sm:text-[20px] font-semibold tracking-tight leading-none group-hover:text-[#FF5A00] transition-colors duration-700 ease-in-out ${
                     isLight ? "text-[#111827]" : "text-white"
                   }`}
                 >
                   {stat.value}
                 </span>
                 <span
-                  className={`font-sans text-[10px] sm:text-[10.5px] font-normal leading-tight mt-0.5 transition-colors duration-700 ease-in-out ${
+                  className={`font-sans text-base font-normal leading-tight mt-1 transition-colors duration-700 ease-in-out ${
                     isLight ? "text-black" : "text-white/50"
                   }`}
                 >

@@ -195,12 +195,12 @@ export function ProductsSection() {
 
           {/* Right Supporting Copy: 69.3% to 88.8% */}
           <div className="w-full md:w-[19.5%] md:mr-[10.8%] px-6 md:px-0 pt-1 flex flex-col justify-start">
-            <p className="font-mono text-xs md:text-[12.5px] leading-relaxed text-white/60 mb-3 uppercase tracking-wider">
+            <p className="font-mono text-base leading-relaxed text-white/60 mb-3 uppercase tracking-wider">
               Battle-tested accelerators and autonomous AI agents engineered to slash build cycles by up to 60%.
             </p>
             <div className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand-accent animate-pulse" />
-              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-brand-accent font-medium">
+              <span className="h-2 w-2 rounded-full bg-brand-accent animate-pulse" />
+              <span className="font-mono text-base tracking-[0.12em] uppercase text-brand-accent font-medium">
                 PRODUCTION READY IP
               </span>
             </div>
@@ -209,28 +209,28 @@ export function ProductsSection() {
 
         {/* ── Filter Tabs Switcher ── */}
         <div className="w-full md:w-[78.4%] md:ml-[10.8%] px-6 md:px-0 mb-8 sm:mb-10">
-          <div className="inline-flex items-center p-1 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md">
+          <div className="inline-flex items-center p-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md">
             <button
               onClick={() => setActiveTab("ai-tools")}
-              className={`flex items-center gap-2 px-5 py-2 rounded-full font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.18em] transition-all duration-300 cursor-pointer ${
+              className={`flex items-center gap-2 px-6 py-2.5 rounded-full font-mono text-base uppercase tracking-[0.12em] transition-all duration-300 cursor-pointer ${
                 activeTab === "ai-tools"
-                  ? "bg-brand-accent text-white shadow-[0_0_16px_rgba(255,90,0,0.4)]"
+                  ? "bg-brand-accent text-white shadow-[0_0_16px_rgba(255,90,0,0.4)] font-medium"
                   : "text-white/60 hover:text-white"
               }`}
             >
-              <Bot className="w-3.5 h-3.5" />
+              <Bot className="w-4 h-4" />
               <span>AI Agents &amp; Tools</span>
             </button>
 
             <button
               onClick={() => setActiveTab("saas-platforms")}
-              className={`flex items-center gap-2 px-5 py-2 rounded-full font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.18em] transition-all duration-300 cursor-pointer ${
+              className={`flex items-center gap-2 px-6 py-2.5 rounded-full font-mono text-base uppercase tracking-[0.12em] transition-all duration-300 cursor-pointer ${
                 activeTab === "saas-platforms"
-                  ? "bg-brand-accent text-white shadow-[0_0_16px_rgba(255,90,0,0.4)]"
+                  ? "bg-brand-accent text-white shadow-[0_0_16px_rgba(255,90,0,0.4)] font-medium"
                   : "text-white/60 hover:text-white"
               }`}
             >
-              <Layers className="w-3.5 h-3.5" />
+              <Layers className="w-4 h-4" />
               <span>Whitelabel SaaS Engines</span>
             </button>
           </div>
@@ -261,11 +261,11 @@ export function ProductsSection() {
                       <div>
                         {/* Header Badge & Tag */}
                         <div className="flex items-center justify-between gap-4 mb-5">
-                          <span className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.2em] font-semibold text-brand-accent px-3 py-1 rounded-full bg-brand-accent/10 border border-brand-accent/25">
-                            <Sparkles className="w-3 h-3" />
+                          <span className="inline-flex items-center gap-1.5 font-mono text-base uppercase tracking-[0.12em] font-semibold text-brand-accent px-3.5 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/25">
+                            <Sparkles className="w-3.5 h-3.5" />
                             {tool.badge}
                           </span>
-                          <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-white/40">
+                          <span className="font-mono text-base tracking-[0.12em] uppercase text-white/40">
                             {tool.tag}
                           </span>
                         </div>
@@ -274,18 +274,18 @@ export function ProductsSection() {
                         <h3 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight text-white mb-2 group-hover:text-brand-accent transition-colors duration-300">
                           {tool.title}
                         </h3>
-                        <p className="font-mono text-[11px] sm:text-[11.5px] uppercase tracking-wider text-white/70 mb-4 leading-relaxed">
+                        <p className="font-mono text-base uppercase tracking-wider text-white/70 mb-4 leading-relaxed">
                           {tool.tagline}
                         </p>
-                        <p className="font-sans text-xs sm:text-sm text-white/60 leading-relaxed mb-6 font-normal">
+                        <p className="font-sans text-base text-white/60 leading-relaxed mb-6 font-normal">
                           {tool.description}
                         </p>
 
                         {/* Capability Bullets */}
-                        <div className="border-t border-white/[0.08] pt-5 mb-8 space-y-2.5">
+                        <div className="border-t border-white/[0.08] pt-5 mb-8 space-y-3">
                           {tool.features.map((feat, i) => (
-                            <div key={i} className="flex items-start gap-2.5 text-xs text-white/75 font-sans">
-                              <CheckCircle2 className="w-3.5 h-3.5 text-brand-accent shrink-0 mt-0.5" />
+                            <div key={i} className="flex items-start gap-2.5 text-base text-white/75 font-sans">
+                              <CheckCircle2 className="w-4 h-4 text-brand-accent shrink-0 mt-1" />
                               <span>{feat}</span>
                             </div>
                           ))}
@@ -298,11 +298,11 @@ export function ProductsSection() {
                           href={tool.ctaUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group/btn inline-flex items-center justify-between w-full h-[46px] px-6 rounded-full font-mono text-[11px] tracking-[0.18em] uppercase transition-all duration-300 bg-white/[0.05] hover:bg-brand-accent text-white border border-white/15 hover:border-brand-accent shadow-sm"
+                          className="group/btn inline-flex items-center justify-between w-full h-[50px] px-6 rounded-full font-mono text-base tracking-[0.12em] uppercase transition-all duration-300 bg-white/[0.05] hover:bg-brand-accent text-white border border-white/15 hover:border-brand-accent shadow-sm"
                         >
                           <span className="font-medium">{tool.ctaLabel}</span>
-                          <div className="flex items-center justify-center w-6 h-6 rounded-full bg-white/10 group-hover/btn:bg-white text-white group-hover/btn:text-black transition-colors duration-300">
-                            <ExternalLink className="w-3 h-3" />
+                          <div className="flex items-center justify-center w-7 h-7 rounded-full bg-white/10 group-hover/btn:bg-white text-white group-hover/btn:text-black transition-colors duration-300">
+                            <ExternalLink className="w-3.5 h-3.5" />
                           </div>
                         </a>
                       </div>
@@ -329,15 +329,15 @@ export function ProductsSection() {
                       <div>
                         <div className="flex items-center justify-between gap-4 mb-4">
                           <div className="flex items-center gap-2.5">
-                            <div className="w-8 h-8 rounded-lg bg-white/[0.05] border border-white/10 flex items-center justify-center text-brand-accent group-hover:scale-105 transition-transform duration-300">
-                              <Icon className="w-4 h-4" />
+                            <div className="w-9 h-9 rounded-lg bg-white/[0.05] border border-white/10 flex items-center justify-center text-brand-accent group-hover:scale-105 transition-transform duration-300">
+                              <Icon className="w-4.5 h-4.5" />
                             </div>
-                            <span className="font-mono text-[9.5px] uppercase tracking-[0.2em] text-white/50">
+                            <span className="font-mono text-base uppercase tracking-[0.12em] text-white/50">
                               {platform.category}
                             </span>
                           </div>
 
-                          <span className="font-mono text-[9px] uppercase tracking-widest text-brand-accent px-2 py-0.5 rounded-full bg-brand-accent/10 border border-brand-accent/20">
+                          <span className="font-mono text-base uppercase tracking-wider text-brand-accent px-3 py-1 rounded-full bg-brand-accent/10 border border-brand-accent/20">
                             iScripts Core
                           </span>
                         </div>
@@ -345,14 +345,14 @@ export function ProductsSection() {
                         <h3 className="font-sans text-xl sm:text-2xl font-bold tracking-tight text-white mb-2.5 group-hover:text-brand-accent transition-colors duration-300">
                           {platform.title}
                         </h3>
-                        <p className="font-sans text-xs sm:text-sm text-white/60 leading-relaxed mb-5 font-normal">
+                        <p className="font-sans text-base text-white/60 leading-relaxed mb-5 font-normal">
                           {platform.description}
                         </p>
 
-                        <div className="border-t border-white/[0.08] pt-4 mb-6 space-y-2">
+                        <div className="border-t border-white/[0.08] pt-4 mb-6 space-y-2.5">
                           {platform.capabilities.map((cap, i) => (
-                            <div key={i} className="flex items-start gap-2 text-xs text-white/70 font-sans">
-                              <span className="w-1.5 h-1.5 rounded-full bg-brand-accent/80 shrink-0 mt-1.5" />
+                            <div key={i} className="flex items-start gap-2.5 text-base text-white/70 font-sans">
+                              <span className="w-2 h-2 rounded-full bg-brand-accent/80 shrink-0 mt-2" />
                               <span>{cap}</span>
                             </div>
                           ))}
@@ -360,15 +360,15 @@ export function ProductsSection() {
                       </div>
 
                       <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between">
-                        <span className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+                        <span className="font-mono text-base uppercase tracking-wider text-white/40">
                           {platform.highlight}
                         </span>
                         <a
                           href="#contact"
-                          className="inline-flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.16em] text-brand-accent hover:text-white transition-colors"
+                          className="inline-flex items-center gap-2 font-mono text-base uppercase tracking-[0.12em] text-brand-accent hover:text-white transition-colors"
                         >
                           <span>Inquire Platform</span>
-                          <ArrowUpRight className="w-3.5 h-3.5" />
+                          <ArrowUpRight className="w-4 h-4" />
                         </a>
                       </div>
                     </div>

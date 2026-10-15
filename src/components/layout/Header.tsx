@@ -132,19 +132,19 @@ export function Header() {
                 onClick={() => setIsMobileMenuOpen((v) => !v)}
                 aria-expanded={isMobileMenuOpen}
                 aria-controls="mobile-nav"
-                className={`group relative flex items-center gap-2.5 h-[34px] md:h-[36px] pl-3.5 pr-1 md:pl-4 md:pr-1.5 rounded-full font-mono text-[10.5px] md:text-[11px] tracking-[0.2em] uppercase transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent backdrop-blur-md border shadow-[0_4px_16px_rgba(0,0,0,0.35)] hover:shadow-[0_0_20px_rgba(255,90,0,0.25)] ${menuBtnBase}`}
+                className={`group relative flex items-center gap-3 h-[42px] md:h-[44px] pl-4 pr-1.5 md:pl-4.5 md:pr-2 rounded-full font-mono text-base tracking-[0.14em] uppercase transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent backdrop-blur-md border shadow-[0_4px_16px_rgba(0,0,0,0.35)] hover:shadow-[0_0_20px_rgba(255,90,0,0.25)] ${menuBtnBase}`}
               >
-                <div className="flex flex-col justify-center items-center gap-[4px] w-3.5" aria-hidden="true">
-                  <span className="block h-[1.5px] w-3 rounded-full bg-current transition-all duration-300 group-hover:w-3.5 group-hover:translate-x-0.5 group-hover:bg-brand-accent" />
-                  <span className="block h-[1.5px] w-3.5 rounded-full bg-current opacity-80 transition-all duration-300 group-hover:w-2.5 group-hover:-translate-x-0.5" />
+                <div className="flex flex-col justify-center items-center gap-[4px] w-4" aria-hidden="true">
+                  <span className="block h-[1.5px] w-3.5 rounded-full bg-current transition-all duration-300 group-hover:w-4 group-hover:translate-x-0.5 group-hover:bg-brand-accent" />
+                  <span className="block h-[1.5px] w-4 rounded-full bg-current opacity-80 transition-all duration-300 group-hover:w-3 group-hover:-translate-x-0.5" />
                 </div>
 
                 <span className="font-medium opacity-90 group-hover:opacity-100 transition-colors duration-300">
                   MENU
                 </span>
 
-                <div className="flex items-center justify-center h-6 w-6 md:h-6 md:w-6 rounded-full bg-brand-accent text-white shadow-[0_0_10px_rgba(255,90,0,0.4)] transition-all duration-300 group-hover:bg-[#ff4500] group-hover:scale-105">
-                  <span className="text-xs font-bold transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden>
+                <div className="flex items-center justify-center h-7 w-7 rounded-full bg-brand-accent text-white shadow-[0_0_10px_rgba(255,90,0,0.4)] transition-all duration-300 group-hover:bg-[#ff4500] group-hover:scale-105 shrink-0">
+                  <span className="text-base font-bold transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden>
                     ›
                   </span>
                 </div>
@@ -169,7 +169,7 @@ export function Header() {
             className="fixed inset-0 z-50 flex flex-col bg-[#060606] pt-24 pb-12 px-8 text-white"
           >
             <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-8">
-              <span className="font-mono text-xs tracking-widest text-white/60 uppercase">
+              <span className="font-mono text-base tracking-[0.14em] text-white/70 uppercase">
                 NAVIGATION
               </span>
               <div className="flex items-center gap-3">
@@ -179,11 +179,11 @@ export function Header() {
                 <button
                   type="button"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="group flex items-center gap-3 h-[36px] pl-4 pr-1.5 rounded-full bg-white/10 hover:bg-white/15 border border-white/20 text-white font-mono text-xs tracking-[0.2em] uppercase transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
+                  className="group flex items-center gap-3 h-[42px] pl-4 pr-2 rounded-full bg-white/10 hover:bg-white/15 border border-white/20 text-white font-mono text-base tracking-[0.14em] uppercase transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
                 >
                   <span className="font-semibold text-white/90 group-hover:text-white">CLOSE</span>
-                  <div className="flex items-center justify-center h-6 w-6 rounded-full bg-brand-accent text-white shadow-[0_0_10px_rgba(255,90,0,0.4)] transition-transform duration-300 group-hover:rotate-90">
-                    <X className="h-3.5 w-3.5" aria-hidden />
+                  <div className="flex items-center justify-center h-7 w-7 rounded-full bg-brand-accent text-white shadow-[0_0_10px_rgba(255,90,0,0.4)] transition-transform duration-300 group-hover:rotate-90 shrink-0">
+                    <X className="h-4 w-4" aria-hidden />
                   </div>
                 </button>
               </div>

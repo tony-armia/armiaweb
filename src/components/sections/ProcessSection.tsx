@@ -206,7 +206,7 @@ export function ProcessSection() {
 
           {/* Center: Main Headline */}
           <div className="flex flex-col">
-            <div className="font-mono text-[11px] sm:text-xs tracking-[0.22em] text-white/50 uppercase font-semibold mb-1 flex items-center gap-2">
+            <div className="font-mono text-base tracking-[0.14em] text-white/60 uppercase font-semibold mb-1 flex items-center gap-2">
               <span className="w-2.5 h-[1.5px] bg-[#FF5A00]" />
               <span>PROVEN METHODOLOGY</span>
             </div>
@@ -218,7 +218,7 @@ export function ProcessSection() {
 
           {/* Right: Subtitle Copy */}
           <div className="max-w-xs lg:border-l lg:border-white/10 lg:pl-6">
-            <p className="font-sans text-[13px] sm:text-[14px] text-white/70 leading-[1.6]">
+            <p className="font-sans text-base sm:text-[17px] text-white/70 leading-[1.6]">
               Every engagement follows the same rigorous five-phase process &mdash; refined over 20+ years.
             </p>
           </div>
@@ -262,7 +262,7 @@ export function ProcessSection() {
                 {/* Phase Eyebrow */}
                 <div className="flex items-center gap-2.5 mb-3.5">
                   <span className="w-4 h-[2px] bg-[#FF5A00] inline-block" />
-                  <span className="font-mono text-[11px] sm:text-xs tracking-[0.22em] text-[#999999] uppercase font-semibold">
+                  <span className="font-mono text-base tracking-[0.14em] text-white/70 uppercase font-semibold">
                     PHASE {activePhase.num} // {activePhase.category}
                   </span>
                 </div>
@@ -273,7 +273,7 @@ export function ProcessSection() {
                 </h3>
 
                 {/* Phase Description */}
-                <p className="font-sans text-[15px] sm:text-[16px] text-white/70 leading-[1.7] max-w-xl mb-10">
+                <p className="font-sans text-base sm:text-[17px] text-white/75 leading-[1.75] max-w-xl mb-10">
                   {activePhase.description}
                 </p>
 
@@ -287,10 +287,10 @@ export function ProcessSection() {
                           <FeatIcon className="w-6 h-6 stroke-[1.5]" />
                         </div>
                         <div>
-                          <h4 className="font-mono text-[11px] sm:text-[12px] font-medium tracking-wider text-white uppercase mb-1">
+                          <h4 className="font-mono text-base font-semibold tracking-wide text-white uppercase mb-1.5">
                             {feat.title}
                           </h4>
-                          <p className="text-xs text-white/50 leading-relaxed">
+                          <p className="text-base text-white/60 leading-relaxed">
                             {feat.description}
                           </p>
                         </div>
@@ -313,14 +313,14 @@ export function ProcessSection() {
                         className="relative pb-3 text-left transition-all cursor-pointer group shrink-0 min-w-[75px]"
                       >
                         <span
-                          className={`block font-mono text-xs font-semibold transition-colors ${
+                          className={`block font-mono text-base font-semibold transition-colors ${
                             isActive ? "text-[#FF5A00]" : "text-white/40 group-hover:text-white"
                           }`}
                         >
                           {p.num}
                         </span>
                         <span
-                          className={`block font-sans text-sm transition-colors ${
+                          className={`block font-sans text-base transition-colors ${
                             isActive ? "text-white font-medium" : "text-white/60 group-hover:text-white"
                           }`}
                         >
@@ -378,9 +378,9 @@ export function ProcessSection() {
                 </div>
 
                 {/* Top Right Floating Badge */}
-                <div className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-10 flex items-center gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-white/20 shadow-sm">
-                  <span className="w-2 sm:w-2.5 h-[1.5px] bg-[#FF5A00] inline-block" />
-                  <span className="font-mono text-[9px] sm:text-[9.5px] tracking-widest text-white uppercase font-medium">
+                <div className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-10 flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-white/20 shadow-sm">
+                  <span className="w-2.5 h-[1.5px] bg-[#FF5A00] inline-block" />
+                  <span className="font-mono text-base tracking-[0.12em] text-white uppercase font-medium">
                     TRUSTED BY GLOBAL BRANDS
                   </span>
                 </div>
@@ -391,7 +391,7 @@ export function ProcessSection() {
                 {/* Header Row: Title on Left, Metric on Right */}
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3.5 sm:gap-4 pb-5 sm:pb-6 border-b border-white/[0.08]">
                   <div className="flex-1 min-w-0">
-                    <div className="font-mono text-[10px] sm:text-[10.5px] tracking-widest text-[#FF5A00] uppercase font-semibold mb-1 sm:mb-1.5">
+                    <div className="font-mono text-base tracking-[0.14em] text-[#FF5A00] uppercase font-semibold mb-1.5">
                       // WHAT WE DELIVER
                     </div>
                     <h4 className="font-sans font-medium text-lg sm:text-xl xl:text-2xl text-white leading-tight">
@@ -405,7 +405,7 @@ export function ProcessSection() {
                     <div className="font-sans font-medium text-2xl sm:text-3xl xl:text-4xl text-[#FF5A00] leading-none whitespace-nowrap">
                       99.99%
                     </div>
-                    <div className="font-mono text-[8px] sm:text-[8.5px] xl:text-[9px] tracking-wider uppercase text-white/50 font-medium whitespace-nowrap">
+                    <div className="font-mono text-base tracking-[0.08em] uppercase text-white/60 font-medium whitespace-nowrap">
                       RESILIENCE GUARANTEE
                     </div>
                   </div>
@@ -414,50 +414,50 @@ export function ProcessSection() {
                 {/* 3 Points Checklist matching reference */}
                 <div className="space-y-3 sm:space-y-3.5 py-5 sm:py-6">
                   <div className="flex items-start gap-3 sm:gap-3.5">
-                    <span className="font-mono text-xs sm:text-sm text-[#FF5A00] font-medium shrink-0 mt-0.5">
+                    <span className="font-mono text-base text-[#FF5A00] font-semibold shrink-0 mt-0.5">
                       01
                     </span>
-                    <span className="font-sans text-[13px] sm:text-[14px] text-white/85 font-normal leading-snug">
+                    <span className="font-sans text-base sm:text-[17px] text-white/90 font-normal leading-snug">
                       Dedicated engineers &amp; sprint leads
                     </span>
                   </div>
 
                   <div className="flex items-start gap-3 sm:gap-3.5">
-                    <span className="font-mono text-xs sm:text-sm text-[#FF5A00] font-medium shrink-0 mt-0.5">
+                    <span className="font-mono text-base text-[#FF5A00] font-semibold shrink-0 mt-0.5">
                       02
                     </span>
-                    <span className="font-sans text-[13px] sm:text-[14px] text-white/85 font-normal leading-snug">
+                    <span className="font-sans text-base sm:text-[17px] text-white/90 font-normal leading-snug">
                       2-week sprints with transparent Jira boards
                     </span>
                   </div>
 
                   <div className="flex items-start gap-3.5">
-                    <span className="font-mono text-xs sm:text-sm text-[#FF5A00] font-medium shrink-0 mt-0.5">
+                    <span className="font-mono text-base text-[#FF5A00] font-semibold shrink-0 mt-0.5">
                       03
                     </span>
-                    <span className="font-sans text-[13px] sm:text-[14px] text-white/85 font-normal leading-snug">
+                    <span className="font-sans text-base sm:text-[17px] text-white/90 font-normal leading-snug">
                       Automated testing &amp; 99.99% SLA uptime
                     </span>
                   </div>
                 </div>
 
                 {/* Card Action Row matching mockup */}
-                <div className="pt-4 sm:pt-5 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+                <div className="pt-4 sm:pt-5 border-t border-white/[0.08] flex flex-col xl:flex-row xl:items-center justify-between gap-3.5 sm:gap-4">
                   <a
                     href="#contact"
                     className="flex items-center gap-2.5 sm:gap-3 group shrink-0"
                   >
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FF5A00] text-white flex items-center justify-center shadow-md shadow-[#FF5A00]/25 transition-transform duration-300 group-hover:scale-105 shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-[#FF5A00] text-white flex items-center justify-center shadow-md shadow-[#FF5A00]/25 transition-transform duration-300 group-hover:scale-105 shrink-0">
                       <ArrowRight className="w-4 h-4" />
                     </div>
-                    <span className="font-mono text-[10.5px] sm:text-[11px] xl:text-xs tracking-wider uppercase text-white font-medium group-hover:text-[#FF5A00] transition-colors whitespace-nowrap">
+                    <span className="font-mono text-base tracking-wide uppercase text-white font-medium group-hover:text-[#FF5A00] transition-colors whitespace-nowrap">
                       SCHEDULE A TECHNICAL AUDIT
                     </span>
                   </a>
 
                   <a
                     href="#services"
-                    className="font-mono text-[10px] sm:text-[11px] xl:text-xs tracking-wider uppercase text-white/50 hover:text-white flex items-center gap-1.5 transition-colors group/learn shrink-0 self-start sm:self-auto pl-11 sm:pl-0"
+                    className="font-mono text-base tracking-wide uppercase text-white/60 hover:text-white flex items-center gap-2 transition-colors group/learn shrink-0 self-start xl:self-auto pl-12 xl:pl-0"
                   >
                     <span>LEARN MORE</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/learn:translate-x-1" />

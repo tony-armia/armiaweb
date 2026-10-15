@@ -136,16 +136,16 @@ export function AwardsSection() {
               <span className="block text-[#FF5A00] font-normal">RECOGNITION.</span>
             </motion.h2>
 
-            <p className="font-mono text-xs md:text-[13px] leading-relaxed text-[#a4a4a2] mt-4 uppercase tracking-[0.16em] max-w-md">
+            <p className="font-mono text-base md:text-[17px] leading-relaxed text-[#a4a4a2] mt-4 uppercase tracking-[0.1em] max-w-lg">
               RECOGNIZED GLOBALLY BY LEADING RESEARCH AND ANALYST PLATFORMS.
             </p>
           </div>
 
           {/* Right Column: 20+ Years of Excellence + A Legacy of Trust and Impact + Orbital Tagline */}
           <div className="lg:col-span-6 flex items-start justify-between gap-6 lg:pl-8 lg:border-l lg:border-white/[0.08]">
-            <div className="space-y-2 max-w-md">
-              <div className="flex items-center gap-2 font-mono text-xs text-[#FF5A00] tracking-[0.2em] uppercase font-medium">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#FF5A00] animate-pulse" />
+            <div className="space-y-2.5 max-w-md">
+              <div className="flex items-center gap-2 font-mono text-base text-[#FF5A00] tracking-[0.14em] uppercase font-medium">
+                <span className="h-2 w-2 rounded-full bg-[#FF5A00] animate-pulse" />
                 <span>20+ YEARS OF EXCELLENCE</span>
               </div>
 
@@ -153,13 +153,13 @@ export function AwardsSection() {
                 A LEGACY OF TRUST AND IMPACT.
               </h3>
 
-              <p className="font-sans text-xs sm:text-[13px] leading-relaxed" style={{ color: 'var(--foreground-muted)' }}>
+              <p className="font-sans text-base sm:text-[17px] leading-relaxed" style={{ color: 'var(--foreground-muted)' }}>
                 Global recognition for engineering excellence, product design and enterprise software innovation.
               </p>
             </div>
 
             {/* Far Right Celestial Vertical Words */}
-            <div className="hidden xl:flex flex-col items-end justify-center font-mono text-[9px] tracking-[0.26em] text-white/40 uppercase space-y-1.5 select-none pl-6 border-l border-white/[0.08] shrink-0">
+            <div className="hidden xl:flex flex-col items-end justify-center font-mono text-base tracking-[0.16em] text-white/50 uppercase space-y-2 select-none pl-6 border-l border-white/[0.08] shrink-0">
               <span>PEOPLE</span>
               <span>IDEAS</span>
               <span>TECHNOLOGY</span>
@@ -197,7 +197,7 @@ export function AwardsSection() {
 
             {/* Card Content Top */}
             <div className="relative z-10">
-              <span className="font-mono text-[10.5px] tracking-[0.24em] text-[#FF5A00] uppercase font-semibold block mb-6">
+              <span className="font-mono text-base tracking-[0.14em] text-[#FF5A00] uppercase font-semibold block mb-6">
                 OUR JOURNEY
               </span>
 
@@ -207,14 +207,14 @@ export function AwardsSection() {
 
               {/* Years of Excellence / Experience - Always White in Light & Dark Mode */}
               <div
-                className="font-mono text-xs sm:text-[13px] tracking-[0.2em] uppercase font-medium mb-4"
+                className="font-mono text-base sm:text-[17px] tracking-[0.12em] uppercase font-semibold mb-4"
                 style={{ color: "#ffffff" }}
               >
                 YEARS OF EXCELLENCE
               </div>
 
               <p
-                className="font-sans text-xs sm:text-[13px] leading-relaxed max-w-xs"
+                className="font-sans text-base sm:text-[17px] leading-relaxed max-w-xs"
                 style={{ color: "rgba(255, 255, 255, 0.72)" }}
               >
                 Two decades of innovation, trusted by customers, partners and industry leaders worldwide.
@@ -223,7 +223,7 @@ export function AwardsSection() {
 
             {/* Card Content Bottom */}
             <div className="relative z-10 pt-8 mt-12 border-t border-white/10 flex items-center justify-between">
-              <div className="font-mono text-[9px] tracking-[0.22em] uppercase leading-snug">
+              <div className="font-mono text-base tracking-[0.12em] uppercase leading-snug">
                 <span style={{ color: "rgba(255, 255, 255, 0.55)" }}>BUILT FOR</span>
                 <br />
                 <span className="font-semibold" style={{ color: "rgba(255, 255, 255, 0.9)" }}>
@@ -234,9 +234,9 @@ export function AwardsSection() {
               <a
                 href="#about"
                 aria-label="Explore our journey"
-                className="w-10 h-10 rounded-full border border-[#FF5A00]/40 bg-[#FF5A00]/10 hover:bg-[#FF5A00] text-[#FF5A00] hover:text-white flex items-center justify-center transition-all duration-300 shadow-[0_0_12px_rgba(255,90,0,0.25)] group/arrow"
+                className="w-12 h-12 rounded-full border border-[#FF5A00]/40 bg-[#FF5A00]/10 hover:bg-[#FF5A00] text-[#FF5A00] hover:text-white flex items-center justify-center transition-all duration-300 shadow-[0_0_12px_rgba(255,90,0,0.25)] group/arrow"
               >
-                <span className="text-sm font-semibold transition-transform duration-300 group-hover/arrow:translate-x-0.5 group-hover/arrow:-translate-y-0.5">
+                <span className="text-base font-semibold transition-transform duration-300 group-hover/arrow:translate-x-0.5 group-hover/arrow:-translate-y-0.5">
                   ↗
                 </span>
               </a>
@@ -252,7 +252,7 @@ export function AwardsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_ONCE}
                 transition={{ duration: 0.4, delay: idx * 0.03, ease: EASE_CUSTOM }}
-                className="award-card group relative rounded-xl sm:rounded-2xl border p-4 flex flex-col justify-between items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 min-h-[160px] sm:min-h-[175px]"
+                className="award-card group relative rounded-xl sm:rounded-2xl border p-3 sm:p-4 flex flex-col justify-between items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 min-h-[195px] sm:min-h-[215px]"
               >
                 {/* ── Minimalist Clean Logo Display Area ── */}
                 <div className="relative w-full h-16 sm:h-[72px] flex items-center justify-center">
@@ -275,11 +275,11 @@ export function AwardsSection() {
                 </div>
 
                 {/* Clean Typography Labels: Award Name + Category */}
-                <div className="w-full pt-3 mt-2 border-t border-black/[0.06] dark:border-white/[0.08]">
-                  <div className="award-title font-sans text-[12.5px] sm:text-[13px] font-medium transition-colors truncate">
+                <div className="w-full pt-2.5 mt-2 border-t border-black/[0.06] dark:border-white/[0.08]">
+                  <div className="award-title font-sans text-base font-semibold leading-snug transition-colors">
                     {award.name}
                   </div>
-                  <div className="award-category font-mono text-[8.5px] sm:text-[9px] tracking-wider uppercase mt-0.5 truncate transition-colors">
+                  <div className="award-category font-mono text-base tracking-normal uppercase mt-1 leading-snug text-[#666666] transition-colors">
                     {award.category}
                   </div>
                 </div>
@@ -291,10 +291,10 @@ export function AwardsSection() {
 
         {/* ── 3. Bottom Ticker Strip (Directly Matching Reference Image) ── */}
         <div className="pt-4 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-          <div className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-white/40">
+          <div className="font-mono text-base tracking-[0.12em] uppercase text-white/50">
             RECOGNIZED BY INDUSTRY BODIES, CERTIFICATION FRAMEWORKS, AND TECHNOLOGY PARTNERS WORLDWIDE.
           </div>
-          <div className="font-mono text-[10px] md:text-[11px] tracking-[0.24em] uppercase text-white/60 font-medium">
+          <div className="font-mono text-base tracking-[0.16em] uppercase text-white/70 font-semibold">
             ARMIA SYSTEMS
           </div>
         </div>

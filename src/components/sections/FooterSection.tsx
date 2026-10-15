@@ -73,32 +73,32 @@ export function FooterSection() {
                   <div className="p-3 bg-[#111111] border-t border-white/10 flex items-center justify-center">
                     <a
                       href="mailto:hello@armiasystems.com"
-                      className="group/btn w-full relative flex items-center justify-between h-[42px] px-5 rounded-full font-mono text-[10px] md:text-[11px] tracking-[0.18em] uppercase transition-all duration-300 bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/15 hover:border-brand-accent/50 shadow-md hover:shadow-[0_0_20px_rgba(255,90,0,0.25)]"
+                      className="group/btn w-full relative flex items-center justify-between h-[48px] px-6 rounded-full font-mono text-base tracking-[0.12em] uppercase transition-all duration-300 bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/15 hover:border-brand-accent/50 shadow-md hover:shadow-[0_0_20px_rgba(255,90,0,0.25)]"
                     >
                       <span className="font-medium text-white/90 group-hover/btn:text-white">
                         GET IN TOUCH <span className="text-white/40 font-light">\ ARMIA</span>
                       </span>
-                      <div className="flex items-center justify-center h-7 w-7 rounded-full bg-brand-accent text-white shadow-[0_0_10px_rgba(255,90,0,0.4)] transition-all duration-300 group-hover/btn:bg-[#ff4500] group-hover/btn:scale-105">
-                        <span className="text-xs font-bold transition-transform duration-300 group-hover/btn:translate-x-0.5">›</span>
+                      <div className="flex items-center justify-center h-8 w-8 rounded-full bg-brand-accent text-white shadow-[0_0_10px_rgba(255,90,0,0.4)] transition-all duration-300 group-hover/btn:bg-[#ff4500] group-hover/btn:scale-105 shrink-0">
+                        <span className="text-base font-bold transition-transform duration-300 group-hover/btn:translate-x-0.5">›</span>
                       </div>
                     </a>
                   </div>
                 </div>
 
                 <div className="border-t border-b border-white/10 py-6">
-                  <div className="flex items-center justify-between mb-4 font-mono text-[9px] tracking-widest uppercase text-white/60">
-                    <div className="flex items-center gap-1.5">
-                      <span className="h-[5px] w-[5px] rounded-full bg-brand-accent inline-block" />
+                  <div className="flex items-center justify-between mb-4 font-mono text-base tracking-[0.14em] uppercase text-white/70">
+                    <div className="flex items-center gap-2">
+                      <span className="h-[6px] w-[6px] rounded-full bg-brand-accent inline-block" />
                       <span>ARMIA</span>
                     </div>
-                    <div className="flex items-center gap-3 text-white/50 text-xs font-serif">
+                    <div className="flex items-center gap-3 text-white/60 text-base font-serif">
                       <span>𝕏</span>
                       <span>in</span>
                       <span>🌐</span>
                     </div>
                   </div>
 
-                  <div className="space-y-3 font-mono text-[9px] md:text-[10px] uppercase">
+                  <div className="space-y-3 font-mono text-base uppercase">
                     <div className="grid grid-cols-12 gap-2 text-white/60">
                       <span className="col-span-4 text-white/40">PROFESSION</span>
                       <span className="col-span-8 text-white font-medium">ENTERPRISE-GRADE ENGINEERING SINCE 2001.</span>
@@ -122,7 +122,7 @@ export function FooterSection() {
                   />
                 </div>
 
-                <div className="font-mono text-[9px] text-white/40 uppercase tracking-widest leading-relaxed">
+                <div className="font-mono text-base text-white/50 uppercase tracking-[0.1em] leading-relaxed">
                   <div>© {new Date().getFullYear()} ARMIA SYSTEMS INC. ALL RIGHTS RESERVED.</div>
                 </div>
               </div>
@@ -150,14 +150,14 @@ export function FooterSection() {
                 transition={{ duration: 0.8, ease: EASE_CUSTOM, delay: 0.2 }}
                 className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-10 border-b border-white/10 pb-6"
               >
-                <p className="font-mono text-[10px] md:text-[11px] tracking-wider text-white/60 uppercase leading-relaxed max-w-lg">
+                <p className="font-mono text-base tracking-wide text-white/70 uppercase leading-relaxed max-w-xl">
                   FROM FIRST CONCEPT TO FINAL BUILD, WE CREATE ENTERPRISE SOFTWARE WITH CLEAR ARCHITECTURE &amp; RELIABLE DELIVERY.
                 </p>
-                <div className="flex gap-1 text-brand-accent select-none">
-                  <span className="h-1.5 w-1.5 rounded-full bg-brand-accent inline-block" />
-                  <span className="h-1.5 w-1.5 rounded-full bg-brand-accent inline-block" />
-                  <span className="h-1.5 w-1.5 rounded-full bg-brand-accent inline-block" />
-                  <span className="h-1.5 w-1.5 rounded-full bg-white/20 inline-block" />
+                <div className="flex gap-1.5 text-brand-accent select-none">
+                  <span className="h-2 w-2 rounded-full bg-brand-accent inline-block" />
+                  <span className="h-2 w-2 rounded-full bg-brand-accent inline-block" />
+                  <span className="h-2 w-2 rounded-full bg-brand-accent inline-block" />
+                  <span className="h-2 w-2 rounded-full bg-white/20 inline-block" />
                 </div>
               </motion.div>
 
@@ -172,8 +172,8 @@ export function FooterSection() {
               >
                 <div className="space-y-6 mb-10 max-w-4xl">
                   <div className="pt-2">
-                    <label className="flex items-center gap-1.5 font-mono text-[9px] md:text-[10px] tracking-widest text-[#888888] uppercase mb-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-brand-accent inline-block" />
+                    <label className="flex items-center gap-2 font-mono text-base tracking-[0.12em] text-[#999999] uppercase mb-2.5">
+                      <span className="h-2 w-2 rounded-full bg-brand-accent inline-block" />
                       <span>YOUR NAME</span>
                     </label>
                     <input
@@ -182,13 +182,13 @@ export function FooterSection() {
                       placeholder="Jane Smith"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-[#121212]/70 text-white font-mono text-xs px-5 py-3.5 border border-white/[0.08] rounded-xl focus:outline-none focus:border-brand-accent placeholder:text-white/20 transition-colors duration-200"
+                      className="w-full bg-[#121212]/70 text-white font-mono text-base px-5 py-4 border border-white/[0.08] rounded-xl focus:outline-none focus:border-brand-accent placeholder:text-white/20 transition-colors duration-200"
                     />
                   </div>
 
                   <div>
-                    <label className="flex items-center gap-1.5 font-mono text-[9px] md:text-[10px] tracking-widest text-[#888888] uppercase mb-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-brand-accent inline-block" />
+                    <label className="flex items-center gap-2 font-mono text-base tracking-[0.12em] text-[#999999] uppercase mb-2.5">
+                      <span className="h-2 w-2 rounded-full bg-brand-accent inline-block" />
                       <span>EMAIL ADDRESS</span>
                     </label>
                     <input
@@ -197,13 +197,13 @@ export function FooterSection() {
                       placeholder="hello@armiasystems.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-[#121212]/70 text-white font-mono text-xs px-5 py-3.5 border border-white/[0.08] rounded-xl focus:outline-none focus:border-brand-accent placeholder:text-white/20 transition-colors duration-200"
+                      className="w-full bg-[#121212]/70 text-white font-mono text-base px-5 py-4 border border-white/[0.08] rounded-xl focus:outline-none focus:border-brand-accent placeholder:text-white/20 transition-colors duration-200"
                     />
                   </div>
 
                   <div>
-                    <label className="flex items-center gap-1.5 font-mono text-[9px] md:text-[10px] tracking-widest text-[#888888] uppercase mb-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-brand-accent inline-block" />
+                    <label className="flex items-center gap-2 font-mono text-base tracking-[0.12em] text-[#999999] uppercase mb-2.5">
+                      <span className="h-2 w-2 rounded-full bg-brand-accent inline-block" />
                       <span>HOW CAN I HELP?</span>
                     </label>
                     <textarea
@@ -212,7 +212,7 @@ export function FooterSection() {
                       placeholder="Tell us about your project ..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full bg-[#121212]/70 text-white font-mono text-xs px-5 py-3.5 border border-white/[0.08] rounded-xl focus:outline-none focus:border-brand-accent placeholder:text-white/20 resize-none transition-colors duration-200"
+                      className="w-full bg-[#121212]/70 text-white font-mono text-base px-5 py-4 border border-white/[0.08] rounded-xl focus:outline-none focus:border-brand-accent placeholder:text-white/20 resize-none transition-colors duration-200"
                     />
                   </div>
                 </div>
@@ -223,17 +223,17 @@ export function FooterSection() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ duration: 0.25, ease: EASE_CUSTOM }}
-                    className="group/btn inline-flex items-center justify-between bg-brand-accent hover:bg-[#ff4500] text-white h-[48px] w-full md:w-auto min-w-[280px] pl-6 pr-2 transition-all duration-300 rounded-full shadow-[0_0_24px_rgba(255,90,0,0.35)] hover:shadow-[0_0_32px_rgba(255,90,0,0.55)] cursor-pointer"
+                    className="group/btn inline-flex items-center justify-between bg-brand-accent hover:bg-[#ff4500] text-white h-[52px] w-full md:w-auto min-w-[300px] pl-7 pr-2.5 transition-all duration-300 rounded-full shadow-[0_0_24px_rgba(255,90,0,0.35)] hover:shadow-[0_0_32px_rgba(255,90,0,0.55)] cursor-pointer"
                   >
-                    <span className="font-mono text-[11px] tracking-[0.18em] uppercase font-medium">
+                    <span className="font-mono text-base tracking-[0.12em] uppercase font-semibold">
                       {isFormValid ? "SEND MESSAGE" : "FORM INCOMPLETE"}
                     </span>
-                    <div className="flex items-center justify-center h-8 w-8 rounded-full bg-white text-black transition-colors duration-300 group-hover/btn:bg-neutral-100 shadow-sm">
-                      <span className="text-black text-xs font-bold transition-transform duration-300 group-hover/btn:translate-x-0.5">›</span>
+                    <div className="flex items-center justify-center h-9 w-9 rounded-full bg-white text-black transition-colors duration-300 group-hover/btn:bg-neutral-100 shadow-sm shrink-0">
+                      <span className="text-black text-base font-bold transition-transform duration-300 group-hover/btn:translate-x-0.5">›</span>
                     </div>
                   </motion.button>
 
-                  <div className="font-mono text-[9px] text-white/40 tracking-wider">
+                  <div className="font-mono text-base text-white/50 tracking-normal">
                     By submitting, you agree to our <br className="hidden md:inline" />
                     <Link href="#terms" className="text-white/70 underline hover:text-white">Terms</Link> and{" "}
                     <Link href="#privacy" className="text-white/70 underline hover:text-white">Privacy Policy</Link>.
@@ -243,10 +243,10 @@ export function FooterSection() {
             </div>
 
             <div className="pt-12 border-t border-white/10">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-12 font-mono text-[10px] tracking-wider uppercase">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-12 font-mono text-base tracking-wider uppercase">
                 {/* Navigation Links */}
-                <div className="md:col-span-4 space-y-2.5">
-                  <div className="font-mono text-[9px] text-white/40 tracking-[0.2em] mb-3">NAVIGATION</div>
+                <div className="md:col-span-4 space-y-3">
+                  <div className="font-mono text-base text-white/40 tracking-[0.14em] mb-3">NAVIGATION</div>
                   <div><Link href="#products" className="text-white/70 hover:text-brand-accent transition-colors">PRODUCTS</Link></div>
                   <div><Link href="#services" className="text-white/70 hover:text-brand-accent transition-colors">SERVICES</Link></div>
                   <div><Link href="#solutions" className="text-white/70 hover:text-brand-accent transition-colors">SOLUTIONS</Link></div>
@@ -255,51 +255,51 @@ export function FooterSection() {
                 </div>
 
                 {/* USA Headquarters (Chicago) */}
-                <div className="md:col-span-4 space-y-2.5 font-sans normal-case text-xs">
-                  <div className="font-mono text-[9px] text-brand-accent tracking-[0.2em] uppercase font-medium flex items-center gap-1.5 mb-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-accent inline-block" />
+                <div className="md:col-span-4 space-y-3 font-sans normal-case text-base">
+                  <div className="font-mono text-base text-brand-accent tracking-[0.14em] uppercase font-medium flex items-center gap-2 mb-2">
+                    <span className="w-2 h-2 rounded-full bg-brand-accent inline-block" />
                     USA HEADQUARTERS
                   </div>
-                  <div className="text-white/60 leading-relaxed font-sans text-xs">
+                  <div className="text-white/60 leading-relaxed font-sans text-base">
                     1300 E Woodfield Rd, Suite 403<br />
                     Schaumburg, IL 60173, USA
                   </div>
-                  <div className="pt-1 font-mono text-[11px] text-white/80">
-                    <a href="tel:+13124236728" className="hover:text-brand-accent transition-colors inline-flex items-center gap-1.5">
+                  <div className="pt-1 font-mono text-base text-white/80">
+                    <a href="tel:+13124236728" className="hover:text-brand-accent transition-colors inline-flex items-center gap-2">
                       <span>TEL:</span> +1 (312) 423-6728
                     </a>
                   </div>
-                  <div className="font-mono text-[11px] text-white/80">
-                    <a href="mailto:info@armia.com" className="hover:text-brand-accent transition-colors inline-flex items-center gap-1.5">
+                  <div className="font-mono text-base text-white/80">
+                    <a href="mailto:info@armia.com" className="hover:text-brand-accent transition-colors inline-flex items-center gap-2">
                       <span>MAIL:</span> INFO@ARMIA.COM
                     </a>
                   </div>
                 </div>
 
                 {/* India Delivery Center (Kochi) */}
-                <div className="md:col-span-4 space-y-2.5 font-sans normal-case text-xs">
-                  <div className="font-mono text-[9px] text-white/50 tracking-[0.2em] uppercase font-medium flex items-center gap-1.5 mb-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-white/40 inline-block" />
+                <div className="md:col-span-4 space-y-3 font-sans normal-case text-base">
+                  <div className="font-mono text-base text-white/50 tracking-[0.14em] uppercase font-medium flex items-center gap-2 mb-2">
+                    <span className="w-2 h-2 rounded-full bg-white/40 inline-block" />
                     INDIA DELIVERY CENTER
                   </div>
-                  <div className="text-white/60 leading-relaxed font-sans text-xs">
+                  <div className="text-white/60 leading-relaxed font-sans text-base">
                     3rd Floor, Jyothirmaya Building<br />
                     Infopark Phase 2, Kochi 682303
                   </div>
-                  <div className="pt-1 font-mono text-[11px] text-white/80">
-                    <a href="tel:+914844000300" className="hover:text-brand-accent transition-colors inline-flex items-center gap-1.5">
+                  <div className="pt-1 font-mono text-base text-white/80">
+                    <a href="tel:+914844000300" className="hover:text-brand-accent transition-colors inline-flex items-center gap-2">
                       <span>TEL:</span> +91 484 4000300
                     </a>
                   </div>
-                  <div className="font-mono text-[11px] text-white/80">
-                    <a href="mailto:hello@armiasystems.com" className="hover:text-brand-accent transition-colors inline-flex items-center gap-1.5">
+                  <div className="font-mono text-base text-white/80">
+                    <a href="mailto:hello@armiasystems.com" className="hover:text-brand-accent transition-colors inline-flex items-center gap-2">
                       <span>MAIL:</span> HELLO@ARMIASYSTEMS.COM
                     </a>
                   </div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-6 font-mono text-[9px] text-white/40 tracking-widest uppercase">
+              <div className="flex items-center gap-8 font-mono text-base text-white/40 tracking-wider uppercase">
                 <Link href="#terms" className="hover:text-white transition-colors">TERMS</Link>
                 <Link href="#privacy" className="hover:text-white transition-colors">PRIVACY POLICY</Link>
               </div>
