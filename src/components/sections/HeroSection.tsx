@@ -92,8 +92,8 @@ export function HeroSection() {
               : "bg-black/30 border-white/10 text-white/70 hover:text-white shadow-black/40"
           }`}
         >
-          <option value="hero1">Hero 1</option>
-          <option value="hero2">Hero 2</option>
+          <option value="hero1" className={isLight ? "bg-white text-black" : "bg-neutral-900 text-white"}>Hero 1</option>
+          <option value="hero2" className={isLight ? "bg-white text-black" : "bg-neutral-900 text-white"}>Hero 2</option>
         </select>
       </div>
 
@@ -286,9 +286,9 @@ export function HeroSection() {
         </>
       ) : (
         <div className="relative w-full h-full flex items-center justify-center pointer-events-none">
-          {/* DAQ-inspired dark animated SVG background */}
+          {/* DAQ-inspired animated SVG and liquid fluid background */}
           <motion.div className="absolute inset-0 z-0 will-change-transform" style={{ y: yParallaxGlobe, opacity: opacityParallaxGlobe }}>
-            <DaqBackgroundVisual />
+            <DaqBackgroundVisual isLight={isLight} />
           </motion.div>
 
           <div className="relative z-10 w-full max-w-[1920px] mx-auto pointer-events-auto h-full pt-32 sm:pt-40">
@@ -298,22 +298,42 @@ export function HeroSection() {
                 animate={isAppReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
                 style={{ y: yParallaxText, opacity: opacityParallaxText }}
-                className="max-w-4xl will-change-transform"
+                className="max-w-5xl lg:max-w-6xl will-change-transform"
               >
                 {/* Minimal Trust Separator */}
-                <div className="mb-6 font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-white/50 flex flex-wrap justify-start items-center gap-x-4 gap-y-2">
-                  <span>Est. 2003</span>
-                  <span className="text-white/20">/</span>
-                  <span>India &amp; USA</span>
-                  <span className="text-white/20">/</span>
-                  <span className="text-white/80">AI &amp; Cloud Native</span>
+                <div
+                  className={`mb-6 font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.3em] flex flex-wrap justify-start items-center gap-x-4 gap-y-2 transition-colors duration-700 ease-in-out ${
+                    isLight ? "text-neutral-700" : "text-white/50"
+                  }`}
+                >
+                  <span className={isLight ? "text-neutral-700 font-medium" : "text-white/70"}>
+                    Est. 2003
+                  </span>
+                  <span className={isLight ? "text-black/25" : "text-white/20"}>/</span>
+                  <span className={isLight ? "text-neutral-700 font-medium" : "text-white/70"}>
+                    India &amp; USA
+                  </span>
+                  <span className={isLight ? "text-black/25" : "text-white/20"}>/</span>
+                  <span
+                    className={
+                      isLight
+                        ? "text-brand-accent font-semibold"
+                        : "text-white/90 font-medium"
+                    }
+                  >
+                    AI &amp; Cloud Native
+                  </span>
                 </div>
 
                 {/* Trustworthy Minimal Header with Light/Bold split and rotating words */}
-                <DaqAnimatedTitle />
+                <DaqAnimatedTitle isLight={isLight} />
                 
                 {/* Supporting Minimal Description (Monospace, highly tracked with AI focus) */}
-                <p className="font-mono text-[10px] sm:text-[11px] text-white/50 leading-[2.1] tracking-[0.25em] uppercase max-w-2xl mb-12">
+                <p
+                  className={`font-mono text-[10px] sm:text-[11px] leading-[2.1] tracking-[0.25em] uppercase max-w-2xl mb-12 transition-colors duration-700 ease-in-out ${
+                    isLight ? "text-neutral-700 font-medium" : "text-white/50 font-normal"
+                  }`}
+                >
                   Delivering intelligent software, autonomous AI workflows, and robust cloud platforms since 2003 across India and the USA.
                 </p>
                 
@@ -321,12 +341,28 @@ export function HeroSection() {
                 <div className="flex items-center justify-start">
                   <a
                     href="#contact"
-                    className="group inline-flex items-center gap-6 border border-white/20 hover:border-white/50 bg-transparent px-8 py-4 rounded-full transition-all duration-300"
+                    className={`group inline-flex items-center gap-6 border px-8 py-4 rounded-full transition-all duration-300 ${
+                      isLight
+                        ? "border-black/20 hover:border-black/60 bg-black/[0.03] hover:bg-black/[0.08] shadow-sm hover:shadow-md"
+                        : "border-white/20 hover:border-white/50 bg-transparent"
+                    }`}
                   >
-                    <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-white/80 group-hover:text-white transition-colors">
+                    <span
+                      className={`font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.2em] transition-colors duration-300 ${
+                        isLight
+                          ? "text-neutral-900 group-hover:text-black font-semibold"
+                          : "text-white/80 group-hover:text-white"
+                      }`}
+                    >
                       START PROJECT
                     </span>
-                    <ArrowUpRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
+                    <ArrowUpRight
+                      className={`w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${
+                        isLight
+                          ? "text-brand-accent group-hover:text-black"
+                          : "text-white/50 group-hover:text-white"
+                      }`}
+                    />
                   </a>
                 </div>
               </motion.div>
@@ -336,12 +372,22 @@ export function HeroSection() {
           {/* Huge Faint Watermark (Bottom Right) */}
           <motion.div
             style={{ y: yParallaxBottom, opacity: opacityParallaxWatermark }}
-            className="absolute bottom-8 right-6 md:right-[10.8%] flex flex-col items-end pointer-events-none select-none z-10 mix-blend-screen will-change-transform"
+            className={`absolute bottom-8 right-6 md:right-[10.8%] flex flex-col items-end pointer-events-none select-none z-10 will-change-transform transition-all duration-700 ease-in-out ${
+              isLight ? "mix-blend-multiply" : "mix-blend-screen"
+            }`}
           >
-            <span className="font-sans font-black text-[140px] sm:text-[220px] leading-[0.75] tracking-tighter text-white/80 z-20">
+            <span
+              className={`font-sans font-black text-[140px] sm:text-[220px] leading-[0.75] tracking-tighter z-20 transition-colors duration-700 ease-in-out ${
+                isLight ? "text-neutral-900" : "text-white/80"
+              }`}
+            >
               23
             </span>
-            <span className="font-mono text-[10px] sm:text-xs tracking-[0.5em] text-white/50 uppercase mr-1 mt-1">
+            <span
+              className={`font-mono text-[10px] sm:text-xs tracking-[0.5em] uppercase mr-1 mt-1 transition-colors duration-700 ease-in-out ${
+                isLight ? "text-neutral-800 font-semibold" : "text-white/50"
+              }`}
+            >
               Years
             </span>
           </motion.div>

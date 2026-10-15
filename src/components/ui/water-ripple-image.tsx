@@ -202,8 +202,8 @@ export function WaterRippleImage({
     src,
   });
 
-  // devicePixelRatio cap like original
-  const dpr = typeof window !== 'undefined' ? Math.min(window.devicePixelRatio || 1, 2) : 1;
+  // devicePixelRatio cap (1.25 offers retina sharpness with 60% less GPU fill rate)
+  const dpr = typeof window !== 'undefined' ? Math.min(window.devicePixelRatio || 1, 1.25) : 1;
 
   const updateUniforms = (gl: WebGLRenderingContext) => {
     const u = uniformsRef.current;
@@ -315,23 +315,46 @@ export function WaterRippleImage({
     // load default image
     loadImage(params.src, gl).catch((e) => console.error(e));
 
-    // first resize + listener
+    // first resize + listener with cached dimensions (zero getBoundingClientRect reflows)
+    let cachedW = window.innerWidth;
+    let cachedH = window.innerHeight;
+
     resize();
-    const onResize = () => resize();
+    const onResize = () => {
+      cachedW = window.innerWidth;
+      cachedH = window.innerHeight;
+      resize();
+    };
     window.addEventListener('resize', onResize);
 
     const onMouseMove = (e: MouseEvent) => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      const rect = canvas.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width;
-      const y = (e.clientY - rect.top) / rect.height;
-      targetMouse.current = { x, y };
+      targetMouse.current = {
+        x: e.clientX / (cachedW || 1),
+        y: e.clientY / (cachedH || 1),
+      };
     };
-    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
 
-    // render loop
+    // Pause WebGL rendering loop when Hero is offscreen or tab is hidden
+    let isVisible = true;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+      },
+      { threshold: 0.02 }
+    );
+    if (canvas) observer.observe(canvas);
+
+    const onVisibilityChange = () => {
+      isVisible = !document.hidden;
+    };
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
+    // render loop (auto-pauses when off-screen to preserve 100% GPU/CPU for rest of site)
     const render = () => {
+      animRef.current = requestAnimationFrame(render);
+      if (!isVisible) return;
+
       const u = uniformsRef.current;
       
       // Smoothly interpolate current mouse towards target mouse (Lerping)
@@ -345,13 +368,14 @@ export function WaterRippleImage({
         gl.uniform2f(u['u_mouse'], currentMouse.current.x, currentMouse.current.y);
       }
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-      animRef.current = requestAnimationFrame(render);
     };
     animRef.current = requestAnimationFrame(render);
 
     return () => {
       window.removeEventListener('resize', onResize);
       window.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+      observer.disconnect();
       if (animRef.current) cancelAnimationFrame(animRef.current);
       if (texRef.current) gl.deleteTexture(texRef.current);
       gl.useProgram(null);
@@ -366,6 +390,13 @@ export function WaterRippleImage({
     if (!gl) return;
     updateUniforms(gl);
   }, [params.blueish, params.scale, params.illumination, params.surfaceDistortion, params.waterDistortion]);
+
+  // reload texture when src changes dynamically
+  useEffect(() => {
+    const gl = glRef.current;
+    if (!gl || !params.src) return;
+    loadImage(params.src, gl).catch((err) => console.error(err));
+  }, [params.src]);
 
   // handle file selection → load into texture
   useEffect(() => {

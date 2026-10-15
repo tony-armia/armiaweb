@@ -83,13 +83,10 @@ export function HeroGlobeVisual({ isLight = false }: HeroGlobeVisualProps) {
         </div>
       </div>
 
-      {/* ── Worldwide Neuralink-Inspired Synaptic Connection Network (Locked Onto Globe Sphere) ── */}
-      <div
-        className={`absolute inset-0 z-10 hidden md:block ${
-          isLight ? "opacity-0 pointer-events-none invisible" : "opacity-60"
-        } transition-all duration-700 ease-in-out`}
-      >
-        <svg
+      {/* ── Worldwide Neuralink-Inspired Synaptic Connection Network (Dark Mode only to save 100% GPU/CPU in Light Mode) ── */}
+      {!isLight && (
+        <div className="absolute inset-0 z-10 hidden md:block opacity-60 transition-opacity duration-700 ease-in-out">
+          <svg
           className="w-full h-full"
           viewBox="0 0 1440 900"
           fill="none"
@@ -459,6 +456,7 @@ export function HeroGlobeVisual({ isLight = false }: HeroGlobeVisualProps) {
           </g>
         </svg>
       </div>
+      )}
 
       {/* ── Subtle Ambient Floating Star Dust Particles ── */}
       {!isLight && (

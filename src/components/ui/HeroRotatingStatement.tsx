@@ -116,12 +116,12 @@ export function HeroRotatingStatement({ isLight = false }: HeroRotatingStatement
             {current.primary.map((line, i) => (
               <div key={i} className="overflow-hidden">
                 <motion.p
-                  initial={{ y: "110%", opacity: 0, filter: "blur(4px)" }}
-                  animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-                  exit={{ y: "-110%", opacity: 0, filter: "blur(2px)" }}
+                  initial={{ y: "110%", opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: "-110%", opacity: 0 }}
                   transition={{
-                    duration: 0.6,
-                    delay: i * 0.07,
+                    duration: 0.5,
+                    delay: i * 0.06,
                     ease: [0.16, 1, 0.3, 1],
                   }}
                   className="leading-snug"
@@ -144,12 +144,12 @@ export function HeroRotatingStatement({ isLight = false }: HeroRotatingStatement
             {current.secondary.map((line, i) => (
               <div key={i} className="overflow-hidden">
                 <motion.p
-                  initial={{ y: "110%", opacity: 0, filter: "blur(4px)" }}
-                  animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-                  exit={{ y: "-110%", opacity: 0, filter: "blur(2px)" }}
+                  initial={{ y: "110%", opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: "-110%", opacity: 0 }}
                   transition={{
-                    duration: 0.6,
-                    delay: 0.2 + i * 0.07,
+                    duration: 0.5,
+                    delay: 0.15 + i * 0.06,
                     ease: [0.16, 1, 0.3, 1],
                   }}
                   className="leading-snug"

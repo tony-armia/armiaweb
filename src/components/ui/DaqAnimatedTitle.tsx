@@ -3,15 +3,19 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+interface DaqAnimatedTitleProps {
+  isLight?: boolean;
+}
+
 const WORDS = [
-  { text: "AI & SOFTWARE.", color: "text-[#FF5A00]" }, // Orange
-  { text: "INTELLIGENCE.", color: "text-white" },
-  { text: "APPLIED AI.", color: "text-[#FF5A00]" },
-  { text: "AUTONOMOUS.", color: "text-white" },
-  { text: "ENGINEERING.", color: "text-[#FF5A00]" },
+  { text: "AI & SOFTWARE.", isAccent: true }, // Orange
+  { text: "INTELLIGENCE.", isAccent: false },
+  { text: "APPLIED AI.", isAccent: true },
+  { text: "AUTONOMOUS.", isAccent: false },
+  { text: "ENGINEERING.", isAccent: true },
 ];
 
-export function DaqAnimatedTitle() {
+export function DaqAnimatedTitle({ isLight = false }: DaqAnimatedTitleProps) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -21,20 +25,40 @@ export function DaqAnimatedTitle() {
     return () => clearInterval(timer);
   }, []);
 
+  const currentWord = WORDS[index];
+
   return (
-    <h1 className="font-sans text-[clamp(2.5rem,8vw,7.5rem)] leading-[0.95] tracking-[-0.02em] uppercase text-white mb-4 sm:mb-6">
-      <span className="font-extralight text-white/90 block">ENTERPRISE</span>
-      <span className="font-bold relative block h-[1em] w-full">
-        <AnimatePresence mode="wait">
+    <h1
+      className={`font-sans text-[clamp(2.25rem,6.4vw,6.25rem)] leading-[0.95] tracking-[-0.02em] uppercase mb-4 sm:mb-6 transition-colors duration-700 ease-in-out ${
+        isLight ? "text-neutral-900" : "text-white"
+      }`}
+    >
+      <span
+        className={`font-extralight block transition-colors duration-700 ease-in-out ${
+          isLight ? "text-neutral-900/90" : "text-white/90"
+        }`}
+      >
+        ENTERPRISE
+      </span>
+      <span className="font-bold relative block h-[1.05em] w-full">
+        <AnimatePresence mode="popLayout">
           <motion.span
             key={index}
-            initial={{ y: 20, opacity: 0 }}
+            initial={{ y: 24, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -20, opacity: 0 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className={`absolute left-0 top-0 whitespace-nowrap drop-shadow-xl ${WORDS[index].color}`}
+            exit={{ y: -24, opacity: 0 }}
+            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+            className={`absolute left-0 top-0 whitespace-nowrap transition-colors duration-700 ease-in-out ${
+              isLight ? "drop-shadow-none" : "drop-shadow-xl"
+            } ${
+              currentWord.isAccent
+                ? "text-[#FF5A00]"
+                : isLight
+                ? "text-neutral-950"
+                : "text-white"
+            }`}
           >
-            {WORDS[index].text}
+            {currentWord.text}
           </motion.span>
         </AnimatePresence>
       </span>

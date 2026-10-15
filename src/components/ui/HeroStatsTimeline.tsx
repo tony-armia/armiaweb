@@ -43,31 +43,31 @@ export function HeroStatsTimeline({ isLight = false }: HeroStatsTimelineProps) {
 
   return (
     <div className="relative flex flex-col pointer-events-auto select-none">
-      {/* ── Organic White Sunlight Layer Blur (No box, no borders, soft feathered bloom) ── */}
-      <div
-        aria-hidden="true"
-        className={`absolute -top-16 -bottom-16 -left-12 -right-24 pointer-events-none z-0 transition-opacity duration-700 ease-in-out ${
-          isLight ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        {/* Main Dense White Core Blur */}
+      {/* ── Organic White Sunlight Layer (Light mode only, pure radial gradients with zero blur penalty) ── */}
+      {isLight && (
         <div
-          className="absolute inset-0 rounded-full blur-[48px] opacity-95 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 45%, rgba(255, 250, 240, 0.65) 65%, transparent 100%)",
-          }}
-        />
+          aria-hidden="true"
+          className="absolute -top-16 -bottom-16 -left-12 -right-24 pointer-events-none z-0"
+        >
+          {/* Main Dense White Core Feather */}
+          <div
+            className="absolute inset-0 rounded-full opacity-95 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 45%, rgba(255, 250, 240, 0.65) 65%, transparent 100%)",
+            }}
+          />
 
-        {/* Diffuse Warm Sunlight Halo */}
-        <div
-          className="absolute -inset-8 rounded-full blur-[64px] opacity-75 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(circle at 60% 40%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 230, 180, 0.35) 45%, transparent 80%)",
-          }}
-        />
-      </div>
+          {/* Diffuse Warm Sunlight Halo */}
+          <div
+            className="absolute -inset-8 rounded-full opacity-75 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(circle at 60% 40%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 230, 180, 0.35) 45%, transparent 80%)",
+            }}
+          />
+        </div>
+      )}
 
       {/* ── Minimal Vertical Hairline Trace ── */}
       <div
