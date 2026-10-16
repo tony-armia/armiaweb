@@ -38,8 +38,8 @@ export function RotatorTabStrip({
 }: RotatorTabStripProps) {
   return (
     <div className={`flex flex-col gap-3 ${className}`}>
-      {/* Square 48×48 Stroke Buttons */}
-      <div className="flex items-center gap-2 md:gap-3" role="tablist">
+      {/* Square Stroke Number Buttons */}
+      <div className="flex items-center gap-1.5 sm:gap-2 xl:gap-3" role="tablist">
         {items.map((item, idx) => {
           const isActive = activeIndex === idx;
           const label =
@@ -57,7 +57,7 @@ export function RotatorTabStrip({
               role="tab"
               aria-selected={isActive}
               onClick={() => onSelect(idx)}
-              className={`relative w-12 h-12 md:w-14 md:h-14 flex items-center justify-center font-mono text-base font-semibold tracking-wide border transition-all duration-300 cursor-pointer select-none rounded-xl overflow-hidden ${
+              className={`relative w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 xl:w-14 xl:h-14 flex items-center justify-center font-mono text-base font-semibold tracking-wide border transition-all duration-300 cursor-pointer select-none rounded-xl overflow-hidden shrink-0 ${
                 dark
                   ? isActive
                     ? "border-[#FF5A00] text-[#FF5A00] font-bold bg-[#FF5A00]/10 shadow-[0_0_15px_rgba(255,90,0,0.2)]"

@@ -481,7 +481,7 @@ export function ServicesSection() {
                   <button
                     key={ind.id}
                     onClick={() => setSelectedIndustry(ind.id)}
-                    className={`p-4 rounded-xl border text-left transition-all duration-300 cursor-pointer flex items-center gap-3 ${
+                    className={`p-4 rounded-xl border text-left transition-all duration-300 cursor-pointer flex items-center gap-3 last:col-span-2 sm:last:col-span-1 ${
                       isSelected
                         ? "bg-[#14161f] border-brand-accent shadow-lg shadow-brand-accent/15"
                         : "bg-[#0c0d12]/70 border-white/[0.07] hover:border-white/20 hover:bg-[#0f1117]"

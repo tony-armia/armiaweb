@@ -138,7 +138,7 @@ export function BlogSection() {
               </div>
 
               {/* Rotated Left Edge Badge: FEATURED ARTICLE */}
-              <div className="absolute left-6 sm:left-8 top-28 z-10 [writing-mode:vertical-rl] rotate-180 font-mono text-base tracking-[0.18em] text-white/40 uppercase select-none pointer-events-none">
+              <div className="hidden sm:block absolute left-6 sm:left-8 top-28 z-10 [writing-mode:vertical-rl] rotate-180 font-mono text-base tracking-[0.18em] text-white/40 uppercase select-none pointer-events-none">
                 FEATURED ARTICLE
               </div>
 
@@ -202,7 +202,7 @@ export function BlogSection() {
                     className="relative rounded-2xl border border-white/[0.08] bg-[#0c0e14]/90 overflow-hidden p-3.5 sm:p-4 flex flex-col sm:flex-row items-stretch gap-4 sm:gap-5 group hover:border-white/20 hover:bg-[#10121a] transition-all duration-300 h-full shadow-lg"
                   >
                     {/* Left Thumbnail with Number Overlay */}
-                    <div className="relative w-full sm:w-[190px] md:w-[210px] lg:w-[220px] h-[130px] sm:h-auto min-h-[130px] rounded-xl overflow-hidden shrink-0 bg-neutral-900">
+                    <div className="relative w-full sm:w-[190px] md:w-[210px] lg:w-[220px] h-[170px] sm:h-auto min-h-[140px] rounded-xl overflow-hidden shrink-0 bg-neutral-900">
                       <Image
                         src={article.image}
                         alt={article.title}

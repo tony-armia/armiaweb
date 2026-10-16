@@ -18,7 +18,8 @@ export function HeroSection() {
 
   // Synchronize active hero with URL query parameters (e.g. ?hero=Hero+2 or ?hero=hero2)
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    const syncFromUrl = () => {
+      if (typeof window === "undefined") return;
       const params = new URLSearchParams(window.location.search);
       const rawParam = params.get("hero")?.toLowerCase().replace(/[\s+_-]/g, "");
       if (rawParam === "hero2" || rawParam === "2") {
@@ -26,17 +27,18 @@ export function HeroSection() {
       } else if (rawParam === "hero1" || rawParam === "1") {
         setActiveHero("hero1");
       }
-    }
-  }, []);
+    };
+    syncFromUrl();
 
-  const handleHeroChange = (val: "hero1" | "hero2") => {
-    setActiveHero(val);
-    if (typeof window !== "undefined") {
-      const url = new URL(window.location.href);
-      url.searchParams.set("hero", val === "hero2" ? "Hero 2" : "Hero 1");
-      window.history.replaceState({}, "", url.toString());
-    }
-  };
+    const handleCustomChange = (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      if (detail === "hero1" || detail === "hero2") {
+        setActiveHero(detail);
+      }
+    };
+    window.addEventListener("heroChange", handleCustomChange);
+    return () => window.removeEventListener("heroChange", handleCustomChange);
+  }, []);
 
   // Dynamically listen to global site theme changes
   useEffect(() => {
@@ -103,21 +105,7 @@ export function HeroSection() {
         }`}
       />
 
-      {/* Hero Version Switcher Dropdown (Center Top) */}
-      <div className="fixed top-[28px] left-1/2 -translate-x-1/2 z-[100] pointer-events-auto">
-        <select
-          value={activeHero}
-          onChange={(e) => handleHeroChange(e.target.value as "hero1" | "hero2")}
-          className={`backdrop-blur-md border text-base uppercase font-mono tracking-wider px-3.5 py-1.5 h-[38px] rounded-md outline-none focus:border-brand-accent transition-all duration-700 ease-in-out cursor-pointer shadow-xl ${
-            isLight
-              ? "bg-white/80 border-black/15 text-black/80 hover:text-black shadow-black/5"
-              : "bg-black/30 border-white/10 text-white/70 hover:text-white shadow-black/40"
-          }`}
-        >
-          <option value="hero1" className={isLight ? "bg-white text-black" : "bg-neutral-900 text-white"}>Hero 1</option>
-          <option value="hero2" className={isLight ? "bg-white text-black" : "bg-neutral-900 text-white"}>Hero 2</option>
-        </select>
-      </div>
+
 
       {activeHero === "hero1" ? (
         <>
@@ -272,7 +260,7 @@ export function HeroSection() {
             {/* ── Right-Side Connected Stats Timeline (Matching User Reference) ── */}
             <motion.div
               style={{ y: yParallaxBottom, opacity: opacityParallaxBottom }}
-              className="absolute right-6 sm:right-10 md:right-[10.8%] top-[30%] -translate-y-1/2 hidden md:block z-20"
+              className="absolute right-6 sm:right-10 md:right-[10.8%] top-[30%] -translate-y-1/2 hidden xl:block z-20"
             >
               <HeroStatsTimeline isLight={isLight} />
             </motion.div>
@@ -283,7 +271,7 @@ export function HeroSection() {
               animate={isAppReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.9, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
               style={{ y: yParallaxBottom, opacity: opacityParallaxBottom }}
-              className="absolute bottom-10 sm:bottom-12 md:bottom-14 left-6 sm:left-10 md:left-[10.8%] hidden lg:block z-20"
+              className="absolute bottom-8 sm:bottom-10 md:bottom-12 left-6 sm:left-10 md:left-[10.8%] hidden xl:block z-20"
             >
               <HeroRotatingStatement isLight={isLight} />
             </motion.div>

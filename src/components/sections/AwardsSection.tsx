@@ -136,13 +136,13 @@ export function AwardsSection() {
               <span className="block text-[#FF5A00] font-normal">RECOGNITION.</span>
             </motion.h2>
 
-            <p className="font-mono text-base md:text-[17px] leading-relaxed text-[#a4a4a2] mt-4 uppercase tracking-[0.1em] max-w-lg">
+            <p className="font-mono text-base md:text-[17px] leading-relaxed mt-4 uppercase tracking-[0.1em] max-w-lg" style={{ color: 'var(--foreground-muted)' }}>
               RECOGNIZED GLOBALLY BY LEADING RESEARCH AND ANALYST PLATFORMS.
             </p>
           </div>
 
           {/* Right Column: 20+ Years of Excellence + A Legacy of Trust and Impact + Orbital Tagline */}
-          <div className="lg:col-span-6 flex items-start justify-between gap-6 lg:pl-8 lg:border-l lg:border-white/[0.08]">
+          <div className="lg:col-span-6 flex items-start justify-between gap-6 lg:pl-8 lg:border-l" style={{ borderColor: 'var(--border)' }}>
             <div className="space-y-2.5 max-w-md">
               <div className="flex items-center gap-2 font-mono text-base text-[#FF5A00] tracking-[0.14em] uppercase font-medium">
                 <span className="h-2 w-2 rounded-full bg-[#FF5A00] animate-pulse" />
@@ -159,7 +159,7 @@ export function AwardsSection() {
             </div>
 
             {/* Far Right Celestial Vertical Words */}
-            <div className="hidden xl:flex flex-col items-end justify-center font-mono text-base tracking-[0.16em] text-white/50 uppercase space-y-2 select-none pl-6 border-l border-white/[0.08] shrink-0">
+            <div className="hidden xl:flex flex-col items-end justify-center font-mono text-base tracking-[0.16em] uppercase space-y-2 select-none pl-6 border-l shrink-0" style={{ borderColor: 'var(--border)', color: 'var(--foreground-subtle)' }}>
               <span>PEOPLE</span>
               <span>IDEAS</span>
               <span>TECHNOLOGY</span>
@@ -290,11 +290,11 @@ export function AwardsSection() {
         </div>
 
         {/* ── 3. Bottom Ticker Strip (Directly Matching Reference Image) ── */}
-        <div className="pt-4 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-          <div className="font-mono text-base tracking-[0.12em] uppercase text-white/50">
+        <div className="pt-4 border-t flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left" style={{ borderColor: 'var(--border)' }}>
+          <div className="font-mono text-base tracking-[0.12em] uppercase" style={{ color: 'var(--foreground-subtle)' }}>
             RECOGNIZED BY INDUSTRY BODIES, CERTIFICATION FRAMEWORKS, AND TECHNOLOGY PARTNERS WORLDWIDE.
           </div>
-          <div className="font-mono text-base tracking-[0.16em] uppercase text-white/70 font-semibold">
+          <div className="font-mono text-base tracking-[0.16em] uppercase font-semibold" style={{ color: 'var(--foreground-muted)' }}>
             ARMIA SYSTEMS
           </div>
         </div>

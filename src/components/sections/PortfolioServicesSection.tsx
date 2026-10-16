@@ -183,7 +183,7 @@ export function PortfolioServicesSection() {
         <GridLines />
       </div>
 
-      <div className="w-full max-w-[1920px] mx-auto px-6 md:px-0 relative z-10">
+      <div className="w-full max-w-[1920px] mx-auto relative z-10">
         
         {/* ── Upper Header Row matching 10.8% / 30.3% / 69.3% Grid ── */}
         <div className="relative w-full flex flex-col md:flex-row items-start mb-6 md:mb-8">

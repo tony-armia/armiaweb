@@ -136,7 +136,7 @@ export function FooterSection() {
               <SectionEyebrow number="10" label="CONTACT" dark />
 
               <div className="mb-8">
-                <h2 className="font-sans text-[clamp(2.8rem,4.8vw,5.6rem)] font-light tracking-[-0.035em] leading-[0.94] text-[#e5e5e5] uppercase max-w-3xl">
+                <h2 className="font-sans text-[clamp(2.2rem,4.8vw,5.6rem)] font-light tracking-[-0.035em] leading-[0.94] text-[#e5e5e5] uppercase max-w-3xl">
                   <span className="block">BUILD YOUR</span>
                   <span className="block">NEXT PROJECT</span>
                   <span className="block text-white font-normal">WITH ARMIA.</span>
@@ -223,7 +223,7 @@ export function FooterSection() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ duration: 0.25, ease: EASE_CUSTOM }}
-                    className="group/btn inline-flex items-center justify-between bg-brand-accent hover:bg-[#ff4500] text-white h-[52px] w-full md:w-auto min-w-[300px] pl-7 pr-2.5 transition-all duration-300 rounded-full shadow-[0_0_24px_rgba(255,90,0,0.35)] hover:shadow-[0_0_32px_rgba(255,90,0,0.55)] cursor-pointer"
+                    className="group/btn inline-flex items-center justify-between bg-brand-accent hover:bg-[#ff4500] text-white h-[52px] w-full md:w-auto min-w-0 sm:min-w-[280px] md:min-w-[300px] pl-6 sm:pl-7 pr-2.5 transition-all duration-300 rounded-full shadow-[0_0_24px_rgba(255,90,0,0.35)] hover:shadow-[0_0_32px_rgba(255,90,0,0.55)] cursor-pointer"
                   >
                     <span className="font-mono text-base tracking-[0.12em] uppercase font-semibold">
                       {isFormValid ? "SEND MESSAGE" : "FORM INCOMPLETE"}

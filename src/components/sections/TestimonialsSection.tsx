@@ -339,10 +339,16 @@ export function TestimonialsSection() {
             <div className="relative z-10 flex items-start gap-3">
               <span className="w-1 h-10 bg-brand-accent rounded-full inline-block shrink-0 mt-0.5" />
               <div>
-                <div className="font-sans text-lg sm:text-xl font-medium text-white leading-snug">
+                <div
+                  className="font-sans text-lg sm:text-xl font-medium leading-snug"
+                  style={{ color: "#ffffff" }}
+                >
                   {current.videoAuthor.name}
                 </div>
-                <div className="font-sans text-base text-white/80 font-normal tracking-normal mt-0.5">
+                <div
+                  className="font-sans text-base font-normal tracking-normal mt-0.5"
+                  style={{ color: "rgba(255, 255, 255, 0.85)" }}
+                >
                   {current.videoAuthor.role}
                 </div>
               </div>

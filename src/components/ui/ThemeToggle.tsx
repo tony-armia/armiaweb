@@ -36,6 +36,19 @@ export function ThemeToggle({ inMenu = false, isPastHero = false }: ThemeToggleP
     applyTheme(stored);
     setIsLight(stored === "light");
     setMounted(true);
+
+    const handleThemeEvent = () => {
+      const current = getStoredTheme();
+      setTheme(current);
+      setIsLight(current === "light");
+    };
+
+    window.addEventListener("themeChange", handleThemeEvent);
+    window.addEventListener("storage", handleThemeEvent);
+    return () => {
+      window.removeEventListener("themeChange", handleThemeEvent);
+      window.removeEventListener("storage", handleThemeEvent);
+    };
   }, []);
 
   const toggle = () => {
@@ -43,6 +56,7 @@ export function ThemeToggle({ inMenu = false, isPastHero = false }: ThemeToggleP
     setTheme(next);
     setIsLight(next === "light");
     applyTheme(next);
+    window.dispatchEvent(new CustomEvent("themeChange", { detail: next }));
   };
 
   if (!mounted) return null;

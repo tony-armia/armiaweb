@@ -40,7 +40,7 @@ export function EngineeringIntro() {
       <div className="w-full max-w-[1920px] mx-auto px-6 md:px-[10.8%] grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
         {/* ── Left Column: Giant Editorial Statement ── */}
         <motion.div style={{ y: yHeadline }} className="lg:col-span-7 will-change-transform">
-          <h2 className="font-sans font-light text-[clamp(2.75rem,5.6vw,5.5rem)] leading-[1.08] tracking-[-0.02em]" style={{ color: 'var(--foreground)' }}>
+          <h2 className="font-sans font-light text-[clamp(2.15rem,5.2vw,5.5rem)] leading-[1.08] tracking-[-0.02em]" style={{ color: 'var(--foreground)' }}>
             <span className="block">We don’t chase</span>
             <span className="block">trends.</span>
             <span className="block">We engineer what</span>
@@ -56,7 +56,7 @@ export function EngineeringIntro() {
         <motion.div style={{ y: yContent }} className="lg:col-span-5 flex flex-col justify-center will-change-transform">
           <div className="max-w-xl space-y-6 sm:space-y-7 text-base sm:text-[17px] leading-[1.8] font-normal" style={{ color: 'var(--foreground-muted)' }}>
             {/* Top Metadata Row matching Elysium with standardized SectionEyebrow */}
-            <div className="flex items-center justify-between pb-3 border-b text-base tracking-[0.12em] uppercase" style={{ borderColor: 'var(--border)' }}>
+            <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b text-base tracking-[0.12em] uppercase" style={{ borderColor: 'var(--border)' }}>
               <SectionEyebrow number="02" label="WHO WE ARE" className="!mb-0" />
               <span className="font-mono tracking-[0.12em] text-base flex items-center gap-2" style={{ color: 'var(--foreground-subtle)' }}>
                 <span>🇺🇸 USA</span>

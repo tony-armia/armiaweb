@@ -49,8 +49,7 @@ export function HeroGlobeVisual({ isLight = false }: HeroGlobeVisualProps) {
           }`}
         >
           <div className="absolute inset-0 bg-black/55" />
-          <div className="absolute inset-0 w-full md:w-[82%] lg:w-[75%] bg-gradient-to-r from-[#090909] via-[#090909]/95 via-[48%] to-transparent" />
-          <div className="absolute bottom-0 left-0 w-full sm:w-[560px] h-[360px] bg-gradient-to-tr from-[#090909] via-[#090909] to-transparent z-20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#090909] via-[#090909]/90 via-[45%] to-transparent" />
           <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-[#090909] via-[#090909]/80 to-transparent z-10" />
           <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#090909] via-[#090909]/85 to-transparent z-10" />
           <div
@@ -69,8 +68,7 @@ export function HeroGlobeVisual({ isLight = false }: HeroGlobeVisualProps) {
           }`}
         >
           <div className="absolute inset-0 bg-white/20" />
-          <div className="absolute inset-0 w-full md:w-[82%] lg:w-[75%] bg-gradient-to-r from-[#fbfbfb] via-[#fbfbfb]/95 via-[44%] to-transparent" />
-          <div className="absolute bottom-0 left-0 w-full sm:w-[560px] h-[360px] bg-gradient-to-tr from-[#fbfbfb] via-[#fbfbfb]/90 to-transparent z-20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#fbfbfb] via-[#fbfbfb]/85 via-[40%] to-transparent" />
           <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-[#fbfbfb] via-[#fbfbfb]/80 to-transparent z-10" />
           <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#fbfbfb] via-[#fbfbfb]/85 to-transparent z-10" />
           <div

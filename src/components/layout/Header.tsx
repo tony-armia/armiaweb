@@ -22,6 +22,38 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isPastHero, setIsPastHero] = useState(false);
   const [isLight, setIsLight] = useState(false);
+  const [activeHero, setActiveHero] = useState<"hero1" | "hero2">("hero1");
+
+  // Track active hero from URL and custom event
+  useEffect(() => {
+    const syncFromUrl = () => {
+      if (typeof window === "undefined") return;
+      const params = new URLSearchParams(window.location.search);
+      const raw = params.get("hero")?.toLowerCase().replace(/[\s+_-]/g, "");
+      if (raw === "hero2" || raw === "2") setActiveHero("hero2");
+      else if (raw === "hero1" || raw === "1") setActiveHero("hero1");
+    };
+    syncFromUrl();
+
+    const handleCustomChange = (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      if (detail === "hero1" || detail === "hero2") {
+        setActiveHero(detail);
+      }
+    };
+    window.addEventListener("heroChange", handleCustomChange);
+    return () => window.removeEventListener("heroChange", handleCustomChange);
+  }, []);
+
+  const handleHeroChange = (val: "hero1" | "hero2") => {
+    setActiveHero(val);
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      url.searchParams.set("hero", val === "hero2" ? "Hero 2" : "Hero 1");
+      window.history.replaceState({}, "", url.toString());
+      window.dispatchEvent(new CustomEvent("heroChange", { detail: val }));
+    }
+  };
 
   // Track theme changes so header can adapt contrast
   useEffect(() => {
@@ -122,7 +154,24 @@ export function Header() {
               </div>
             </Link>
 
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-1.5 sm:gap-2.5">
+              {/* Hero Switcher Dropdown integrated seamlessly inside header controls */}
+              <div className="relative">
+                <select
+                  value={activeHero}
+                  onChange={(e) => handleHeroChange(e.target.value as "hero1" | "hero2")}
+                  aria-label="Hero Version Switcher"
+                  className={`backdrop-blur-md border text-base font-mono tracking-wide px-2 sm:px-3 h-[42px] md:h-[44px] rounded-full outline-none focus:border-brand-accent transition-all duration-300 cursor-pointer shadow-sm ${
+                    isLightContext
+                      ? "bg-black/[0.06] hover:bg-black/[0.10] border-black/15 text-foreground hover:border-brand-accent/40"
+                      : "bg-white/10 hover:bg-white/15 border-white/20 text-white hover:border-brand-accent/50"
+                  }`}
+                >
+                  <option value="hero1" className="bg-neutral-900 text-white">Hero 1</option>
+                  <option value="hero2" className="bg-neutral-900 text-white">Hero 2</option>
+                </select>
+              </div>
+
               {/* Theme Toggle — always visible for easy access */}
               <ThemeToggle isPastHero={isLightContext} />
 
@@ -132,7 +181,7 @@ export function Header() {
                 onClick={() => setIsMobileMenuOpen((v) => !v)}
                 aria-expanded={isMobileMenuOpen}
                 aria-controls="mobile-nav"
-                className={`group relative flex items-center gap-3 h-[42px] md:h-[44px] pl-4 pr-1.5 md:pl-4.5 md:pr-2 rounded-full font-mono text-base tracking-[0.14em] uppercase transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent backdrop-blur-md border shadow-[0_4px_16px_rgba(0,0,0,0.35)] hover:shadow-[0_0_20px_rgba(255,90,0,0.25)] ${menuBtnBase}`}
+                className={`group relative flex items-center gap-2 sm:gap-3 h-[42px] md:h-[44px] pl-3.5 pr-1.5 sm:pl-4.5 sm:pr-2 rounded-full font-mono text-base tracking-[0.12em] sm:tracking-[0.14em] uppercase transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent backdrop-blur-md border shadow-[0_4px_16px_rgba(0,0,0,0.35)] hover:shadow-[0_0_20px_rgba(255,90,0,0.25)] ${menuBtnBase}`}
               >
                 <div className="flex flex-col justify-center items-center gap-[4px] w-4" aria-hidden="true">
                   <span className="block h-[1.5px] w-3.5 rounded-full bg-current transition-all duration-300 group-hover:w-4 group-hover:translate-x-0.5 group-hover:bg-brand-accent" />
@@ -166,7 +215,7 @@ export function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "-100%" }}
             transition={{ duration: 0.45, ease: EASE_CUSTOM }}
-            className="fixed inset-0 z-50 flex flex-col bg-[#060606] pt-24 pb-12 px-8 text-white"
+            className="fixed inset-0 z-50 flex flex-col bg-[#060606] pt-20 sm:pt-24 pb-12 px-6 sm:px-8 text-white overflow-y-auto"
           >
             <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-8">
               <span className="font-mono text-base tracking-[0.14em] text-white/70 uppercase">

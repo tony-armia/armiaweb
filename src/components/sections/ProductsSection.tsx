@@ -174,7 +174,7 @@ export function ProductsSection() {
         className="absolute top-1/4 right-0 w-[550px] h-[550px] rounded-full blur-[140px] pointer-events-none opacity-20 -z-10 mix-blend-screen"
       />
 
-      <div className="w-full max-w-[1920px] mx-auto px-6 md:px-0 relative z-10">
+      <div className="w-full max-w-[1920px] mx-auto relative z-10">
         
         {/* ── Section Header Row (Matching 10.8% Grid) ── */}
         <div className="relative w-full flex flex-col md:flex-row items-start mb-10 md:mb-14">
@@ -208,29 +208,29 @@ export function ProductsSection() {
         </div>
 
         {/* ── Filter Tabs Switcher ── */}
-        <div className="w-full md:w-[78.4%] md:ml-[10.8%] px-6 md:px-0 mb-8 sm:mb-10">
-          <div className="inline-flex items-center p-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md">
+        <div className="w-full md:w-[78.4%] md:ml-[10.8%] px-6 md:px-0 mb-8 sm:mb-10 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden py-1">
+          <div className="inline-flex items-center p-1 sm:p-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md max-w-full">
             <button
               onClick={() => setActiveTab("ai-tools")}
-              className={`flex items-center gap-2 px-6 py-2.5 rounded-full font-mono text-base uppercase tracking-[0.12em] transition-all duration-300 cursor-pointer ${
+              className={`flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-mono text-base uppercase tracking-[0.12em] transition-all duration-300 cursor-pointer whitespace-nowrap ${
                 activeTab === "ai-tools"
                   ? "bg-brand-accent text-white shadow-[0_0_16px_rgba(255,90,0,0.4)] font-medium"
                   : "text-white/60 hover:text-white"
               }`}
             >
-              <Bot className="w-4 h-4" />
+              <Bot className="w-4 h-4 shrink-0" />
               <span>AI Agents &amp; Tools</span>
             </button>
 
             <button
               onClick={() => setActiveTab("saas-platforms")}
-              className={`flex items-center gap-2 px-6 py-2.5 rounded-full font-mono text-base uppercase tracking-[0.12em] transition-all duration-300 cursor-pointer ${
+              className={`flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-mono text-base uppercase tracking-[0.12em] transition-all duration-300 cursor-pointer whitespace-nowrap ${
                 activeTab === "saas-platforms"
                   ? "bg-brand-accent text-white shadow-[0_0_16px_rgba(255,90,0,0.4)] font-medium"
                   : "text-white/60 hover:text-white"
               }`}
             >
-              <Layers className="w-4 h-4" />
+              <Layers className="w-4 h-4 shrink-0" />
               <span>Whitelabel SaaS Engines</span>
             </button>
           </div>
@@ -359,7 +359,7 @@ export function ProductsSection() {
                         </div>
                       </div>
 
-                      <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between">
+                      <div className="pt-4 border-t border-white/[0.06] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                         <span className="font-mono text-base uppercase tracking-wider text-white/40">
                           {platform.highlight}
                         </span>

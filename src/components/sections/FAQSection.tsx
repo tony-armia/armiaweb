@@ -28,7 +28,7 @@ export function FAQSection() {
         <GridLines />
       </div>
 
-      <div className="w-full max-w-[1920px] mx-auto px-6 md:px-0 relative z-10">
+      <div className="w-full max-w-[1920px] mx-auto relative z-10">
         {/* Upper Header Row matching ServicesSection Grid Columns */}
         <div className="relative w-full flex flex-col md:flex-row items-start mb-8 md:mb-12">
           {/* Far Left Section Marker: 10.8% to 30.3% */}

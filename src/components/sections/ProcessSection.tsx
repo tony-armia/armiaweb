@@ -303,7 +303,7 @@ export function ProcessSection() {
 
             {/* Horizontal Phase Stepper Timeline matching mockup */}
             <div className="pt-6 border-t border-white/[0.08]">
-              <div className="flex items-center justify-between gap-2 overflow-x-auto pb-2">
+              <div className="flex items-center justify-between gap-2 overflow-x-auto pb-2 scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
                 {PHASES.map((p, idx) => {
                   const isActive = activeIdx === idx;
                   return (
