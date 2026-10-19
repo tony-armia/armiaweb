@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { EASE_CUSTOM } from "@/lib/motion";
@@ -21,6 +22,7 @@ interface CaseStudyItem {
   image: string;
   caption: string;
   capabilities: string[];
+  link?: string;
 }
 
 const servicesData: CaseStudyItem[] = [
@@ -29,6 +31,7 @@ const servicesData: CaseStudyItem[] = [
     num: "/01",
     category: "LOGISTICS & SAAS PLATFORM",
     title: "Flexshft",
+    link: "/work/flexshft",
     image: "/images/Flexshft.png",
     caption:
       "Enterprise shift-scheduling and dynamic on-demand workforce management platform built for scale.",
@@ -249,16 +252,38 @@ export function PortfolioServicesSection() {
                     variants={imageVariants}
                     className="relative overflow-hidden w-full aspect-[16/10] bg-neutral-900 border border-white/10 shadow-2xl rounded-2xl group"
                   >
-                    <motion.div style={{ y: yImage, scale: 1.08 }} className="relative w-full h-full will-change-transform">
-                      <Image
-                        src={service.image}
-                        alt={service.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 750px"
-                        className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
-                        priority
-                      />
-                    </motion.div>
+                    {service.link ? (
+                      <Link href={service.link} className="block relative w-full h-full cursor-pointer">
+                        <motion.div style={{ y: yImage, scale: 1.08 }} className="relative w-full h-full will-change-transform">
+                          <Image
+                            src={service.image}
+                            alt={service.title}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 750px"
+                            className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
+                            priority
+                          />
+                        </motion.div>
+                        {/* Hover Overlay Badge */}
+                        <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-1 group-hover:translate-y-0">
+                          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/85 backdrop-blur-md border border-[#ff5a00]/60 text-white font-mono text-xs tracking-wider uppercase shadow-[0_0_16px_rgba(255,90,0,0.4)]">
+                            <span>EXPLORE CASE STUDY</span>
+                            <span className="text-[#ff5a00] font-bold">↗</span>
+                          </div>
+                        </div>
+                      </Link>
+                    ) : (
+                      <motion.div style={{ y: yImage, scale: 1.08 }} className="relative w-full h-full will-change-transform">
+                        <Image
+                          src={service.image}
+                          alt={service.title}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 750px"
+                          className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+                          priority
+                        />
+                      </motion.div>
+                    )}
                   </motion.div>
 
                   {/* Caption under large image */}
@@ -290,12 +315,24 @@ export function PortfolioServicesSection() {
                         variants={maskVariants}
                         className="font-sans text-[clamp(2.2rem,3.2vw,4.0rem)] leading-[1.0] tracking-[-0.04em] font-medium text-white"
                       >
-                        {service.title}
+                        {service.link ? (
+                          <Link
+                            href={service.link}
+                            className="inline-flex items-center gap-3 hover:text-brand-accent transition-colors group/title cursor-pointer"
+                          >
+                            <span>{service.title}</span>
+                            <span className="text-brand-accent text-2xl md:text-3xl font-light transition-transform duration-300 group-hover/title:translate-x-1 group-hover/title:-translate-y-1">
+                              ↗
+                            </span>
+                          </Link>
+                        ) : (
+                          service.title
+                        )}
                       </motion.h3>
                     </div>
 
                     {/* Capabilities List */}
-                    <div className="mb-6 md:mb-8">
+                    <div className="mb-5 md:mb-6">
                       <div className="font-mono text-base tracking-[0.12em] text-white/60 uppercase mb-3">
                         ENGINEERING HIGHLIGHTS
                       </div>
@@ -314,6 +351,21 @@ export function PortfolioServicesSection() {
                         ))}
                       </ul>
                     </div>
+
+                    {/* Prominent Case Study Button */}
+                    {service.link && (
+                      <motion.div variants={fadeUpVariants} className="mb-6">
+                        <Link
+                          href={service.link}
+                          className="inline-flex items-center justify-between gap-4 bg-brand-accent hover:bg-[#ff4500] text-white h-[46px] sm:h-[48px] px-6 rounded-full font-mono text-xs sm:text-sm tracking-[0.12em] uppercase font-semibold transition-all duration-300 shadow-[0_0_20px_rgba(255,90,0,0.35)] hover:shadow-[0_0_28px_rgba(255,90,0,0.55)] group/btn cursor-pointer"
+                        >
+                          <span>READ {service.title.toUpperCase()} CASE STUDY</span>
+                          <div className="flex items-center justify-center h-6 w-6 rounded-full bg-white text-black transition-transform duration-300 group-hover/btn:translate-x-0.5 shrink-0">
+                            <span className="text-black text-xs font-bold">›</span>
+                          </div>
+                        </Link>
+                      </motion.div>
+                    )}
                   </div>
 
                   {/* 01 / 02 / 03 / 04 / 05 Rotator Numbered Controls Strip */}

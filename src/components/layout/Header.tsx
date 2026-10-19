@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { EASE_CUSTOM } from "@/lib/motion";
@@ -19,6 +20,8 @@ const NAV_ITEMS = [
 ] as const;
 
 export function Header() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isPastHero, setIsPastHero] = useState(false);
   const [isLight, setIsLight] = useState(false);
@@ -155,22 +158,37 @@ export function Header() {
             </Link>
 
             <div className="flex items-center gap-1.5 sm:gap-2.5">
-              {/* Hero Switcher Dropdown integrated seamlessly inside header controls */}
-              <div className="relative">
-                <select
-                  value={activeHero}
-                  onChange={(e) => handleHeroChange(e.target.value as "hero1" | "hero2")}
-                  aria-label="Hero Version Switcher"
-                  className={`backdrop-blur-md border text-base font-mono tracking-wide px-2 sm:px-3 h-[42px] md:h-[44px] rounded-full outline-none focus:border-brand-accent transition-all duration-300 cursor-pointer shadow-sm ${
+              {isHome ? (
+                /* Hero Switcher Dropdown integrated seamlessly inside header controls on homepage */
+                <div className="relative">
+                  <select
+                    value={activeHero}
+                    onChange={(e) => handleHeroChange(e.target.value as "hero1" | "hero2")}
+                    aria-label="Hero Version Switcher"
+                    suppressHydrationWarning
+                    className={`backdrop-blur-md border text-base font-mono tracking-wide px-2 sm:px-3 h-[42px] md:h-[44px] rounded-full outline-none focus:border-brand-accent transition-all duration-300 cursor-pointer shadow-sm ${
+                      isLightContext
+                        ? "bg-black/[0.06] hover:bg-black/[0.10] border-black/15 text-foreground hover:border-brand-accent/40"
+                        : "bg-white/10 hover:bg-white/15 border-white/20 text-white hover:border-brand-accent/50"
+                    }`}
+                  >
+                    <option value="hero1" className="bg-neutral-900 text-white">Hero 1</option>
+                    <option value="hero2" className="bg-neutral-900 text-white">Hero 2</option>
+                  </select>
+                </div>
+              ) : (
+                <Link
+                  href="/#work"
+                  className={`hidden sm:inline-flex items-center gap-2 px-3.5 h-[42px] md:h-[44px] rounded-full border text-base font-mono tracking-wide backdrop-blur-md transition-all duration-300 group ${
                     isLightContext
                       ? "bg-black/[0.06] hover:bg-black/[0.10] border-black/15 text-foreground hover:border-brand-accent/40"
                       : "bg-white/10 hover:bg-white/15 border-white/20 text-white hover:border-brand-accent/50"
                   }`}
                 >
-                  <option value="hero1" className="bg-neutral-900 text-white">Hero 1</option>
-                  <option value="hero2" className="bg-neutral-900 text-white">Hero 2</option>
-                </select>
-              </div>
+                  <span className="text-brand-accent font-bold transition-transform duration-300 group-hover:-translate-x-0.5">←</span>
+                  <span className="text-xs sm:text-sm font-semibold tracking-wider">ALL WORK</span>
+                </Link>
+              )}
 
               {/* Theme Toggle — always visible for easy access */}
               <ThemeToggle isPastHero={isLightContext} />
@@ -247,7 +265,7 @@ export function Header() {
                   transition={{ delay: 0.08 + idx * 0.04, duration: 0.35 }}
                 >
                   <Link
-                    href={`#${label.toLowerCase().replace(/\s+/g, "-")}`}
+                    href={isHome ? `#${label.toLowerCase().replace(/\s+/g, "-")}` : `/#${label.toLowerCase().replace(/\s+/g, "-")}`}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block font-sans text-3xl md:text-4xl font-normal tracking-tight text-white hover:text-brand-accent transition-colors focus:outline-none focus-visible:text-brand-accent"
                   >

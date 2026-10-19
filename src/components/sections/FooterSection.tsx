@@ -182,6 +182,7 @@ export function FooterSection() {
                       placeholder="Jane Smith"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      suppressHydrationWarning
                       className="w-full bg-[#121212]/70 text-white font-mono text-base px-5 py-4 border border-white/[0.08] rounded-xl focus:outline-none focus:border-brand-accent placeholder:text-white/20 transition-colors duration-200"
                     />
                   </div>
@@ -197,6 +198,7 @@ export function FooterSection() {
                       placeholder="hello@armiasystems.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      suppressHydrationWarning
                       className="w-full bg-[#121212]/70 text-white font-mono text-base px-5 py-4 border border-white/[0.08] rounded-xl focus:outline-none focus:border-brand-accent placeholder:text-white/20 transition-colors duration-200"
                     />
                   </div>
@@ -212,6 +214,7 @@ export function FooterSection() {
                       placeholder="Tell us about your project ..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      suppressHydrationWarning
                       className="w-full bg-[#121212]/70 text-white font-mono text-base px-5 py-4 border border-white/[0.08] rounded-xl focus:outline-none focus:border-brand-accent placeholder:text-white/20 resize-none transition-colors duration-200"
                     />
                   </div>

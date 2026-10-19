@@ -55,6 +55,20 @@ export default function RootLayout({
   var theme=(stored==='light'||stored==='dark')?stored:'dark';
   document.documentElement.classList.remove('dark','light');
   document.documentElement.classList.add(theme);
+
+  // Intercept and prevent browser extensions (e.g. McAfee WebAdvisor, form fillers)
+  // from injecting 'fdprocessedid' before React hydration completes, preventing hydration mismatch errors.
+  var origSetAttr = Element.prototype.setAttribute;
+  Element.prototype.setAttribute = function(name, val) {
+    if (name === 'fdprocessedid') return;
+    return origSetAttr.apply(this, arguments);
+  };
+  if (typeof document !== 'undefined') {
+    var els = document.querySelectorAll('[fdprocessedid]');
+    for (var i = 0; i < els.length; i++) {
+      els[i].removeAttribute('fdprocessedid');
+    }
+  }
 }catch(e){}})();
             `.trim(),
           }}
