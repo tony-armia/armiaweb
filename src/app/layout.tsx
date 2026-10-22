@@ -51,7 +51,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
 (function(){try{
-  var stored=localStorage.getItem('armia-theme');
+  var stored=localStorage.getItem('armia-theme-v2');
   var theme=(stored==='light'||stored==='dark')?stored:'dark';
   document.documentElement.classList.remove('dark','light');
   document.documentElement.classList.add(theme);

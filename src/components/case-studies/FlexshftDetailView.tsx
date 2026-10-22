@@ -154,17 +154,17 @@ export function FlexshftDetailView() {
               transition={{ duration: 0.45, ease: EASE_CUSTOM }}
               className="flex flex-wrap items-center justify-between gap-4 mb-8 sm:mb-10"
             >
-              <div className="flex items-center gap-2 sm:gap-3 font-mono text-xs sm:text-sm tracking-[0.14em] text-white/60 uppercase">
+              <div className="flex items-center gap-2 sm:gap-3 font-mono text-sm sm:text-base tracking-[0.14em] text-white/70 uppercase font-medium">
                 <Link href="/" className="hover:text-brand-accent transition-colors">HOME</Link>
                 <span className="text-white/30">/</span>
-                <Link href="/#work" className="hover:text-brand-accent transition-colors">CASE STUDIES</Link>
+                <Link href="/work" className="hover:text-brand-accent transition-colors">CASE STUDIES</Link>
                 <span className="text-white/30">/</span>
                 <span className="text-brand-accent font-semibold">FLEXSHFT</span>
               </div>
 
               <Link
-                href="/#work"
-                className="inline-flex items-center gap-2 font-mono text-xs sm:text-sm tracking-[0.14em] uppercase text-white/80 hover:text-brand-accent transition-colors group"
+                href="/work"
+                className="inline-flex items-center gap-2 font-mono text-sm sm:text-base tracking-[0.14em] uppercase text-white/80 hover:text-brand-accent transition-colors group font-medium"
               >
                 <ArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" />
                 <span>ALL CASE STUDIES</span>
@@ -176,10 +176,10 @@ export function FlexshftDetailView() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.08, ease: EASE_CUSTOM }}
-              className="flex items-center gap-3 mb-4"
+              className="flex items-center gap-2.5 mb-4 select-none"
             >
-              <span className="h-[2px] w-[24px] bg-brand-accent inline-block" />
-              <span className="font-mono text-xs sm:text-sm tracking-[0.16em] text-brand-accent font-semibold uppercase">
+              <span className="h-2 w-2 rounded-full bg-brand-accent inline-block shadow-[0_0_8px_rgba(255,90,0,0.6)] shrink-0" />
+              <span className="font-mono text-base font-semibold tracking-[0.14em] text-brand-accent uppercase">
                 CASE STUDY / 01 • WORKFORCE MANAGEMENT PLATFORM
               </span>
             </motion.div>
@@ -201,7 +201,7 @@ export function FlexshftDetailView() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.22, ease: EASE_CUSTOM }}
-              className="font-sans text-lg sm:text-xl md:text-2xl text-white/75 font-normal leading-[1.6] max-w-4xl mb-8 sm:mb-10"
+              className="font-sans text-lg sm:text-xl md:text-2xl text-white/85 font-normal leading-[1.65] max-w-4xl mb-8 sm:mb-10"
             >
               FLEXSHFT is an on-demand workforce marketplace combining a native mobile application and web platform to simplify hiring, empower flexible professionals, and transform the future of temporary staffing across the hospitality, leisure, and events industry.
             </motion.p>
@@ -211,22 +211,22 @@ export function FlexshftDetailView() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.28, ease: EASE_CUSTOM }}
-              className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-10 sm:mb-12 font-mono text-xs text-white/80"
+              className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-10 sm:mb-12 font-mono text-xs sm:text-sm text-white/85"
             >
-              <span className="px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/10 flex items-center gap-2">
-                <Smartphone className="w-3.5 h-3.5 text-brand-accent" />
-                <span>Worker Mobile App (iOS & Android)</span>
+              <span className="px-3.5 sm:px-4 py-2 rounded-full bg-white/[0.06] border border-white/10 flex items-center gap-2 sm:gap-2.5 whitespace-nowrap">
+                <Smartphone className="w-4 h-4 text-brand-accent shrink-0" />
+                <span>Worker Mobile App</span>
               </span>
-              <span className="px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/10 flex items-center gap-2">
-                <Globe className="w-3.5 h-3.5 text-brand-accent" />
-                <span>Business Web Portal & Admin</span>
+              <span className="px-3.5 sm:px-4 py-2 rounded-full bg-white/[0.06] border border-white/10 flex items-center gap-2 sm:gap-2.5 whitespace-nowrap">
+                <Globe className="w-4 h-4 text-brand-accent shrink-0" />
+                <span>Business Web Portal</span>
               </span>
-              <span className="px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/10 flex items-center gap-2">
-                <Building2 className="w-3.5 h-3.5 text-brand-accent" />
-                <span>Hospitality, Leisure & Events</span>
+              <span className="px-3.5 sm:px-4 py-2 rounded-full bg-white/[0.06] border border-white/10 flex items-center gap-2 sm:gap-2.5 whitespace-nowrap">
+                <Building2 className="w-4 h-4 text-brand-accent shrink-0" />
+                <span>Hospitality &amp; Events</span>
               </span>
-              <span className="px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="px-3.5 sm:px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 flex items-center gap-2 sm:gap-2.5 whitespace-nowrap">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
                 <span>Production Release</span>
               </span>
             </motion.div>
@@ -253,7 +253,7 @@ export function FlexshftDetailView() {
 
               {/* Status pill top-right */}
               <div
-                className="absolute top-4 sm:top-6 right-4 sm:right-6 z-20 hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/15 font-mono text-[11px]"
+                className="absolute top-4 sm:top-6 right-4 sm:right-6 z-20 hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/15 font-mono text-xs tracking-wider font-medium"
                 style={{ color: "#e4e4e7" }}
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -262,7 +262,7 @@ export function FlexshftDetailView() {
 
               {/* Caption bottom-left */}
               <div
-                className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-20 flex items-center gap-2.5 font-mono text-xs"
+                className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-20 flex items-center gap-2.5 font-mono text-xs sm:text-sm tracking-wide font-medium"
                 style={{ color: "#d4d4d8" }}
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-brand-accent animate-pulse" />
@@ -291,18 +291,18 @@ export function FlexshftDetailView() {
               
               {/* Left Column: Client Overview */}
               <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="h-[2px] w-[20px] bg-brand-accent inline-block" />
-                  <span className="font-mono text-xs sm:text-sm tracking-[0.14em] text-white/60 uppercase font-semibold">
+                <div className="flex items-center gap-2.5 mb-4 select-none">
+                  <span className="h-2 w-2 rounded-full bg-brand-accent inline-block shadow-[0_0_8px_rgba(255,90,0,0.6)] shrink-0" />
+                  <span className="font-mono text-base font-semibold tracking-[0.14em] text-white/70 uppercase">
                     CLIENT OVERVIEW
                   </span>
                 </div>
 
-                <h2 className="font-sans text-2xl sm:text-3xl font-light text-white mb-5 leading-snug">
-                  Simplifying Temporary Staffing for <span className="font-normal text-white/90">Hospitality & Events</span>
+                <h2 className="font-sans text-2xl sm:text-3xl lg:text-[2rem] font-light text-white mb-5 leading-snug tracking-tight">
+                  Simplifying Temporary Staffing for <span className="font-normal text-white/90">Hospitality &amp; Events</span>
                 </h2>
 
-                <div className="space-y-4 font-sans text-sm sm:text-base text-white/70 leading-[1.7]">
+                <div className="space-y-4 font-sans text-base sm:text-[17px] md:text-[18px] text-white/80 leading-[1.8]">
                   <p>
                     Designed for the hospitality, leisure, and events industry, FLEXSHFT connects businesses with skilled, on-demand workers through a fast, secure, and user-friendly digital experience.
                   </p>
@@ -316,19 +316,19 @@ export function FlexshftDetailView() {
               </div>
 
               {/* Right Column: Project Description & Armia Delivery */}
-              <div className="p-7 sm:p-8 rounded-2xl bg-[#0d0d0d] hover:bg-[#111111] border border-white/[0.08] transition-colors duration-300">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="h-[2px] w-[20px] bg-brand-accent inline-block" />
-                  <span className="font-mono text-xs sm:text-sm tracking-[0.14em] text-brand-accent uppercase font-semibold">
+              <div className="p-7 sm:p-9 rounded-2xl sm:rounded-3xl bg-[#0d0d0d] hover:bg-[#111111] border border-white/[0.08] transition-colors duration-300">
+                <div className="flex items-center gap-2.5 mb-4 select-none">
+                  <span className="h-2 w-2 rounded-full bg-brand-accent inline-block shadow-[0_0_8px_rgba(255,90,0,0.6)] shrink-0" />
+                  <span className="font-mono text-base font-semibold tracking-[0.14em] text-brand-accent uppercase">
                     PROJECT EXECUTION
                   </span>
                 </div>
 
-                <h3 className="font-sans text-2xl font-light text-white mb-4 leading-snug">
+                <h3 className="font-sans text-2xl sm:text-3xl lg:text-[2rem] font-light text-white mb-4 leading-snug tracking-tight">
                   Comprehensive Workforce Solution Delivered by Armia
                 </h3>
 
-                <div className="space-y-4 font-sans text-sm sm:text-base text-white/70 leading-[1.7] mb-6">
+                <div className="space-y-4 font-sans text-base sm:text-[17px] md:text-[18px] text-white/80 leading-[1.8] mb-6">
                   <p>
                     Armia Systems delivered a complete workforce management solution comprising a worker mobile application, business web portal, and administration platform.
                   </p>
@@ -338,18 +338,18 @@ export function FlexshftDetailView() {
                 </div>
 
                 {/* Scope Highlights */}
-                <div className="pt-5 border-t border-white/[0.08] space-y-2.5 font-mono text-xs text-white/80">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-brand-accent shrink-0" />
-                    <span>Cross-platform mobile apps for iOS & Android</span>
+                <div className="pt-6 border-t border-white/[0.08] space-y-3 font-mono text-xs sm:text-sm text-white/85 tracking-wide leading-relaxed">
+                  <div className="flex items-center gap-2.5">
+                    <CheckCircle2 className="w-4.5 h-4.5 text-brand-accent shrink-0" />
+                    <span>Cross-platform mobile apps for iOS &amp; Android</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-brand-accent shrink-0" />
-                    <span>Centralized business portal & administration system</span>
+                  <div className="flex items-center gap-2.5">
+                    <CheckCircle2 className="w-4.5 h-4.5 text-brand-accent shrink-0" />
+                    <span>Centralized business portal &amp; administration system</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-brand-accent shrink-0" />
-                    <span>Real-time communication, matching & secure billing</span>
+                  <div className="flex items-center gap-2.5">
+                    <CheckCircle2 className="w-4.5 h-4.5 text-brand-accent shrink-0" />
+                    <span>Real-time communication, matching &amp; secure billing</span>
                   </div>
                 </div>
               </div>
@@ -366,10 +366,10 @@ export function FlexshftDetailView() {
               <div className="p-6 sm:p-10 rounded-2xl sm:rounded-3xl bg-[#0d0d0d] border border-white/[0.1] relative group overflow-hidden transition-colors duration-300">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                   <div>
-                    <span className="font-mono text-xs tracking-[0.16em] text-brand-accent uppercase font-semibold">
+                    <span className="font-mono text-xs sm:text-sm tracking-[0.16em] text-brand-accent uppercase font-semibold">
                       DESIGN SHOWCASE 01 • PRODUCT OVERVIEW
                     </span>
-                    <h3 className="font-sans text-xl sm:text-2xl font-medium text-white mt-1">
+                    <h3 className="font-sans text-xl sm:text-2xl md:text-[26px] font-medium text-white mt-1.5 tracking-tight">
                       Mobile-First Worker Marketplace Experience
                     </h3>
                   </div>
@@ -378,14 +378,14 @@ export function FlexshftDetailView() {
                     type="button"
                     onClick={() =>
                       setLightboxImage({
-                        src: "/images/flexshft-product-overview.png",
+                        src: "/images/flexshft-product-overview1.png",
                         alt: "FLEXSHFT Product Overview Design Artboard",
                         title: "FLEXSHFT Product Overview Artboard",
                       })
                     }
-                    className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 font-mono text-xs text-white/80 hover:text-white transition-colors cursor-pointer self-start sm:self-auto"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 font-mono text-xs sm:text-sm text-white/80 hover:text-white transition-colors cursor-pointer self-start sm:self-auto font-medium"
                   >
-                    <Maximize2 className="w-3.5 h-3.5 text-brand-accent" />
+                    <Maximize2 className="w-4 h-4 text-brand-accent" />
                     <span>EXPAND ARTBOARD</span>
                   </button>
                 </div>
@@ -393,7 +393,7 @@ export function FlexshftDetailView() {
                 <div
                   onClick={() =>
                     setLightboxImage({
-                      src: "/images/flexshft-product-overview.png",
+                      src: "/images/flexshft-product-overview1.png",
                       alt: "FLEXSHFT Product Overview Design Artboard",
                       title: "FLEXSHFT Product Overview Artboard",
                     })
@@ -401,26 +401,26 @@ export function FlexshftDetailView() {
                   className="relative w-full rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 cursor-pointer shadow-none dark:shadow-2xl group/artboard"
                 >
                   <Image
-                    src="/images/flexshft-product-overview.png"
+                    src="/images/flexshft-product-overview1.png"
                     alt="FLEXSHFT Product Overview — Mobile Worker Marketplace, Shift Discovery, and Push Notifications"
                     width={3840}
-                    height={3986}
+                    height={3202}
                     sizes="(max-width: 1200px) 100vw, 1600px"
                     className="w-full h-auto block transition-transform duration-700 group-hover/artboard:scale-[1.008]"
                     priority
                   />
                   <div className="absolute top-4 right-4 z-20 opacity-0 group-hover/artboard:opacity-100 transition-opacity">
                     <span
-                      className="px-3.5 py-1.5 rounded-full bg-black/85 backdrop-blur-md border border-white/20 font-mono text-xs flex items-center gap-1.5 shadow-xl"
+                      className="px-4 py-2 rounded-full bg-black/85 backdrop-blur-md border border-white/20 font-mono text-xs sm:text-sm flex items-center gap-2 shadow-xl"
                       style={{ color: "#ffffff" }}
                     >
-                      <Maximize2 className="w-3.5 h-3.5 text-brand-accent" />
+                      <Maximize2 className="w-4 h-4 text-brand-accent" />
                       <span style={{ color: "#ffffff" }}>Click to view full resolution</span>
                     </span>
                   </div>
                 </div>
 
-                <p className="font-sans text-xs sm:text-sm text-white/60 mt-4 leading-relaxed">
+                <p className="font-sans text-base sm:text-[17px] text-white/80 mt-5 leading-[1.75]">
                   FLEXSHFT is a mobile-first worker marketplace for hospitality and events. Workers discover relevant SHFTs, build trusted profiles, manage work, communicate with businesses, and track earnings — all within one connected mobile experience.
                 </p>
               </div>
@@ -429,10 +429,10 @@ export function FlexshftDetailView() {
               <div className="p-6 sm:p-10 rounded-2xl sm:rounded-3xl bg-[#0d0d0d] border border-white/[0.1] relative group overflow-hidden transition-colors duration-300">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                   <div>
-                    <span className="font-mono text-xs tracking-[0.16em] text-brand-accent uppercase font-semibold">
+                    <span className="font-mono text-xs sm:text-sm tracking-[0.16em] text-brand-accent uppercase font-semibold">
                       DESIGN SHOWCASE 02 • IDENTITY &amp; VERIFICATION
                     </span>
-                    <h3 className="font-sans text-xl sm:text-2xl font-medium text-white mt-1">
+                    <h3 className="font-sans text-xl sm:text-2xl md:text-[26px] font-medium text-white mt-1.5 tracking-tight">
                       Right-to-Work Compliance &amp; Brand Construction
                     </h3>
                   </div>
@@ -441,14 +441,14 @@ export function FlexshftDetailView() {
                     type="button"
                     onClick={() =>
                       setLightboxImage({
-                        src: "/images/flexshft-verification.png",
+                        src: "/images/flexshft-verification1.png",
                         alt: "FLEXSHFT Verification and Brand Design Artboard",
                         title: "FLEXSHFT Verification Artboard",
                       })
                     }
-                    className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 font-mono text-xs text-white/80 hover:text-white transition-colors cursor-pointer self-start sm:self-auto"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 font-mono text-xs sm:text-sm text-white/80 hover:text-white transition-colors cursor-pointer self-start sm:self-auto font-medium"
                   >
-                    <Maximize2 className="w-3.5 h-3.5 text-brand-accent" />
+                    <Maximize2 className="w-4 h-4 text-brand-accent" />
                     <span>EXPAND ARTBOARD</span>
                   </button>
                 </div>
@@ -456,7 +456,7 @@ export function FlexshftDetailView() {
                 <div
                   onClick={() =>
                     setLightboxImage({
-                      src: "/images/flexshft-verification.png",
+                      src: "/images/flexshft-verification1.png",
                       alt: "FLEXSHFT Verification and Brand Design Artboard",
                       title: "FLEXSHFT Verification Artboard",
                     })
@@ -464,25 +464,25 @@ export function FlexshftDetailView() {
                   className="relative w-full rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 cursor-pointer shadow-none dark:shadow-2xl group/artboard"
                 >
                   <Image
-                    src="/images/flexshft-verification.png"
+                    src="/images/flexshft-verification1.png"
                     alt="FLEXSHFT Verification — Right to Work checks, identity verification, logo grid, and iOS app tile"
                     width={3840}
-                    height={3804}
+                    height={3296}
                     sizes="(max-width: 1200px) 100vw, 1600px"
                     className="w-full h-auto block transition-transform duration-700 group-hover/artboard:scale-[1.008]"
                   />
                   <div className="absolute top-4 right-4 z-20 opacity-0 group-hover/artboard:opacity-100 transition-opacity">
                     <span
-                      className="px-3.5 py-1.5 rounded-full bg-black/85 backdrop-blur-md border border-white/20 font-mono text-xs flex items-center gap-1.5 shadow-xl"
+                      className="px-4 py-2 rounded-full bg-black/85 backdrop-blur-md border border-white/20 font-mono text-xs sm:text-sm flex items-center gap-2 shadow-xl"
                       style={{ color: "#ffffff" }}
                     >
-                      <Maximize2 className="w-3.5 h-3.5 text-brand-accent" />
+                      <Maximize2 className="w-4 h-4 text-brand-accent" />
                       <span style={{ color: "#ffffff" }}>Click to view full resolution</span>
                     </span>
                   </div>
                 </div>
 
-                <p className="font-sans text-xs sm:text-sm text-white/60 mt-4 leading-relaxed">
+                <p className="font-sans text-base sm:text-[17px] text-white/80 mt-5 leading-[1.75]">
                   Workers can browse before verification, but must verify before applying. A trusted third-party provider handles identity and Right to Work checks, which may include document verification, selfie matching, and authenticity checks. Verified workers receive a visible profile status.
                 </p>
               </div>
@@ -504,18 +504,18 @@ export function FlexshftDetailView() {
         <div className="w-full max-w-[1920px] mx-auto px-6 md:px-0">
           <div className="w-full md:w-[78.0%] md:ml-[10.8%]">
             
-            <div className="flex items-center gap-3 mb-4">
-              <span className="h-[2px] w-[20px] bg-brand-accent inline-block" />
-              <span className="font-mono text-xs sm:text-sm tracking-[0.14em] text-white/60 uppercase font-semibold">
+            <div className="flex items-center gap-2.5 mb-4 select-none">
+              <span className="h-2 w-2 rounded-full bg-brand-accent inline-block shadow-[0_0_8px_rgba(255,90,0,0.6)] shrink-0" />
+              <span className="font-mono text-base font-semibold tracking-[0.14em] text-white/70 uppercase">
                 CORE CAPABILITIES
               </span>
             </div>
 
-            <h2 className="font-sans text-[clamp(2rem,3.2vw,3.2rem)] font-light tracking-tight text-white mb-4">
-              Mobile App & <span className="font-normal text-white/90">Platform Features</span>
+            <h2 className="font-sans text-[clamp(2.2rem,3.4vw,3.5rem)] font-light tracking-tight text-white mb-4">
+              Mobile App &amp; <span className="font-normal text-white/90">Platform Features</span>
             </h2>
 
-            <p className="font-sans text-base sm:text-lg text-white/70 leading-[1.7] max-w-2xl mb-12">
+            <p className="font-sans text-lg sm:text-xl text-white/80 leading-[1.7] max-w-2xl mb-12">
               Key capabilities engineered into the FLEXSHFT ecosystem to power high-velocity shift operations:
             </p>
 
@@ -525,23 +525,23 @@ export function FlexshftDetailView() {
                 return (
                   <div
                     key={item.num}
-                    className="p-6 rounded-2xl bg-[#0d0d0d] hover:bg-[#111111] border border-white/[0.08] hover:border-brand-accent/40 transition-colors duration-300 flex flex-col justify-between"
+                    className="p-6 sm:p-7 rounded-2xl bg-[#0d0d0d] hover:bg-[#111111] border border-white/[0.08] hover:border-brand-accent/40 transition-colors duration-300 flex flex-col justify-between"
                   >
                     <div>
                       <div className="flex items-center justify-between mb-4">
-                        <span className="font-mono text-xs text-brand-accent font-semibold tracking-wider">
+                        <span className="font-mono text-sm sm:text-base text-brand-accent font-semibold tracking-wider">
                           /{item.num}
                         </span>
-                        <div className="h-8 w-8 rounded-full bg-white/[0.05] flex items-center justify-center text-brand-accent">
-                          <Icon className="w-4 h-4" />
+                        <div className="h-9 w-9 rounded-full bg-white/[0.05] flex items-center justify-center text-brand-accent">
+                          <Icon className="w-4.5 h-4.5" />
                         </div>
                       </div>
 
-                      <h3 className="font-sans text-lg font-medium text-white mb-2">
+                      <h3 className="font-sans text-xl sm:text-2xl font-medium text-white mb-2.5 tracking-tight">
                         {item.title}
                       </h3>
 
-                      <p className="font-sans text-xs sm:text-sm text-white/60 leading-[1.6]">
+                      <p className="font-sans text-base sm:text-[16.5px] text-white/75 leading-[1.7]">
                         {item.description}
                       </p>
                     </div>
@@ -565,20 +565,21 @@ export function FlexshftDetailView() {
         <div className="w-full max-w-[1920px] mx-auto px-6 md:px-0">
           <div className="w-full md:w-[78.0%] md:ml-[10.8%]">
             
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 p-8 sm:p-10 rounded-2xl bg-[#0d0d0d] border border-white/[0.08]">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 p-8 sm:p-10 rounded-2xl sm:rounded-3xl bg-[#0d0d0d] border border-white/[0.08]">
               <div>
-                <div className="flex items-center gap-2 mb-2 font-mono text-xs text-brand-accent uppercase tracking-wider font-semibold">
-                  <span>TECHNOLOGIES & DELIVERY</span>
+                <div className="flex items-center gap-2.5 mb-2.5 font-mono text-base font-semibold text-brand-accent uppercase tracking-[0.14em]">
+                  <span className="h-2 w-2 rounded-full bg-brand-accent inline-block shadow-[0_0_8px_rgba(255,90,0,0.6)] shrink-0" />
+                  <span>TECHNOLOGIES &amp; DELIVERY</span>
                 </div>
-                <h3 className="font-sans text-2xl font-light text-white mb-3">
+                <h3 className="font-sans text-2xl sm:text-3xl font-light text-white mb-3 tracking-tight">
                   Delivered by Armia Systems
                 </h3>
-                <p className="font-sans text-sm text-white/65 max-w-xl leading-relaxed">
+                <p className="font-sans text-base sm:text-[17px] text-white/80 max-w-xl leading-[1.75]">
                   Engineered using modern mobile and cloud technologies to ensure fast response times, high availability, and seamless scalability across thousands of active shifts.
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-2 md:max-w-md">
+              <div className="flex flex-wrap gap-2.5 md:max-w-md">
                 {[
                   "React Native",
                   "iOS & Android",
@@ -591,7 +592,7 @@ export function FlexshftDetailView() {
                 ].map((tech) => (
                   <span
                     key={tech}
-                    className="px-3.5 py-1.5 rounded-full bg-white/[0.06] text-white/90 font-mono text-xs border border-white/10"
+                    className="px-4 py-2 rounded-full bg-white/[0.06] text-white/90 font-mono text-xs sm:text-sm tracking-wider border border-white/10 font-medium"
                   >
                     {tech}
                   </span>
@@ -616,62 +617,64 @@ export function FlexshftDetailView() {
             
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
               <div>
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="h-[2px] w-[20px] bg-brand-accent inline-block" />
-                  <span className="font-mono text-xs sm:text-sm tracking-[0.14em] text-white/60 uppercase font-semibold">
+                <div className="flex items-center gap-2.5 mb-3 select-none">
+                  <span className="h-2 w-2 rounded-full bg-brand-accent inline-block shadow-[0_0_8px_rgba(255,90,0,0.6)] shrink-0" />
+                  <span className="font-mono text-base font-semibold tracking-[0.14em] text-white/70 uppercase">
                     MORE WORK
                   </span>
                 </div>
-                <h2 className="font-sans text-[clamp(2rem,3vw,3rem)] font-light tracking-tight text-white">
+                <h2 className="font-sans text-[clamp(2rem,3.2vw,3rem)] font-light tracking-tight text-white">
                   Explore Other <span className="font-normal text-white/90">Armia Case Studies</span>
                 </h2>
               </div>
 
               <Link
-                href="/#work"
-                className="font-mono text-xs sm:text-sm text-brand-accent hover:text-white transition-colors flex items-center gap-2 group shrink-0"
+                href="/work"
+                className="font-mono text-sm sm:text-base tracking-[0.1em] text-brand-accent hover:text-white transition-colors flex items-center gap-2 group shrink-0 font-medium"
               >
                 <span>ALL CASE STUDIES</span>
-                <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                <span className="transition-transform duration-300 group-hover:translate-x-1 font-bold">→</span>
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
               {RELATED_PROJECTS.map((proj) => (
                 <Link
                   key={proj.id}
                   href={proj.link}
-                  className="group block p-6 rounded-2xl bg-[#0d0d0d] hover:bg-[#111111] border border-white/[0.08] hover:border-brand-accent/50 transition-all duration-300 overflow-hidden"
+                  className="group block p-6 sm:p-7 rounded-2xl sm:rounded-3xl bg-[#0d0d0d] hover:bg-[#111111] border border-white/[0.08] hover:border-brand-accent/50 transition-all duration-300 overflow-hidden flex flex-col justify-between"
                 >
-                  <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden bg-neutral-900 border border-white/10 mb-5">
-                    <Image
-                      src={proj.image}
-                      alt={proj.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 400px"
-                      className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span className="p-1.5 rounded-full bg-brand-accent flex items-center justify-center shadow-md">
-                        <ArrowUpRight className="w-4 h-4 text-white" style={{ color: "#ffffff" }} />
-                      </span>
+                  <div>
+                    <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden bg-neutral-900 border border-white/10 mb-5">
+                      <Image
+                        src={proj.image}
+                        alt={proj.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 400px"
+                        className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span className="p-2 rounded-full bg-brand-accent flex items-center justify-center shadow-md">
+                          <ArrowUpRight className="w-4 h-4 text-white" style={{ color: "#ffffff" }} />
+                        </span>
+                      </div>
                     </div>
+
+                    <div className="flex items-center justify-between font-mono text-xs sm:text-sm uppercase mb-2.5">
+                      <span className="tracking-[0.12em] text-white/70 font-semibold">{proj.category}</span>
+                      <span className="text-brand-accent font-bold text-sm sm:text-base">{proj.num}</span>
+                    </div>
+
+                    <h3 className="font-sans text-2xl font-light text-white mb-2 tracking-tight group-hover:text-brand-accent transition-colors">
+                      {proj.title}
+                    </h3>
+
+                    <p className="font-sans text-base sm:text-[16.5px] text-white/75 leading-[1.7] line-clamp-2 mb-4">
+                      {proj.description}
+                    </p>
                   </div>
 
-                  <div className="flex items-center justify-between font-mono text-xs text-white/50 uppercase mb-2">
-                    <span>{proj.category}</span>
-                    <span className="text-brand-accent font-semibold">{proj.num}</span>
-                  </div>
-
-                  <h3 className="font-sans text-xl font-medium text-white mb-2 group-hover:text-brand-accent transition-colors">
-                    {proj.title}
-                  </h3>
-
-                  <p className="font-sans text-xs sm:text-sm text-white/60 leading-[1.6] line-clamp-2 mb-4">
-                    {proj.description}
-                  </p>
-
-                  <div className="font-mono text-[11px] text-white/40 tracking-wider">
+                  <div className="font-mono text-xs sm:text-sm text-white/60 tracking-wider pt-3 border-t border-white/[0.08]">
                     {proj.tag}
                   </div>
                 </Link>
@@ -695,22 +698,23 @@ export function FlexshftDetailView() {
             
             <div className="p-8 sm:p-12 rounded-3xl bg-[#0d0d0d] border border-black/[0.08] dark:border-white/[0.12] text-center relative overflow-hidden shadow-none dark:shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
               <div className="relative z-10 max-w-2xl mx-auto">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-accent/15 border border-brand-accent/30 text-brand-accent font-mono text-xs uppercase font-semibold mb-5">
+                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-brand-accent/15 border border-brand-accent/30 text-brand-accent font-mono text-sm uppercase font-semibold mb-6">
+                  <span className="h-2 w-2 rounded-full bg-brand-accent inline-block shadow-[0_0_8px_rgba(255,90,0,0.6)] shrink-0" />
                   <span style={{ color: "#ff5a00" }}>START YOUR PROJECT</span>
                 </div>
 
-                <h2 className="font-sans text-[clamp(2rem,3.8vw,3.4rem)] font-light tracking-tight text-white leading-[1.1] mb-5">
+                <h2 className="font-sans text-[clamp(2.2rem,4vw,3.6rem)] font-light tracking-tight text-white leading-[1.08] mb-5">
                   Have a Product Idea <span className="font-normal text-white">Like Flexshft?</span>
                 </h2>
 
-                <p className="font-sans text-sm sm:text-base text-white/70 leading-[1.7] mb-8 max-w-xl mx-auto">
+                <p className="font-sans text-base sm:text-lg md:text-[19px] text-white/80 leading-[1.75] mb-8 max-w-xl mx-auto">
                   Take 30 seconds to talk to our team about your web or mobile software requirements. We come highly recommended and engineer scalable digital products from concept to launch.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <a
                     href="#contact"
-                    className="group inline-flex items-center justify-between gap-4 bg-brand-accent hover:bg-[#ff4500] text-white h-[48px] px-7 rounded-full font-mono text-sm tracking-[0.14em] uppercase font-semibold transition-all duration-300 shadow-none dark:shadow-[0_0_20px_rgba(255,90,0,0.4)] hover:shadow-[0_0_30px_rgba(255,90,0,0.6)] cursor-pointer"
+                    className="group inline-flex items-center justify-between gap-4 bg-brand-accent hover:bg-[#ff4500] text-white h-[50px] sm:h-[52px] px-8 rounded-full font-mono text-xs sm:text-sm tracking-[0.14em] uppercase font-semibold transition-all duration-300 shadow-none dark:shadow-[0_0_20px_rgba(255,90,0,0.4)] hover:shadow-[0_0_30px_rgba(255,90,0,0.6)] cursor-pointer"
                     style={{ color: "#ffffff" }}
                   >
                     <span style={{ color: "#ffffff" }}>FREE TECHNICAL CONSULTATION</span>
@@ -720,8 +724,8 @@ export function FlexshftDetailView() {
                   </a>
 
                   <Link
-                    href="/#work"
-                    className="inline-flex items-center justify-center h-[48px] px-7 rounded-full font-mono text-sm tracking-[0.14em] uppercase text-white/80 hover:text-white border border-white/20 hover:border-white/40 bg-white/[0.04] hover:bg-white/[0.08] transition-all duration-300"
+                    href="/work"
+                    className="inline-flex items-center justify-center h-[50px] sm:h-[52px] px-8 rounded-full font-mono text-xs sm:text-sm tracking-[0.14em] uppercase text-white/85 hover:text-white border border-white/20 hover:border-white/40 bg-white/[0.04] hover:bg-white/[0.08] transition-all duration-300 font-semibold"
                   >
                     <span>BROWSE MORE WORK</span>
                   </Link>

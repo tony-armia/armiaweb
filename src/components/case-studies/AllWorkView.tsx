@@ -53,7 +53,7 @@ export function AllWorkView() {
               transition={{ duration: 0.45, ease: EASE_CUSTOM }}
               className="flex flex-wrap items-center justify-between gap-4 mb-8 sm:mb-10"
             >
-              <div className="flex items-center gap-2 sm:gap-3 font-mono text-xs sm:text-sm tracking-[0.14em] text-white/60 uppercase">
+              <div className="flex items-center gap-2 sm:gap-3 font-mono text-sm sm:text-base tracking-[0.14em] text-white/70 uppercase font-medium">
                 <Link href="/" className="hover:text-brand-accent transition-colors">HOME</Link>
                 <span className="text-white/30">/</span>
                 <span className="text-brand-accent font-semibold">ALL WORK &amp; CASE STUDIES</span>
@@ -61,7 +61,7 @@ export function AllWorkView() {
 
               <Link
                 href="/#work"
-                className="inline-flex items-center gap-2 font-mono text-xs sm:text-sm tracking-[0.14em] uppercase text-white/80 hover:text-brand-accent transition-colors group"
+                className="inline-flex items-center gap-2 font-mono text-sm sm:text-base tracking-[0.14em] uppercase text-white/80 hover:text-brand-accent transition-colors group font-medium"
               >
                 <ArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" />
                 <span>BACK TO OVERVIEW</span>
@@ -73,10 +73,10 @@ export function AllWorkView() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.08, ease: EASE_CUSTOM }}
-              className="flex items-center gap-3 mb-4"
+              className="flex items-center gap-2.5 mb-4 select-none"
             >
-              <span className="h-[2px] w-[24px] bg-brand-accent inline-block" />
-              <span className="font-mono text-xs sm:text-sm tracking-[0.16em] text-brand-accent font-semibold uppercase">
+              <span className="h-2 w-2 rounded-full bg-brand-accent inline-block shadow-[0_0_8px_rgba(255,90,0,0.6)] shrink-0" />
+              <span className="font-mono text-base font-semibold tracking-[0.14em] text-brand-accent uppercase">
                 CASE STUDY ARCHIVE • 20+ YEARS OF ENGINEERING
               </span>
             </motion.div>
@@ -99,7 +99,7 @@ export function AllWorkView() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.22, ease: EASE_CUSTOM }}
-              className="font-sans text-lg sm:text-xl md:text-2xl text-white/75 font-normal leading-[1.6] max-w-4xl mb-10 sm:mb-12"
+              className="font-sans text-lg sm:text-xl md:text-2xl text-white/85 font-normal leading-[1.65] max-w-4xl mb-10 sm:mb-12"
             >
               A comprehensive collection of production-grade digital products, scalable SaaS platforms, high-concurrency mobile applications, and enterprise systems engineered by Armia Systems across two decades of technology leadership.
             </motion.p>
@@ -109,23 +109,23 @@ export function AllWorkView() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.28, ease: EASE_CUSTOM }}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-white/[0.08] font-mono text-xs text-white/80"
+              className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-white/[0.08] text-white/80"
             >
               <div>
-                <span className="block text-2xl sm:text-3xl font-light text-brand-accent font-sans mb-1">20+</span>
-                <span className="text-white/60 tracking-wider uppercase text-[11px] sm:text-xs">Years of Innovation</span>
+                <span className="block text-3xl sm:text-4xl md:text-5xl font-mono font-medium text-brand-accent mb-1.5">20+</span>
+                <span className="font-mono text-xs sm:text-sm text-white/70 tracking-[0.12em] uppercase font-medium">Years of Innovation</span>
               </div>
               <div>
-                <span className="block text-2xl sm:text-3xl font-light text-brand-accent font-sans mb-1">100+</span>
-                <span className="text-white/60 tracking-wider uppercase text-[11px] sm:text-xs">Platforms Delivered</span>
+                <span className="block text-3xl sm:text-4xl md:text-5xl font-mono font-medium text-brand-accent mb-1.5">100+</span>
+                <span className="font-mono text-xs sm:text-sm text-white/70 tracking-[0.12em] uppercase font-medium">Platforms Delivered</span>
               </div>
               <div>
-                <span className="block text-2xl sm:text-3xl font-light text-brand-accent font-sans mb-1">99.99%</span>
-                <span className="text-white/60 tracking-wider uppercase text-[11px] sm:text-xs">Infrastructure SLA</span>
+                <span className="block text-3xl sm:text-4xl md:text-5xl font-mono font-medium text-brand-accent mb-1.5">99.99%</span>
+                <span className="font-mono text-xs sm:text-sm text-white/70 tracking-[0.12em] uppercase font-medium">Infrastructure SLA</span>
               </div>
               <div>
-                <span className="block text-2xl sm:text-3xl font-light text-brand-accent font-sans mb-1">7+</span>
-                <span className="text-white/60 tracking-wider uppercase text-[11px] sm:text-xs">Industries Served</span>
+                <span className="block text-3xl sm:text-4xl md:text-5xl font-mono font-medium text-brand-accent mb-1.5">7+</span>
+                <span className="font-mono text-xs sm:text-sm text-white/70 tracking-[0.12em] uppercase font-medium">Industries Served</span>
               </div>
             </motion.div>
 
@@ -146,7 +146,7 @@ export function AllWorkView() {
             
             {/* Filter Pills Navigation */}
             <div className="flex items-center justify-between flex-wrap gap-4 mb-12 sm:mb-16">
-              <div className="flex items-center gap-2 flex-wrap">
+              <div className="flex items-center gap-2.5 flex-wrap">
                 {CATEGORY_FILTERS.map((cat) => {
                   const count =
                     cat.id === "all"
@@ -159,7 +159,7 @@ export function AllWorkView() {
                       key={cat.id}
                       type="button"
                       onClick={() => setActiveFilter(cat.id)}
-                      className={`h-[38px] px-4 sm:px-5 rounded-full font-mono text-xs tracking-[0.12em] uppercase transition-all duration-300 flex items-center gap-2 cursor-pointer ${
+                      className={`h-[42px] px-5 sm:px-6 rounded-full font-mono text-xs sm:text-sm tracking-[0.12em] uppercase transition-all duration-300 flex items-center gap-2.5 cursor-pointer ${
                         isActive
                           ? "bg-brand-accent text-white border border-brand-accent shadow-[0_0_15px_rgba(255,90,0,0.3)] font-semibold"
                           : "bg-white/[0.04] text-white/70 hover:text-white border border-white/10 hover:border-white/20"
@@ -168,10 +168,10 @@ export function AllWorkView() {
                     >
                       <span>{cat.label}</span>
                       <span
-                        className={`text-[10px] px-1.5 py-0.5 rounded-full ${
+                        className={`text-xs px-2 py-0.5 rounded-full font-medium ${
                           isActive
                             ? "bg-white/20 text-white"
-                            : "bg-white/[0.06] text-white/50"
+                            : "bg-white/[0.06] text-white/60"
                         }`}
                       >
                         {count}
@@ -181,8 +181,8 @@ export function AllWorkView() {
                 })}
               </div>
 
-              <div className="font-mono text-xs text-white/50 hidden sm:flex items-center gap-2">
-                <Filter className="w-3.5 h-3.5 text-brand-accent" />
+              <div className="font-mono text-sm text-white/60 hidden sm:flex items-center gap-2 tracking-wide font-medium">
+                <Filter className="w-4 h-4 text-brand-accent" />
                 <span>FILTERING {filteredProjects.length} CASE STUDIES</span>
               </div>
             </div>
@@ -230,39 +230,41 @@ export function AllWorkView() {
                         </div>
 
                         {/* Year & Industry Pill */}
-                        <div className="absolute bottom-3 left-3 z-20">
-                          <span className="px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/15 font-mono text-[10px] text-white/90">
-                            {proj.year} • {proj.industry}
+                        <div className="absolute bottom-3 left-3 right-3 z-20 pointer-events-none flex items-center">
+                          <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-black/85 backdrop-blur-md border border-white/20 font-mono text-[11px] sm:text-xs tracking-wide text-white font-medium max-w-full truncate shadow-md whitespace-nowrap">
+                            <span className="shrink-0">{proj.year}</span>
+                            <span className="text-white/40 shrink-0">•</span>
+                            <span className="truncate">{proj.industry}</span>
                           </span>
                         </div>
                       </div>
 
                       {/* Category & Project Number */}
-                      <div className="flex items-center justify-between font-mono text-xs text-white/50 uppercase mb-2">
-                        <span className="tracking-wider">{proj.category}</span>
-                        <span className="text-brand-accent font-semibold">{proj.num}</span>
+                      <div className="flex items-center justify-between font-mono text-xs sm:text-sm uppercase mb-2.5">
+                        <span className="tracking-[0.12em] text-white/70 font-semibold">{proj.category}</span>
+                        <span className="text-brand-accent font-bold text-sm sm:text-base">{proj.num}</span>
                       </div>
 
                       {/* Title */}
-                      <h3 className="font-sans text-2xl font-light text-white mb-2 group-hover:text-brand-accent transition-colors duration-300">
+                      <h3 className="font-sans text-2xl sm:text-[26px] font-light text-white mb-2 tracking-tight group-hover:text-brand-accent transition-colors duration-300">
                         {proj.title}
                       </h3>
 
                       {/* Tagline */}
-                      <p className="font-mono text-xs text-white/60 uppercase tracking-wide mb-3">
+                      <p className="font-mono text-xs sm:text-sm text-brand-accent uppercase tracking-wide font-medium mb-3">
                         {proj.tagline}
                       </p>
 
                       {/* Short Description */}
-                      <p className="font-sans text-xs sm:text-sm text-white/65 leading-[1.65] mb-4 line-clamp-3">
+                      <p className="font-sans text-base sm:text-[16.5px] text-white/75 leading-[1.7] mb-5 line-clamp-3">
                         {proj.description}
                       </p>
 
                       {/* Capabilities Preview */}
-                      <div className="space-y-1.5 mb-5 pt-3.5 border-t border-white/[0.08] font-sans text-xs text-white/75">
+                      <div className="space-y-2 mb-5 pt-4 border-t border-white/[0.08] font-sans text-sm sm:text-[15px] text-white/85 leading-snug">
                         {proj.capabilities.slice(0, 2).map((cap, i) => (
-                          <div key={i} className="flex items-start gap-2">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-brand-accent shrink-0 mt-0.5" />
+                          <div key={i} className="flex items-start gap-2.5">
+                            <CheckCircle2 className="w-4 h-4 text-brand-accent shrink-0 mt-0.5" />
                             <span className="line-clamp-1">{cap}</span>
                           </div>
                         ))}
@@ -271,20 +273,20 @@ export function AllWorkView() {
 
                     {/* Capabilities & Tech Tags Footer */}
                     <div className="pt-4 border-t border-white/[0.08]">
-                      <div className="flex flex-wrap gap-1.5 mb-4">
+                      <div className="flex flex-wrap gap-2 mb-4">
                         {proj.technologies.slice(0, 3).map((tech) => (
                           <span
                             key={tech}
-                            className="px-2.5 py-1 rounded-full bg-white/[0.04] text-white/70 font-mono text-[10px] border border-white/10"
+                            className="px-3 py-1 rounded-full bg-white/[0.05] text-white/80 font-mono text-xs tracking-wider border border-white/10 whitespace-nowrap"
                           >
                             {tech}
                           </span>
                         ))}
                       </div>
 
-                      <div className="flex items-center justify-between font-mono text-xs text-brand-accent group-hover:text-[#ff4500] transition-colors">
-                        <span className="tracking-wider uppercase font-semibold">VIEW CASE STUDY</span>
-                        <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                      <div className="flex items-center justify-between font-mono text-xs sm:text-sm text-brand-accent group-hover:text-[#ff4500] transition-colors">
+                        <span className="tracking-[0.12em] uppercase font-semibold">VIEW CASE STUDY</span>
+                        <span className="transition-transform duration-300 group-hover:translate-x-1 font-bold">→</span>
                       </div>
                     </div>
                   </Link>
@@ -309,23 +311,24 @@ export function AllWorkView() {
             
             <div className="p-8 sm:p-12 rounded-3xl bg-[#0d0d0d] border border-black/[0.08] dark:border-white/[0.12] text-center relative overflow-hidden shadow-none dark:shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
               <div className="relative z-10 max-w-2xl mx-auto">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-accent/15 border border-brand-accent/30 text-brand-accent font-mono text-xs uppercase font-semibold mb-5">
+                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-brand-accent/15 border border-brand-accent/30 text-brand-accent font-mono text-sm uppercase font-semibold mb-6">
+                  <span className="h-2 w-2 rounded-full bg-brand-accent inline-block shadow-[0_0_8px_rgba(255,90,0,0.6)] shrink-0" />
                   <span style={{ color: "#ff5a00" }}>START YOUR PROJECT</span>
                 </div>
 
-                <h2 className="font-sans text-[clamp(2rem,3.8vw,3.4rem)] font-light tracking-tight text-white leading-[1.1] mb-5">
+                <h2 className="font-sans text-[clamp(2.2rem,4vw,3.6rem)] font-light tracking-tight text-white leading-[1.08] mb-5">
                   Ready to Build Your Next{" "}
                   <span className="font-normal text-white">Scalable Digital Product?</span>
                 </h2>
 
-                <p className="font-sans text-sm sm:text-base text-white/70 leading-[1.7] mb-8 max-w-xl mx-auto">
+                <p className="font-sans text-base sm:text-lg md:text-[19px] text-white/80 leading-[1.75] mb-8 max-w-xl mx-auto">
                   Take 30 seconds to talk to our principal architects about your web, cloud, or mobile software requirements. We engineer production-ready systems from concept to launch.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <a
                     href="#contact"
-                    className="group inline-flex items-center justify-between gap-4 bg-brand-accent hover:bg-[#ff4500] text-white h-[48px] px-7 rounded-full font-mono text-sm tracking-[0.14em] uppercase font-semibold transition-all duration-300 shadow-none dark:shadow-[0_0_20px_rgba(255,90,0,0.4)] hover:shadow-[0_0_30px_rgba(255,90,0,0.6)] cursor-pointer"
+                    className="group inline-flex items-center justify-between gap-4 bg-brand-accent hover:bg-[#ff4500] text-white h-[50px] sm:h-[52px] px-8 rounded-full font-mono text-xs sm:text-sm tracking-[0.14em] uppercase font-semibold transition-all duration-300 shadow-none dark:shadow-[0_0_20px_rgba(255,90,0,0.4)] hover:shadow-[0_0_30px_rgba(255,90,0,0.6)] cursor-pointer"
                     style={{ color: "#ffffff" }}
                   >
                     <span style={{ color: "#ffffff" }}>FREE TECHNICAL CONSULTATION</span>
@@ -336,7 +339,7 @@ export function AllWorkView() {
 
                   <Link
                     href="/#services"
-                    className="inline-flex items-center justify-center h-[48px] px-7 rounded-full font-mono text-sm tracking-[0.14em] uppercase text-white/80 hover:text-white border border-white/20 hover:border-white/40 bg-white/[0.04] hover:bg-white/[0.08] transition-all duration-300"
+                    className="inline-flex items-center justify-center h-[50px] sm:h-[52px] px-8 rounded-full font-mono text-xs sm:text-sm tracking-[0.14em] uppercase text-white/85 hover:text-white border border-white/20 hover:border-white/40 bg-white/[0.04] hover:bg-white/[0.08] transition-all duration-300 font-semibold"
                   >
                     <span>EXPLORE SERVICES</span>
                   </Link>

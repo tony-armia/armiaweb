@@ -35,7 +35,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     tagline: "The Marketplace for Flexible Hospitality Work",
     category: "LOGISTICS & ON-DEMAND SAAS",
     filterCategory: "saas",
-    industry: "Hospitality, Leisure & Events",
+    industry: "Hospitality & Events",
     year: "2024",
     image: "/images/Flexshft.png",
     caption:
@@ -69,7 +69,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     tagline: "Unified Workspace & Project Intelligence",
     category: "ENTERPRISE COLLABORATION",
     filterCategory: "saas",
-    industry: "Enterprise SaaS & Distributed Teams",
+    industry: "Enterprise SaaS",
     year: "2024",
     image: "/images/Ucollabit.png",
     caption:
@@ -103,7 +103,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     tagline: "Intelligent B2B Omni-Channel Communication",
     category: "TELECOM & NETWORKING",
     filterCategory: "telecom",
-    industry: "Telecommunications & Customer Experience",
+    industry: "Telecommunications",
     year: "2023",
     image: "/images/Askonnect.png",
     caption:
@@ -137,7 +137,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     tagline: "Comprehensive Hospital Management & Telehealth",
     category: "HEALTHCARE PLATFORM",
     filterCategory: "healthcare",
-    industry: "Hospital Management & HealthTech",
+    industry: "HealthTech",
     year: "2023",
     image: "/images/BCMCH.png",
     caption:
@@ -171,7 +171,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     tagline: "Adaptive Gamified Learning Platform",
     category: "EDTECH & INTERACTIVE MEDIA",
     filterCategory: "edtech",
-    industry: "Digital Education & Interactive Media",
+    industry: "EdTech & Media",
     year: "2023",
     image: "/images/Mazeflower.png",
     caption:
@@ -204,7 +204,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     tagline: "High-Performance Mobile Utility Toolset",
     category: "MOBILE APPS & CONSUMER TECH",
     filterCategory: "edtech",
-    industry: "Consumer Mobile Utilities",
+    industry: "Mobile Utilities",
     year: "2022",
     image: "/images/Tinybits.png",
     caption:
@@ -237,7 +237,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     tagline: "High-Concurrency Media Streaming Network",
     category: "MEDIA STREAMING & CDN",
     filterCategory: "media",
-    industry: "Digital Media & Video Distribution",
+    industry: "Media Streaming",
     year: "2022",
     image: "/images/freemedia.png",
     caption:

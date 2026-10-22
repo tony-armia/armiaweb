@@ -8,14 +8,14 @@ type Theme = "dark" | "light";
 
 function getStoredTheme(): Theme {
   if (typeof window === "undefined") return "dark";
-  return (localStorage.getItem("armia-theme") as Theme) ?? "dark";
+  return (localStorage.getItem("armia-theme-v2") as Theme) ?? "dark";
 }
 
 function applyTheme(theme: Theme) {
   const root = document.documentElement;
   root.classList.remove("dark", "light");
   root.classList.add(theme);
-  localStorage.setItem("armia-theme", theme);
+  localStorage.setItem("armia-theme-v2", theme);
 }
 
 interface ThemeToggleProps {
