@@ -176,9 +176,21 @@ export function Header() {
                     <option value="hero2" className="bg-neutral-900 text-white">Hero 2</option>
                   </select>
                 </div>
+              ) : pathname === "/work" ? (
+                <Link
+                  href="/"
+                  className={`hidden sm:inline-flex items-center gap-2 px-3.5 h-[42px] md:h-[44px] rounded-full border text-base font-mono tracking-wide backdrop-blur-md transition-all duration-300 group ${
+                    isLightContext
+                      ? "bg-black/[0.06] hover:bg-black/[0.10] border-black/15 text-foreground hover:border-brand-accent/40"
+                      : "bg-white/10 hover:bg-white/15 border-white/20 text-white hover:border-brand-accent/50"
+                  }`}
+                >
+                  <span className="text-brand-accent font-bold transition-transform duration-300 group-hover:-translate-x-0.5">←</span>
+                  <span className="text-xs sm:text-sm font-semibold tracking-wider">HOME</span>
+                </Link>
               ) : (
                 <Link
-                  href="/#work"
+                  href="/work"
                   className={`hidden sm:inline-flex items-center gap-2 px-3.5 h-[42px] md:h-[44px] rounded-full border text-base font-mono tracking-wide backdrop-blur-md transition-all duration-300 group ${
                     isLightContext
                       ? "bg-black/[0.06] hover:bg-black/[0.10] border-black/15 text-foreground hover:border-brand-accent/40"
@@ -265,7 +277,13 @@ export function Header() {
                   transition={{ delay: 0.08 + idx * 0.04, duration: 0.35 }}
                 >
                   <Link
-                    href={isHome ? `#${label.toLowerCase().replace(/\s+/g, "-")}` : `/#${label.toLowerCase().replace(/\s+/g, "-")}`}
+                    href={
+                      label === "WORK"
+                        ? "/work"
+                        : isHome
+                        ? `#${label.toLowerCase().replace(/\s+/g, "-")}`
+                        : `/#${label.toLowerCase().replace(/\s+/g, "-")}`
+                    }
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block font-sans text-3xl md:text-4xl font-normal tracking-tight text-white hover:text-brand-accent transition-colors focus:outline-none focus-visible:text-brand-accent"
                   >

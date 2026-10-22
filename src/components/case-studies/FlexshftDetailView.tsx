@@ -236,9 +236,10 @@ export function FlexshftDetailView() {
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.65, delay: 0.35, ease: EASE_CUSTOM }}
-              className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-2xl sm:rounded-3xl overflow-hidden border border-white/15 bg-neutral-950 shadow-[0_20px_60px_rgba(0,0,0,0.8)] group"
+              data-theme="dark"
+              className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-2xl sm:rounded-3xl overflow-hidden border border-black/10 dark:border-white/15 bg-[#0b0c10] shadow-none dark:shadow-[0_20px_60px_rgba(0,0,0,0.8)] group"
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent z-10 pointer-events-none" />
               <div className="absolute -top-32 -left-32 w-80 h-80 bg-brand-accent/15 rounded-full blur-[100px] pointer-events-none" />
 
               <Image
@@ -250,8 +251,24 @@ export function FlexshftDetailView() {
                 priority
               />
 
-              <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-20 font-mono text-xs text-white/70">
-                <span>FLEXSHFT MULTI-TIER ECOSYSTEM • DESIGNED & ENGINEERED BY ARMIA SYSTEMS</span>
+              {/* Status pill top-right */}
+              <div
+                className="absolute top-4 sm:top-6 right-4 sm:right-6 z-20 hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/15 font-mono text-[11px]"
+                style={{ color: "#e4e4e7" }}
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span style={{ color: "#e4e4e7" }}>MULTI-TIER ECOSYSTEM</span>
+              </div>
+
+              {/* Caption bottom-left */}
+              <div
+                className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-20 flex items-center gap-2.5 font-mono text-xs"
+                style={{ color: "#d4d4d8" }}
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-accent animate-pulse" />
+                <span style={{ color: "#d4d4d8" }}>
+                  FLEXSHFT MULTI-TIER ECOSYSTEM • DESIGNED &amp; ENGINEERED BY ARMIA SYSTEMS
+                </span>
               </div>
             </motion.div>
 
@@ -299,7 +316,7 @@ export function FlexshftDetailView() {
               </div>
 
               {/* Right Column: Project Description & Armia Delivery */}
-              <div className="p-7 sm:p-8 rounded-2xl bg-[#121212] border border-white/[0.08]">
+              <div className="p-7 sm:p-8 rounded-2xl bg-[#0d0d0d] hover:bg-[#111111] border border-white/[0.08] transition-colors duration-300">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="h-[2px] w-[20px] bg-brand-accent inline-block" />
                   <span className="font-mono text-xs sm:text-sm tracking-[0.14em] text-brand-accent uppercase font-semibold">
@@ -346,7 +363,7 @@ export function FlexshftDetailView() {
             <div className="space-y-12 sm:space-y-16">
               
               {/* Artboard 1: Product Overview */}
-              <div className="p-6 sm:p-10 rounded-2xl sm:rounded-3xl bg-[#101010] border border-white/[0.1] relative group overflow-hidden">
+              <div className="p-6 sm:p-10 rounded-2xl sm:rounded-3xl bg-[#0d0d0d] border border-white/[0.1] relative group overflow-hidden transition-colors duration-300">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                   <div>
                     <span className="font-mono text-xs tracking-[0.16em] text-brand-accent uppercase font-semibold">
@@ -381,7 +398,7 @@ export function FlexshftDetailView() {
                       title: "FLEXSHFT Product Overview Artboard",
                     })
                   }
-                  className="relative w-full rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 cursor-pointer shadow-2xl group/artboard"
+                  className="relative w-full rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 cursor-pointer shadow-none dark:shadow-2xl group/artboard"
                 >
                   <Image
                     src="/images/flexshft-product-overview.png"
@@ -393,8 +410,12 @@ export function FlexshftDetailView() {
                     priority
                   />
                   <div className="absolute top-4 right-4 z-20 opacity-0 group-hover/artboard:opacity-100 transition-opacity">
-                    <span className="px-3.5 py-1.5 rounded-full bg-black/85 backdrop-blur-md border border-white/20 font-mono text-xs text-white flex items-center gap-1.5 shadow-xl">
-                      <Maximize2 className="w-3.5 h-3.5 text-brand-accent" /> Click to view full resolution
+                    <span
+                      className="px-3.5 py-1.5 rounded-full bg-black/85 backdrop-blur-md border border-white/20 font-mono text-xs flex items-center gap-1.5 shadow-xl"
+                      style={{ color: "#ffffff" }}
+                    >
+                      <Maximize2 className="w-3.5 h-3.5 text-brand-accent" />
+                      <span style={{ color: "#ffffff" }}>Click to view full resolution</span>
                     </span>
                   </div>
                 </div>
@@ -405,7 +426,7 @@ export function FlexshftDetailView() {
               </div>
 
               {/* Artboard 2: Verification */}
-              <div className="p-6 sm:p-10 rounded-2xl sm:rounded-3xl bg-[#101010] border border-white/[0.1] relative group overflow-hidden">
+              <div className="p-6 sm:p-10 rounded-2xl sm:rounded-3xl bg-[#0d0d0d] border border-white/[0.1] relative group overflow-hidden transition-colors duration-300">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                   <div>
                     <span className="font-mono text-xs tracking-[0.16em] text-brand-accent uppercase font-semibold">
@@ -440,7 +461,7 @@ export function FlexshftDetailView() {
                       title: "FLEXSHFT Verification Artboard",
                     })
                   }
-                  className="relative w-full rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 cursor-pointer shadow-2xl group/artboard"
+                  className="relative w-full rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 cursor-pointer shadow-none dark:shadow-2xl group/artboard"
                 >
                   <Image
                     src="/images/flexshft-verification.png"
@@ -451,8 +472,12 @@ export function FlexshftDetailView() {
                     className="w-full h-auto block transition-transform duration-700 group-hover/artboard:scale-[1.008]"
                   />
                   <div className="absolute top-4 right-4 z-20 opacity-0 group-hover/artboard:opacity-100 transition-opacity">
-                    <span className="px-3.5 py-1.5 rounded-full bg-black/85 backdrop-blur-md border border-white/20 font-mono text-xs text-white flex items-center gap-1.5 shadow-xl">
-                      <Maximize2 className="w-3.5 h-3.5 text-brand-accent" /> Click to view full resolution
+                    <span
+                      className="px-3.5 py-1.5 rounded-full bg-black/85 backdrop-blur-md border border-white/20 font-mono text-xs flex items-center gap-1.5 shadow-xl"
+                      style={{ color: "#ffffff" }}
+                    >
+                      <Maximize2 className="w-3.5 h-3.5 text-brand-accent" />
+                      <span style={{ color: "#ffffff" }}>Click to view full resolution</span>
                     </span>
                   </div>
                 </div>
@@ -500,7 +525,7 @@ export function FlexshftDetailView() {
                 return (
                   <div
                     key={item.num}
-                    className="p-6 rounded-2xl bg-[#121212] border border-white/[0.08] hover:border-brand-accent/40 transition-colors duration-300 flex flex-col justify-between"
+                    className="p-6 rounded-2xl bg-[#0d0d0d] hover:bg-[#111111] border border-white/[0.08] hover:border-brand-accent/40 transition-colors duration-300 flex flex-col justify-between"
                   >
                     <div>
                       <div className="flex items-center justify-between mb-4">
@@ -540,7 +565,7 @@ export function FlexshftDetailView() {
         <div className="w-full max-w-[1920px] mx-auto px-6 md:px-0">
           <div className="w-full md:w-[78.0%] md:ml-[10.8%]">
             
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 p-8 sm:p-10 rounded-2xl bg-[#121212] border border-white/[0.08]">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 p-8 sm:p-10 rounded-2xl bg-[#0d0d0d] border border-white/[0.08]">
               <div>
                 <div className="flex items-center gap-2 mb-2 font-mono text-xs text-brand-accent uppercase tracking-wider font-semibold">
                   <span>TECHNOLOGIES & DELIVERY</span>
@@ -616,7 +641,7 @@ export function FlexshftDetailView() {
                 <Link
                   key={proj.id}
                   href={proj.link}
-                  className="group block p-6 rounded-2xl bg-[#121212] border border-white/[0.08] hover:border-brand-accent/50 transition-all duration-300 overflow-hidden"
+                  className="group block p-6 rounded-2xl bg-[#0d0d0d] hover:bg-[#111111] border border-white/[0.08] hover:border-brand-accent/50 transition-all duration-300 overflow-hidden"
                 >
                   <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden bg-neutral-900 border border-white/10 mb-5">
                     <Image
@@ -627,8 +652,8 @@ export function FlexshftDetailView() {
                       className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span className="p-1.5 rounded-full bg-brand-accent text-white flex items-center justify-center">
-                        <ArrowUpRight className="w-4 h-4" />
+                      <span className="p-1.5 rounded-full bg-brand-accent flex items-center justify-center shadow-md">
+                        <ArrowUpRight className="w-4 h-4 text-white" style={{ color: "#ffffff" }} />
                       </span>
                     </div>
                   </div>
@@ -668,10 +693,10 @@ export function FlexshftDetailView() {
         <div className="w-full max-w-[1920px] mx-auto px-6 md:px-0">
           <div className="w-full md:w-[78.0%] md:ml-[10.8%]">
             
-            <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-[#141414] to-[#0a0a0a] border border-white/[0.12] text-center relative overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
+            <div className="p-8 sm:p-12 rounded-3xl bg-[#0d0d0d] border border-black/[0.08] dark:border-white/[0.12] text-center relative overflow-hidden shadow-none dark:shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
               <div className="relative z-10 max-w-2xl mx-auto">
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-accent/15 border border-brand-accent/30 text-brand-accent font-mono text-xs uppercase font-semibold mb-5">
-                  <span>START YOUR PROJECT</span>
+                  <span style={{ color: "#ff5a00" }}>START YOUR PROJECT</span>
                 </div>
 
                 <h2 className="font-sans text-[clamp(2rem,3.8vw,3.4rem)] font-light tracking-tight text-white leading-[1.1] mb-5">
@@ -685,11 +710,12 @@ export function FlexshftDetailView() {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <a
                     href="#contact"
-                    className="group inline-flex items-center justify-between gap-4 bg-brand-accent hover:bg-[#ff4500] text-white h-[48px] px-7 rounded-full font-mono text-sm tracking-[0.14em] uppercase font-semibold transition-all duration-300 shadow-[0_0_20px_rgba(255,90,0,0.4)] hover:shadow-[0_0_30px_rgba(255,90,0,0.6)] cursor-pointer"
+                    className="group inline-flex items-center justify-between gap-4 bg-brand-accent hover:bg-[#ff4500] text-white h-[48px] px-7 rounded-full font-mono text-sm tracking-[0.14em] uppercase font-semibold transition-all duration-300 shadow-none dark:shadow-[0_0_20px_rgba(255,90,0,0.4)] hover:shadow-[0_0_30px_rgba(255,90,0,0.6)] cursor-pointer"
+                    style={{ color: "#ffffff" }}
                   >
-                    <span>FREE TECHNICAL CONSULTATION</span>
+                    <span style={{ color: "#ffffff" }}>FREE TECHNICAL CONSULTATION</span>
                     <div className="flex items-center justify-center h-6 w-6 rounded-full bg-white text-black transition-transform duration-300 group-hover:translate-x-0.5 shrink-0">
-                      <span className="text-black text-xs font-bold">›</span>
+                      <span className="text-black text-xs font-bold" style={{ color: "#000000" }}>›</span>
                     </div>
                   </a>
 
@@ -717,6 +743,7 @@ export function FlexshftDetailView() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setLightboxImage(null)}
+            data-theme="dark"
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 sm:p-8 backdrop-blur-xl cursor-zoom-out"
           >
             <div className="relative max-w-6xl max-h-[92vh] w-full h-full flex flex-col items-center justify-center">
@@ -727,9 +754,10 @@ export function FlexshftDetailView() {
                   setLightboxImage(null);
                 }}
                 className="absolute top-2 right-2 sm:top-4 sm:right-4 z-50 p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer border border-white/20"
+                style={{ color: "#ffffff" }}
                 aria-label="Close Preview"
               >
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5" style={{ color: "#ffffff" }} />
               </button>
 
               <div
@@ -746,7 +774,7 @@ export function FlexshftDetailView() {
                 />
               </div>
 
-              <div className="mt-3 text-center font-mono text-xs text-white/60">
+              <div className="mt-3 text-center font-mono text-xs" style={{ color: "rgba(255,255,255,0.7)" }}>
                 {lightboxImage.title} • Press Esc or click anywhere outside to close
               </div>
             </div>

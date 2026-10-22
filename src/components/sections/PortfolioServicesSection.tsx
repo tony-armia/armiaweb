@@ -48,6 +48,7 @@ const servicesData: CaseStudyItem[] = [
     num: "/02",
     category: "ENTERPRISE COLLABORATION",
     title: "Ucollabit",
+    link: "/work/ucollabit",
     image: "/images/Ucollabit.png",
     caption:
       "Unified workspace and collaborative project intelligence system for distributed enterprise teams.",
@@ -64,6 +65,7 @@ const servicesData: CaseStudyItem[] = [
     num: "/03",
     category: "TELECOM & NETWORKING",
     title: "Askonnect",
+    link: "/work/askonnect",
     image: "/images/Askonnect.png",
     caption:
       "Intelligent B2B communication and omni-channel customer engagement platform with automated CRM routing.",
@@ -80,6 +82,7 @@ const servicesData: CaseStudyItem[] = [
     num: "/04",
     category: "HEALTHCARE PLATFORM",
     title: "BCMCH",
+    link: "/work/bcmch",
     image: "/images/BCMCH.png",
     caption:
       "Comprehensive hospital management system, telehealth portal, and electronic medical records ecosystem.",
@@ -96,6 +99,7 @@ const servicesData: CaseStudyItem[] = [
     num: "/05",
     category: "EDTECH & INTERACTIVE MEDIA",
     title: "Mazeflower",
+    link: "/work/mazeflower",
     image: "/images/Mazeflower.png",
     caption:
       "Interactive learning and creative content publishing platform with adaptive gamification engines.",
@@ -205,13 +209,13 @@ export function PortfolioServicesSection() {
 
           {/* Right Supporting Copy / Link: 69.3% to 88.8% */}
           <div className="w-full md:w-[19.5%] px-6 md:px-0 pt-1 flex justify-start">
-            <a
-              href="#contact"
-              className="font-mono text-base md:text-[17px] text-brand-accent tracking-[0.12em] uppercase hover:text-white transition-colors flex items-center gap-2 group"
+            <Link
+              href="/work"
+              className="font-mono text-base md:text-[17px] text-brand-accent tracking-[0.12em] uppercase hover:text-white transition-colors flex items-center gap-2 group cursor-pointer"
             >
               <span>ALL WORK</span>
               <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-            </a>
+            </Link>
           </div>
         </div>
 

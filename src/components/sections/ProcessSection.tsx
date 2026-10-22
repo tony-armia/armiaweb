@@ -378,90 +378,92 @@ export function ProcessSection() {
                 </div>
 
                 {/* Top Right Floating Badge */}
-                <div className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-10 flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-white/20 shadow-sm">
+                <div className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-10 flex items-center gap-2.5 px-3 py-1.5 sm:px-3.5 rounded-full bg-black/65 backdrop-blur-md border border-white/20 shadow-sm">
                   <span className="w-2.5 h-[1.5px] bg-[#FF5A00] inline-block" />
-                  <span className="font-mono text-base tracking-[0.12em] text-white uppercase font-medium">
+                  <span className="font-mono text-xs sm:text-[13px] tracking-[0.12em] text-white uppercase font-medium">
                     TRUSTED BY GLOBAL BRANDS
                   </span>
                 </div>
               </div>
 
               {/* Bottom Dark Card Body */}
-              <div className="p-5 sm:p-7 xl:p-8 bg-[#0e1018]">
+              <div className="p-5 sm:p-6 lg:p-7 bg-[#0e1018]">
                 {/* Header Row: Title on Left, Metric on Right */}
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3.5 sm:gap-4 pb-5 sm:pb-6 border-b border-white/[0.08]">
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 sm:gap-4 pb-4 sm:pb-5 border-b border-white/[0.08]">
                   <div className="flex-1 min-w-0">
-                    <div className="font-mono text-base tracking-[0.14em] text-[#FF5A00] uppercase font-semibold mb-1.5">
+                    <div className="font-mono text-xs sm:text-[13px] tracking-[0.14em] text-[#FF5A00] uppercase font-semibold mb-1">
                       // WHAT WE DELIVER
                     </div>
-                    <h4 className="font-sans font-medium text-lg sm:text-xl xl:text-2xl text-white leading-tight">
+                    <h4 className="font-sans font-normal text-base sm:text-lg lg:text-xl text-white leading-snug">
                       Built for Security.
                       <br className="hidden sm:inline" />{" "}
                       Engineered for Performance.
                     </h4>
                   </div>
 
-                  <div className="flex items-center sm:flex-col sm:items-end justify-between sm:justify-center gap-2.5 sm:gap-1 shrink-0 pt-2.5 sm:pt-0 border-t sm:border-t-0 sm:border-l border-white/10 sm:pl-4">
-                    <div className="font-sans font-medium text-2xl sm:text-3xl xl:text-4xl text-[#FF5A00] leading-none whitespace-nowrap">
+                  <div className="flex items-center sm:flex-col sm:items-end justify-between sm:justify-center gap-2 sm:gap-1 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 sm:border-l border-white/10 sm:pl-4">
+                    <div className="font-sans font-medium text-2xl sm:text-3xl lg:text-4xl text-[#FF5A00] leading-none whitespace-nowrap">
                       99.99%
                     </div>
-                    <div className="font-mono text-base tracking-[0.08em] uppercase text-white/60 font-medium whitespace-nowrap">
+                    <div className="font-mono text-[9px] sm:text-[10px] xl:text-[11px] tracking-wider uppercase text-white/60 font-medium sm:text-right leading-tight">
                       RESILIENCE GUARANTEE
                     </div>
                   </div>
                 </div>
 
                 {/* 3 Points Checklist matching reference */}
-                <div className="space-y-3 sm:space-y-3.5 py-5 sm:py-6">
-                  <div className="flex items-start gap-3 sm:gap-3.5">
-                    <span className="font-mono text-base text-[#FF5A00] font-semibold shrink-0 mt-0.5">
+                <div className="space-y-2.5 sm:space-y-3 py-4 sm:py-5">
+                  <div className="flex items-start gap-3">
+                    <span className="font-mono text-xs sm:text-sm text-[#FF5A00] font-semibold shrink-0 mt-0.5">
                       01
                     </span>
-                    <span className="font-sans text-base sm:text-[17px] text-white/90 font-normal leading-snug">
+                    <span className="font-sans text-sm sm:text-base text-white/90 font-normal leading-snug">
                       Dedicated engineers &amp; sprint leads
                     </span>
                   </div>
 
-                  <div className="flex items-start gap-3 sm:gap-3.5">
-                    <span className="font-mono text-base text-[#FF5A00] font-semibold shrink-0 mt-0.5">
+                  <div className="flex items-start gap-3">
+                    <span className="font-mono text-xs sm:text-sm text-[#FF5A00] font-semibold shrink-0 mt-0.5">
                       02
                     </span>
-                    <span className="font-sans text-base sm:text-[17px] text-white/90 font-normal leading-snug">
+                    <span className="font-sans text-sm sm:text-base text-white/90 font-normal leading-snug">
                       2-week sprints with transparent Jira boards
                     </span>
                   </div>
 
-                  <div className="flex items-start gap-3.5">
-                    <span className="font-mono text-base text-[#FF5A00] font-semibold shrink-0 mt-0.5">
+                  <div className="flex items-start gap-3">
+                    <span className="font-mono text-xs sm:text-sm text-[#FF5A00] font-semibold shrink-0 mt-0.5">
                       03
                     </span>
-                    <span className="font-sans text-base sm:text-[17px] text-white/90 font-normal leading-snug">
+                    <span className="font-sans text-sm sm:text-base text-white/90 font-normal leading-snug">
                       Automated testing &amp; 99.99% SLA uptime
                     </span>
                   </div>
                 </div>
 
                 {/* Card Action Row matching mockup */}
-                <div className="pt-4 sm:pt-5 border-t border-white/[0.08] flex flex-col xl:flex-row xl:items-center justify-between gap-3.5 sm:gap-4">
-                  <a
-                    href="#contact"
-                    className="flex items-center gap-2.5 sm:gap-3 group shrink-0"
-                  >
-                    <div className="w-10 h-10 rounded-full bg-[#FF5A00] text-white flex items-center justify-center shadow-md shadow-[#FF5A00]/25 transition-transform duration-300 group-hover:scale-105 shrink-0">
-                      <ArrowRight className="w-4 h-4" />
-                    </div>
-                    <span className="font-mono text-base tracking-wide uppercase text-white font-medium group-hover:text-[#FF5A00] transition-colors whitespace-nowrap">
-                      SCHEDULE A TECHNICAL AUDIT
-                    </span>
-                  </a>
+                <div className="pt-4 sm:pt-5 border-t border-white/[0.08]">
+                  <div className="flex items-center justify-between flex-wrap gap-x-4 gap-y-2.5">
+                    <a
+                      href="#contact"
+                      className="flex items-center gap-2.5 sm:gap-3 group shrink-0"
+                    >
+                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FF5A00] text-white flex items-center justify-center shadow-md shadow-[#FF5A00]/25 transition-transform duration-300 group-hover:scale-105 shrink-0">
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
+                      <span className="font-mono text-xs sm:text-[13px] tracking-wide uppercase text-white font-medium group-hover:text-[#FF5A00] transition-colors whitespace-nowrap">
+                        SCHEDULE A TECHNICAL AUDIT
+                      </span>
+                    </a>
 
-                  <a
-                    href="#services"
-                    className="font-mono text-base tracking-wide uppercase text-white/60 hover:text-white flex items-center gap-2 transition-colors group/learn shrink-0 self-start xl:self-auto pl-12 xl:pl-0"
-                  >
-                    <span>LEARN MORE</span>
-                    <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/learn:translate-x-1" />
-                  </a>
+                    <a
+                      href="#services"
+                      className="font-mono text-xs sm:text-[13px] tracking-wide uppercase text-white/60 hover:text-white flex items-center gap-1.5 transition-colors group/learn shrink-0 pl-11 sm:pl-0"
+                    >
+                      <span>LEARN MORE</span>
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/learn:translate-x-1" />
+                    </a>
+                  </div>
                 </div>
 
               </div>
