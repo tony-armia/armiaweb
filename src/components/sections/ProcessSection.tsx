@@ -198,7 +198,7 @@ export function ProcessSection() {
     >
       {/* ── 1. Top Dark Header Strip ── */}
       <div className="w-full py-8 sm:py-10 transition-colors duration-400" style={{ backgroundColor: "var(--surface)", borderBottom: "1px solid var(--border)" }}>
-        <div className="w-full max-w-[1920px] mx-auto px-6 md:px-[10.8%] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+        <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-[10.8%] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
           {/* Left: Standardized Section Indicator */}
           <div className="flex items-center gap-3">
             <SectionEyebrow number="05" label="PROCESS" className="!mb-0" />
@@ -206,7 +206,7 @@ export function ProcessSection() {
 
           {/* Center: Main Headline */}
           <div className="flex flex-col">
-            <div className="font-mono text-base tracking-[0.14em] text-white/60 uppercase font-semibold mb-1 flex items-center gap-2">
+            <div className="font-mono text-xs sm:text-base tracking-[0.14em] text-white/60 uppercase font-semibold mb-1 flex items-center gap-2">
               <span className="w-2.5 h-[1.5px] bg-[#FF5A00]" />
               <span>PROVEN METHODOLOGY</span>
             </div>
@@ -218,7 +218,7 @@ export function ProcessSection() {
 
           {/* Right: Subtitle Copy */}
           <div className="max-w-xs lg:border-l lg:border-white/10 lg:pl-6">
-            <p className="font-sans text-base sm:text-[17px] text-white/70 leading-[1.6]">
+            <p className="font-sans text-sm sm:text-[17px] text-white/70 leading-[1.6]">
               Every engagement follows the same rigorous five-phase process &mdash; refined over 20+ years.
             </p>
           </div>
@@ -226,7 +226,7 @@ export function ProcessSection() {
       </div>
 
       {/* ── 2. Main Dark Showcase Body (Obsidian + Warm Bronze Fluid Lighting) ── */}
-      <div className="relative w-full py-16 sm:py-24 lg:py-28 overflow-hidden">
+      <div className="relative w-full py-14 sm:py-20 lg:py-28 overflow-hidden">
         {/* Sweeping Architectural Bronze Wave Background (Dark Mode) */}
         <motion.div
           style={{ y: yWave, backgroundImage: "url('/images/delivery_bronze_wave.jpg')" }}
@@ -247,7 +247,7 @@ export function ProcessSection() {
           className="absolute bottom-10 left-10 w-[600px] h-[400px] bg-[#FF5A00]/[0.035] rounded-full blur-[160px] pointer-events-none"
         />
 
-        <div className="w-full max-w-[1920px] mx-auto px-6 md:px-[10.8%] relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-[10.8%] relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
           {/* ── Left Column: Phase Details & Interactive Timeline (7 cols) ── */}
           <div className="lg:col-span-7 flex flex-col justify-between">
@@ -262,13 +262,13 @@ export function ProcessSection() {
                 {/* Phase Eyebrow */}
                 <div className="flex items-center gap-2.5 mb-3.5">
                   <span className="w-4 h-[2px] bg-[#FF5A00] inline-block" />
-                  <span className="font-mono text-base tracking-[0.14em] text-white/70 uppercase font-semibold">
+                  <span className="font-mono text-xs sm:text-base tracking-[0.14em] text-white/70 uppercase font-semibold">
                     PHASE {activePhase.num} // {activePhase.category}
                   </span>
                 </div>
 
                 {/* Phase Title */}
-                <h3 className="font-sans text-3xl sm:text-4xl lg:text-[3.0rem] font-light tracking-tight text-white leading-[1.08] mb-5">
+                <h3 className="font-sans text-2xl sm:text-4xl lg:text-[3.0rem] font-light tracking-tight text-white leading-[1.08] mb-4 sm:mb-5">
                   {activePhase.title}
                 </h3>
 

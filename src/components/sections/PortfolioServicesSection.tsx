@@ -195,23 +195,23 @@ export function PortfolioServicesSection() {
         {/* ── Upper Header Row matching 10.8% / 30.3% / 69.3% Grid ── */}
         <div className="relative w-full flex flex-col md:flex-row items-start mb-6 md:mb-8">
           {/* Far Left Section Marker: 10.8% to 30.3% */}
-          <div className="w-full md:w-[19.5%] md:ml-[10.8%] px-6 md:px-0 pt-1 mb-4 md:mb-0">
+          <div className="w-full md:w-[19.5%] md:ml-[10.8%] px-4 sm:px-6 md:px-0 pt-1 mb-4 md:mb-0">
             <SectionEyebrow number="04" label="CASE STUDIES" className="!mb-0" />
           </div>
 
           {/* Heading Block: 30.3% to 69.3% */}
-          <div className="w-full md:w-[39.0%] px-6 md:px-0 pt-0.5 mb-4 md:mb-0">
-            <h2 className="font-sans text-[clamp(2.25rem,3.2vw,3.85rem)] font-light tracking-[-0.035em] leading-[0.98] text-left">
+          <div className="w-full md:w-[39.0%] px-4 sm:px-6 md:px-0 pt-0.5 mb-4 md:mb-0">
+            <h2 className="font-sans text-[clamp(2.0rem,3.2vw,3.85rem)] font-light tracking-[-0.035em] leading-[0.98] text-left">
               <span className="block" style={{ color: 'var(--foreground)' }}>CASE</span>
               <span className="block font-normal" style={{ color: 'var(--foreground-muted)' }}>STUDIES.</span>
             </h2>
           </div>
 
           {/* Right Supporting Copy / Link: 69.3% to 88.8% */}
-          <div className="w-full md:w-[19.5%] px-6 md:px-0 pt-1 flex justify-start">
+          <div className="w-full md:w-[19.5%] px-4 sm:px-6 md:px-0 pt-1 flex justify-start">
             <Link
               href="/work"
-              className="font-mono text-base md:text-[17px] text-brand-accent tracking-[0.12em] uppercase hover:text-white transition-colors flex items-center gap-2 group cursor-pointer"
+              className="font-mono text-sm sm:text-base md:text-[17px] text-brand-accent tracking-[0.12em] uppercase hover:text-white transition-colors flex items-center gap-2 group cursor-pointer"
             >
               <span>ALL WORK</span>
               <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -223,7 +223,7 @@ export function PortfolioServicesSection() {
         <div
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
-          className="w-full md:w-[78.0%] md:ml-[10.8%] px-6 md:px-0"
+          className="w-full md:w-[78.0%] md:ml-[10.8%] px-4 sm:px-6 md:px-0"
         >
           <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-14 items-center">
             

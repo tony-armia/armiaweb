@@ -271,17 +271,17 @@ export function ServicesSection() {
         className="absolute top-10 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-brand-accent/[0.035] rounded-full blur-[160px] pointer-events-none"
       />
 
-      <div className="w-full max-w-[1920px] mx-auto px-6 md:px-[10.8%] relative z-10">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-[10.8%] relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12 sm:mb-16"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-10 sm:mb-16"
         >
           <div className="lg:col-span-8">
             <SectionEyebrow number="03" label="SOLUTIONS" className="!mb-4" />
-            <h2 className="font-sans font-light text-[clamp(2.25rem,4.2vw,4.2rem)] leading-[1.04] tracking-[-0.03em]" style={{ color: 'var(--foreground)' }}>
+            <h2 className="font-sans font-light text-[clamp(1.9rem,4.2vw,4.2rem)] leading-[1.04] tracking-[-0.03em]" style={{ color: 'var(--foreground)' }}>
               Beyond Development.{" "}
               <span className="block text-brand-accent font-normal tracking-[-0.02em]">
                 We Deliver Transformation.
@@ -290,7 +290,7 @@ export function ServicesSection() {
           </div>
 
           <div className="lg:col-span-4 lg:pl-6 pb-2">
-            <p className="text-base sm:text-[17px] leading-[1.8] font-normal" style={{ color: 'var(--foreground-muted)' }}>
+            <p className="text-sm sm:text-base md:text-[17px] leading-[1.7] sm:leading-[1.8] font-normal" style={{ color: 'var(--foreground-muted)' }}>
               Enterprise technology succeeds when architecture, intelligence, and execution align.
               We build systems that can last, scale responsibly, and stand up to real-world complexity.
             </p>
@@ -298,10 +298,10 @@ export function ServicesSection() {
         </motion.div>
 
         {/* ── Perspective Navigation Tabs (Appinventiv Model) ── */}
-        <div className="flex flex-wrap items-center gap-3 pb-8 mb-12" style={{ borderBottom: "1px solid var(--border)" }}>
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 pb-6 sm:pb-8 mb-8 sm:mb-12" style={{ borderBottom: "1px solid var(--border)" }}>
           <button
             onClick={() => setActiveTab("pillars")}
-            className={`font-mono text-base tracking-[0.1em] uppercase px-6 py-3 rounded-full transition-all duration-300 cursor-pointer ${
+            className={`font-mono text-xs sm:text-sm md:text-base tracking-[0.1em] uppercase px-4 py-2.5 sm:px-6 sm:py-3 rounded-full transition-all duration-300 cursor-pointer ${
               activeTab === "pillars"
                 ? "bg-brand-accent text-white font-semibold shadow-lg shadow-brand-accent/25"
                 : "font-normal"
@@ -317,7 +317,7 @@ export function ServicesSection() {
 
           <button
             onClick={() => setActiveTab("expertise")}
-            className={`font-mono text-base tracking-[0.1em] uppercase px-6 py-3 rounded-full transition-all duration-300 cursor-pointer ${
+            className={`font-mono text-xs sm:text-sm md:text-base tracking-[0.1em] uppercase px-4 py-2.5 sm:px-6 sm:py-3 rounded-full transition-all duration-300 cursor-pointer ${
               activeTab === "expertise"
                 ? "bg-brand-accent text-white font-semibold shadow-lg shadow-brand-accent/25"
                 : "font-normal"
@@ -333,7 +333,7 @@ export function ServicesSection() {
 
           <button
             onClick={() => setActiveTab("industries")}
-            className={`font-mono text-base tracking-[0.1em] uppercase px-6 py-3 rounded-full transition-all duration-300 cursor-pointer ${
+            className={`font-mono text-xs sm:text-sm md:text-base tracking-[0.1em] uppercase px-4 py-2.5 sm:px-6 sm:py-3 rounded-full transition-all duration-300 cursor-pointer ${
               activeTab === "industries"
                 ? "bg-brand-accent text-white font-semibold shadow-lg shadow-brand-accent/25"
                 : "font-normal"
@@ -360,7 +360,7 @@ export function ServicesSection() {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.7, delay: idx * 0.1, ease: "easeOut" }}
                   key={pillar.id}
-                  className="group relative rounded-2xl md:rounded-3xl border border-white/[0.08] bg-[#0c0d12]/80 hover:bg-[#11131a] hover:border-brand-accent/40 transition-all duration-500 p-8 sm:p-10 flex flex-col justify-between overflow-hidden shadow-2xl backdrop-blur-sm"
+                  className="group relative rounded-2xl md:rounded-3xl border border-white/[0.08] bg-[#0c0d12]/80 hover:bg-[#11131a] hover:border-brand-accent/40 transition-all duration-500 p-6 sm:p-8 md:p-10 flex flex-col justify-between overflow-hidden shadow-2xl backdrop-blur-sm"
                 >
                   {/* Subtle Background Watermark Number in bottom right (no overlap) */}
                   <span
@@ -473,7 +473,7 @@ export function ServicesSection() {
         {activeTab === "industries" && (
           <div className="space-y-8">
             {/* Sector Selector Buttons */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3">
               {INDUSTRIES.map((ind) => {
                 const Icon = ind.icon;
                 const isSelected = selectedIndustry === ind.id;
@@ -481,14 +481,14 @@ export function ServicesSection() {
                   <button
                     key={ind.id}
                     onClick={() => setSelectedIndustry(ind.id)}
-                    className={`p-4 rounded-xl border text-left transition-all duration-300 cursor-pointer flex items-center gap-3 last:col-span-2 sm:last:col-span-1 ${
+                    className={`p-3.5 sm:p-4 rounded-xl border text-left transition-all duration-300 cursor-pointer flex items-center gap-3 ${
                       isSelected
                         ? "bg-[#14161f] border-brand-accent shadow-lg shadow-brand-accent/15"
                         : "bg-[#0c0d12]/70 border-white/[0.07] hover:border-white/20 hover:bg-[#0f1117]"
                     }`}
                   >
                     <Icon className={`w-5 h-5 shrink-0 ${isSelected ? "text-white" : "text-white/50"}`} />
-                    <span className={`text-base font-medium ${isSelected ? "text-white font-semibold" : "text-white/70"}`}>
+                    <span className={`text-sm sm:text-base font-medium ${isSelected ? "text-white font-semibold" : "text-white/70"}`}>
                       {ind.name}
                     </span>
                   </button>
@@ -497,14 +497,14 @@ export function ServicesSection() {
             </div>
 
             {/* Selected Sector Showcase Card */}
-            <div className="rounded-3xl border border-white/[0.08] bg-[#0c0d12]/90 p-8 sm:p-12 relative overflow-hidden backdrop-blur-md">
+            <div className="rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-[#0c0d12]/90 p-5 sm:p-8 md:p-12 relative overflow-hidden backdrop-blur-md">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-8">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="font-mono text-base tracking-[0.12em] text-brand-accent uppercase">
+                    <span className="font-mono text-xs sm:text-base tracking-[0.12em] text-brand-accent uppercase">
                       Sector Focus //
                     </span>
-                    <span className="font-mono text-base text-white/50 uppercase">
+                    <span className="font-mono text-xs sm:text-base text-white/50 uppercase">
                       {currentIndustryData.name}
                     </span>
                   </div>
@@ -513,15 +513,15 @@ export function ServicesSection() {
                     {currentIndustryData.headline}
                   </h3>
 
-                  <p className="text-[#8e94a0] text-base sm:text-[17px] leading-[1.8] mb-8 max-w-3xl">
+                  <p className="text-[#8e94a0] text-sm sm:text-base md:text-[17px] leading-[1.7] sm:leading-[1.8] mb-6 sm:mb-8 max-w-3xl">
                     {currentIndustryData.description}
                   </p>
 
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                     {currentIndustryData.highlights.map((h, i) => (
                       <div
                         key={i}
-                        className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] flex items-center gap-2"
+                        className="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] flex items-center gap-2"
                       >
                         <CheckCircle2 className="w-4 h-4 text-brand-accent shrink-0" />
                         <span className="font-mono text-base text-white/85">{h}</span>

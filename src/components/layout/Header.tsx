@@ -128,14 +128,14 @@ export function Header() {
             : solidBg
         }`}
       >
-        <div className="w-full max-w-[1920px] mx-auto px-6 md:px-0 h-16 md:h-20 flex items-center">
-          <div className="w-full md:w-[78%] md:ml-[10.8%] flex items-center justify-between">
+        <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-0 h-16 md:h-20 flex items-center">
+          <div className="w-full md:w-[78%] md:ml-[10.8%] flex items-center justify-between gap-2">
             {/* Logo */}
             <Link
               href="/"
-              className="group flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-sm"
+              className="group flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-sm shrink-0"
             >
-              <div className="relative h-11 w-32 md:h-14 md:w-60 flex items-center">
+              <div className="relative h-9 w-28 sm:h-11 sm:w-32 md:h-14 md:w-60 flex items-center">
                 <Image
                   src="/images/armialogo.svg"
                   alt="Armia Systems"
@@ -157,7 +157,7 @@ export function Header() {
               </div>
             </Link>
 
-            <div className="flex items-center gap-1.5 sm:gap-2.5">
+            <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
               {isHome ? (
                 /* Hero Switcher Dropdown integrated seamlessly inside header controls on homepage */
                 <div className="relative">
@@ -166,7 +166,7 @@ export function Header() {
                     onChange={(e) => handleHeroChange(e.target.value as "hero1" | "hero2")}
                     aria-label="Hero Version Switcher"
                     suppressHydrationWarning
-                    className={`backdrop-blur-md border text-base font-mono tracking-wide px-2 sm:px-3 h-[42px] md:h-[44px] rounded-full outline-none focus:border-brand-accent transition-all duration-300 cursor-pointer shadow-sm ${
+                    className={`backdrop-blur-md border text-xs sm:text-base font-mono tracking-wide px-2 sm:px-3 h-[38px] sm:h-[42px] md:h-[44px] rounded-full outline-none focus:border-brand-accent transition-all duration-300 cursor-pointer shadow-sm ${
                       isLightContext
                         ? "bg-black/[0.06] hover:bg-black/[0.10] border-black/15 text-foreground hover:border-brand-accent/40"
                         : "bg-white/10 hover:bg-white/15 border-white/20 text-white hover:border-brand-accent/50"
@@ -179,7 +179,7 @@ export function Header() {
               ) : pathname === "/work" ? (
                 <Link
                   href="/"
-                  className={`hidden sm:inline-flex items-center gap-2 px-3.5 h-[42px] md:h-[44px] rounded-full border text-base font-mono tracking-wide backdrop-blur-md transition-all duration-300 group ${
+                  className={`hidden sm:inline-flex items-center gap-2 px-3 sm:px-3.5 h-[38px] sm:h-[42px] md:h-[44px] rounded-full border text-xs sm:text-base font-mono tracking-wide backdrop-blur-md transition-all duration-300 group ${
                     isLightContext
                       ? "bg-black/[0.06] hover:bg-black/[0.10] border-black/15 text-foreground hover:border-brand-accent/40"
                       : "bg-white/10 hover:bg-white/15 border-white/20 text-white hover:border-brand-accent/50"
@@ -191,7 +191,7 @@ export function Header() {
               ) : (
                 <Link
                   href="/work"
-                  className={`hidden sm:inline-flex items-center gap-2 px-3.5 h-[42px] md:h-[44px] rounded-full border text-base font-mono tracking-wide backdrop-blur-md transition-all duration-300 group ${
+                  className={`hidden sm:inline-flex items-center gap-2 px-3 sm:px-3.5 h-[38px] sm:h-[42px] md:h-[44px] rounded-full border text-xs sm:text-base font-mono tracking-wide backdrop-blur-md transition-all duration-300 group ${
                     isLightContext
                       ? "bg-black/[0.06] hover:bg-black/[0.10] border-black/15 text-foreground hover:border-brand-accent/40"
                       : "bg-white/10 hover:bg-white/15 border-white/20 text-white hover:border-brand-accent/50"
@@ -211,19 +211,19 @@ export function Header() {
                 onClick={() => setIsMobileMenuOpen((v) => !v)}
                 aria-expanded={isMobileMenuOpen}
                 aria-controls="mobile-nav"
-                className={`group relative flex items-center gap-2 sm:gap-3 h-[42px] md:h-[44px] pl-3.5 pr-1.5 sm:pl-4.5 sm:pr-2 rounded-full font-mono text-base tracking-[0.12em] sm:tracking-[0.14em] uppercase transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent backdrop-blur-md border shadow-[0_4px_16px_rgba(0,0,0,0.35)] hover:shadow-[0_0_20px_rgba(255,90,0,0.25)] ${menuBtnBase}`}
+                className={`group relative flex items-center gap-1.5 sm:gap-3 h-[38px] sm:h-[42px] md:h-[44px] pl-3 pr-1.5 sm:pl-4.5 sm:pr-2 rounded-full font-mono text-xs sm:text-base tracking-[0.12em] sm:tracking-[0.14em] uppercase transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent backdrop-blur-md border shadow-[0_4px_16px_rgba(0,0,0,0.35)] hover:shadow-[0_0_20px_rgba(255,90,0,0.25)] ${menuBtnBase}`}
               >
-                <div className="flex flex-col justify-center items-center gap-[4px] w-4" aria-hidden="true">
-                  <span className="block h-[1.5px] w-3.5 rounded-full bg-current transition-all duration-300 group-hover:w-4 group-hover:translate-x-0.5 group-hover:bg-brand-accent" />
-                  <span className="block h-[1.5px] w-4 rounded-full bg-current opacity-80 transition-all duration-300 group-hover:w-3 group-hover:-translate-x-0.5" />
+                <div className="flex flex-col justify-center items-center gap-[3.5px] sm:gap-[4px] w-3.5 sm:w-4" aria-hidden="true">
+                  <span className="block h-[1.5px] w-3 sm:w-3.5 rounded-full bg-current transition-all duration-300 group-hover:w-4 group-hover:translate-x-0.5 group-hover:bg-brand-accent" />
+                  <span className="block h-[1.5px] w-3.5 sm:w-4 rounded-full bg-current opacity-80 transition-all duration-300 group-hover:w-3 group-hover:-translate-x-0.5" />
                 </div>
 
                 <span className="font-medium opacity-90 group-hover:opacity-100 transition-colors duration-300">
                   MENU
                 </span>
 
-                <div className="flex items-center justify-center h-7 w-7 rounded-full bg-brand-accent text-white shadow-[0_0_10px_rgba(255,90,0,0.4)] transition-all duration-300 group-hover:bg-[#ff4500] group-hover:scale-105 shrink-0">
-                  <span className="text-base font-bold transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden>
+                <div className="flex items-center justify-center h-6 w-6 sm:h-7 sm:w-7 rounded-full bg-brand-accent text-white shadow-[0_0_10px_rgba(255,90,0,0.4)] transition-all duration-300 group-hover:bg-[#ff4500] group-hover:scale-105 shrink-0">
+                  <span className="text-sm sm:text-base font-bold transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden>
                     ›
                   </span>
                 </div>
@@ -245,30 +245,30 @@ export function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "-100%" }}
             transition={{ duration: 0.45, ease: EASE_CUSTOM }}
-            className="fixed inset-0 z-50 flex flex-col bg-[#060606] pt-20 sm:pt-24 pb-12 px-6 sm:px-8 text-white overflow-y-auto"
+            className="fixed inset-0 z-50 flex flex-col bg-[#060606] pt-16 sm:pt-24 pb-10 sm:pb-12 px-4 sm:px-8 text-white overflow-y-auto"
           >
-            <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-8">
-              <span className="font-mono text-base tracking-[0.14em] text-white/70 uppercase">
+            <div className="flex items-center justify-between border-b border-white/10 pb-5 sm:pb-6 mb-6 sm:mb-8">
+              <span className="font-mono text-xs sm:text-base tracking-[0.14em] text-white/70 uppercase">
                 NAVIGATION
               </span>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 sm:gap-3">
                 {/* Theme toggle in menu */}
                 <ThemeToggle inMenu />
 
                 <button
                   type="button"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="group flex items-center gap-3 h-[42px] pl-4 pr-2 rounded-full bg-white/10 hover:bg-white/15 border border-white/20 text-white font-mono text-base tracking-[0.14em] uppercase transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
+                  className="group flex items-center gap-2 sm:gap-3 h-[38px] sm:h-[42px] pl-3 sm:pl-4 pr-1.5 sm:pr-2 rounded-full bg-white/10 hover:bg-white/15 border border-white/20 text-white font-mono text-xs sm:text-base tracking-[0.14em] uppercase transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent cursor-pointer"
                 >
                   <span className="font-semibold text-white/90 group-hover:text-white">CLOSE</span>
-                  <div className="flex items-center justify-center h-7 w-7 rounded-full bg-brand-accent text-white shadow-[0_0_10px_rgba(255,90,0,0.4)] transition-transform duration-300 group-hover:rotate-90 shrink-0">
-                    <X className="h-4 w-4" aria-hidden />
+                  <div className="flex items-center justify-center h-6 w-6 sm:h-7 sm:w-7 rounded-full bg-brand-accent text-white shadow-[0_0_10px_rgba(255,90,0,0.4)] transition-transform duration-300 group-hover:rotate-90 shrink-0">
+                    <X className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden />
                   </div>
                 </button>
               </div>
             </div>
 
-            <nav className="flex flex-col space-y-6 max-w-xl">
+            <nav className="flex flex-col space-y-4 sm:space-y-6 max-w-xl my-auto">
               {NAV_ITEMS.map((label, idx) => (
                 <motion.div
                   key={label}
@@ -285,7 +285,7 @@ export function Header() {
                         : `/#${label.toLowerCase().replace(/\s+/g, "-")}`
                     }
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block font-sans text-3xl md:text-4xl font-normal tracking-tight text-white hover:text-brand-accent transition-colors focus:outline-none focus-visible:text-brand-accent"
+                    className="block font-sans text-2xl sm:text-3xl md:text-4xl font-normal tracking-tight text-white hover:text-brand-accent transition-colors focus:outline-none focus-visible:text-brand-accent py-1"
                   >
                     {label}
                   </Link>

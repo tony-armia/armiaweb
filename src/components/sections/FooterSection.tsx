@@ -56,7 +56,7 @@ export function FooterSection() {
             initial="hidden"
             whileInView="show"
             viewport={VIEWPORT_ONCE}
-            className="lg:col-span-4 p-6 md:p-10 lg:p-12 flex flex-col justify-between h-full bg-black"
+            className="lg:col-span-4 p-4 sm:p-7 md:p-10 lg:p-12 flex flex-col justify-between h-full bg-black"
           >
             <div className="flex flex-col justify-between flex-1">
               <div>
@@ -157,13 +157,13 @@ export function FooterSection() {
           </motion.div>
 
           {/* Right Column — Contact Form & Coherent Information Architecture */}
-          <div className="lg:col-span-8 p-6 md:p-12 lg:p-16 flex flex-col justify-between bg-[#0a0a0a]">
+          <div className="lg:col-span-8 p-4 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-between bg-[#0a0a0a]">
             <div>
               {/* Section number 10 */}
               <SectionEyebrow number="10" label="CONTACT" dark />
 
-              <div className="mb-8">
-                <h2 className="font-sans text-[clamp(2.2rem,4.8vw,5.6rem)] font-light tracking-[-0.035em] leading-[0.94] text-[#e5e5e5] uppercase max-w-3xl">
+              <div className="mb-6 sm:mb-8">
+                <h2 className="font-sans text-[clamp(1.9rem,4.8vw,5.6rem)] font-light tracking-[-0.035em] leading-[0.94] text-[#e5e5e5] uppercase max-w-3xl">
                   <span className="block">BUILD YOUR</span>
                   <span className="block">NEXT PROJECT</span>
                   <span className="block text-white font-normal">WITH ARMIA.</span>
@@ -358,14 +358,14 @@ export function FooterSection() {
         </div>
 
         {/* ── Full-Width Unified Bottom Strip (Copyright & Legal) ── */}
-        <div className="border-t border-white/10 pt-6 mt-2 px-6 md:px-10 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-xs text-white/40 tracking-wider uppercase">
-          <div className="flex items-center gap-4">
+        <div className="border-t border-white/10 pt-6 mt-2 px-4 sm:px-6 md:px-10 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-xs text-white/40 tracking-wider uppercase text-center md:text-left">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
             <div className="relative h-7 w-28 flex items-center shrink-0">
               <Image
                 src="/images/armialogo.svg"
                 alt="Armia Systems Logo"
                 fill
-                className="object-contain object-left opacity-70"
+                className="object-contain object-center sm:object-left opacity-70"
               />
             </div>
             <span>&copy; {new Date().getFullYear()} ARMIA SYSTEMS INC. ALL RIGHTS RESERVED.</span>

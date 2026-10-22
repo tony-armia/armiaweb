@@ -68,13 +68,13 @@ export function ThemeToggle({ inMenu = false, isPastHero = false }: ThemeToggleP
         type="button"
         onClick={toggle}
         aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-        className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-md"
+        className="flex items-center gap-2 sm:gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-md cursor-pointer"
       >
-        <span className="flex items-center justify-center w-9 h-9 rounded-full border border-white/20 bg-white/[0.06] text-white/70 group-hover:text-white group-hover:border-white/30 transition-all duration-300">
-          {theme === "light" ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-white/80" />}
+        <span className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-white/20 bg-white/[0.06] text-white/70 group-hover:text-white group-hover:border-white/30 transition-all duration-300 shrink-0">
+          {theme === "light" ? <Sun className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" /> : <Moon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white/80" />}
         </span>
-        <span className="font-mono text-base tracking-[0.14em] uppercase text-white/70 group-hover:text-white transition-colors">
-          {theme === "light" ? "DARK MODE" : "LIGHT MODE"}
+        <span className="hidden xs:inline font-mono text-xs sm:text-base tracking-[0.14em] uppercase text-white/70 group-hover:text-white transition-colors">
+          {theme === "light" ? "DARK" : "LIGHT"}
         </span>
       </button>
     );

@@ -450,6 +450,9 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color-scheme: dark;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
@@ -459,12 +462,15 @@ html.light {
 
 body {
   min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
   background-color: var(--background);
   transition: background-color 0.4s ease;
+  touch-action: manipulation;
 }
 
-@media (pointer: fine) {
+@media (hover: hover) and (pointer: fine) {
   *,
   *::before,
   *::after,
@@ -540,8 +546,8 @@ body {
 
 /* Shared Section Content Inset */
 .content-inset {
-  padding-left: clamp(34px, 3vw, 58px);
-  padding-right: clamp(40px, 5vw, 90px);
+  padding-left: clamp(16px, 3.5vw, 58px);
+  padding-right: clamp(16px, 4vw, 90px);
 }
 
 /* ══════════════════════════════════════════════════════════════

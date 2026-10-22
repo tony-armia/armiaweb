@@ -27,10 +27,10 @@ export function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
           aria-expanded={isOpen}
           aria-controls={`faq-answer-${item.id}`}
           id={`faq-button-${item.id}`}
-          className="group flex items-center justify-between w-full py-4 md:py-5 px-4 md:px-6 text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent min-h-[56px] md:min-h-[64px] transition-colors cursor-pointer"
+          className="group flex items-center justify-between w-full py-3.5 sm:py-4 md:py-5 px-3.5 sm:px-4 md:px-6 text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent min-h-[52px] sm:min-h-[56px] md:min-h-[64px] transition-colors cursor-pointer"
           style={{ backgroundColor: "var(--surface)" }}
         >
-          <div className="flex items-center gap-3 md:gap-4 pr-4">
+          <div className="flex items-center gap-2.5 sm:gap-4 pr-2 sm:pr-4">
             {/* Active Orange Rounded Marker */}
             <div className="relative w-[14px] h-[6px] flex items-center justify-center shrink-0">
               <span className="absolute h-[6px] w-[6px] rounded-full bg-transparent inline-block group-hover:bg-brand-accent/40 transition-colors" />
@@ -43,7 +43,7 @@ export function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
 
             {/* Question Number */}
             <span
-              className="font-mono text-base font-semibold w-[36px] shrink-0 group-hover:text-brand-accent transition-colors"
+              className="font-mono text-xs sm:text-base font-semibold w-[28px] sm:w-[36px] shrink-0 group-hover:text-brand-accent transition-colors"
               style={{ color: "var(--foreground-subtle)" }}
             >
               {item.number}
@@ -51,7 +51,7 @@ export function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
 
             {/* Question Text */}
             <span
-              className="font-sans text-[clamp(1.0rem,1.1vw,1.25rem)] font-medium tracking-[-0.015em] uppercase leading-[1.3] transition-colors"
+              className="font-sans text-[clamp(0.92rem,1.1vw,1.25rem)] font-medium tracking-[-0.015em] uppercase leading-[1.3] transition-colors"
               style={{ color: isOpen ? "var(--accent)" : "var(--foreground)" }}
             >
               {item.question}
@@ -60,7 +60,7 @@ export function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
 
           {/* Toggle icon pill */}
           <div
-            className="relative w-9 h-9 rounded-full flex items-center justify-center shrink-0 transition-all"
+            className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center shrink-0 transition-all"
             style={{
               backgroundColor: "var(--surface-elevated)",
               color: "var(--foreground-muted)",
@@ -69,7 +69,7 @@ export function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
             <motion.span
               animate={{ rotate: isOpen ? 45 : 0 }}
               transition={{ duration: 0.3, ease: EASE_CUSTOM }}
-              className="relative block w-[12px] h-[12px]"
+              className="relative block w-[10px] h-[10px] sm:w-[12px] sm:h-[12px]"
             >
               <span className="absolute top-1/2 left-0 w-full h-[1.5px] -translate-y-1/2 bg-current rounded-full" />
               <span className="absolute top-1/2 left-0 w-full h-[1.5px] -translate-y-1/2 bg-current rotate-90 rounded-full" />
@@ -95,11 +95,11 @@ export function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
               borderTop: "1px solid var(--border)",
             }}
           >
-            <div className="pb-6 pt-3 pl-[56px] md:pl-[68px] pr-6 md:pr-12 max-w-[680px]">
+            <div className="pb-5 sm:pb-6 pt-3 pl-3.5 sm:pl-[56px] md:pl-[68px] pr-3.5 sm:pr-6 md:pr-12 max-w-[680px]">
               {item.answer.map((paragraph, pIdx) => (
                 <p
                   key={pIdx}
-                  className="font-sans text-base md:text-[16.5px] leading-[1.7] mb-3 last:mb-0"
+                  className="font-sans text-sm sm:text-base md:text-[16.5px] leading-[1.7] mb-3 last:mb-0"
                   style={{ color: "var(--foreground-muted)" }}
                 >
                   {paragraph}

@@ -34,10 +34,10 @@ export function PartnerTicker() {
           {marqueeList.map((partner, index) => (
             <div
               key={index}
-              className="flex items-center justify-center px-10 md:px-16 py-5 md:py-6"
+              className="flex items-center justify-center px-6 sm:px-10 md:px-16 py-3.5 sm:py-5 md:py-6"
             >
               <span
-                className="font-mono text-base md:text-[17px] font-medium tracking-[0.14em] uppercase whitespace-nowrap opacity-75 hover:opacity-100 transition-opacity"
+                className="font-mono text-xs sm:text-base md:text-[17px] font-medium tracking-[0.14em] uppercase whitespace-nowrap opacity-75 hover:opacity-100 transition-opacity"
                 style={{ color: "var(--foreground)" }}
               >
                 {partner}

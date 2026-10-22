@@ -118,10 +118,10 @@ export function AwardsSection() {
         <div className="absolute top-24 right-24 w-[480px] h-[480px] rounded-full border border-[#FF5A00]/20 opacity-40" />
       </motion.div>
 
-      <div className="w-full max-w-[1920px] mx-auto px-6 md:px-[10.8%] relative z-10 flex flex-col justify-between h-full">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-[10.8%] relative z-10 flex flex-col justify-between h-full">
         
         {/* ── 1. Header Row (Matching Reference Layout) ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-10 sm:mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-8 sm:mb-12">
           {/* Left Column: Eyebrow + Big Heading + Subtitle */}
           <div className="lg:col-span-6">
             <SectionEyebrow number="07" label="RECOGNITION" className="!mb-3.5" />
@@ -130,13 +130,13 @@ export function AwardsSection() {
               initial="hidden"
               whileInView="show"
               viewport={VIEWPORT_ONCE}
-              className="font-sans text-[clamp(2.4rem,4.2vw,4.5rem)] font-light tracking-[-0.035em] leading-[0.96] text-left uppercase"
+              className="font-sans text-[clamp(2.0rem,4.2vw,4.5rem)] font-light tracking-[-0.035em] leading-[0.96] text-left uppercase"
             >
               <span className="block" style={{ color: 'var(--foreground)' }}>AWARDS &amp;</span>
               <span className="block text-[#FF5A00] font-normal">RECOGNITION.</span>
             </motion.h2>
 
-            <p className="font-mono text-base md:text-[17px] leading-relaxed mt-4 uppercase tracking-[0.1em] max-w-lg" style={{ color: 'var(--foreground-muted)' }}>
+            <p className="font-mono text-sm sm:text-base md:text-[17px] leading-relaxed mt-4 uppercase tracking-[0.1em] max-w-lg" style={{ color: 'var(--foreground-muted)' }}>
               RECOGNIZED GLOBALLY BY LEADING RESEARCH AND ANALYST PLATFORMS.
             </p>
           </div>
@@ -244,7 +244,7 @@ export function AwardsSection() {
           </motion.div>
 
           {/* ── Right Column: 10 Authentic Award Badges with Clean White/Light Card Background ── */}
-          <motion.div style={{ y: yGrid }} className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-3.5 items-stretch will-change-transform">
+          <motion.div style={{ y: yGrid }} className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3.5 items-stretch will-change-transform">
             {AWARDS_5X2.map((award, idx) => (
               <motion.div
                 key={award.id}
@@ -252,7 +252,7 @@ export function AwardsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_ONCE}
                 transition={{ duration: 0.4, delay: idx * 0.03, ease: EASE_CUSTOM }}
-                className="award-card group relative rounded-xl sm:rounded-2xl border p-3 sm:p-4 flex flex-col justify-between items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 min-h-[195px] sm:min-h-[215px]"
+                className="award-card group relative rounded-xl sm:rounded-2xl border p-2.5 sm:p-4 flex flex-col justify-between items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 min-h-[175px] sm:min-h-[215px]"
               >
                 {/* ── Minimalist Clean Logo Display Area ── */}
                 <div className="relative w-full h-16 sm:h-[72px] flex items-center justify-center">

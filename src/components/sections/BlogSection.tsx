@@ -40,13 +40,13 @@ export function BlogSection() {
       </motion.div>
 
       {/* ── Top Header Area ── */}
-      <div className="relative z-10 w-full max-w-[1920px] mx-auto px-6 md:px-[10.8%] mb-6 md:mb-8 shrink-0">
+      <div className="relative z-10 w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-[10.8%] mb-6 md:mb-8 shrink-0">
         {/* Top Eyebrow Row: INSIGHTS & VIEW ALL ARTICLES */}
         <div className="flex items-center justify-between mb-3 md:mb-4">
           {/* Left Eyebrow with glowing orange node */}
           <div className="flex items-center gap-2.5">
             <span className="w-2.5 h-2.5 rounded-full bg-brand-accent shadow-[0_0_10px_#FF5A00] inline-block shrink-0" />
-            <span className="font-mono text-base md:text-[17px] tracking-[0.14em] uppercase font-semibold" style={{ color: 'var(--foreground)' }}>
+            <span className="font-mono text-sm sm:text-base md:text-[17px] tracking-[0.14em] uppercase font-semibold" style={{ color: 'var(--foreground)' }}>
               INSIGHTS
             </span>
           </div>
@@ -54,7 +54,7 @@ export function BlogSection() {
           {/* Right Action Link */}
           <a
             href="#blog"
-            className="font-mono text-base md:text-[17px] text-brand-accent tracking-[0.12em] uppercase transition-colors flex items-center gap-2 group"
+            className="font-mono text-xs sm:text-base md:text-[17px] text-brand-accent tracking-[0.12em] uppercase transition-colors flex items-center gap-1.5 sm:gap-2 group"
           >
             <span>VIEW ALL ARTICLES</span>
             <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -65,7 +65,7 @@ export function BlogSection() {
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
           {/* Main Title & Center Divider Block */}
           <div className="flex flex-col md:flex-row md:items-center gap-6 lg:gap-12">
-            <h2 className="font-sans text-[clamp(2.5rem,4.2vw,4.5rem)] font-light tracking-[-0.035em] leading-[0.92] text-left">
+            <h2 className="font-sans text-[clamp(2.0rem,4.2vw,4.5rem)] font-light tracking-[-0.035em] leading-[0.92] text-left">
               <span className="block" style={{ color: 'var(--foreground)' }}>LATEST</span>
               <span className="block font-normal" style={{ color: 'var(--foreground)' }}>
                 INSIGHTS<span className="text-brand-accent">.</span>
@@ -93,7 +93,7 @@ export function BlogSection() {
       </div>
 
       {/* ── Main Asymmetric 2-Column Showcase (Left Featured 01 + Right Stacked 02, 03, 04) ── */}
-      <div className="relative z-10 w-full max-w-[1920px] mx-auto px-6 md:px-[10.8%] flex-1 flex flex-col justify-start">
+      <div className="relative z-10 w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-[10.8%] flex-1 flex flex-col justify-start">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-stretch">
           {/* ── LEFT COLUMN: Featured Large Card (01) ── */}
           <motion.div
@@ -106,7 +106,7 @@ export function BlogSection() {
           >
             <Link
               href={featuredArticle.href}
-              className="relative w-full rounded-2xl border border-white/[0.08] bg-[#0c0e14]/90 overflow-hidden flex flex-col justify-between p-6 sm:p-8 group hover:border-white/20 transition-all duration-500 shadow-2xl min-h-[460px] lg:min-h-[500px]"
+              className="relative w-full rounded-2xl border border-white/[0.08] bg-[#0c0e14]/90 overflow-hidden flex flex-col justify-between p-5 sm:p-8 group hover:border-white/20 transition-all duration-500 shadow-2xl min-h-[380px] sm:min-h-[460px] lg:min-h-[500px]"
             >
               {/* Background Cover Image with Eclipse Glow & Dark Gradients */}
               <motion.div style={{ y: yFeaturedImage, scale: 1.08 }} className="absolute inset-0 z-0 will-change-transform">

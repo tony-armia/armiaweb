@@ -171,10 +171,10 @@ export function TestimonialsSection() {
       style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}
       aria-label="Client Testimonials and Reviews"
     >
-      <div className="w-full max-w-[1920px] mx-auto px-6 md:px-[10.8%]">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-[10.8%]">
         
         {/* ── Section Header Row (Directly matching reference) ── */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 sm:mb-14">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 sm:mb-14">
           <div>
             <SectionEyebrow number="06" label="TESTIMONIALS" className="!mb-3.5" />
             <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-light tracking-tight leading-[1.2]" style={{ color: 'var(--foreground)' }}>
@@ -186,7 +186,7 @@ export function TestimonialsSection() {
           <div className="shrink-0">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-white/20 bg-white/[0.05] hover:bg-white/[0.12] hover:border-brand-accent/50 text-white font-mono text-base tracking-[0.1em] uppercase transition-all duration-300 backdrop-blur-md group cursor-pointer"
+              className="inline-flex items-center gap-2.5 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full border border-white/20 bg-white/[0.05] hover:bg-white/[0.12] hover:border-brand-accent/50 text-white font-mono text-xs sm:text-base tracking-[0.1em] uppercase transition-all duration-300 backdrop-blur-md group cursor-pointer"
             >
               <span>ALL TESTIMONIALS</span>
               <ArrowUpRight className="w-4.5 h-4.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-brand-accent" />
@@ -200,7 +200,7 @@ export function TestimonialsSection() {
           {/* ── Left Card: White Editorial Quote Card (5 cols) ── */}
           <motion.div
             style={{ y: yQuote }}
-            className="lg:col-span-5 rounded-[26px] bg-white text-[#111111] p-7 sm:p-9 flex flex-col justify-between shadow-2xl relative overflow-hidden min-h-[460px] md:min-h-[500px] will-change-transform"
+            className="lg:col-span-5 rounded-[22px] sm:rounded-[26px] bg-white text-[#111111] p-5 sm:p-7 md:p-9 flex flex-col justify-between shadow-2xl relative overflow-hidden min-h-[380px] sm:min-h-[460px] md:min-h-[500px] will-change-transform"
           >
             
             {/* 3D Angled Brand Orange Decorative Graphic in Bottom Right */}
@@ -262,9 +262,9 @@ export function TestimonialsSection() {
             </div>
 
             {/* Bottom: Floating Avatar & Author Bar with Nav Arrows */}
-            <div className="relative z-10 w-full p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-amber-50/90 via-orange-50/70 to-neutral-100/90 backdrop-blur-md border border-orange-200/50 flex items-center justify-between shadow-sm">
-              <div className="flex items-center gap-3 min-w-0 pr-2">
-                <div className="relative w-12 h-12 rounded-full overflow-hidden border border-black/10 shrink-0 bg-neutral-200">
+            <div className="relative z-10 w-full p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-amber-50/90 via-orange-50/70 to-neutral-100/90 backdrop-blur-md border border-orange-200/50 flex items-center justify-between shadow-sm gap-2">
+              <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 pr-1 sm:pr-2">
+                <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border border-black/10 shrink-0 bg-neutral-200">
                   <Image
                     src={current.avatar}
                     alt={current.name}
@@ -273,30 +273,30 @@ export function TestimonialsSection() {
                   />
                 </div>
                 <div className="min-w-0">
-                  <div className="font-sans font-bold text-base text-[#111111] leading-snug truncate">
+                  <div className="font-sans font-bold text-sm sm:text-base text-[#111111] leading-snug truncate">
                     {current.name}
                   </div>
-                  <div className="font-sans text-base text-[#444444] leading-snug truncate">
+                  <div className="font-sans text-xs sm:text-base text-[#444444] leading-snug truncate">
                     {current.role}
                   </div>
                 </div>
               </div>
 
               {/* Prev / Next Arrows */}
-              <div className="flex items-center gap-3 shrink-0">
+              <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
                 <button
                   onClick={handlePrev}
                   aria-label="Previous testimonial"
-                  className="p-1.5 text-[#222222] hover:text-black transition-transform duration-200 hover:-translate-x-0.5 cursor-pointer"
+                  className="p-1 sm:p-1.5 text-[#222222] hover:text-black transition-transform duration-200 hover:-translate-x-0.5 cursor-pointer"
                 >
-                  <ArrowLeft className="w-5 h-5" />
+                  <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
                 <button
                   onClick={handleNext}
                   aria-label="Next testimonial"
-                  className="p-1.5 text-[#222222] hover:text-black transition-transform duration-200 hover:translate-x-0.5 cursor-pointer"
+                  className="p-1 sm:p-1.5 text-[#222222] hover:text-black transition-transform duration-200 hover:translate-x-0.5 cursor-pointer"
                 >
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
               </div>
             </div>
@@ -307,7 +307,7 @@ export function TestimonialsSection() {
           <motion.div
             style={{ y: yVideo }}
             onClick={() => setIsVideoModalOpen(true)}
-            className="lg:col-span-7 rounded-[26px] overflow-hidden relative min-h-[460px] md:min-h-[500px] shadow-2xl bg-[#0e0f14] border border-white/10 group cursor-pointer flex flex-col justify-between p-7 sm:p-9 will-change-transform"
+            className="lg:col-span-7 rounded-[22px] sm:rounded-[26px] overflow-hidden relative min-h-[340px] sm:min-h-[460px] md:min-h-[500px] shadow-2xl bg-[#0e0f14] border border-white/10 group cursor-pointer flex flex-col justify-between p-5 sm:p-7 md:p-9 will-change-transform"
           >
             {/* Background Image / Video Poster */}
             <motion.div style={{ y: yPoster, scale: 1.08 }} className="absolute inset-0 will-change-transform">

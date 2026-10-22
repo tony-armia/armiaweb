@@ -30,37 +30,37 @@ export function FAQSection() {
 
       <div className="w-full max-w-[1920px] mx-auto relative z-10">
         {/* Upper Header Row matching ServicesSection Grid Columns */}
-        <div className="relative w-full flex flex-col md:flex-row items-start mb-8 md:mb-12">
+        <div className="relative w-full flex flex-col md:flex-row items-start mb-6 md:mb-12">
           {/* Far Left Section Marker: 10.8% to 30.3% */}
-          <div className="w-full md:w-[19.5%] md:ml-[10.8%] px-6 md:px-0 pt-1 mb-6 md:mb-0">
+          <div className="w-full md:w-[19.5%] md:ml-[10.8%] px-4 sm:px-6 md:px-0 pt-1 mb-4 md:mb-0">
             <SectionEyebrow number="08" label="FAQ" className="!mb-0" />
           </div>
 
           {/* Heading Block: 30.3% to 69.3% */}
-          <div className="w-full md:w-[39.0%] px-6 md:px-0 pt-0.5 mb-6 md:mb-0">
+          <div className="w-full md:w-[39.0%] px-4 sm:px-6 md:px-0 pt-0.5 mb-4 md:mb-0">
             <motion.h2
               variants={fadeUp}
               initial="hidden"
               whileInView="show"
               viewport={VIEWPORT_ONCE}
-              className="font-sans text-[clamp(2.25rem,3.2vw,3.85rem)] font-light tracking-[-0.035em] leading-[0.98] text-left uppercase"
+              className="font-sans text-[clamp(1.9rem,3.2vw,3.85rem)] font-light tracking-[-0.035em] leading-[0.98] text-left uppercase"
             >
               <span className="block" style={{ color: 'var(--foreground-muted)' }}>FREQUENTLY</span>
               <span className="block font-normal" style={{ color: 'var(--foreground)' }}>ASKED QUESTIONS.</span>
             </motion.h2>
 
-            <p className="font-mono text-base md:text-[17px] leading-relaxed mt-4 md:mt-5 uppercase tracking-[0.1em] max-w-[400px]" style={{ color: 'var(--foreground-muted)' }}>
+            <p className="font-mono text-sm sm:text-base md:text-[17px] leading-relaxed mt-3 md:mt-5 uppercase tracking-[0.1em] max-w-[400px]" style={{ color: 'var(--foreground-muted)' }}>
               COMMON QUESTIONS ABOUT <br />
               <strong className="font-medium" style={{ color: 'var(--foreground)' }}>ARMIA SYSTEMS</strong> &amp; ENGAGEMENTS.
             </p>
           </div>
 
           {/* Right Supporting Copy / Link */}
-          <div className="w-full md:w-[22%] px-6 md:px-0 pt-1 flex justify-start">
+          <div className="w-full md:w-[22%] px-4 sm:px-6 md:px-0 pt-1 flex justify-start mb-6 md:mb-0">
             <div className="flex flex-col gap-4">
               <a
                 href="#contact"
-                className="font-mono text-base md:text-[17px] text-brand-accent tracking-[0.06em] uppercase transition-colors flex items-center gap-2 group"
+                className="font-mono text-sm sm:text-base md:text-[17px] text-brand-accent tracking-[0.06em] uppercase transition-colors flex items-center gap-2 group"
               >
                 <span>HAVE QUESTIONS? TALK TO US</span>
                 <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -70,7 +70,7 @@ export function FAQSection() {
         </div>
 
         {/* FAQ Accordion List (30.3% to 88.8% width: 58.5%) */}
-        <div className="w-full md:w-[58.5%] md:ml-[30.3%] px-6 md:px-0">
+        <div className="w-full md:w-[58.5%] md:ml-[30.3%] px-4 sm:px-6 md:px-0">
           <div className="relative w-full">
             {/* Accent line grows in left-to-right */}
             <motion.div

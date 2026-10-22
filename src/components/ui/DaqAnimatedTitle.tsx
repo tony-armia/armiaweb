@@ -29,7 +29,7 @@ export function DaqAnimatedTitle({ isLight = false }: DaqAnimatedTitleProps) {
 
   return (
     <h1
-      className={`font-sans text-[clamp(2.25rem,6.4vw,6.25rem)] leading-[0.95] tracking-[-0.02em] uppercase mb-4 sm:mb-6 transition-colors duration-700 ease-in-out ${
+      className={`font-sans text-[clamp(1.75rem,5.6vw,5.5rem)] leading-[0.95] tracking-[-0.02em] uppercase mb-4 sm:mb-6 transition-colors duration-700 ease-in-out ${
         isLight ? "text-neutral-900" : "text-white"
       }`}
     >

@@ -88,7 +88,7 @@ export function HeroSection() {
       ref={containerRef}
       id="home"
       data-theme={isLight ? "hero-light" : "hero"}
-      className="relative min-h-[100svh] h-[100dvh] w-full overflow-hidden select-none snap-section"
+      className="relative min-h-[100svh] h-auto lg:h-[100dvh] w-full overflow-hidden select-none snap-section"
       aria-label="Hero"
     >
       {/* ── Dual Base Background Layers (Cross-Dissolve without muddied intermediate colors) ── */}
@@ -105,17 +105,15 @@ export function HeroSection() {
         }`}
       />
 
-
-
       {activeHero === "hero1" ? (
-        <div className="relative w-full h-full flex items-center justify-center pointer-events-none">
+        <div className="relative w-full min-h-[100svh] lg:h-full flex items-center justify-center pointer-events-none">
           {/* DAQ-inspired animated SVG and liquid fluid background */}
           <motion.div className="absolute inset-0 z-0 will-change-transform" style={{ y: yParallaxGlobe, opacity: opacityParallaxGlobe }}>
             <DaqBackgroundVisual isLight={isLight} />
           </motion.div>
 
-          <div className="relative z-10 w-full max-w-[1920px] mx-auto pointer-events-auto h-full pt-32 sm:pt-40">
-            <div className="w-full px-6 md:px-0 md:w-[78%] md:ml-[10.8%] flex flex-col items-start justify-start text-left h-full">
+          <div className="relative z-10 w-full max-w-[1920px] mx-auto pointer-events-auto min-h-[100svh] lg:h-full pt-24 sm:pt-32 md:pt-40 pb-20 sm:pb-24 lg:pb-0 flex flex-col justify-center">
+            <div className="w-full px-4 sm:px-6 md:px-0 md:w-[78%] md:ml-[10.8%] flex flex-col items-start justify-start text-left">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={isAppReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -125,7 +123,7 @@ export function HeroSection() {
               >
                 {/* Minimal Trust Separator */}
                 <div
-                  className={`mb-6 font-mono text-base uppercase tracking-[0.14em] flex flex-wrap justify-start items-center gap-x-4 gap-y-2 transition-colors duration-700 ease-in-out ${
+                  className={`mb-4 sm:mb-6 font-mono text-xs sm:text-sm md:text-base uppercase tracking-[0.14em] flex flex-wrap justify-start items-center gap-x-3 sm:gap-x-4 gap-y-1.5 transition-colors duration-700 ease-in-out ${
                     isLight ? "text-neutral-700" : "text-white/50"
                   }`}
                 >
@@ -153,7 +151,7 @@ export function HeroSection() {
                 
                 {/* Supporting Minimal Description (Monospace, highly tracked with AI focus) */}
                 <p
-                  className={`font-mono text-base sm:text-[17px] leading-[1.8] tracking-[0.1em] uppercase max-w-2xl mb-12 transition-colors duration-700 ease-in-out ${
+                  className={`font-mono text-sm sm:text-base md:text-[17px] leading-[1.7] sm:leading-[1.8] tracking-[0.06em] sm:tracking-[0.1em] uppercase max-w-2xl mb-8 sm:mb-12 transition-colors duration-700 ease-in-out ${
                     isLight ? "text-neutral-700 font-medium" : "text-white/50 font-normal"
                   }`}
                 >
@@ -164,14 +162,14 @@ export function HeroSection() {
                 <div className="flex items-center justify-start">
                   <a
                     href="#contact"
-                    className={`group inline-flex items-center gap-6 border px-8 py-4 rounded-full transition-all duration-300 ${
+                    className={`group inline-flex items-center gap-4 sm:gap-6 border px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-300 ${
                       isLight
                         ? "border-black/20 hover:border-black/60 bg-black/[0.03] hover:bg-black/[0.08] shadow-sm hover:shadow-md"
                         : "border-white/20 hover:border-white/50 bg-transparent"
                     }`}
                   >
                     <span
-                      className={`font-mono text-base uppercase tracking-[0.14em] transition-colors duration-300 ${
+                      className={`font-mono text-sm sm:text-base uppercase tracking-[0.14em] transition-colors duration-300 ${
                         isLight
                           ? "text-neutral-900 group-hover:text-black font-semibold"
                           : "text-white/80 group-hover:text-white"
@@ -195,19 +193,19 @@ export function HeroSection() {
           {/* Huge Faint Watermark (Bottom Right) */}
           <motion.div
             style={{ y: yParallaxBottom, opacity: opacityParallaxWatermark }}
-            className={`absolute bottom-8 right-6 md:right-[10.8%] flex flex-col items-end pointer-events-none select-none z-10 will-change-transform transition-all duration-700 ease-in-out ${
+            className={`absolute bottom-6 right-4 sm:bottom-8 sm:right-6 md:right-[10.8%] flex flex-col items-end pointer-events-none select-none z-10 will-change-transform transition-all duration-700 ease-in-out ${
               isLight ? "mix-blend-multiply" : "mix-blend-screen"
             }`}
           >
             <span
-              className={`font-sans font-black text-[140px] sm:text-[220px] leading-[0.75] tracking-tighter z-20 transition-colors duration-700 ease-in-out ${
+              className={`font-sans font-black text-[90px] xs:text-[120px] sm:text-[180px] md:text-[220px] leading-[0.75] tracking-tighter z-20 transition-colors duration-700 ease-in-out ${
                 isLight ? "text-neutral-900" : "text-white/80"
               }`}
             >
               23
             </span>
             <span
-              className={`font-mono text-base tracking-[0.25em] uppercase mr-1 mt-1 transition-colors duration-700 ease-in-out ${
+              className={`font-mono text-xs sm:text-base tracking-[0.25em] uppercase mr-1 mt-1 transition-colors duration-700 ease-in-out ${
                 isLight ? "text-neutral-800 font-semibold" : "text-white/50"
               }`}
             >
@@ -223,9 +221,9 @@ export function HeroSection() {
           </motion.div>
 
           {/* ── Main Hero Content Area ── */}
-          <div className="relative z-10 pointer-events-none h-full w-full">
+          <div className="relative z-10 pointer-events-none min-h-[100svh] lg:h-full w-full flex items-center justify-center">
             {/* Centered Giant Display Typography & Complete Partner Value Elements */}
-            <div className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 px-6 sm:px-10 pointer-events-auto">
+            <div className="relative lg:absolute lg:left-1/2 lg:top-1/2 w-full lg:-translate-x-1/2 lg:-translate-y-1/2 px-4 sm:px-6 md:px-10 pointer-events-auto pt-24 sm:pt-32 pb-20 sm:pb-24 lg:py-0">
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={isAppReady ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.96 }}
@@ -238,9 +236,9 @@ export function HeroSection() {
                   initial={{ opacity: 0, y: -8 }}
                   animate={isAppReady ? { opacity: 1, y: 0 } : { opacity: 0, y: -8 }}
                   transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  className="mb-4 sm:mb-5 font-mono text-base font-semibold uppercase tracking-[0.16em] select-none transition-colors duration-700 ease-in-out"
+                  className="mb-3 sm:mb-5 font-mono text-xs sm:text-sm md:text-base font-semibold uppercase tracking-[0.16em] select-none transition-colors duration-700 ease-in-out"
                 >
-                  <div className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4 gap-y-1.5">
+                  <div className="flex flex-wrap items-center justify-center gap-x-2.5 sm:gap-x-4 gap-y-1.5">
                     <span className={isLight ? "text-black/60" : "text-white/60"}>
                       AI-Native Systems
                     </span>
@@ -253,12 +251,12 @@ export function HeroSection() {
 
                 {/* ── Strong Company-Level Headline (2 Distinct Lines) ── */}
                 <div className="relative flex flex-col items-center max-w-4xl lg:max-w-5xl w-full">
-                  <h1 className="text-center font-sans font-bold uppercase leading-[1.08] tracking-tight text-[clamp(1.85rem,4.2vw,4.15rem)] cursor-default select-none">
+                  <h1 className="text-center font-sans font-bold uppercase leading-[1.08] tracking-tight text-[clamp(1.65rem,4.4vw,4.15rem)] cursor-default select-none">
                     <div className="flex flex-col items-center justify-center gap-y-1 sm:gap-y-1.5">
                       {headlineLines.map((line, lineIndex) => (
                         <div
                           key={lineIndex}
-                          className="overflow-hidden flex items-center justify-center gap-x-2.5 sm:gap-x-3.5 md:gap-x-4 whitespace-nowrap"
+                          className="overflow-hidden flex items-center justify-center gap-x-2 sm:gap-x-3.5 md:gap-x-4 whitespace-nowrap"
                         >
                           {line.map((word, wordIndex) => {
                             const globalIndex = lineIndex * 2 + wordIndex;
@@ -318,7 +316,7 @@ export function HeroSection() {
                 >
                   {/* Concise Supporting Copy */}
                   <p
-                    className={`font-sans text-base sm:text-[17px] md:text-[18px] font-normal leading-relaxed tracking-normal max-w-2xl mx-auto transition-colors duration-700 ease-in-out ${
+                    className={`font-sans text-sm sm:text-[16px] md:text-[18px] font-normal leading-relaxed tracking-normal max-w-2xl mx-auto transition-colors duration-700 ease-in-out ${
                       isLight ? "text-black" : "text-white/70"
                     }`}
                   >
@@ -326,11 +324,11 @@ export function HeroSection() {
                   </p>
 
                   {/* ── Call To Action Buttons ── */}
-                  <div className="mt-6 sm:mt-7 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+                  <div className="mt-6 sm:mt-7 flex flex-wrap items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
                     {/* Primary Button */}
                     <a
                       href="#contact"
-                      className={`group relative inline-flex items-center gap-2.5 px-6 sm:px-7 h-[48px] sm:h-[52px] rounded-full font-sans text-base sm:text-[17px] font-medium tracking-tight transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.98] ${
+                      className={`group relative inline-flex items-center justify-center gap-2.5 px-5 sm:px-7 h-[46px] sm:h-[52px] rounded-full font-sans text-sm sm:text-[17px] font-medium tracking-tight transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto ${
                         isLight
                           ? "bg-neutral-900 text-white hover:bg-black shadow-[0_2px_12px_rgba(0,0,0,0.12)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.2)]"
                           : "bg-white text-neutral-950 hover:bg-neutral-100 shadow-[0_2px_12px_rgba(0,0,0,0.4)] hover:shadow-[0_0_24px_rgba(255,255,255,0.22)]"
@@ -349,7 +347,7 @@ export function HeroSection() {
                     {/* Secondary Button */}
                     <a
                       href="#services"
-                      className={`group relative inline-flex items-center gap-2.5 px-6 sm:px-7 h-[48px] sm:h-[52px] rounded-full font-sans text-base sm:text-[17px] font-medium tracking-tight bg-transparent transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.98] ${
+                      className={`group relative inline-flex items-center justify-center gap-2.5 px-5 sm:px-7 h-[46px] sm:h-[52px] rounded-full font-sans text-sm sm:text-[17px] font-medium tracking-tight bg-transparent transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto ${
                         isLight
                           ? "border border-black/15 hover:border-black/30 text-neutral-800 hover:text-black"
                           : "border border-white/15 hover:border-white/30 text-white/85 hover:text-white"
@@ -359,8 +357,6 @@ export function HeroSection() {
                       <ArrowRight className="w-4 h-4 text-brand-accent transition-transform duration-300 group-hover:translate-x-1" />
                     </a>
                   </div>
-
-
                 </motion.div>
               </motion.div>
             </div>
