@@ -753,10 +753,28 @@ header button[aria-controls="mobile-nav"] .bg-brand-accent * {
   color: #666666 !important;
 }
 
-/* ── "TRUSTED BY GLOBAL BRANDS" badge in Process dark card image overlay ── */
-/* The image overlay cards stay dark since they have real images */
+/* ── "TRUSTED BY GLOBAL BRANDS" badge in Process Section: white pill in Light Mode ── */
+.light #process .trusted-brands-pill,
+.light [data-theme="section"] .trusted-brands-pill,
+.light [data-theme="section"] [class*="bg-black/65"].backdrop-blur-md,
 .light [data-theme="section"] [class*="bg-black/70"].backdrop-blur-md {
-  background-color: rgba(0, 0, 0, 0.60) !important;
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+}
+
+.light #process .trusted-brands-pill span,
+.light [data-theme="section"] .trusted-brands-pill span,
+.light [data-theme="section"] [class*="bg-black/65"].backdrop-blur-md span:not([class*="bg-"]),
+.light [data-theme="section"] [class*="bg-black/70"].backdrop-blur-md span:not([class*="bg-"]) {
+  color: #111111 !important;
+}
+
+.light #process .trusted-brands-pill [class*="bg-[#FF5A00]"],
+.light [data-theme="section"] .trusted-brands-pill [class*="bg-[#FF5A00]"],
+.light [data-theme="section"] [class*="bg-black/65"].backdrop-blur-md [class*="bg-[#FF5A00]"],
+.light [data-theme="section"] [class*="bg-black/70"].backdrop-blur-md [class*="bg-[#FF5A00]"] {
+  background-color: #ff5a00 !important;
 }
 
 /* ── FAQ section text ── */
