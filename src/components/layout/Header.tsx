@@ -66,13 +66,21 @@ export function Header() {
       setIsLight(isHtmlLight || isHeroLightEl);
     };
     check();
+
+    window.addEventListener("themeChange", check);
+    window.addEventListener("storage", check);
+
     const observer = new MutationObserver(check);
     observer.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ["class", "data-theme"],
       subtree: true,
     });
-    return () => observer.disconnect();
+    return () => {
+      window.removeEventListener("themeChange", check);
+      window.removeEventListener("storage", check);
+      observer.disconnect();
+    };
   }, []);
 
   useEffect(() => {
@@ -117,7 +125,7 @@ export function Header() {
   // Menu button: adapt contrast to current background
   const menuBtnBase = !isLightContext
     ? "bg-white/[0.07] hover:bg-white/[0.14] text-white border-white/15 hover:border-brand-accent/50"
-    : "bg-black/[0.06] hover:bg-black/[0.12] text-foreground border-black/15 hover:border-brand-accent/40";
+    : "bg-black/[0.06] hover:bg-black/[0.12] text-neutral-900 border-black/15 hover:border-brand-accent/40 font-semibold";
 
   return (
     <>
@@ -168,7 +176,7 @@ export function Header() {
                     suppressHydrationWarning
                     className={`backdrop-blur-md border text-xs sm:text-base font-mono tracking-wide px-2 sm:px-3 h-[38px] sm:h-[42px] md:h-[44px] rounded-full outline-none focus:border-brand-accent transition-all duration-300 cursor-pointer shadow-sm ${
                       isLightContext
-                        ? "bg-black/[0.06] hover:bg-black/[0.10] border-black/15 text-foreground hover:border-brand-accent/40"
+                        ? "bg-black/[0.06] hover:bg-black/[0.10] border-black/15 text-neutral-900 hover:border-brand-accent/40 font-medium"
                         : "bg-white/10 hover:bg-white/15 border-white/20 text-white hover:border-brand-accent/50"
                     }`}
                   >
@@ -181,24 +189,28 @@ export function Header() {
                   href="/"
                   className={`hidden sm:inline-flex items-center gap-2 px-3 sm:px-3.5 h-[38px] sm:h-[42px] md:h-[44px] rounded-full border text-xs sm:text-base font-mono tracking-wide backdrop-blur-md transition-all duration-300 group ${
                     isLightContext
-                      ? "bg-black/[0.06] hover:bg-black/[0.10] border-black/15 text-foreground hover:border-brand-accent/40"
+                      ? "bg-black/[0.06] hover:bg-black/[0.10] border-black/15 text-neutral-900 hover:border-brand-accent/40 font-medium"
                       : "bg-white/10 hover:bg-white/15 border-white/20 text-white hover:border-brand-accent/50"
                   }`}
                 >
                   <span className="text-brand-accent font-bold transition-transform duration-300 group-hover:-translate-x-0.5">←</span>
-                  <span className="text-xs sm:text-sm font-semibold tracking-wider">HOME</span>
+                  <span className={`text-xs sm:text-sm font-semibold tracking-wider transition-colors ${isLightContext ? "text-neutral-900" : "text-white"}`}>
+                    HOME
+                  </span>
                 </Link>
               ) : (
                 <Link
                   href="/work"
                   className={`hidden sm:inline-flex items-center gap-2 px-3 sm:px-3.5 h-[38px] sm:h-[42px] md:h-[44px] rounded-full border text-xs sm:text-base font-mono tracking-wide backdrop-blur-md transition-all duration-300 group ${
                     isLightContext
-                      ? "bg-black/[0.06] hover:bg-black/[0.10] border-black/15 text-foreground hover:border-brand-accent/40"
+                      ? "bg-black/[0.06] hover:bg-black/[0.10] border-black/15 text-neutral-900 hover:border-brand-accent/40 font-medium"
                       : "bg-white/10 hover:bg-white/15 border-white/20 text-white hover:border-brand-accent/50"
                   }`}
                 >
                   <span className="text-brand-accent font-bold transition-transform duration-300 group-hover:-translate-x-0.5">←</span>
-                  <span className="text-xs sm:text-sm font-semibold tracking-wider">ALL WORK</span>
+                  <span className={`text-xs sm:text-sm font-semibold tracking-wider transition-colors ${isLightContext ? "text-neutral-900" : "text-white"}`}>
+                    ALL WORK
+                  </span>
                 </Link>
               )}
 
@@ -218,7 +230,7 @@ export function Header() {
                   <span className="block h-[1.5px] w-3.5 sm:w-4 rounded-full bg-current opacity-80 transition-all duration-300 group-hover:w-3 group-hover:-translate-x-0.5" />
                 </div>
 
-                <span className="font-medium opacity-90 group-hover:opacity-100 transition-colors duration-300">
+                <span className="font-semibold text-current transition-colors duration-300">
                   MENU
                 </span>
 

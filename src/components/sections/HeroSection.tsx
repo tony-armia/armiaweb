@@ -158,21 +158,21 @@ export function HeroSection() {
                   Delivering intelligent software, autonomous AI workflows, and robust cloud platforms since 2003 across India and the USA.
                 </p>
                 
-                {/* Minimal Transparent DAQ-style Button */}
+                {/* Hero Primary CTA Button */}
                 <div className="flex items-center justify-start">
                   <a
                     href="#contact"
-                    className={`group inline-flex items-center gap-4 sm:gap-6 border px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-300 ${
+                    className={`group inline-flex items-center gap-4 sm:gap-6 border px-7 sm:px-9 py-3.5 sm:py-4 rounded-full transition-all duration-300 cursor-pointer ${
                       isLight
-                        ? "border-black/20 hover:border-black/60 bg-black/[0.03] hover:bg-black/[0.08] shadow-sm hover:shadow-md"
-                        : "border-white/20 hover:border-white/50 bg-transparent"
+                        ? "border-brand-accent bg-brand-accent hover:bg-[#ff4500] text-white shadow-[0_4px_20px_rgba(255,90,0,0.35)] hover:shadow-[0_6px_28px_rgba(255,90,0,0.5)]"
+                        : "border-white/20 hover:border-brand-accent hover:bg-white/[0.06] bg-transparent text-white"
                     }`}
                   >
                     <span
-                      className={`font-mono text-sm sm:text-base uppercase tracking-[0.14em] transition-colors duration-300 ${
+                      className={`font-mono text-sm sm:text-base uppercase tracking-[0.14em] font-semibold transition-colors duration-300 ${
                         isLight
-                          ? "text-neutral-900 group-hover:text-black font-semibold"
-                          : "text-white/80 group-hover:text-white"
+                          ? "text-white"
+                          : "text-white/90 group-hover:text-white"
                       }`}
                     >
                       START PROJECT
@@ -180,8 +180,8 @@ export function HeroSection() {
                     <ArrowUpRight
                       className={`w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${
                         isLight
-                          ? "text-brand-accent group-hover:text-black"
-                          : "text-white/50 group-hover:text-white"
+                          ? "text-white"
+                          : "text-white/60 group-hover:text-white"
                       }`}
                     />
                   </a>

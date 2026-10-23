@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ══════════════════════════════════════════════════════════════
    DESIGN TOKENS — Dark Mode (Default)
 ══════════════════════════════════════════════════════════════ */
@@ -108,17 +110,96 @@
 
 .award-card .award-category {
   color: #666666 !important;
+  text-transform: none !important;
 }
 
 .award-card:hover .award-title {
   color: #ff5a00 !important;
 }
 
-/* ── Header menu button: dark text on light solid header ── */
-.light [data-theme="section"] + * header,
-.light header[style*="bg-white"] {
-  color: #111111;
+/* ── Header controls in Light Mode: crisp dark text and high contrast ── */
+.light header button[aria-controls="mobile-nav"],
+.light header button[aria-controls="mobile-nav"] * {
+  color: #111111 !important;
 }
+.light header button[aria-controls="mobile-nav"] {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(0, 0, 0, 0.14) !important;
+}
+.light header button[aria-controls="mobile-nav"]:hover {
+  background-color: rgba(0, 0, 0, 0.10) !important;
+  border-color: rgba(255, 90, 0, 0.40) !important;
+}
+.light header button[aria-controls="mobile-nav"] > div:first-child span {
+  background-color: #111111 !important;
+}
+.light header button[aria-controls="mobile-nav"] > span {
+  color: #111111 !important;
+  font-weight: 600 !important;
+}
+.light header button[aria-controls="mobile-nav"] .bg-brand-accent,
+.light header button[aria-controls="mobile-nav"] .bg-brand-accent * {
+  background-color: #ff5a00 !important;
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+.light header select {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(0, 0, 0, 0.14) !important;
+  color: #111111 !important;
+}
+.light header select option {
+  background-color: #ffffff !important;
+  color: #111111 !important;
+}
+
+.light header button[aria-label*="Switch"],
+.light header button[title*="Switch"] {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(0, 0, 0, 0.14) !important;
+}
+.light header button[aria-label*="Switch"]:hover,
+.light header button[title*="Switch"]:hover {
+  background-color: rgba(0, 0, 0, 0.10) !important;
+  border-color: rgba(255, 90, 0, 0.40) !important;
+}
+.light header button[aria-label*="Switch"] svg,
+.light header button[title*="Switch"] svg {
+  color: #ff5a00 !important;
+  stroke: #ff5a00 !important;
+}
+
+/* ── Header navigation link pills (← HOME, ← ALL WORK) in Light Mode ── */
+.light header a[href="/"],
+.light header a[href="/work"],
+.light header a[href="/"] *,
+.light header a[href="/work"] * {
+  color: #111111 !important;
+}
+.light header a[href="/"],
+.light header a[href="/work"] {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(0, 0, 0, 0.14) !important;
+}
+.light header a[href="/"]:hover,
+.light header a[href="/work"]:hover {
+  background-color: rgba(0, 0, 0, 0.10) !important;
+  border-color: rgba(255, 90, 0, 0.40) !important;
+}
+.light header a[href="/"] span,
+.light header a[href="/work"] span {
+  color: #111111 !important;
+}
+.light header a[href="/"]:hover span:not(.text-brand-accent),
+.light header a[href="/work"]:hover span:not(.text-brand-accent) {
+  color: #111111 !important;
+}
+.light header a[href="/"] .text-brand-accent,
+.light header a[href="/work"] .text-brand-accent {
+  color: #ff5a00 !important;
+}
+
 
 /* ── Tab / pill buttons with white/opacity colors ── */
 .light [data-theme="section"] .rounded-full.border {
@@ -237,15 +318,33 @@
 }
 
 /* ── Dark tooltips & image overlay tags retain crisp white text ── */
-.light [class*="bg-black/"] *,
-.light [class*="bg-black/"] span,
-.light [data-theme="section"] [class*="bg-black/"] *,
-.light [data-theme="section"] [class*="bg-black/"] span {
+.light [class*="bg-black/70"] *,
+.light [class*="bg-black/70"] span,
+.light [class*="bg-black/80"] *,
+.light [class*="bg-black/80"] span,
+.light [class*="bg-black/85"] *,
+.light [class*="bg-black/85"] span,
+.light [class*="bg-black/90"] *,
+.light [class*="bg-black/90"] span,
+.light [data-theme="section"] [class*="bg-black/70"] *,
+.light [data-theme="section"] [class*="bg-black/70"] span,
+.light [data-theme="section"] [class*="bg-black/80"] *,
+.light [data-theme="section"] [class*="bg-black/80"] span,
+.light [data-theme="section"] [class*="bg-black/85"] *,
+.light [data-theme="section"] [class*="bg-black/85"] span,
+.light [data-theme="section"] [class*="bg-black/90"] *,
+.light [data-theme="section"] [class*="bg-black/90"] span {
   color: #ffffff !important;
 }
 
-.light [class*="bg-black/"] .text-brand-accent,
-.light [data-theme="section"] [class*="bg-black/"] .text-brand-accent {
+.light [class*="bg-black/70"] .text-brand-accent,
+.light [class*="bg-black/80"] .text-brand-accent,
+.light [class*="bg-black/85"] .text-brand-accent,
+.light [class*="bg-black/90"] .text-brand-accent,
+.light [data-theme="section"] [class*="bg-black/70"] .text-brand-accent,
+.light [data-theme="section"] [class*="bg-black/80"] .text-brand-accent,
+.light [data-theme="section"] [class*="bg-black/85"] .text-brand-accent,
+.light [data-theme="section"] [class*="bg-black/90"] .text-brand-accent {
   color: #ff5a00 !important;
 }
 
@@ -354,6 +453,107 @@
 .light [data-theme="section"] [class*="text-[#a4a4a2]"],
 .light [data-theme="section"] [class*="text-[#999999]"] {
   color: #777777 !important;
+}
+
+/* ── CRITICAL: Ensure all orange buttons, pills, active tabs & CTAs ALWAYS retain crisp white text in light mode ── */
+.light [class~="bg-brand-accent"],
+.light [class~="bg-brand-accent"] *,
+.light [class~="bg-[#FF5A00]"],
+.light [class~="bg-[#FF5A00]"] *,
+.light [class~="bg-[#ff5a00]"],
+.light [class~="bg-[#ff5a00]"] *,
+.light [class~="bg-accent"],
+.light [class~="bg-accent"] *,
+.light button[class~="bg-brand-accent"],
+.light button[class~="bg-brand-accent"] *,
+.light a[class~="bg-brand-accent"],
+.light a[class~="bg-brand-accent"] *,
+.light [data-theme="section"] [class~="bg-brand-accent"],
+.light [data-theme="section"] [class~="bg-brand-accent"] *,
+.light [data-theme="section"] [class~="bg-[#FF5A00]"],
+.light [data-theme="section"] [class~="bg-[#FF5A00]"] *,
+.light [data-theme="section"] [class~="bg-[#ff5a00]"],
+.light [data-theme="section"] [class~="bg-[#ff5a00]"] *,
+.light [data-theme="section"] button[class~="bg-brand-accent"],
+.light [data-theme="section"] button[class~="bg-brand-accent"] *,
+.light [data-theme="section"] a[class~="bg-brand-accent"],
+.light [data-theme="section"] a[class~="bg-brand-accent"] * {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* ── White circular badge inside orange buttons: icon/text must NEVER be white ── */
+[class*="bg-brand-accent"] [class*="bg-white"],
+[class*="bg-brand-accent"] [class*="bg-white"] *,
+[class*="bg-[#FF5A00]"] [class*="bg-white"],
+[class*="bg-[#FF5A00]"] [class*="bg-white"] *,
+[class*="bg-[#ff5a00]"] [class*="bg-white"],
+[class*="bg-[#ff5a00]"] [class*="bg-white"] *,
+.light [class*="bg-brand-accent"] [class*="bg-white"],
+.light [class*="bg-brand-accent"] [class*="bg-white"] *,
+.light [data-theme="section"] [class*="bg-brand-accent"] [class*="bg-white"],
+.light [data-theme="section"] [class*="bg-brand-accent"] [class*="bg-white"] *,
+.light [data-theme="section"] [class*="bg-[#ff5a00]"] [class*="bg-white"],
+.light [data-theme="section"] [class*="bg-[#ff5a00]"] [class*="bg-white"] * {
+  color: #ff5a00 !important;
+  stroke: #ff5a00 !important;
+}
+
+/* ── Hero text colors & Start Project CTA in Light Mode ── */
+.light #home .text-white,
+.light [data-theme="hero-light"] .text-white {
+  color: #111111;
+}
+
+.light #home a[href="#contact"],
+.light [data-theme="hero-light"] a[href="#contact"] {
+  background-color: #ff5a00 !important;
+  border-color: #ff5a00 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(255, 90, 0, 0.35) !important;
+}
+.light #home a[href="#contact"]:hover,
+.light [data-theme="hero-light"] a[href="#contact"]:hover {
+  background-color: #ff4500 !important;
+  border-color: #ff4500 !important;
+  box-shadow: 0 6px 28px rgba(255, 90, 0, 0.5) !important;
+}
+.light #home a[href="#contact"] *,
+.light [data-theme="hero-light"] a[href="#contact"] * {
+  color: #ffffff !important;
+}
+
+/* ── Services Section Cards in Light Mode (Pure White Surface) ── */
+.light #services [class*="bg-[#0c0d12]"] {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04) !important;
+}
+.light #services [class*="11131a"]:hover {
+  background-color: #ffffff !important;
+  border-color: rgba(255, 90, 0, 0.4) !important;
+  box-shadow: 0 10px 30px rgba(255, 90, 0, 0.08) !important;
+}
+.light #services .group [class*="rounded-xl"] svg,
+.light #services .group [class*="rounded-lg"] svg,
+.light #services .group .w-12 svg,
+.light #services .group .w-10 svg {
+  color: #ff5a00 !important;
+  stroke: #ff5a00 !important;
+}
+.light #services span.font-mono.rounded-full {
+  background-color: #f4f4f5 !important;
+  border-color: rgba(0, 0, 0, 0.10) !important;
+  color: #333333 !important;
+}
+
+
+/* ── Process Section Card in Light Mode ── */
+.light #process [class*="bg-[#0c0d14]"],
+.light #process [class*="bg-[#0e1018]"] {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
 }
 
 /* ── Borders: white/opacity → black/opacity ── */

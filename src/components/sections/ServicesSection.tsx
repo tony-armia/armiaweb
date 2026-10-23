@@ -373,8 +373,8 @@ export function ServicesSection() {
                   <div className="relative z-10">
                     {/* Header Row: Icon + Badge + Number Index */}
                     <div className="flex items-center justify-between mb-6">
-                      <div className="w-12 h-12 rounded-xl bg-black/[0.04] dark:bg-white/[0.04] border border-black/10 dark:border-white/10 group-hover:border-brand-accent/40 flex items-center justify-center transition-colors duration-300 shadow-sm">
-                        <Icon className="w-6 h-6 text-neutral-800 dark:text-white transition-colors" />
+                      <div className="w-12 h-12 rounded-xl bg-orange-500/10 dark:bg-white/[0.04] border border-orange-500/25 dark:border-white/10 group-hover:border-brand-accent/60 group-hover:bg-brand-accent/15 flex items-center justify-center transition-colors duration-300 shadow-sm">
+                        <Icon className="w-6 h-6 text-brand-accent dark:text-white group-hover:text-brand-accent transition-colors" />
                       </div>
 
                       <div className="flex items-center gap-2.5">
@@ -439,27 +439,27 @@ export function ServicesSection() {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: idx * 0.05, ease: "easeOut" }}
                   key={idx}
-                  className="group relative rounded-2xl border border-white/[0.08] bg-[#0c0d12]/70 hover:bg-[#11131a] hover:border-brand-accent/40 transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between"
+                  className="group relative rounded-2xl border border-black/[0.08] dark:border-white/[0.08] bg-white dark:bg-[#0c0d12]/70 hover:bg-neutral-50 dark:hover:bg-[#11131a] hover:border-brand-accent/40 transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between shadow-sm dark:shadow-none"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-5">
-                      <div className="w-10 h-10 rounded-lg bg-white/[0.04] border border-white/10 group-hover:border-brand-accent/40 flex items-center justify-center transition-colors">
-                        <Icon className="w-5 h-5 text-white" />
+                      <div className="w-10 h-10 rounded-lg bg-orange-500/10 dark:bg-white/[0.04] border border-orange-500/25 dark:border-white/10 group-hover:border-brand-accent/40 flex items-center justify-center transition-colors">
+                        <Icon className="w-5 h-5 text-brand-accent dark:text-white group-hover:text-brand-accent transition-colors" />
                       </div>
-                      <ArrowUpRight className="w-4 h-4 text-white/30 group-hover:text-brand-accent transition-colors" />
+                      <ArrowUpRight className="w-4 h-4 text-neutral-400 dark:text-white/30 group-hover:text-brand-accent transition-colors" />
                     </div>
 
-                    <h4 className="font-sans text-lg sm:text-xl font-medium text-white mb-2.5">
+                    <h4 className="font-sans text-lg sm:text-xl font-medium text-neutral-900 dark:text-white mb-2.5">
                       {tech.title}
                     </h4>
 
-                    <p className="text-[#8e94a0] text-base leading-[1.7]">
+                    <p className="text-neutral-600 dark:text-[#8e94a0] text-base leading-[1.7]">
                       {tech.description}
                     </p>
                   </div>
 
-                  <div className="pt-5 mt-5 border-t border-white/[0.05]">
-                    <span className="font-mono text-base tracking-[0.08em] uppercase text-white/50 group-hover:text-brand-accent transition-colors">
+                  <div className="pt-5 mt-5 border-t border-black/[0.06] dark:border-white/[0.05]">
+                    <span className="font-mono text-base tracking-[0.08em] uppercase text-neutral-500 dark:text-white/50 group-hover:text-brand-accent transition-colors">
                       Production Ready &bull; Tier 1
                     </span>
                   </div>
@@ -483,12 +483,12 @@ export function ServicesSection() {
                     onClick={() => setSelectedIndustry(ind.id)}
                     className={`p-3.5 sm:p-4 rounded-xl border text-left transition-all duration-300 cursor-pointer flex items-center gap-3 ${
                       isSelected
-                        ? "bg-[#14161f] border-brand-accent shadow-lg shadow-brand-accent/15"
-                        : "bg-[#0c0d12]/70 border-white/[0.07] hover:border-white/20 hover:bg-[#0f1117]"
+                        ? "bg-brand-accent border-brand-accent text-white shadow-lg shadow-brand-accent/20"
+                        : "bg-white dark:bg-[#0c0d12]/70 border-black/10 dark:border-white/[0.07] hover:border-brand-accent/40 dark:hover:border-white/20 hover:bg-neutral-50 dark:hover:bg-[#0f1117]"
                     }`}
                   >
-                    <Icon className={`w-5 h-5 shrink-0 ${isSelected ? "text-white" : "text-white/50"}`} />
-                    <span className={`text-sm sm:text-base font-medium ${isSelected ? "text-white font-semibold" : "text-white/70"}`}>
+                    <Icon className={`w-5 h-5 shrink-0 ${isSelected ? "text-white" : "text-brand-accent dark:text-white/50"}`} />
+                    <span className={`text-sm sm:text-base font-medium ${isSelected ? "text-white font-semibold" : "text-neutral-800 dark:text-white/70"}`}>
                       {ind.name}
                     </span>
                   </button>
@@ -497,23 +497,23 @@ export function ServicesSection() {
             </div>
 
             {/* Selected Sector Showcase Card */}
-            <div className="rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-[#0c0d12]/90 p-5 sm:p-8 md:p-12 relative overflow-hidden backdrop-blur-md">
+            <div className="rounded-2xl sm:rounded-3xl border border-black/[0.08] dark:border-white/[0.08] bg-white dark:bg-[#0c0d12]/90 p-5 sm:p-8 md:p-12 relative overflow-hidden backdrop-blur-md shadow-sm dark:shadow-none">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-8">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="font-mono text-xs sm:text-base tracking-[0.12em] text-brand-accent uppercase">
                       Sector Focus //
                     </span>
-                    <span className="font-mono text-xs sm:text-base text-white/50 uppercase">
+                    <span className="font-mono text-xs sm:text-base text-neutral-500 dark:text-white/50 uppercase">
                       {currentIndustryData.name}
                     </span>
                   </div>
 
-                  <h3 className="font-sans text-2xl sm:text-3xl lg:text-4xl font-light text-white mb-4 leading-tight">
+                  <h3 className="font-sans text-2xl sm:text-3xl lg:text-4xl font-light text-neutral-900 dark:text-white mb-4 leading-tight">
                     {currentIndustryData.headline}
                   </h3>
 
-                  <p className="text-[#8e94a0] text-sm sm:text-base md:text-[17px] leading-[1.7] sm:leading-[1.8] mb-6 sm:mb-8 max-w-3xl">
+                  <p className="text-neutral-600 dark:text-[#8e94a0] text-sm sm:text-base md:text-[17px] leading-[1.7] sm:leading-[1.8] mb-6 sm:mb-8 max-w-3xl">
                     {currentIndustryData.description}
                   </p>
 
@@ -521,29 +521,29 @@ export function ServicesSection() {
                     {currentIndustryData.highlights.map((h, i) => (
                       <div
                         key={i}
-                        className="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] flex items-center gap-2"
+                        className="p-3 sm:p-3.5 rounded-xl bg-black/[0.03] dark:bg-white/[0.02] border border-black/[0.07] dark:border-white/[0.06] flex items-center gap-2"
                       >
                         <CheckCircle2 className="w-4 h-4 text-brand-accent shrink-0" />
-                        <span className="font-mono text-base text-white/85">{h}</span>
+                        <span className="font-mono text-base text-neutral-800 dark:text-white/85">{h}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="lg:col-span-4 lg:border-l lg:border-white/[0.08] lg:pl-10 flex flex-col justify-center">
+                <div className="lg:col-span-4 lg:border-l lg:border-black/[0.08] dark:lg:border-white/[0.08] lg:pl-10 flex flex-col justify-center">
                   <div className="space-y-4">
-                    <span className="font-mono text-base uppercase tracking-[0.12em] text-white/60 block">
+                    <span className="font-mono text-base uppercase tracking-[0.12em] text-neutral-600 dark:text-white/60 block">
                       Enterprise Impact
                     </span>
                     <div className="text-3xl sm:text-4xl font-light text-brand-accent">
                       100%
                     </div>
-                    <p className="text-base text-white/70 leading-relaxed font-mono">
+                    <p className="text-base text-neutral-600 dark:text-white/70 leading-relaxed font-mono">
                       Domain compliance, rigorous data confidentiality, and battle-tested production stability.
                     </p>
                     <a
                       href="#contact"
-                      className="inline-flex items-center gap-2 font-mono text-base uppercase tracking-[0.1em] text-white hover:text-brand-accent transition-colors pt-2"
+                      className="inline-flex items-center gap-2 font-mono text-base uppercase tracking-[0.1em] text-neutral-900 dark:text-white hover:text-brand-accent dark:hover:text-brand-accent transition-colors pt-2"
                     >
                       <span>Discuss Your Industry Roadmap</span>
                       <ArrowUpRight className="w-4 h-4" />

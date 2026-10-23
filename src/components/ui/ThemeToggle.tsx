@@ -83,7 +83,7 @@ export function ThemeToggle({ inMenu = false, isPastHero = false }: ThemeToggleP
   // Header toggle — adapt icon color based on context
   // When in light theme/hero: dark icon & border for high contrast
   // When in dark theme: white icon & border
-  const isDarkContext = !isLight;
+  const isDarkContext = !(isLight || isPastHero);
 
   return (
     <button
@@ -91,10 +91,10 @@ export function ThemeToggle({ inMenu = false, isPastHero = false }: ThemeToggleP
       onClick={toggle}
       title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-      className={`group relative flex items-center justify-center w-[42px] h-[42px] md:w-[44px] md:h-[44px] rounded-full transition-all duration-700 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent backdrop-blur-sm ${
+      className={`group relative flex items-center justify-center w-[42px] h-[42px] md:w-[44px] md:h-[44px] rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent backdrop-blur-sm ${
         isDarkContext
           ? "border border-white/20 bg-white/[0.06] hover:bg-white/[0.12] hover:border-white/30 text-white/70 hover:text-white"
-          : "border border-black/15 bg-black/[0.05] hover:bg-black/[0.10] hover:border-black/25 text-neutral-800 hover:text-black"
+          : "border border-black/15 bg-black/[0.06] hover:bg-black/[0.12] hover:border-black/30 text-neutral-900 shadow-sm"
       }`}
     >
       <AnimatePresence mode="wait" initial={false}>
@@ -106,7 +106,7 @@ export function ThemeToggle({ inMenu = false, isPastHero = false }: ThemeToggleP
             exit={{ opacity: 0, rotate: 30, scale: 0.8 }}
             transition={{ duration: 0.22 }}
           >
-            <Sun className="w-4 h-4 text-amber-500" />
+            <Sun className="w-4 h-4 text-amber-600 stroke-[2.2]" />
           </motion.span>
         ) : (
           <motion.span

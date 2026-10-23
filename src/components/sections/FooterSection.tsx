@@ -265,8 +265,8 @@ export function FooterSection() {
                     <span className="font-mono text-xs sm:text-sm tracking-[0.12em] uppercase font-semibold">
                       {isFormValid ? "SEND MESSAGE" : "COMPLETE ALL FIELDS"}
                     </span>
-                    <div className="flex items-center justify-center h-8 w-8 rounded-full bg-white text-black transition-colors duration-300 group-hover/btn:bg-neutral-100 shadow-sm shrink-0">
-                      <span className="text-black text-sm font-bold transition-transform duration-300 group-hover/btn:translate-x-0.5">›</span>
+                    <div className="flex items-center justify-center h-8 w-8 rounded-full bg-white text-brand-accent transition-colors duration-300 group-hover/btn:bg-neutral-100 shadow-sm shrink-0">
+                      <span className="text-brand-accent text-base font-bold transition-transform duration-300 group-hover/btn:translate-x-0.5 leading-none select-none" style={{ color: "#ff5a00" }}>›</span>
                     </div>
                   </motion.button>
 

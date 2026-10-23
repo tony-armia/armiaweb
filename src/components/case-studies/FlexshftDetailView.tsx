@@ -718,8 +718,8 @@ export function FlexshftDetailView() {
                     style={{ color: "#ffffff" }}
                   >
                     <span style={{ color: "#ffffff" }}>FREE TECHNICAL CONSULTATION</span>
-                    <div className="flex items-center justify-center h-6 w-6 rounded-full bg-white text-black transition-transform duration-300 group-hover:translate-x-0.5 shrink-0">
-                      <span className="text-black text-xs font-bold" style={{ color: "#000000" }}>›</span>
+                    <div className="flex items-center justify-center h-6 w-6 rounded-full bg-white text-brand-accent transition-transform duration-300 group-hover:translate-x-0.5 shrink-0 shadow-sm">
+                      <span className="text-brand-accent text-sm font-bold leading-none select-none" style={{ color: "#ff5a00" }}>›</span>
                     </div>
                   </a>
 

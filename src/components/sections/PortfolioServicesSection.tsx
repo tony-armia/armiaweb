@@ -364,8 +364,8 @@ export function PortfolioServicesSection() {
                           className="inline-flex items-center justify-between gap-4 bg-brand-accent hover:bg-[#ff4500] text-white h-[46px] sm:h-[48px] px-6 rounded-full font-mono text-xs sm:text-sm tracking-[0.12em] uppercase font-semibold transition-all duration-300 shadow-[0_0_20px_rgba(255,90,0,0.35)] hover:shadow-[0_0_28px_rgba(255,90,0,0.55)] group/btn cursor-pointer"
                         >
                           <span>READ {service.title.toUpperCase()} CASE STUDY</span>
-                          <div className="flex items-center justify-center h-6 w-6 rounded-full bg-white text-black transition-transform duration-300 group-hover/btn:translate-x-0.5 shrink-0">
-                            <span className="text-black text-xs font-bold">›</span>
+                          <div className="flex items-center justify-center h-6 w-6 rounded-full bg-white text-brand-accent transition-transform duration-300 group-hover/btn:translate-x-0.5 shrink-0 shadow-sm">
+                            <span className="text-brand-accent text-sm font-bold leading-none select-none" style={{ color: "#ff5a00" }}>›</span>
                           </div>
                         </Link>
                       </motion.div>

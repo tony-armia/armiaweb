@@ -191,6 +191,7 @@ export function WaterRippleImage({
   const animRef = useRef<number | null>(null);
   const targetMouse = useRef({ x: 0.5, y: 0.5 });
   const currentMouse = useRef({ x: 0.5, y: 0.5 });
+  const isMountedRef = useRef(true);
 
   // parameters state (mirrors your original `params`)
   const [params, setParams] = useState<Params>({
@@ -207,17 +208,26 @@ export function WaterRippleImage({
 
   const updateUniforms = (gl: WebGLRenderingContext) => {
     const u = uniformsRef.current;
-    gl.uniform1f(u['u_blueish'], params.blueish);
-    gl.uniform1f(u['u_scale'], params.scale);
-    gl.uniform1f(u['u_illumination'], params.illumination);
-    gl.uniform1f(u['u_surface_distortion'], params.surfaceDistortion);
-    gl.uniform1f(u['u_water_distortion'], params.waterDistortion);
+    if (u['u_blueish']) gl.uniform1f(u['u_blueish'], params.blueish);
+    if (u['u_scale']) gl.uniform1f(u['u_scale'], params.scale);
+    if (u['u_illumination']) gl.uniform1f(u['u_illumination'], params.illumination);
+    if (u['u_surface_distortion']) gl.uniform1f(u['u_surface_distortion'], params.surfaceDistortion);
+    if (u['u_water_distortion']) gl.uniform1f(u['u_water_distortion'], params.waterDistortion);
   };
 
   const setTextureFromImage = (gl: WebGLRenderingContext, image: HTMLImageElement) => {
-    if (texRef.current) gl.deleteTexture(texRef.current);
-    const texture = gl.createTexture()!;
+    const canvas = canvasRef.current;
+    if (!canvas || !gl || !isMountedRef.current) return;
+
+    if (texRef.current) {
+      try {
+        gl.deleteTexture(texRef.current);
+      } catch {}
+    }
+    const texture = gl.createTexture();
+    if (!texture) return;
     texRef.current = texture;
+
     gl.activeTexture(gl.TEXTURE0);
     gl.bindTexture(gl.TEXTURE_2D, texture);
     gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 0);
@@ -228,13 +238,19 @@ export function WaterRippleImage({
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
 
     const u = uniformsRef.current;
-    gl.uniform1i(u['u_image_texture'], 0);
+    if (u['u_image_texture']) {
+      gl.uniform1i(u['u_image_texture'], 0);
+    }
 
-    // set ratios
-    const imgRatio = image.naturalWidth / image.naturalHeight;
-    const canvas = canvasRef.current!;
-    gl.uniform1f(u['u_ratio'], canvas.width / canvas.height);
-    gl.uniform1f(u['u_img_ratio'], imgRatio);
+    // set ratios safely
+    const imgRatio = image.naturalHeight > 0 ? image.naturalWidth / image.naturalHeight : 1;
+    const canvasRatio = canvas.height > 0 ? canvas.width / canvas.height : 1;
+    if (u['u_ratio']) {
+      gl.uniform1f(u['u_ratio'], canvasRatio);
+    }
+    if (u['u_img_ratio']) {
+      gl.uniform1f(u['u_img_ratio'], imgRatio);
+    }
   };
 
   const loadImage = (srcUrl: string, gl: WebGLRenderingContext) =>
@@ -242,18 +258,28 @@ export function WaterRippleImage({
       const img = new Image();
       img.crossOrigin = 'anonymous';
       img.onload = () => {
+        if (!isMountedRef.current || !canvasRef.current || !glRef.current) {
+          resolve();
+          return;
+        }
         imgRef.current = img;
         setTextureFromImage(gl, img);
         resolve();
       };
-      img.onerror = reject;
+      img.onerror = (err) => {
+        if (!isMountedRef.current || !canvasRef.current) {
+          resolve();
+          return;
+        }
+        reject(err);
+      };
       img.src = srcUrl;
     });
 
   const resize = () => {
     const gl = glRef.current;
     const canvas = canvasRef.current;
-    if (!gl || !canvas) return;
+    if (!gl || !canvas || !isMountedRef.current) return;
 
     const w = Math.floor(window.innerWidth * dpr);
     const h = Math.floor(window.innerHeight * dpr);
@@ -264,18 +290,25 @@ export function WaterRippleImage({
     gl.viewport(0, 0, canvas.width, canvas.height);
 
     const u = uniformsRef.current;
-    gl.uniform1f(u['u_ratio'], canvas.width / canvas.height);
+    if (u['u_ratio']) {
+      const canvasRatio = canvas.height > 0 ? canvas.width / canvas.height : 1;
+      gl.uniform1f(u['u_ratio'], canvasRatio);
+    }
 
     // if we have an image, ensure u_img_ratio is set
-    if (imgRef.current) {
-      const imgRatio = imgRef.current.naturalWidth / imgRef.current.naturalHeight;
+    if (imgRef.current && u['u_img_ratio']) {
+      const img = imgRef.current;
+      const imgRatio = img.naturalHeight > 0 ? img.naturalWidth / img.naturalHeight : 1;
       gl.uniform1f(u['u_img_ratio'], imgRatio);
     }
   };
 
   // init GL once
   useEffect(() => {
-    const canvas = canvasRef.current!;
+    isMountedRef.current = true;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
     const gl =
       canvas.getContext('webgl', { alpha: true, antialias: true }) ||
       (canvas.getContext('experimental-webgl') as WebGLRenderingContext | null);
@@ -372,14 +405,21 @@ export function WaterRippleImage({
     animRef.current = requestAnimationFrame(render);
 
     return () => {
+      isMountedRef.current = false;
       window.removeEventListener('resize', onResize);
       window.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener("visibilitychange", onVisibilityChange);
       observer.disconnect();
       if (animRef.current) cancelAnimationFrame(animRef.current);
-      if (texRef.current) gl.deleteTexture(texRef.current);
-      gl.useProgram(null);
-      if (programRef.current) gl.deleteProgram(programRef.current);
+      if (texRef.current) {
+        try {
+          gl.deleteTexture(texRef.current);
+        } catch {}
+      }
+      try {
+        gl.useProgram(null);
+        if (programRef.current) gl.deleteProgram(programRef.current);
+      } catch {}
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -387,14 +427,14 @@ export function WaterRippleImage({
   // when params change → push to uniforms (exactly like updateUniforms)
   useEffect(() => {
     const gl = glRef.current;
-    if (!gl) return;
+    if (!gl || !isMountedRef.current || !canvasRef.current) return;
     updateUniforms(gl);
   }, [params.blueish, params.scale, params.illumination, params.surfaceDistortion, params.waterDistortion]);
 
   // reload texture when src changes dynamically
   useEffect(() => {
     const gl = glRef.current;
-    if (!gl || !params.src) return;
+    if (!gl || !params.src || !isMountedRef.current || !canvasRef.current) return;
     loadImage(params.src, gl).catch((err) => console.error(err));
   }, [params.src]);
 
@@ -410,7 +450,7 @@ export function WaterRippleImage({
       reader.onload = (e) => {
         const dataUrl = e.target?.result as string;
         const gl = glRef.current;
-        if (!gl) return;
+        if (!gl || !isMountedRef.current || !canvasRef.current) return;
         loadImage(dataUrl, gl).catch((err) => console.error(err));
       };
       reader.readAsDataURL(file);

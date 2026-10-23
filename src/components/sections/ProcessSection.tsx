@@ -241,6 +241,12 @@ export function ProcessSection() {
           className="absolute inset-0 pointer-events-none opacity-40 bg-cover bg-center img-light-mode will-change-transform"
         />
 
+        {/* Soft white shade overlay above the fluid wave background in Light Mode for optimal contrast & readability */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 pointer-events-none bg-white/75 sm:bg-white/70 img-light-mode z-[1]"
+        />
+
         {/* Subtle radial ambient glow */}
         <div
           aria-hidden="true"

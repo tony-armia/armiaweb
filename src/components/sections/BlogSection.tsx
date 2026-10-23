@@ -42,7 +42,7 @@ export function BlogSection() {
       {/* ── Top Header Area ── */}
       <div className="relative z-10 w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-[10.8%] mb-6 md:mb-8 shrink-0">
         {/* Top Eyebrow Row: INSIGHTS & VIEW ALL ARTICLES */}
-        <div className="flex items-center justify-between mb-3 md:mb-4">
+        <div className="flex items-center justify-between mb-4 md:mb-5">
           {/* Left Eyebrow with glowing orange node */}
           <div className="flex items-center gap-2.5">
             <span className="w-2.5 h-2.5 rounded-full bg-brand-accent shadow-[0_0_10px_#FF5A00] inline-block shrink-0" />
@@ -54,28 +54,27 @@ export function BlogSection() {
           {/* Right Action Link */}
           <a
             href="#blog"
-            className="font-mono text-xs sm:text-base md:text-[17px] text-brand-accent tracking-[0.12em] uppercase transition-colors flex items-center gap-1.5 sm:gap-2 group"
+            className="font-mono text-xs sm:text-base md:text-[17px] text-brand-accent tracking-[0.12em] uppercase transition-colors flex items-center gap-1.5 sm:gap-2 group cursor-pointer hover:underline"
           >
             <span>VIEW ALL ARTICLES</span>
             <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </a>
         </div>
 
-        {/* Title + Center Engineering Monospace + Far Right Micro Meta */}
-        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+        {/* Title + Center Engineering Monospace + Far Right Micro Meta — Unified Baseline Alignment */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           {/* Main Title & Center Divider Block */}
-          <div className="flex flex-col md:flex-row md:items-center gap-6 lg:gap-12">
-            <h2 className="font-sans text-[clamp(2.0rem,4.2vw,4.5rem)] font-light tracking-[-0.035em] leading-[0.92] text-left">
+          <div className="flex flex-col md:flex-row md:items-end gap-6 lg:gap-10">
+            <h2 className="font-sans text-[clamp(2.0rem,4.2vw,4.5rem)] font-light tracking-[-0.035em] leading-[0.92] text-left shrink-0">
               <span className="block" style={{ color: 'var(--foreground)' }}>LATEST</span>
               <span className="block font-normal" style={{ color: 'var(--foreground)' }}>
                 INSIGHTS<span className="text-brand-accent">.</span>
               </span>
             </h2>
 
-            {/* Hairline Divider + Engineering Strategy text */}
-            <div className="hidden md:flex items-center gap-6 pl-2">
-              <div className="w-[1px] h-14" style={{ backgroundColor: 'var(--border-strong)' }} />
-              <p className="font-mono text-base leading-relaxed uppercase tracking-[0.1em] max-w-[320px]" style={{ color: 'var(--foreground-muted)' }}>
+            {/* Hairline Divider + Engineering Strategy text (Clean baseline alignment) */}
+            <div className="hidden md:flex items-end pl-6 border-l pb-1" style={{ borderColor: 'var(--border-strong)' }}>
+              <p className="font-mono text-sm sm:text-base leading-relaxed uppercase tracking-[0.1em] max-w-[340px]" style={{ color: 'var(--foreground-muted)' }}>
                 ENGINEERING ARCHITECTURE,
                 <br />
                 AI SYSTEMS &amp; TECH STRATEGY.
@@ -83,8 +82,8 @@ export function BlogSection() {
             </div>
           </div>
 
-          {/* Far Right 3-tier label list */}
-          <div className="hidden lg:flex flex-col items-start font-mono text-base tracking-[0.14em] uppercase leading-snug pr-2" style={{ color: 'var(--foreground-subtle)' }}>
+          {/* Far Right 3-tier label list — Right-aligned and Baseline Aligned */}
+          <div className="hidden lg:flex flex-col items-end text-right font-mono text-xs sm:text-sm tracking-[0.14em] uppercase leading-relaxed pb-1 pr-0" style={{ color: 'var(--foreground-subtle)' }}>
             <span>IDEAS</span>
             <span>SYSTEMS</span>
             <span>REAL IMPACT</span>

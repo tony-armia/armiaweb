@@ -18,70 +18,70 @@ const AWARDS_5X2: AwardItem[] = [
   {
     id: "clutch",
     name: "Clutch Global",
-    category: "INDUSTRY RECOGNITION",
+    category: "Industry Recognition",
     image: "/images/awards/logo.png",
     scale: 1.25,
   },
   {
     id: "goodfirms",
     name: "GoodFirms Leader",
-    category: "GLOBAL CERTIFICATION",
+    category: "Global Certification",
     image: "/images/awards/logo-2.png",
     scale: 1.2,
   },
   {
     id: "designrush",
     name: "DesignRush Elite",
-    category: "EXCELLENCE IN DESIGN",
+    category: "Excellence in Design",
     image: "/images/awards/logo-5.png",
     scale: 1.5,
   },
   {
     id: "manifest",
     name: "The Manifest",
-    category: "TOP RATED BY ANALYSTS",
+    category: "Top Rated by Analysts",
     image: "/images/awards/logo-4.png",
     scale: 1.5,
   },
   {
     id: "topdevs",
     name: "Top Developers",
-    category: "COMMUNITY CHOICE",
+    category: "Community Choice",
     image: "/images/awards/logo-1.png",
     scale: 1.15,
   },
   {
     id: "techbehemoths",
     name: "TechBehemoths",
-    category: "MARKET LEADERSHIP",
+    category: "Market Leadership",
     image: "/images/awards/logo-3.png",
     scale: 1.15,
   },
   {
     id: "upcity",
     name: "UpCity Excellence",
-    category: "TRUSTED PARTNER",
+    category: "Trusted Partner",
     image: "/images/awards/logo-6.png",
     scale: 1.3,
   },
   {
     id: "topapp",
     name: "Top App Firms",
-    category: "MOBILE & CLOUD PODS",
+    category: "Mobile & Cloud Pods",
     image: "/images/awards/logo-7.png",
     scale: 1.3,
   },
   {
     id: "softwareworld",
     name: "Software World",
-    category: "PRODUCT INNOVATION",
+    category: "Product Innovation",
     image: "/images/awards/logo-8.png",
     scale: 1.25,
   },
   {
     id: "selectedfirm",
     name: "Selected Firm",
-    category: "TRUST & COMPLIANCE",
+    category: "Trust & Compliance",
     image: "/images/awards/logo-9.png",
     scale: 1.15,
   },
@@ -271,7 +271,7 @@ export function AwardsSection() {
                   <div className="award-title font-sans text-base font-semibold leading-snug transition-colors">
                     {award.name}
                   </div>
-                  <div className="award-category font-mono text-base tracking-normal uppercase mt-1 leading-snug text-[#666666] transition-colors">
+                  <div className="award-category font-mono text-xs sm:text-sm tracking-normal mt-1 leading-snug text-[#666666] transition-colors">
                     {award.category}
                   </div>
                 </div>
