@@ -141,9 +141,9 @@ export function AwardsSection() {
             </p>
           </div>
 
-          {/* Right Column: 20+ Years of Excellence + A Legacy of Trust and Impact + Orbital Tagline */}
+          {/* Right Column: 20+ Years of Excellence + A Legacy of Trust and Impact */}
           <div className="lg:col-span-6 flex items-start justify-between gap-6 lg:pl-8 lg:border-l" style={{ borderColor: 'var(--border)' }}>
-            <div className="space-y-2.5 max-w-md">
+            <div className="space-y-2.5 max-w-xl">
               <div className="flex items-center gap-2 font-mono text-base text-[#FF5A00] tracking-[0.14em] uppercase font-medium">
                 <span className="h-2 w-2 rounded-full bg-[#FF5A00] animate-pulse" />
                 <span>20+ YEARS OF EXCELLENCE</span>
@@ -157,15 +157,6 @@ export function AwardsSection() {
                 Global recognition for engineering excellence, product design and enterprise software innovation.
               </p>
             </div>
-
-            {/* Far Right Celestial Vertical Words */}
-            <div className="hidden xl:flex flex-col items-end justify-center font-mono text-base tracking-[0.16em] uppercase space-y-2 select-none pl-6 border-l shrink-0" style={{ borderColor: 'var(--border)', color: 'var(--foreground-subtle)' }}>
-              <span>PEOPLE</span>
-              <span>IDEAS</span>
-              <span>TECHNOLOGY</span>
-              <span>A BRIGHTER</span>
-              <span className="text-[#FF5A00] font-medium">TOMORROW</span>
-            </div>
           </div>
         </div>
 
@@ -178,7 +169,8 @@ export function AwardsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={VIEWPORT_ONCE}
             transition={{ duration: 0.5, ease: EASE_CUSTOM }}
-            style={{ y: yJourney }}
+            style={{ y: yJourney, backgroundColor: "#0a0a0d" }}
+            data-theme="dark"
             className="lg:col-span-4 rounded-2xl md:rounded-3xl border border-[#FF5A00]/40 bg-[#0a0a0d] relative overflow-hidden p-7 sm:p-8 flex flex-col justify-between shadow-[0_0_35px_rgba(255,90,0,0.14)] group will-change-transform"
           >
             {/* Dark Mountain Sunrise Artwork Background with Seamless Fade */}

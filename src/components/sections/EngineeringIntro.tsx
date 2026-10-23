@@ -59,9 +59,9 @@ export function EngineeringIntro() {
             <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b text-xs sm:text-sm md:text-base tracking-[0.12em] uppercase" style={{ borderColor: 'var(--border)' }}>
               <SectionEyebrow number="02" label="WHO WE ARE" className="!mb-0" />
               <span className="font-mono tracking-[0.12em] text-xs sm:text-sm md:text-base flex items-center gap-2" style={{ color: 'var(--foreground-subtle)' }}>
-                <span>🇺🇸 USA</span>
+                <span>USA</span>
                 <span style={{ opacity: 0.4 }}>&bull;</span>
-                <span>🇮🇳 INDIA</span>
+                <span>INDIA</span>
               </span>
             </div>
 

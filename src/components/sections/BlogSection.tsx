@@ -106,7 +106,9 @@ export function BlogSection() {
           >
             <Link
               href={featuredArticle.href}
-              className="relative w-full rounded-2xl border border-white/[0.08] bg-[#0c0e14]/90 overflow-hidden flex flex-col justify-between p-5 sm:p-8 group hover:border-white/20 transition-all duration-500 shadow-2xl min-h-[380px] sm:min-h-[460px] lg:min-h-[500px]"
+              data-theme="dark"
+              className="blog-featured-card relative w-full rounded-2xl border border-white/[0.12] bg-[#0c0e14] overflow-hidden flex flex-col justify-between p-5 sm:p-8 group hover:border-white/30 transition-all duration-500 shadow-2xl min-h-[380px] sm:min-h-[460px] lg:min-h-[500px]"
+              style={{ backgroundColor: "#0c0e14" }}
             >
               {/* Background Cover Image with Eclipse Glow & Dark Gradients */}
               <motion.div style={{ y: yFeaturedImage, scale: 1.08 }} className="absolute inset-0 z-0 will-change-transform">
@@ -129,16 +131,19 @@ export function BlogSection() {
               {/* Card Top Row: 01 / and Date */}
               <div className="relative z-10 flex items-center justify-between w-full">
                 <div className="flex items-center gap-1 font-mono text-base tracking-wider">
-                  <span className="text-white font-medium">01</span>
-                  <span className="text-brand-accent font-semibold">/</span>
+                  <span className="font-medium" style={{ color: "#ffffff" }}>01</span>
+                  <span className="font-semibold" style={{ color: "#ff5a00" }}>/</span>
                 </div>
-                <span className="font-mono text-base text-white/70 tracking-wider uppercase">
+                <span className="font-mono text-base tracking-wider uppercase font-medium" style={{ color: "rgba(255, 255, 255, 0.75)" }}>
                   {featuredArticle.date}
                 </span>
               </div>
 
               {/* Rotated Left Edge Badge: FEATURED ARTICLE */}
-              <div className="hidden sm:block absolute left-6 sm:left-8 top-28 z-10 [writing-mode:vertical-rl] rotate-180 font-mono text-base tracking-[0.18em] text-white/40 uppercase select-none pointer-events-none">
+              <div
+                className="hidden sm:block absolute left-6 sm:left-8 top-28 z-10 [writing-mode:vertical-rl] rotate-180 font-mono text-base tracking-[0.18em] uppercase select-none pointer-events-none font-semibold"
+                style={{ color: "rgba(255, 255, 255, 0.45)" }}
+              >
                 FEATURED ARTICLE
               </div>
 
@@ -146,8 +151,8 @@ export function BlogSection() {
               <div className="relative z-10 mt-auto pt-24">
                 {/* Category indicator with orange square */}
                 <div className="flex items-center gap-2 mb-2.5">
-                  <span className="w-2 h-2 bg-brand-accent inline-block shrink-0" />
-                  <span className="font-mono text-base tracking-[0.14em] uppercase text-white/90 font-semibold">
+                  <span className="w-2 h-2 inline-block shrink-0" style={{ backgroundColor: "#ff5a00" }} />
+                  <span className="font-mono text-base tracking-[0.14em] uppercase font-semibold" style={{ color: "rgba(255, 255, 255, 0.95)" }}>
                     {featuredArticle.category}
                   </span>
                 </div>
@@ -155,16 +160,25 @@ export function BlogSection() {
                 {/* Title, description & circular arrow button */}
                 <div className="flex items-end justify-between gap-5">
                   <div>
-                    <h3 className="font-sans font-medium text-xl sm:text-2xl lg:text-[26px] text-white leading-tight tracking-tight group-hover:text-brand-accent transition-colors">
+                    <h3
+                      className="font-sans font-medium text-xl sm:text-2xl lg:text-[26px] leading-tight tracking-tight group-hover:text-brand-accent transition-colors"
+                      style={{ color: "#ffffff" }}
+                    >
                       {featuredArticle.title}
                     </h3>
-                    <p className="font-sans text-base sm:text-[16.5px] text-white/75 leading-relaxed mt-2 max-w-lg">
+                    <p
+                      className="font-sans text-base sm:text-[16.5px] leading-relaxed mt-2 max-w-lg font-normal"
+                      style={{ color: "rgba(255, 255, 255, 0.78)" }}
+                    >
                       {featuredArticle.description}
                     </p>
                   </div>
 
                   {/* Circular Arrow Button */}
-                  <div className="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/80 group-hover:border-brand-accent group-hover:text-brand-accent group-hover:bg-brand-accent/10 transition-all duration-300 shrink-0">
+                  <div
+                    className="w-11 h-11 rounded-full border flex items-center justify-center transition-all duration-300 shrink-0 group-hover:border-brand-accent group-hover:bg-brand-accent/20"
+                    style={{ borderColor: "rgba(255, 255, 255, 0.25)", color: "#ffffff" }}
+                  >
                     <svg
                       className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5"
                       fill="none"
@@ -211,9 +225,9 @@ export function BlogSection() {
                         className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
                       />
                       {/* Top-left number label with subtle dark backdrop */}
-                      <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1 font-mono text-base font-semibold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] px-2.5 py-1 rounded bg-black/50 backdrop-blur-sm border border-white/10">
-                        <span>{num}</span>
-                        <span className="text-brand-accent font-semibold">/</span>
+                      <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1 font-mono text-base font-semibold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] px-2.5 py-1 rounded bg-black/50 backdrop-blur-sm border border-white/10">
+                        <span style={{ color: "#ffffff" }}>{num}</span>
+                        <span className="text-brand-accent font-semibold" style={{ color: "#ff5a00" }}>/</span>
                       </div>
                     </div>
 

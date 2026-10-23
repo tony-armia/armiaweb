@@ -380,7 +380,10 @@ export function ProcessSection() {
                 {/* Top Right Floating Badge */}
                 <div className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-10 flex items-center gap-2.5 px-3 py-1.5 sm:px-3.5 rounded-full bg-black/65 backdrop-blur-md border border-white/20 shadow-sm">
                   <span className="w-2.5 h-[1.5px] bg-[#FF5A00] inline-block" />
-                  <span className="font-mono text-xs sm:text-[13px] tracking-[0.12em] text-white uppercase font-medium">
+                  <span
+                    className="font-mono text-xs sm:text-[13px] tracking-[0.12em] text-white uppercase font-medium"
+                    style={{ color: "#ffffff" }}
+                  >
                     TRUSTED BY GLOBAL BRANDS
                   </span>
                 </div>

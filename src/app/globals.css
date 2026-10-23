@@ -154,47 +154,150 @@
   background-color: #f0f0f0 !important;
 }
 
-.light [class*="bg-[#0d0d0d]"],
-.light [class*="bg-[#101010]"],
-.light [class*="bg-[#111111]"],
-.light [class*="bg-[#121212]"] {
+.light [data-theme="section"]:not([data-theme="dark"]) [class*="bg-[#0d0d0d]"],
+.light [data-theme="section"]:not([data-theme="dark"]) [class*="bg-[#101010]"] {
   background-color: #ffffff !important;
   box-shadow: none !important;
 }
 
-.light [class*="hover\\:bg-[#111111]"]:hover,
-.light [class*="hover\\:bg-[#101010]"]:hover,
-.light [class*="hover\\:bg-[#121212]"]:hover {
+.light [data-theme="section"]:not([data-theme="dark"]) [class*="hover\\:bg-[#111111]"]:hover,
+.light [data-theme="section"]:not([data-theme="dark"]) [class*="hover\\:bg-[#101010]"]:hover {
   background-color: #f8f8f8 !important;
 }
 
-/* ── Protected dark islands (e.g. hero showcase stage, media lightbox) ── */
+/* ── Protected dark islands & image cards (e.g. blog featured card, hero showcase stage, media lightbox, dark cards) ── */
 .light [data-theme="dark"],
-.light [data-theme="section"] [data-theme="dark"] {
+.light [data-theme="section"] [data-theme="dark"],
+.light .blog-featured-card,
+.light [data-theme="section"] .blog-featured-card {
   background-color: #0b0c0e !important;
   color: #f5f5f5 !important;
-  border-color: rgba(0, 0, 0, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
   box-shadow: none !important;
 }
 
+.light [data-theme="dark"] .text-white,
+.light [data-theme="dark"] [class*="text-white/"],
 .light [data-theme="section"] [data-theme="dark"] .text-white,
-.light [data-theme="section"] [data-theme="dark"] [class*="text-white/"] {
-  color: #f5f5f5 !important;
-}
-
-.light [data-theme="section"] [data-theme="dark"] [class*="text-white/70"],
-.light [data-theme="section"] [data-theme="dark"] [class*="text-white/80"] {
-  color: #d4d4d8 !important;
-}
-
-.light [data-theme="section"] [data-theme="dark"] [class*="text-white/60"] {
-  color: #a1a1aa !important;
-}
-
-/* ── Dark tooltips retain crisp white text ── */
-.light [data-theme="section"] [class*="bg-black/85"] span,
-.light [data-theme="section"] [class*="bg-black/95"] span {
+.light [data-theme="section"] [data-theme="dark"] [class*="text-white/"],
+.light .blog-featured-card .text-white,
+.light .blog-featured-card [class*="text-white/"],
+.light [data-theme="section"] .blog-featured-card .text-white,
+.light [data-theme="section"] .blog-featured-card [class*="text-white/"] {
   color: #ffffff !important;
+}
+
+.light [data-theme="dark"] [class*="text-white/90"],
+.light [data-theme="section"] [data-theme="dark"] [class*="text-white/90"],
+.light .blog-featured-card [class*="text-white/90"],
+.light [data-theme="section"] .blog-featured-card [class*="text-white/90"] {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.light [data-theme="dark"] [class*="text-white/80"],
+.light [data-theme="section"] [data-theme="dark"] [class*="text-white/80"],
+.light .blog-featured-card [class*="text-white/80"],
+.light [data-theme="section"] .blog-featured-card [class*="text-white/80"] {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.light [data-theme="dark"] [class*="text-white/75"],
+.light [data-theme="section"] [data-theme="dark"] [class*="text-white/75"],
+.light .blog-featured-card [class*="text-white/75"],
+.light [data-theme="section"] .blog-featured-card [class*="text-white/75"] {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.light [data-theme="dark"] [class*="text-white/70"],
+.light [data-theme="section"] [data-theme="dark"] [class*="text-white/70"],
+.light .blog-featured-card [class*="text-white/70"],
+.light [data-theme="section"] .blog-featured-card [class*="text-white/70"] {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.light [data-theme="dark"] [class*="text-white/60"],
+.light [data-theme="section"] [data-theme="dark"] [class*="text-white/60"],
+.light .blog-featured-card [class*="text-white/60"],
+.light [data-theme="section"] .blog-featured-card [class*="text-white/60"] {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.light [data-theme="dark"] [class*="text-white/40"],
+.light [data-theme="section"] [data-theme="dark"] [class*="text-white/40"],
+.light .blog-featured-card [class*="text-white/40"],
+.light [data-theme="section"] .blog-featured-card [class*="text-white/40"] {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.light [data-theme="dark"] [class*="border-white/"],
+.light [data-theme="section"] [data-theme="dark"] [class*="border-white/"],
+.light .blog-featured-card [class*="border-white/"],
+.light [data-theme="section"] .blog-featured-card [class*="border-white/"] {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* ── Dark tooltips & image overlay tags retain crisp white text ── */
+.light [class*="bg-black/"] *,
+.light [class*="bg-black/"] span,
+.light [data-theme="section"] [class*="bg-black/"] *,
+.light [data-theme="section"] [class*="bg-black/"] span {
+  color: #ffffff !important;
+}
+
+.light [class*="bg-black/"] .text-brand-accent,
+.light [data-theme="section"] [class*="bg-black/"] .text-brand-accent {
+  color: #ff5a00 !important;
+}
+
+/* ── Anchored Footer Protection (always dark across all themes) ── */
+.light footer,
+.light footer [class*="bg-black"] {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.light footer [class*="bg-[#111111]"] {
+  background-color: #111111 !important;
+}
+
+.light footer [class*="bg-[#121212]"],
+.light footer input,
+.light footer textarea {
+  background-color: rgba(18, 18, 18, 0.7) !important;
+  color: #ffffff !important;
+}
+
+.light footer .text-white,
+.light footer [class*="text-white/"] {
+  color: #ffffff;
+}
+
+.light footer [class*="text-white/90"] {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.light footer [class*="text-white/80"] {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.light footer [class*="text-white/70"] {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.light footer [class*="text-white/60"] {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.light footer [class*="text-white/50"] {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.light footer [class*="text-white/40"] {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.light footer [class*="text-white/20"] {
+  color: rgba(255, 255, 255, 0.2) !important;
 }
 
 /* ── CTA Card Background in light mode: map dark gradient to clean surface ── */
@@ -338,9 +441,9 @@
   color: #444444 !important;
 }
 
-/* ── Blog & Awards section: card borders ── */
-.light [data-theme="section"] [class*="border-white/[0.08]"].rounded-2xl,
-.light [data-theme="section"] [class*="border-white/[0.08]"].rounded-3xl {
+/* ── Blog & Awards section: card borders (excluding protected dark cards) ── */
+.light [data-theme="section"] [class*="border-white/[0.08]"].rounded-2xl:not(.blog-featured-card):not([data-theme="dark"]),
+.light [data-theme="section"] [class*="border-white/[0.08]"].rounded-3xl:not(.blog-featured-card):not([data-theme="dark"]) {
   border-color: rgba(0, 0, 0, 0.09) !important;
   background-color: #f5f5f5 !important;
 }

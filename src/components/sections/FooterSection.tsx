@@ -42,7 +42,7 @@ export function FooterSection() {
       ref={footerRef}
       id="contact"
       data-theme="dark"
-      className="relative w-full bg-black text-white pt-0 pb-8 overflow-hidden select-none border-t-[3px] border-brand-accent"
+      className="relative w-full bg-black text-white pt-0 pb-12 sm:pb-16 overflow-hidden select-none border-t-[3px] border-brand-accent"
     >
       <GridLines />
 
@@ -74,32 +74,39 @@ export function FooterSection() {
                   </div>
                   
                   {/* Distinct direct engineering contact pill — avoids repeating the form's "Get In Touch" */}
-                  <div className="p-3.5 bg-[#111111] border-t border-white/10 flex items-center justify-between px-4">
+                  <div
+                    className="p-4 sm:p-4.5 border-t border-white/10 flex items-center justify-between px-4 sm:px-5 bg-[#111111]"
+                    style={{ backgroundColor: "#111111" }}
+                  >
                     <div className="flex items-center gap-2">
-                      <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                      <span className="font-mono text-xs tracking-wider text-white/80 uppercase">
+                      <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                      <span
+                        className="font-mono text-xs sm:text-[13px] tracking-wider uppercase font-medium"
+                        style={{ color: "rgba(255, 255, 255, 0.85)" }}
+                      >
                         DIRECT ARCHITECT ACCESS
                       </span>
                     </div>
                     <a
                       href="mailto:hello@armiasystems.com"
-                      className="font-mono text-xs tracking-wider text-brand-accent hover:text-[#ff4500] uppercase font-semibold transition-colors flex items-center gap-1 group/arch"
+                      className="font-mono text-xs sm:text-[13px] tracking-wider uppercase font-semibold transition-colors flex items-center gap-1 group/arch"
+                      style={{ color: "#ff5a00" }}
                     >
-                      <span>HELLO@ARMIASYSTEMS.COM</span>
-                      <span className="transition-transform group-hover/arch:translate-x-0.5">→</span>
+                      <span style={{ color: "#ff5a00" }}>HELLO@ARMIASYSTEMS.COM</span>
+                      <span className="transition-transform group-hover/arch:translate-x-0.5" style={{ color: "#ff5a00" }}>→</span>
                     </a>
                   </div>
                 </div>
 
                 {/* Company Credential Highlights (No duplicate location text) */}
-                <div className="border-t border-b border-white/10 py-6">
-                  <div className="flex items-center justify-between mb-4 font-mono text-xs sm:text-sm tracking-[0.14em] uppercase text-white/70">
+                <div className="border-t border-b border-white/10 py-6 sm:py-7">
+                  <div className="flex items-center justify-between mb-4 font-mono text-xs sm:text-sm md:text-base tracking-[0.14em] uppercase text-white/70">
                     <div className="flex items-center gap-2">
-                      <span className="h-[6px] w-[6px] rounded-full bg-brand-accent inline-block" />
+                      <span className="h-2 w-2 rounded-full bg-brand-accent inline-block" />
                       <span className="font-semibold text-white">ARMIA SYSTEMS</span>
                     </div>
                     {/* Functional social channel links */}
-                    <div className="flex items-center gap-3 text-white/60">
+                    <div className="flex items-center gap-3.5 text-white/60">
                       <a
                         href="https://www.linkedin.com/company/armia-systems-inc/"
                         target="_blank"
@@ -107,7 +114,7 @@ export function FooterSection() {
                         className="hover:text-brand-accent transition-colors"
                         aria-label="Armia Systems LinkedIn"
                       >
-                        <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <svg className="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24">
                           <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.39 9.74v-8.37H5.07v8.37h2.78z" />
                         </svg>
                       </a>
@@ -118,7 +125,7 @@ export function FooterSection() {
                         className="hover:text-brand-accent transition-colors"
                         aria-label="Armia Systems X / Twitter"
                       >
-                        <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <svg className="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24">
                           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                         </svg>
                       </a>
@@ -129,18 +136,18 @@ export function FooterSection() {
                         className="hover:text-brand-accent transition-colors"
                         aria-label="Armia Systems Website"
                       >
-                        <Globe className="w-4 h-4" />
+                        <Globe className="w-4.5 h-4.5" />
                       </a>
                     </div>
                   </div>
 
-                  <div className="space-y-3 font-mono text-xs sm:text-[13px] uppercase">
-                    <div className="grid grid-cols-12 gap-2 text-white/60">
-                      <span className="col-span-4 text-white/40">FOUNDED</span>
+                  <div className="space-y-3.5 font-mono text-xs sm:text-sm uppercase">
+                    <div className="grid grid-cols-12 gap-2 text-white/70">
+                      <span className="col-span-4 text-white/45 font-medium">FOUNDED</span>
                       <span className="col-span-8 text-white font-medium">2003 &bull; 20+ YEARS TECHNOLOGY LEADERSHIP</span>
                     </div>
-                    <div className="grid grid-cols-12 gap-2 text-white/60">
-                      <span className="col-span-4 text-white/40">COMPLIANCE</span>
+                    <div className="grid grid-cols-12 gap-2 text-white/70">
+                      <span className="col-span-4 text-white/45 font-medium">COMPLIANCE</span>
                       <span className="col-span-8 text-white font-medium">SOC 2 &bull; HIPAA &bull; ISO 27001 READY</span>
                     </div>
                   </div>
@@ -149,7 +156,7 @@ export function FooterSection() {
 
               {/* Brand statement */}
               <div className="pt-8 mt-auto hidden lg:block">
-                <div className="font-mono text-xs text-white/50 uppercase tracking-[0.1em] leading-relaxed">
+                <div className="font-mono text-xs sm:text-[13px] text-white/55 uppercase tracking-[0.12em] leading-relaxed">
                   ENTERPRISE PRODUCT ENGINEERING &bull; DISTRIBUTED SYSTEMS &bull; AI ARCHITECTURE
                 </div>
               </div>
@@ -272,83 +279,87 @@ export function FooterSection() {
               </motion.form>
             </div>
 
-            {/* ── Structured Directory: Navigation & Global Offices ── */}
-            <div className="pt-10 border-t border-white/10">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start font-mono text-xs sm:text-sm tracking-wider uppercase">
+        {/* ── Structured Directory: Navigation & Global Offices ── */}
+            <div className="pt-12 sm:pt-14 md:pt-16 border-t border-white/10">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-start font-mono text-xs sm:text-sm tracking-wider uppercase">
                 {/* Clean, Non-Repetitive Navigation Directory */}
-                <div className="md:col-span-4 space-y-2.5">
-                  <div className="font-mono text-xs text-white/40 tracking-[0.14em] mb-3">
+                <div className="md:col-span-4 space-y-3 sm:space-y-3.5">
+                  <div className="font-mono text-xs sm:text-sm text-white/50 tracking-[0.16em] uppercase font-semibold mb-3.5">
                     EXPLORE
                   </div>
                   <div>
-                    <Link href="/work" className="text-white/70 hover:text-brand-accent transition-colors flex items-center gap-1.5 group">
+                    <Link href="/work" className="text-sm sm:text-[15px] text-white/70 hover:text-brand-accent transition-colors flex items-center gap-1.5 group">
                       <span>CASE STUDIES &amp; WORK</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 text-brand-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <ArrowUpRight className="w-4 h-4 text-brand-accent opacity-0 group-hover:opacity-100 transition-opacity" />
                     </Link>
                   </div>
                   <div>
-                    <Link href="/#services" className="text-white/70 hover:text-brand-accent transition-colors">
+                    <Link href="/#services" className="text-sm sm:text-[15px] text-white/70 hover:text-brand-accent transition-colors">
                       CORE SERVICES
                     </Link>
                   </div>
                   <div>
-                    <Link href="/#process" className="text-white/70 hover:text-brand-accent transition-colors">
+                    <Link href="/#process" className="text-sm sm:text-[15px] text-white/70 hover:text-brand-accent transition-colors">
                       DELIVERY PROCESS
                     </Link>
                   </div>
                   <div>
-                    <Link href="/#testimonials" className="text-white/70 hover:text-brand-accent transition-colors">
+                    <Link href="/#testimonials" className="text-sm sm:text-[15px] text-white/70 hover:text-brand-accent transition-colors">
                       CLIENT TESTIMONIALS
                     </Link>
                   </div>
                   <div>
-                    <Link href="/#faq" className="text-white/70 hover:text-brand-accent transition-colors">
+                    <Link href="/#faq" className="text-sm sm:text-[15px] text-white/70 hover:text-brand-accent transition-colors">
                       FAQS
                     </Link>
                   </div>
                 </div>
 
                 {/* USA Headquarters (Chicago) */}
-                <div className="md:col-span-4 space-y-2.5 font-sans normal-case text-xs sm:text-sm">
-                  <div className="font-mono text-xs text-brand-accent tracking-[0.14em] uppercase font-semibold flex items-center gap-2 mb-2">
+                <div className="md:col-span-4 space-y-3 font-sans normal-case text-sm sm:text-[15px]">
+                  <div className="font-mono text-xs sm:text-sm text-brand-accent tracking-[0.16em] uppercase font-semibold flex items-center gap-2 mb-2.5">
                     <span className="w-2 h-2 rounded-full bg-brand-accent inline-block" />
                     USA HEADQUARTERS
                   </div>
-                  <div className="text-white/60 leading-relaxed font-sans">
+                  <div className="text-white/70 leading-relaxed font-sans text-sm sm:text-[15px]">
                     1300 E Woodfield Rd, Suite 403<br />
                     Schaumburg, IL 60173, USA
                   </div>
-                  <div className="pt-1 font-mono text-xs text-white/80">
-                    <a href="tel:+13124236728" className="hover:text-brand-accent transition-colors inline-flex items-center gap-2">
-                      <span className="text-white/40">TEL:</span> +1 (312) 423-6728
-                    </a>
-                  </div>
-                  <div className="font-mono text-xs text-white/80">
-                    <a href="mailto:info@armiasystems.com" className="hover:text-brand-accent transition-colors inline-flex items-center gap-2">
-                      <span className="text-white/40">MAIL:</span> INFO@ARMIASYSTEMS.COM
-                    </a>
+                  <div className="pt-1.5 space-y-1.5 font-mono text-xs sm:text-sm text-white/85">
+                    <div>
+                      <a href="tel:+13124236728" className="hover:text-brand-accent transition-colors inline-flex items-center gap-2">
+                        <span className="text-white/40">TEL:</span> +1 (312) 423-6728
+                      </a>
+                    </div>
+                    <div>
+                      <a href="mailto:info@armiasystems.com" className="hover:text-brand-accent transition-colors inline-flex items-center gap-2">
+                        <span className="text-white/40">MAIL:</span> INFO@ARMIASYSTEMS.COM
+                      </a>
+                    </div>
                   </div>
                 </div>
 
                 {/* India Delivery Center (Kochi) */}
-                <div className="md:col-span-4 space-y-2.5 font-sans normal-case text-xs sm:text-sm">
-                  <div className="font-mono text-xs text-white/50 tracking-[0.14em] uppercase font-semibold flex items-center gap-2 mb-2">
+                <div className="md:col-span-4 space-y-3 font-sans normal-case text-sm sm:text-[15px]">
+                  <div className="font-mono text-xs sm:text-sm text-white/60 tracking-[0.16em] uppercase font-semibold flex items-center gap-2 mb-2.5">
                     <span className="w-2 h-2 rounded-full bg-white/40 inline-block" />
                     INDIA DELIVERY CENTER
                   </div>
-                  <div className="text-white/60 leading-relaxed font-sans">
+                  <div className="text-white/70 leading-relaxed font-sans text-sm sm:text-[15px]">
                     3rd Floor, Jyothirmaya Building<br />
                     Infopark Phase 2, Kochi 682303, India
                   </div>
-                  <div className="pt-1 font-mono text-xs text-white/80">
-                    <a href="tel:+914844000300" className="hover:text-brand-accent transition-colors inline-flex items-center gap-2">
-                      <span className="text-white/40">TEL:</span> +91 484 4000300
-                    </a>
-                  </div>
-                  <div className="font-mono text-xs text-white/80">
-                    <a href="mailto:hello@armiasystems.com" className="hover:text-brand-accent transition-colors inline-flex items-center gap-2">
-                      <span className="text-white/40">MAIL:</span> HELLO@ARMIASYSTEMS.COM
-                    </a>
+                  <div className="pt-1.5 space-y-1.5 font-mono text-xs sm:text-sm text-white/85">
+                    <div>
+                      <a href="tel:+914844000300" className="hover:text-brand-accent transition-colors inline-flex items-center gap-2">
+                        <span className="text-white/40">TEL:</span> +91 484 4000300
+                      </a>
+                    </div>
+                    <div>
+                      <a href="mailto:hello@armiasystems.com" className="hover:text-brand-accent transition-colors inline-flex items-center gap-2">
+                        <span className="text-white/40">MAIL:</span> HELLO@ARMIASYSTEMS.COM
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -358,29 +369,29 @@ export function FooterSection() {
         </div>
 
         {/* ── Full-Width Unified Bottom Strip (Copyright & Legal) ── */}
-        <div className="border-t border-white/10 pt-6 mt-2 px-4 sm:px-6 md:px-10 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-xs text-white/40 tracking-wider uppercase text-center md:text-left">
-          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
-            <div className="relative h-7 w-28 flex items-center shrink-0">
+        <div className="border-t border-white/10 pt-8 pb-10 sm:pt-10 sm:pb-12 md:pt-12 md:pb-14 mt-6 sm:mt-10 px-4 sm:px-6 md:px-10 lg:px-12 flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 font-mono text-xs sm:text-sm md:text-[14px] text-white/60 tracking-wider uppercase text-center lg:text-left">
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+            <div className="relative h-9 sm:h-11 w-36 sm:w-48 flex items-center shrink-0">
               <Image
                 src="/images/armialogo.svg"
                 alt="Armia Systems Logo"
                 fill
-                className="object-contain object-center sm:object-left opacity-70"
+                className="object-contain object-center lg:object-left opacity-90 hover:opacity-100 transition-opacity"
               />
             </div>
-            <span>&copy; {new Date().getFullYear()} ARMIA SYSTEMS INC. ALL RIGHTS RESERVED.</span>
+            <span className="leading-relaxed">&copy; {new Date().getFullYear()} ARMIA SYSTEMS INC. ALL RIGHTS RESERVED.</span>
           </div>
 
-          <div className="flex items-center gap-6">
-            <Link href="#terms" className="hover:text-white transition-colors">
+          <div className="flex flex-wrap items-center justify-center lg:justify-end gap-6 sm:gap-8 text-xs sm:text-sm md:text-[14px]">
+            <Link href="#terms" className="hover:text-white transition-colors font-medium">
               TERMS OF SERVICE
             </Link>
-            <span className="text-white/20">&bull;</span>
-            <Link href="#privacy" className="hover:text-white transition-colors">
+            <span className="text-white/30">&bull;</span>
+            <Link href="#privacy" className="hover:text-white transition-colors font-medium">
               PRIVACY POLICY
             </Link>
-            <span className="text-white/20">&bull;</span>
-            <span className="text-white/30 hidden sm:inline">
+            <span className="text-white/30">&bull;</span>
+            <span className="text-white/50 hidden sm:inline">
               ISO 9001 &bull; SOC 2 READY
             </span>
           </div>
