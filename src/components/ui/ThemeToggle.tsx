@@ -80,10 +80,9 @@ export function ThemeToggle({ inMenu = false, isPastHero = false }: ThemeToggleP
     );
   }
 
-  // Header toggle — adapt icon color based on context
-  // When in light theme/hero: dark icon & border for high contrast
   // When in dark theme: white icon & border
-  const isDarkContext = !(isLight || isPastHero);
+  // When in light theme: dark icon & border for high contrast
+  const isDarkContext = !isLight;
 
   return (
     <button
@@ -91,10 +90,10 @@ export function ThemeToggle({ inMenu = false, isPastHero = false }: ThemeToggleP
       onClick={toggle}
       title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-      className={`group relative flex items-center justify-center w-[42px] h-[42px] md:w-[44px] md:h-[44px] rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent backdrop-blur-sm ${
+      className={`group relative flex items-center justify-center w-[42px] h-[42px] md:w-[44px] md:h-[44px] rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 backdrop-blur-sm ${
         isDarkContext
-          ? "border border-white/20 bg-white/[0.06] hover:bg-white/[0.12] hover:border-white/30 text-white/70 hover:text-white"
-          : "border border-black/15 bg-black/[0.06] hover:bg-black/[0.12] hover:border-black/30 text-neutral-900 shadow-sm"
+          ? "border border-white/20 bg-white/[0.06] hover:bg-white/[0.12] hover:border-white/30 text-white"
+          : "border border-black/15 bg-black/[0.06] hover:bg-black/[0.12] hover:border-black/25 text-neutral-900 shadow-sm"
       }`}
     >
       <AnimatePresence mode="wait" initial={false}>
@@ -106,17 +105,23 @@ export function ThemeToggle({ inMenu = false, isPastHero = false }: ThemeToggleP
             exit={{ opacity: 0, rotate: 30, scale: 0.8 }}
             transition={{ duration: 0.22 }}
           >
-            <Sun className="w-4 h-4 text-amber-600 stroke-[2.2]" />
+            <Sun
+              className="w-4 h-4 stroke-[2.2]"
+              style={{ color: isDarkContext ? "#ffffff" : "#1a1a1a" }}
+            />
           </motion.span>
         ) : (
           <motion.span
             key="moon"
             initial={{ opacity: 0, rotate: 30, scale: 0.8 }}
             animate={{ opacity: 1, rotate: 0, scale: 1 }}
-            exit={{ opacity: 0, rotate: -30, scale: 0.8 }}
+            exit={{ opacity: 0, rotate: 30, scale: 0.8 }}
             transition={{ duration: 0.22 }}
           >
-            <Moon className="w-4 h-4 text-white/80" />
+            <Moon
+              className="w-4 h-4 stroke-[2]"
+              style={{ color: isDarkContext ? "#ffffff" : "#1a1a1a" }}
+            />
           </motion.span>
         )}
       </AnimatePresence>

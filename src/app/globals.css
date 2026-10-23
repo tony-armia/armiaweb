@@ -117,24 +117,24 @@
   color: #ff5a00 !important;
 }
 
-/* ── Header controls in Light Mode: crisp dark text and high contrast ── */
+/* ── Header controls in Light Mode: dark text on white frosted bg ── */
 .light header button[aria-controls="mobile-nav"],
 .light header button[aria-controls="mobile-nav"] * {
-  color: #111111 !important;
+  color: #1a1a1a !important;
 }
 .light header button[aria-controls="mobile-nav"] {
-  background-color: rgba(0, 0, 0, 0.06) !important;
-  border-color: rgba(0, 0, 0, 0.14) !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
 }
 .light header button[aria-controls="mobile-nav"]:hover {
-  background-color: rgba(0, 0, 0, 0.10) !important;
-  border-color: rgba(255, 90, 0, 0.40) !important;
+  background-color: rgba(0, 0, 0, 0.09) !important;
+  border-color: rgba(0, 0, 0, 0.22) !important;
 }
 .light header button[aria-controls="mobile-nav"] > div:first-child span {
-  background-color: #111111 !important;
+  background-color: #1a1a1a !important;
 }
 .light header button[aria-controls="mobile-nav"] > span {
-  color: #111111 !important;
+  color: #1a1a1a !important;
   font-weight: 600 !important;
 }
 .light header button[aria-controls="mobile-nav"] .bg-brand-accent,
@@ -145,9 +145,12 @@
 }
 
 .light header select {
-  background-color: rgba(0, 0, 0, 0.06) !important;
-  border-color: rgba(0, 0, 0, 0.14) !important;
-  color: #111111 !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  color: #1a1a1a !important;
+}
+.light header select:hover {
+  border-color: rgba(0, 0, 0, 0.22) !important;
 }
 .light header select option {
   background-color: #ffffff !important;
@@ -156,48 +159,88 @@
 
 .light header button[aria-label*="Switch"],
 .light header button[title*="Switch"] {
-  background-color: rgba(0, 0, 0, 0.06) !important;
-  border-color: rgba(0, 0, 0, 0.14) !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
 }
 .light header button[aria-label*="Switch"]:hover,
 .light header button[title*="Switch"]:hover {
-  background-color: rgba(0, 0, 0, 0.10) !important;
-  border-color: rgba(255, 90, 0, 0.40) !important;
+  background-color: rgba(0, 0, 0, 0.09) !important;
+  border-color: rgba(0, 0, 0, 0.22) !important;
 }
 .light header button[aria-label*="Switch"] svg,
 .light header button[title*="Switch"] svg {
-  color: #ff5a00 !important;
-  stroke: #ff5a00 !important;
+  color: #1a1a1a !important;
+  stroke: #1a1a1a !important;
 }
 
 /* ── Header navigation link pills (← HOME, ← ALL WORK) in Light Mode ── */
-.light header a[href="/"],
-.light header a[href="/work"],
-.light header a[href="/"] *,
-.light header a[href="/work"] * {
-  color: #111111 !important;
+.light header a.rounded-full[href="/"],
+.light header a.rounded-full[href="/work"],
+.light header a.rounded-full[href="/"] *,
+.light header a.rounded-full[href="/work"] * {
+  color: #1a1a1a !important;
 }
-.light header a[href="/"],
-.light header a[href="/work"] {
-  background-color: rgba(0, 0, 0, 0.06) !important;
-  border-color: rgba(0, 0, 0, 0.14) !important;
+.light header a.rounded-full[href="/"],
+.light header a.rounded-full[href="/work"] {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
 }
-.light header a[href="/"]:hover,
-.light header a[href="/work"]:hover {
-  background-color: rgba(0, 0, 0, 0.10) !important;
-  border-color: rgba(255, 90, 0, 0.40) !important;
+.light header a.rounded-full[href="/"]:hover,
+.light header a.rounded-full[href="/work"]:hover {
+  background-color: rgba(0, 0, 0, 0.09) !important;
+  border-color: rgba(0, 0, 0, 0.22) !important;
 }
-.light header a[href="/"] span,
-.light header a[href="/work"] span {
-  color: #111111 !important;
+.light header a.rounded-full[href="/"] span,
+.light header a.rounded-full[href="/work"] span {
+  color: #1a1a1a !important;
 }
-.light header a[href="/"]:hover span:not(.text-brand-accent),
-.light header a[href="/work"]:hover span:not(.text-brand-accent) {
-  color: #111111 !important;
+.light header a.rounded-full[href="/"]:hover span,
+.light header a.rounded-full[href="/work"]:hover span {
+  color: #1a1a1a !important;
 }
-.light header a[href="/"] .text-brand-accent,
-.light header a[href="/work"] .text-brand-accent {
-  color: #ff5a00 !important;
+.light header a.rounded-full[href="/"] .text-brand-accent,
+.light header a.rounded-full[href="/work"] .text-brand-accent {
+  color: #1a1a1a !important;
+}
+
+/* ── Logo link & wrapper: always completely transparent background and no border ── */
+header a:not(.rounded-full),
+header a:not(.rounded-full) * {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* ── Header controls in Dark Mode: always pure white text & icons ── */
+:root:not(.light) header select,
+.dark header select {
+  color: #ffffff !important;
+}
+:root:not(.light) header button[aria-controls="mobile-nav"] > span,
+.dark header button[aria-controls="mobile-nav"] > span {
+  color: #ffffff !important;
+}
+:root:not(.light) header button[aria-controls="mobile-nav"] div span,
+.dark header button[aria-controls="mobile-nav"] div span {
+  background-color: #ffffff !important;
+}
+:root:not(.light) header button[aria-label*="Switch"] svg,
+:root:not(.light) header button[title*="Switch"] svg,
+.dark header button[aria-label*="Switch"] svg,
+.dark header button[title*="Switch"] svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* ── Menu button arrow icon (ChevronRight): always crisp white and visible ── */
+header button[aria-controls="mobile-nav"] .bg-brand-accent svg,
+header button[aria-controls="mobile-nav"] .bg-brand-accent * {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 
@@ -607,6 +650,18 @@
   background-color: rgba(0, 0, 0, 0.04) !important;
   border-color: rgba(0, 0, 0, 0.12) !important;
   color: #111111 !important;
+}
+
+/* ── Testimonials white quote card: force dark text regardless of mode ── */
+#testimonials .bg-white p,
+#testimonials .bg-white [class*="text-"] {
+  color: #111111 !important;
+}
+#testimonials .bg-white .text-brand-accent,
+#testimonials .bg-white svg.text-brand-accent,
+#testimonials .bg-white .fill-current {
+  color: #ff5a00 !important;
+  fill: #ff5a00 !important;
 }
 
 /* ── Portfolio / Blog sections: heading text-white spans ── */

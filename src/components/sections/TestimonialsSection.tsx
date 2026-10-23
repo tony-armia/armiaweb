@@ -254,7 +254,7 @@ export function TestimonialsSection() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -6 }}
                   transition={{ duration: 0.25 }}
-                  className="font-sans text-base sm:text-[17px] leading-[1.75] text-[#1c1c1c] font-normal"
+                  className="font-sans text-base sm:text-[17px] leading-[1.75] font-normal" style={{ color: '#111111' }}
                 >
                   {current.quote}
                 </motion.p>
